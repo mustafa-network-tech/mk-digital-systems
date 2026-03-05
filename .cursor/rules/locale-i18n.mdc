@@ -1,0 +1,22 @@
+---
+description: Site-wide locale rule: TR = only Turkish, EN = only English
+alwaysApply: true
+---
+
+# Locale / Dil Kuralı
+
+- **TR** seçiliyken sitede ve tüm sayfalarda **sadece Türkçe** metin gösterilir.
+- **EN** seçiliyken sitede ve tüm sayfalarda **sadece İngilizce** metin gösterilir.
+- Türkçe ve İngilizce asla aynı sayfada karıştırılmaz.
+
+## Uygulama
+
+1. **Arayüz metinleri**: Tüm kullanıcıya görünen metinler `messages/tr.json` ve `messages/en.json` üzerinden gelmeli; `getTranslations` / `useTranslations` kullan, sabit (hardcoded) dil metni yazma.
+2. **Veri (servisler, projeler)**: `lib/services.ts` ve `lib/projects.ts` içinde her metin için `titleTr`/`titleEn`, `descTr`/`descEn`, `summaryTr`/`summaryEn`, `detailTr`/`detailEn` kullan. Sayfalarda mutlaka `const isTr = locale === "tr"` ile seç: `isTr ? x.titleTr : x.titleEn`.
+3. **Metadata**: Sayfa başlığı ve açıklama locale’e göre `messages` içindeki `meta.title` ve `meta.description` ile ayarlanmalı (`generateMetadata` ile).
+4. **HTML lang**: Root layout’ta `<html lang={...}>` değeri `X-NEXT-INTL-LOCALE` header’ına göre `tr` veya `en` olmalı.
+
+## Yeni sayfa / bileşen eklerken
+
+- Metin için çeviri anahtarı ekle: hem `messages/tr.json` hem `messages/en.json`.
+- Veri listesi ekliyorsan her dil için alan tanımla (…Tr / …En) ve sayfada locale’e göre doğru alanı kullan.

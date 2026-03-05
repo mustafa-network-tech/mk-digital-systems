@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "MK Digital Systems",
+    "description": "Sade, güvenilir dijital sistemler. Next.js, WordPress, SaaS panelleri, Android ve PHP çözümleri."
+  },
+  "nav": {
+    "home": "Anasayfa",
+    "services": "Hizmetler",
+    "projects": "Projeler",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "whatsappCta": "WhatsApp'tan Teklif Al"
+  },
+  "common": {
+    "brandName": "MK Digital Systems",
+    "close": "Kapat",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat"
+  },
+  "hero": {
+    "title": "Sade, güvenilir dijital sistemler.",
+    "titleBefore": "Sade, ",
+    "titleAccent": "güvenilir",
+    "titleAfter": " dijital sistemler.",
+    "subtitle": "Next.js, WordPress, SaaS panelleri, Android ve PHP çözümleri.",
+    "cta1": "WhatsApp'tan Teklif Al",
+    "cta2": "Projeleri Gör",
+    "ctaQuote": "Teklif Al"
+  },
+  "cta": {
+    "title": "Projeniz için hızlı teklif alın",
+    "subtitle": "WhatsApp üzerinden kısa bir görüşme ile başlayalım."
+  },
+  "why": {
+    "title": "Neden MK Digital Systems?",
+    "description": "Sade mimari, hızlı teslim ve uzun ömürlü yazılım altyapısı. Projelerinizi gereksiz karmaşıklık olmadan hayata geçiriyoruz.",
+    "feature1Title": "Hızlı Teslim",
+    "feature1Desc": "Projeler haftalar değil günler içinde hazır.",
+    "feature2Title": "Temiz Mimari",
+    "feature2Desc": "Bakımı kolay ve ölçeklenebilir yazılım altyapısı.",
+    "feature3Title": "Gerçek Deneyim",
+    "feature3Desc": "Saha tecrübesi ve yazılım disiplininin birleşimi."
+  },
+  "process": {
+    "title": "Proje Süreci",
+    "step1Title": "İhtiyaç Analizi",
+    "step1Desc": "Projenizi ve hedeflerinizi kısa bir görüşme ile analiz ederiz.",
+    "step2Title": "Tasarım & Planlama",
+    "step2Desc": "En uygun yazılım mimarisi ve kullanıcı deneyimi planlanır.",
+    "step3Title": "Geliştirme",
+    "step3Desc": "Temiz ve ölçeklenebilir kod ile proje geliştirilir.",
+    "step4Title": "Yayın & Destek",
+    "step4Desc": "Proje yayına alınır ve teknik destek sağlanır."
+  },
+  "trust": {
+    "speed": "Hız",
+    "discipline": "Disiplin",
+    "clean": "Temiz İş"
+  },
+  "services": {
+    "title": "Hizmetler",
+    "heroSubtitle": "Modern web, mobil ve SaaS çözümleri ile ihtiyaçlarınıza uygun hizmetler.",
+    "viewAll": "Tüm Hizmetler",
+    "viewAllLink": "Tüm Hizmetler →",
+    "backToServices": "Hizmetlere Dön"
+  },
+  "projects": {
+    "title": "Projeler",
+    "heroSubtitle": "Referans projelerimiz ve kullandığımız teknolojiler.",
+    "viewAll": "Tüm Projeler",
+    "viewAllLink": "Tüm Projeler →",
+    "demo": "Örnek",
+    "backToProjects": "Projelere Dön"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "heroSubtitle": "Biz kimiz ve nasıl çalışıyoruz.",
+    "intro": "MK Digital Systems; kurumsal web siteleri, SaaS panelleri ve dijital ürünler geliştiren, tasarım ve yazılımı aynı masada birleştiren bir stüdyodur. Amacımız \"güzel görünen\" değil; hızlı açılan, güven veren ve iş hedefinize hizmet eden sistemler üretmektir.",
+    "howWeWork": "Nasıl Çalışıyoruz",
+    "howWeWork1": "Önce kapsamı netleştirir, sonra tasarım ve geliştirmeye geçeriz.",
+    "howWeWork2": "Tek iletişim noktasıyla ilerler, süreci şeffaf yönetiriz.",
+    "howWeWork3": "Sürpriz yok: teslim tarihi, revizyon ve kapsam baştan bellidir.",
+    "howWeWork4": "Mobil uyum, hız ve SEO temel standarttır.",
+    "howWeWork5": "Yayın sonrası küçük destek ihtiyaçlarında hızlı geri dönüş sağlarız.",
+    "whatWeDeliver": "Ne Sunuyoruz",
+    "whatWeDeliver1": "Kurumsal web sitesi: güven veren, modern ve hızlı.",
+    "whatWeDeliver2": "Yönetim paneli / dashboard: iş akışına uygun arayüzler.",
+    "whatWeDeliver3": "Özel sistemler: form, otomasyon, içerik yönetimi, entegrasyonlar.",
+    "whatWeDeliver4": "Mevcut site iyileştirme: hız, tasarım, kullanıcı deneyimi.",
+    "whatWeDeliver5": "Uzun vadeli ölçeklenebilir mimari: geleceğe uygun kurulum.",
+    "tools": "Kullandığımız Araçlar",
+    "toolsDescription": "Projelerde kullandığımız teknolojiler hizmetlerimize göre belirlenir. Amacımız hızlı, güvenilir ve sürdürülebilir sistemler geliştirmektir."
+  },
+  "contact": {
+    "title": "İletişim",
+    "heroSubtitle": "Bizimle iletişime geçin veya doğrudan WhatsApp üzerinden yazın.",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "message": "Mesaj",
+    "submit": "Gönder",
+    "submitSending": "Gönderiliyor…",
+    "successMessage": "Mesajınız alındı ✅",
+    "errorMessage": "Gönderilemedi, tekrar deneyin.",
+    "whatsapp": "WhatsApp ile iletişim"
+  },
+  "footer": {
+    "copyright": "© 2026 MK Digital Systems.",
+    "tagline": "Software • Web • Systems",
+    "privacy": "Gizlilik",
+    "terms": "Kullanım Şartları"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "heroSubtitle": "Gizliliğiniz bizim için önemlidir.",
+      "intro": "MK Digital Systems, web sitesini veya hizmetlerini kullanırken sağladığınız bilgilerin gizliliğine saygı duyar ve bu bilgileri korumayı taahhüt eder. Bu Gizlilik Politikası, hangi bilgileri topladığımızı, bunları nasıl kullandığımızı ve nasıl koruduğumuzu açıklar.",
+      "section1Title": "Toplanan Bilgiler",
+      "section1Intro": "Bizimle iletişime geçtiğinizde veya hizmet talebinde bulunduğunuzda sınırlı bazı kişisel bilgiler toplanabilir. Bunlar:",
+      "section1Item1": "Ad soyad",
+      "section1Item2": "E-posta adresi",
+      "section1Item3": "Şirket adı",
+      "section1Item4": "Gönderdiğiniz proje detayları veya mesajlar",
+      "section1Note": "Bu bilgiler yalnızca iletişim ve hizmet sağlama amacıyla kullanılır.",
+      "section2Title": "Bilgilerin Kullanımı",
+      "section2Intro": "Sağladığınız bilgiler şu amaçlarla kullanılabilir:",
+      "section2Item1": "Sorularınıza yanıt vermek",
+      "section2Item2": "Proje taleplerini değerlendirmek",
+      "section2Item3": "Hizmet veya teklif sunmak",
+      "section2Item4": "Web sitesi ve kullanıcı deneyimini geliştirmek",
+      "section2Note": "Kişisel verileriniz hiçbir şekilde üçüncü taraflara satılmaz veya paylaşılmaz.",
+      "section3Title": "Veri Güvenliği",
+      "section3Body": "Bilgilerinizin yetkisiz erişime, kayba veya kötüye kullanıma karşı korunması için gerekli teknik ve organizasyonel önlemler alınmaktadır.",
+      "section4Title": "Üçüncü Taraf Hizmetler",
+      "section4Body": "Web sitemiz barındırma hizmetleri veya analiz araçları gibi güvenilir üçüncü taraf servisleri kullanabilir. Bu servisler, sitenin çalışması için gerekli sınırlı teknik verileri işleyebilir.",
+      "section5Title": "İletişim",
+      "section5Body": "Gizlilik politikamız hakkında herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz.",
+      "lastUpdated": "Son güncelleme: 2026"
+    },
+    "terms": {
+      "title": "Kullanım Şartları",
+      "heroSubtitle": "Hizmetlerimizi kullanmadan önce lütfen okuyunuz.",
+      "intro": "MK Digital Systems web sitesini ve hizmetlerini kullanarak aşağıdaki şartları kabul etmiş olursunuz. Bu şartlar; site kullanımı, içerik hakları, hizmet kapsamı, sorumluluklar ve yasal konuları açıklar.",
+      "section1Title": "1) Kapsam",
+      "section1Body": "Bu kullanım şartları MK Digital Systems web sitesi (ve bağlı sayfaları) ile sunulan tüm içerik ve hizmetler için geçerlidir.",
+      "section2Title": "2) Hizmet Tanımı",
+      "section2Body": "MK Digital Systems; yazılım geliştirme, web geliştirme, sistem kurulumu/danışmanlık ve dijital çözüm hizmetleri sunar. Sunulan hizmetin kapsamı; teklif, sözleşme, e-posta veya yazılı onay ile netleştirilir.",
+      "section3Title": "3) Kullanıcı Sorumlulukları",
+      "section3Item1": "Siteyi hukuka aykırı amaçlarla kullanamazsınız.",
+      "section3Item2": "Formlar üzerinden ilettiğiniz bilgilerin doğru olmasından siz sorumlusunuz.",
+      "section3Item3": "Güvenliği zedeleyecek, sistemi zorlayacak veya hizmeti kesintiye uğratacak girişimlerde bulunamazsınız.",
+      "section4Title": "4) Fikri Mülkiyet",
+      "section4Body": "Sitede yer alan metinler, tasarımlar, görseller, logo ve marka öğeleri MK Digital Systems'e aittir (aksi belirtilmedikçe). İzinsiz kopyalanamaz, çoğaltılamaz, yayınlanamaz.",
+      "section5Title": "5) Teklif, Ücretlendirme ve Teslimatlar",
+      "section5Item1": "Teklifler süreli olabilir ve kapsam değişirse fiyat değişebilir.",
+      "section5Item2": "Teslim tarihleri proje kapsamı, onay süreçleri ve müşteri geri bildirim hızına göre güncellenebilir.",
+      "section5Item3": "Üçüncü taraf lisans, servis veya API ücretleri ayrıca doğabilir.",
+      "section6Title": "6) Üçüncü Taraf Servisler",
+      "section6Body": "Barındırma, analiz, ödeme altyapıları veya harici servisler kullanılabilir. Bu servislerin koşulları ilgili sağlayıcının politikalarına tabidir.",
+      "section7Title": "7) Sorumluluğun Sınırlandırılması",
+      "section7Body": "Site \"olduğu gibi\" sunulur. Kesinti, veri kaybı veya dolaylı zararlardan doğabilecek sorumluluk; yürürlükteki mevzuatın izin verdiği ölçüde sınırlandırılmıştır.",
+      "section8Title": "8) Gizlilik",
+      "section8Body": "Kişisel veriler Gizlilik Politikamız kapsamında işlenir. Kullanım şartları bu politikayı tamamlayıcı niteliktedir.",
+      "section9Title": "9) Değişiklikler",
+      "section9Body": "MK Digital Systems kullanım şartlarını gerektiğinde güncelleyebilir. Güncel metin web sitesinde yayınlandığı anda geçerlidir.",
+      "section10Title": "10) İletişim",
+      "section10Body": "Bu şartlarla ilgili sorularınız için bizimle iletişime geçebilirsiniz.",
+      "lastUpdated": "Son güncelleme: 2026"
+    }
+  },
+  "localeSwitcher": {
+    "ariaLabel": "Dil seçimi",
+    "languageTr": "Türkçe (TR)",
+    "languageEn": "İngilizce (EN)"
+  },
+  "toast": {
+    "demoMessage": "Mesaj hazırlandı (örnek)."
+  }
+}

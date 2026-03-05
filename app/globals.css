@@ -1,0 +1,488 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #0B0F14;
+  --surface: #111827;
+  --elevated: #0F172A;
+  --border: rgba(255,255,255,0.08);
+  --accent: #3B82F6;
+  --accent-hover: #60A5FA;
+  --title: #E6EAF0;
+  --body: #A9B2C1;
+  --muted: #7C879A;
+}
+
+body {
+  background-color: #0B0F14 !important;
+  color: #A9B2C1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  background-color: transparent;
+}
+
+/* Background geometric sphere: subtle opacity, lower on mobile */
+.network-sphere-wrapper {
+  opacity: 0.18;
+}
+@media (max-width: 767px) {
+  .network-sphere-wrapper {
+    opacity: 0.12;
+  }
+}
+/* Projeler sayfasında küre sayfayı ezmesin diye neredeyse gizle */
+.network-sphere-wrapper--projects {
+  opacity: 0.14;
+}
+@media (max-width: 767px) {
+  .network-sphere-wrapper--projects {
+    opacity: 0.10;
+  }
+}
+
+/* Küre canvas wrapper: fixed = viewport'a kilitli, container'dan etkilenmez (projeler sayfası dahil) */
+.network-sphere-canvas-wrap {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vmin;
+  height: 100vmin;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.network-sphere-canvas-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.hero-h1 {
+  color: #E6EAF0;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.hero-accent {
+  font-weight: 300;
+  font-style: italic;
+  color: #E6EAF0;
+}
+
+.hero-paragraph {
+  color: #A9B2C1;
+}
+
+.text-nav {
+  color: #E6EAF0;
+}
+
+.text-muted-label {
+  color: #7C879A;
+}
+
+/* Section spacing */
+.section-spacing {
+  @apply py-[80px] md:py-[120px];
+}
+
+.container-custom {
+  @apply mx-auto w-full max-w-container px-4 md:px-6 lg:px-8;
+}
+
+/* Service card hover glow (Hizmetler section only) */
+.service-card-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.service-card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: radial-gradient(
+    600px circle at 20% 20%,
+    rgba(59, 130, 246, 0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.service-card-glow:hover::before {
+  opacity: 1;
+}
+.service-card-glow:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.service-card-glow .service-card-content {
+  position: relative;
+  z-index: 1;
+}
+.service-card-glow .service-card-icon {
+  transition: transform 0.25s ease;
+}
+.service-card-glow:hover .service-card-icon {
+  transform: scale(1.08);
+}
+
+/* Project card hover glow (dark premium UI) */
+.project-card-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.project-card-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: radial-gradient(
+    600px circle at 20% 20%,
+    rgba(59, 130, 246, 0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.project-card-glow:hover::after {
+  opacity: 1;
+}
+.project-card-glow:hover {
+  transform: translateY(-6px);
+  background: #141B2D;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+.project-card-glow .project-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Why MK Digital Systems: same hover structure TR & EN */
+.why-section .why-main-title,
+.why-main-title {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.why-section .why-main-title::after,
+.why-main-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease-out;
+}
+.why-section .why-main-title:hover,
+.why-main-title:hover {
+  color: #ffffff !important;
+  transform: scale(1.05);
+}
+.why-section .why-main-title:hover::after,
+.why-main-title:hover::after {
+  transform: scaleX(1);
+}
+
+.why-section .why-desc-hover,
+.why-desc-hover {
+  display: inline-block;
+  transition: transform 0.25s ease;
+  cursor: default;
+}
+.why-section .why-desc-hover:hover,
+.why-desc-hover:hover {
+  transform: scale(1.04);
+}
+
+.why-section .process-step-title {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+}
+.why-section .process-step-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease-out;
+}
+.why-section .process-step-title:hover::after {
+  transform: scaleX(1);
+}
+
+.why-section .process-step-desc {
+  display: inline-block;
+  transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+}
+.why-section .process-step-desc:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  transform: scale(1.04);
+}
+
+/* Project Process: main title hover (underline + scale) - TR & EN */
+section .process-main-title,
+.process-main-title {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+section .process-main-title::after,
+.process-main-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease-out;
+}
+section .process-main-title:hover,
+.process-main-title:hover {
+  color: #ffffff !important;
+  transform: scale(1.05);
+}
+section .process-main-title:hover::after,
+.process-main-title:hover::after {
+  transform: scaleX(1);
+}
+
+/* Project Process: step title hover underline (left to right) */
+.process-step-title {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+}
+.process-step-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease-out;
+}
+.process-step-title:hover::after,
+.process-step-title:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Project Process: step description hover (glow + slight scale) */
+.process-step-desc {
+  display: inline-block;
+  transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+}
+.process-step-desc:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  transform: scale(1.04);
+}
+
+/* Process Orbit Neural (home): ring + neural pulse */
+@keyframes process-orbit-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.process-orbit-ring {
+  animation: process-orbit-ring-spin 18s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-orbit-ring { animation: none !important; }
+}
+.process-neural-line {
+  animation: process-neural-pulse 3.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-neural-line { animation: none; }
+}
+@keyframes process-neural-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.55; }
+}
+
+/* Process Orbit center lines: stroke transition */
+.process-orbit-center-line {
+  transition: stroke-width 0.25s ease, opacity 0.25s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-orbit-center-line {
+    transition: none;
+  }
+  .process-orbit-node {
+    transition: none;
+  }
+}
+
+/* Process Orbit center text: fade-in + slight slide */
+.process-orbit-center-content {
+  animation: process-orbit-center-in 0.2s ease-out forwards;
+  text-align: center;
+  padding-inline: 16px;
+}
+@media (min-width: 768px) {
+  .process-orbit-center-content {
+    padding-inline: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-orbit-center-content {
+    animation: none;
+  }
+}
+@keyframes process-orbit-center-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Center title: 40–48px desktop, cap on small screens */
+.process-orbit-center-title {
+  font-size: clamp(28px, 3.2vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #E6EAF0;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 480px) {
+  .process-orbit-center-title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+}
+
+/* Center description: 18–20px desktop, readable width */
+.process-orbit-center-desc {
+  font-size: clamp(15px, 1.2vw, 20px);
+  line-height: 1.65;
+  max-width: 58ch;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.92;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 480px) {
+  .process-orbit-center-desc {
+    font-size: clamp(14px, 4vw, 17px);
+    max-width: 100%;
+  }
+}
+
+/* Orbit step pills (desktop): no overflow – wrap or clip */
+.process-orbit-node {
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: clamp(9px, 0.65vw, 11px);
+  font-weight: 700;
+  min-width: 6rem;
+  max-width: 14rem;
+  overflow: hidden;
+}
+.process-orbit-node .process-orbit-node-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 480px) {
+  .process-orbit-node {
+    padding: 8px 14px;
+    font-size: clamp(12px, 2.8vw, 13px);
+    min-width: 4rem;
+    max-width: 5.5rem;
+  }
+}
+.process-orbit-node.is-active {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile chips: smaller on narrow screens to prevent overflow */
+.process-mobile-chip {
+  padding: 10px 16px;
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 700;
+}
+@media (max-width: 480px) {
+  .process-mobile-chip {
+    padding: 8px 12px;
+    font-size: clamp(12px, 2.8vw, 13px);
+  }
+}
+
+/* Footer: brand + legal links */
+.footer-brand {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer-tagline {
+  margin-top: 6px;
+}
+@media (min-width: 768px) {
+  .footer-tagline {
+    margin-top: 8px;
+  }
+}
+.footer-legal-link {
+  color: #C5CDD9;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+.footer-legal-link:hover {
+  opacity: 1;
+  color: #F1F5F9;
+}
+.footer-legal-link:focus-visible {
+  outline: 2px solid rgba(52, 211, 153, 0.5);
+  outline-offset: 2px;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-legal-link {
+    transition: none;
+  }
+}

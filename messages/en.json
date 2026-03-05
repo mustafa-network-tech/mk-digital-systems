@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "MK Digital Systems",
+    "description": "Premium, minimal and trustworthy digital systems. Next.js, WordPress, SaaS dashboards, Android and PHP solutions."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "whatsappCta": "Get a Quote on WhatsApp"
+  },
+  "common": {
+    "brandName": "MK Digital Systems",
+    "close": "Close",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "title": "Premium, minimal and trustworthy digital systems.",
+    "titleBefore": "Premium, minimal and ",
+    "titleAccent": "trustworthy",
+    "titleAfter": " digital systems.",
+    "subtitle": "Next.js, WordPress, SaaS dashboards, Android and PHP solutions.",
+    "cta1": "Get a Quote on WhatsApp",
+    "cta2": "View Projects",
+    "ctaQuote": "Get a Quote"
+  },
+  "cta": {
+    "title": "Get a quick quote for your project",
+    "subtitle": "Let's start with a short conversation on WhatsApp."
+  },
+  "why": {
+    "title": "Why MK Digital Systems?",
+    "description": "Minimal architecture, fast delivery and long-lasting software infrastructure. We bring your projects to life without unnecessary complexity.",
+    "feature1Title": "Fast Delivery",
+    "feature1Desc": "Projects ready in days, not weeks.",
+    "feature2Title": "Clean Architecture",
+    "feature2Desc": "Easy to maintain and scalable software infrastructure.",
+    "feature3Title": "Real Experience",
+    "feature3Desc": "The combination of field experience and software discipline."
+  },
+  "process": {
+    "title": "Project Process",
+    "step1Title": "Needs Analysis",
+    "step1Desc": "We analyze your project and goals in a short meeting.",
+    "step2Title": "Design & Planning",
+    "step2Desc": "The most suitable software architecture and user experience are planned.",
+    "step3Title": "Development",
+    "step3Desc": "The project is built with clean, scalable code.",
+    "step4Title": "Launch & Support",
+    "step4Desc": "The project goes live and technical support is provided."
+  },
+  "trust": {
+    "speed": "Speed",
+    "discipline": "Discipline",
+    "clean": "Clean Work"
+  },
+  "services": {
+    "title": "Services",
+    "heroSubtitle": "Services tailored to your needs with modern web, mobile and SaaS solutions.",
+    "viewAll": "All Services",
+    "viewAllLink": "All Services →",
+    "backToServices": "Back to Services"
+  },
+  "projects": {
+    "title": "Projects",
+    "heroSubtitle": "Our reference projects and the technologies we use.",
+    "viewAll": "All Projects",
+    "viewAllLink": "All Projects →",
+    "demo": "DEMO",
+    "backToProjects": "Back to Projects"
+  },
+  "about": {
+    "title": "About",
+    "heroSubtitle": "Who we are and how we work.",
+    "intro": "MK Digital Systems is a studio focused on building corporate websites, SaaS dashboards, and digital products—combining design and engineering in one workflow. We don't just make things look good; we build fast, reliable systems that support your business goals.",
+    "howWeWork": "How We Work",
+    "howWeWork1": "We clarify scope first, then move into design and development.",
+    "howWeWork2": "One point of contact, transparent process.",
+    "howWeWork3": "No surprises: timeline, revisions, and scope are defined upfront.",
+    "howWeWork4": "Mobile-first, performance, and SEO are baseline standards.",
+    "howWeWork5": "After launch, we provide quick support for small needs.",
+    "whatWeDeliver": "What We Deliver",
+    "whatWeDeliver1": "Corporate websites: modern, trustworthy, and fast.",
+    "whatWeDeliver2": "Admin panels / dashboards tailored to your workflow.",
+    "whatWeDeliver3": "Custom systems: forms, automations, CMS, integrations.",
+    "whatWeDeliver4": "Website improvements: performance, UI/UX modernization.",
+    "whatWeDeliver5": "Scalable architecture: built for the long term.",
+    "tools": "Tools We Use",
+    "toolsDescription": "The technologies we use depend on the project requirements. Our goal is to build fast, reliable and maintainable systems."
+  },
+  "contact": {
+    "title": "Contact",
+    "heroSubtitle": "Get in touch or message us directly on WhatsApp.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "submitSending": "Sending…",
+    "successMessage": "Message received ✅",
+    "errorMessage": "Failed, please try again.",
+    "whatsapp": "Contact via WhatsApp"
+  },
+  "footer": {
+    "copyright": "© 2026 MK Digital Systems.",
+    "tagline": "Software • Web • Systems",
+    "privacy": "Privacy",
+    "terms": "Terms of Use"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "heroSubtitle": "Your privacy matters to us.",
+      "intro": "MK Digital Systems respects your privacy and is committed to protecting any information you may provide while using our website or services. This Privacy Policy explains what information we collect, how we use it, and how we keep it secure.",
+      "section1Title": "Information We Collect",
+      "section1Intro": "We may collect limited personal information when you contact us or request a service. This may include:",
+      "section1Item1": "Name",
+      "section1Item2": "Email address",
+      "section1Item3": "Company name",
+      "section1Item4": "Project details or messages you send",
+      "section1Note": "This information is collected only for communication and service purposes.",
+      "section2Title": "How We Use Your Information",
+      "section2Intro": "The information you provide may be used to:",
+      "section2Item1": "Respond to inquiries",
+      "section2Item2": "Evaluate project requests",
+      "section2Item3": "Provide services or proposals",
+      "section2Item4": "Improve our website and user experience",
+      "section2Note": "We do not sell, rent, or share your personal data with third parties.",
+      "section3Title": "Data Protection",
+      "section3Body": "We take reasonable technical and organizational measures to protect your information from unauthorized access, loss, or misuse.",
+      "section4Title": "Third-Party Services",
+      "section4Body": "Our website may use trusted third-party services such as hosting providers or analytics tools. These services may process limited technical data required for the operation of the website.",
+      "section5Title": "Contact",
+      "section5Body": "If you have questions about this Privacy Policy or how your data is handled, you may contact us directly.",
+      "lastUpdated": "Last updated: 2026"
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "heroSubtitle": "Please read before using our services.",
+      "intro": "By accessing or using MK Digital Systems' website and services, you agree to the following Terms of Use. These terms explain site usage, intellectual property, service scope, responsibilities, and legal matters.",
+      "section1Title": "1) Scope",
+      "section1Body": "These Terms apply to MK Digital Systems' website (and related pages) and all content and services provided through it.",
+      "section2Title": "2) Services",
+      "section2Body": "MK Digital Systems provides software development, web development, system setup/consulting, and digital solution services. The final scope is defined through a proposal, agreement, email, or written approval.",
+      "section3Title": "3) User Responsibilities",
+      "section3Item1": "You may not use the site for unlawful purposes.",
+      "section3Item2": "You are responsible for the accuracy of information submitted via forms.",
+      "section3Item3": "You must not attempt to compromise security, overload systems, or disrupt service availability.",
+      "section4Title": "4) Intellectual Property",
+      "section4Body": "Unless otherwise stated, all texts, designs, visuals, logos, and brand elements belong to MK Digital Systems. They may not be copied, reproduced, or redistributed without permission.",
+      "section5Title": "5) Proposals, Pricing, and Delivery",
+      "section5Item1": "Proposals may be time-limited and pricing may change if scope changes.",
+      "section5Item2": "Delivery timelines can be updated based on scope, approvals, and client feedback speed.",
+      "section5Item3": "Third-party license, service, or API fees may apply separately.",
+      "section6Title": "6) Third-Party Services",
+      "section6Body": "We may use hosting, analytics, payment providers, or external services. Their terms and policies apply.",
+      "section7Title": "7) Limitation of Liability",
+      "section7Body": "The website is provided \"as is.\" Liability for interruptions, data loss, or indirect damages is limited to the maximum extent permitted by applicable law.",
+      "section8Title": "8) Privacy",
+      "section8Body": "Personal data is handled according to our Privacy Policy. These Terms complement that policy.",
+      "section9Title": "9) Changes",
+      "section9Body": "MK Digital Systems may update these Terms when needed. The latest version becomes effective once published on the website.",
+      "section10Title": "10) Contact",
+      "section10Body": "If you have questions about these Terms, you may contact us.",
+      "lastUpdated": "Last updated: 2026"
+    }
+  },
+  "localeSwitcher": {
+    "ariaLabel": "Select language",
+    "languageTr": "Turkish (TR)",
+    "languageEn": "English (EN)"
+  },
+  "toast": {
+    "demoMessage": "Message prepared (demo)"
+  }
+}
