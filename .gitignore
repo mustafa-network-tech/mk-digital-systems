@@ -1,0 +1,6 @@
+node-modules
+.env.iocal
+.env.example
+.next
+dist
+build
