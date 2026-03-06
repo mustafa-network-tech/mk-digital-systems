@@ -1,10 +1,10 @@
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/config/navigation";
 import { services } from "@/lib/services";
 
 export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const t = await getTranslations("services");
   const isTr = locale === "tr";

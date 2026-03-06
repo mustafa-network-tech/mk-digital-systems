@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getMessages, getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { locales, type Locale } from "@/config/i18n";
 import { Header } from "@/components/Header";
@@ -31,7 +31,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const messages = await getMessages({ locale });
 

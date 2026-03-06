@@ -1,11 +1,11 @@
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/config/navigation";
 import { projects, isFeaturedProject } from "@/lib/projects";
 import { ProjectsClient } from "./ProjectsClient";
 
 export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const t = await getTranslations("projects");
   const isTr = locale === "tr";

@@ -1,4 +1,4 @@
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/config/navigation";
 import { buildWhatsAppUrl, getMkFieldOpsDemoWhatsAppUrl } from "@/lib/whatsapp";
 import { services } from "@/lib/services";
@@ -8,7 +8,7 @@ import { HomeFeaturedProjectCard } from "./components/HomeFeaturedProjectCard";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeParam } = await params;
-  unstable_setRequestLocale(localeParam);
+  setRequestLocale(localeParam);
 
   const t = await getTranslations("hero");
   const tWhy = await getTranslations("why");
