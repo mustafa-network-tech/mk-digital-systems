@@ -70,7 +70,9 @@
     "viewAll": "All Projects",
     "viewAllLink": "All Projects →",
     "demo": "DEMO",
-    "backToProjects": "Back to Projects"
+    "backToProjects": "Back to Projects",
+    "requestDemo": "Request Demo →",
+    "visitSite": "Visit Site →"
   },
   "about": {
     "title": "About",

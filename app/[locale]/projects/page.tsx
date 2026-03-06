@@ -1,6 +1,6 @@
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "@/config/navigation";
-import { projects } from "@/lib/projects";
+import { projects, isFeaturedProject } from "@/lib/projects";
 import { ProjectsClient } from "./ProjectsClient";
 
 export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -10,13 +10,30 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
   const t = await getTranslations("projects");
   const isTr = locale === "tr";
 
-  const projectList = projects.map((p) => ({
-    id: p.id,
-    title: isTr ? p.titleTr : p.titleEn,
-    summary: isTr ? p.summaryTr : p.summaryEn,
-    detail: isTr ? p.detailTr : p.detailEn,
-    stack: p.stack,
-  }));
+  const projectList = projects.map((p) => {
+    const featured = isFeaturedProject(p);
+    const hideLabel = "hideLabel" in p && p.hideLabel === true;
+    const enOnly = "enOnly" in p && p.enOnly === true;
+    const useEn = enOnly || !isTr;
+    const hasCustomLabel = !hideLabel && "labelTr" in p && p.labelTr != null;
+    const hasSubtitle = "subtitleTr" in p && p.subtitleTr != null;
+    const hasExternalUrl = "externalUrl" in p && p.externalUrl != null;
+    const hasExternalButtonLabel = "externalButtonLabelTr" in p && p.externalButtonLabelTr != null;
+    return {
+      id: p.id,
+      title: useEn ? p.titleEn : p.titleTr,
+      summary: useEn ? p.summaryEn : p.summaryTr,
+      detail: useEn ? p.detailEn : p.detailTr,
+      stack: p.stack,
+      label: hideLabel ? "" : featured ? (useEn ? p.labelEn : p.labelTr) : hasCustomLabel ? (useEn ? p.labelEn : p.labelTr) : t("demo"),
+      featured,
+      subtitle: featured ? (useEn ? p.subtitleEn : p.subtitleTr) : hasSubtitle ? (useEn ? p.subtitleEn : p.subtitleTr) : undefined,
+      modalStack: featured ? p.modalStack : undefined,
+      externalUrl: hasExternalUrl ? p.externalUrl : undefined,
+      visitSiteLabel: enOnly ? "Visit Site →" : undefined,
+      externalButtonLabel: hasExternalButtonLabel ? (useEn ? p.externalButtonLabelEn : p.externalButtonLabelTr) : undefined,
+    };
+  });
 
   return (
     <div className="relative z-10 min-h-screen bg-transparent">
@@ -34,7 +51,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
         >
           ← {t("backToProjects")}
         </Link>
-        <ProjectsClient projects={projectList} demoLabel={t("demo")} />
+        <ProjectsClient projects={projectList} />
       </section>
     </div>
   );

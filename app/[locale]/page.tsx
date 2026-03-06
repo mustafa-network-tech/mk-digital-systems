@@ -1,9 +1,10 @@
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "@/config/navigation";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, getMkFieldOpsDemoWhatsAppUrl } from "@/lib/whatsapp";
 import { services } from "@/lib/services";
-import { projects } from "@/lib/projects";
+import { projects, isFeaturedProject } from "@/lib/projects";
 import { ProcessOrbitNeural } from "@/components/sections/ProcessOrbitNeural";
+import { HomeFeaturedProjectCard } from "./components/HomeFeaturedProjectCard";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeParam } = await params;
@@ -20,6 +21,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   const previewServices = services.slice(0, 4);
   const previewProjects = projects.slice(0, 3);
+  const whatsappDemoUrl = getMkFieldOpsDemoWhatsAppUrl(locale as "tr" | "en");
 
   return (
     <>
@@ -128,30 +130,43 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="container-custom">
           <h2 className="text-section font-semibold text-[#E6EAF0]">{tProjects("title")}</h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {previewProjects.map((p) => (
-              <Link
-                key={p.id}
-                href={`/projects#${p.id}`}
-                className="project-card-glow block cursor-pointer rounded-[16px] border border-[rgba(255,255,255,0.08)] bg-[#111827] p-[26px] text-[#E6EAF0] no-underline shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-[0.25s] ease-out"
-              >
-                <div className="project-card-content">
-                  <span
-                    className="mb-[10px] block text-xs font-medium uppercase tracking-[0.08em] text-[rgba(255,255,255,0.55)]"
-                  >
-                    {tProjects("demo")}
-                  </span>
-                  <h3 className="mb-2 text-lg font-semibold text-[#E6EAF0]">{isTr ? p.titleTr : p.titleEn}</h3>
-                  <p className="mb-[14px] text-sm leading-[1.6] text-[#9CA3AF]">{isTr ? p.summaryTr : p.summaryEn}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {p.stack.map((tech) => (
-                      <span key={tech} className="inline-flex items-center rounded-full bg-[rgba(255,255,255,0.08)] px-2.5 py-1 text-xs text-[rgba(255,255,255,0.75)]">
-                        {tech}
+            {previewProjects.map((p) =>
+              isFeaturedProject(p) ? (
+                <HomeFeaturedProjectCard
+                  key={p.id}
+                  id={p.id}
+                  title={isTr ? p.titleTr : p.titleEn}
+                  summary={isTr ? p.summaryTr : p.summaryEn}
+                  label={isTr ? p.labelTr : p.labelEn}
+                  stack={p.stack}
+                  whatsappDemoUrl={whatsappDemoUrl}
+                  requestDemoLabel={tProjects("requestDemo")}
+                />
+              ) : (
+                <Link
+                  key={p.id}
+                  href={`/projects#${p.id}`}
+                  className="project-card-glow block cursor-pointer rounded-[16px] border border-[rgba(255,255,255,0.08)] bg-[#111827] p-[26px] text-[#E6EAF0] no-underline shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-[0.25s] ease-out"
+                >
+                  <div className="project-card-content">
+                    {"hideLabel" in p && p.hideLabel ? null : (
+                      <span className="mb-[10px] block text-xs font-medium uppercase tracking-[0.08em] text-[rgba(255,255,255,0.55)]">
+                        {tProjects("demo")}
                       </span>
-                    ))}
+                    )}
+                    <h3 className="mb-2 text-lg font-semibold text-[#E6EAF0]">{isTr ? p.titleTr : p.titleEn}</h3>
+                    <p className="mb-[14px] text-sm leading-[1.6] text-[#9CA3AF]">{isTr ? p.summaryTr : p.summaryEn}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {p.stack.map((tech) => (
+                        <span key={tech} className="inline-flex items-center rounded-full bg-[rgba(255,255,255,0.08)] px-2.5 py-1 text-xs text-[rgba(255,255,255,0.75)]">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              )
+            )}
           </div>
           <div className="mt-8">
             <Link href="/projects" className="text-sm font-medium text-[#60A5FA] no-underline underline-offset-4 transition hover:underline">

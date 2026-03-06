@@ -70,7 +70,9 @@
     "viewAll": "Tüm Projeler",
     "viewAllLink": "Tüm Projeler →",
     "demo": "Örnek",
-    "backToProjects": "Projelere Dön"
+    "backToProjects": "Projelere Dön",
+    "requestDemo": "Demo Talep Et →",
+    "visitSite": "Siteye Git →"
   },
   "about": {
     "title": "Hakkımızda",
