@@ -11,7 +11,7 @@ type ProjectItem = {
   summary: string;
   detail: string;
   stack: readonly string[];
-  label: string;
+  label?: string;
   featured?: boolean;
   subtitle?: string;
   modalStack?: readonly string[];
@@ -124,9 +124,11 @@ export function ProjectsClient({ projects }: { projects: ProjectItem[] }) {
               className="project-card-glow w-full cursor-pointer rounded-[16px] border border-[rgba(255,255,255,0.08)] bg-[#111827] p-[26px] text-left text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-[0.25s] ease-out"
             >
               <div className="project-card-content">
-                <span className="mb-[10px] block text-xs font-medium uppercase tracking-[0.08em] text-[rgba(255,255,255,0.55)]">
-                  {p.label}
-                </span>
+                {p.label ? (
+                  <span className="mb-[10px] block text-xs font-medium uppercase tracking-[0.08em] text-[rgba(255,255,255,0.55)]">
+                    {p.label}
+                  </span>
+                ) : null}
                 <h2 className="mb-2 text-lg font-semibold text-[#E6EAF0]">{p.title}</h2>
                 <p className="mb-[14px] text-sm leading-[1.6] text-[#9CA3AF]">{p.summary}</p>
                 <div className="flex flex-wrap gap-2">
