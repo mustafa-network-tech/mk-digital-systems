@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FORMSPREE_FORM_ID } from "@/lib/constants";
 
 type Props = {
   locale: "tr" | "en";
@@ -12,6 +13,8 @@ type Props = {
   successMessage: string;
   errorMessage: string;
 };
+
+const FORMSPREE_URL = "https://formspree.io/f";
 
 export function ContactForm({
   locale,
@@ -35,23 +38,53 @@ export function ContactForm({
 
     setStatus("loading");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-          lang: locale,
-          pageUrl: typeof window !== "undefined" ? window.location.href : "",
-          company: company || undefined,
-        }),
-      });
+    const useFormspree = !!FORMSPREE_FORM_ID;
+    const subject =
+      locale === "en"
+        ? `New Contact Form Message — ${name}`
+        : `Yeni İletişim Formu Mesajı — ${name}`;
 
+    try {
+      const url = useFormspree
+        ? `${FORMSPREE_URL}/${FORMSPREE_FORM_ID}`
+        : "/api/contact";
+
+      let res: Response;
+      if (useFormspree) {
+        // Formspree works best with FormData (avoids 400/422 JSON issues)
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("message", message);
+        if (company) formData.append("company", company);
+        formData.append("_replyto", email);
+        formData.append("_subject", subject);
+        formData.append("_language", locale);
+        formData.append("pageUrl", typeof window !== "undefined" ? window.location.href : "");
+        res = await fetch(url, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formData,
+        });
+      } else {
+        res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            lang: locale,
+            pageUrl: typeof window !== "undefined" ? window.location.href : "",
+            company: company || undefined,
+          }),
+        });
+      }
+
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error ?? "Request failed");
+        const msg = data.error ?? data.message ?? data.errors?.[0]?.message ?? "Request failed";
+        throw new Error(typeof msg === "string" ? msg : "Request failed");
       }
       setStatus("success");
       form.reset();

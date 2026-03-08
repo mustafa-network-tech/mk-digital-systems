@@ -8,3 +8,10 @@ export const WHATSAPP_NUMBER =
 /** İletişim formu gönderim adresi (mailto veya API için) */
 export const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "mustafa82oner@gmail.com";
+
+/**
+ * Formspree form ID. Tanımlıysa form doğrudan Formspree'ye gönderilir (mustafa82oner@gmail.com).
+ * .env.local'de NEXT_PUBLIC_FORMSPREE_FORM_ID ile override edilebilir.
+ */
+export const FORMSPREE_FORM_ID =
+  process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || "xlgpgrdo";
