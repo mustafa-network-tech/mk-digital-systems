@@ -5,6 +5,7 @@ import { services } from "@/lib/services";
 import { projects, isFeaturedProject } from "@/lib/projects";
 import { ProcessOrbitNeural } from "@/components/sections/ProcessOrbitNeural";
 import { HomeFeaturedProjectCard } from "./components/HomeFeaturedProjectCard";
+import { HeroBackgroundSlider } from "@/components/HeroBackgroundSlider";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeParam } = await params;
@@ -25,8 +26,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[70vh] overflow-hidden flex items-center bg-transparent pt-16 md:pt-24 pb-20 md:pb-28">
+      {/* Hero + value badges in the same background */}
+      <section className="relative min-h-[78vh] overflow-hidden flex items-center bg-transparent pt-16 md:pt-24 pb-16 md:pb-20">
+        <HeroBackgroundSlider />
         <div className="container-custom relative z-10 w-full">
           <h1 className="text-hero-mobile md:text-hero-tablet lg:text-hero-desktop hero-h1 max-w-4xl pt-8 md:pt-12">
             {t("titleBefore")}
@@ -52,33 +54,33 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               {t("ctaQuote")}
             </a>
           </div>
-        </div>
-      </section>
 
-      {/* Value props badges - no full-width background */}
-      <section className="pt-0 pb-6 flex justify-center -mt-5">
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 w-fit">
-          <span
-            className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.25)]"
-            role="presentation"
-          >
-            <span aria-hidden className="shrink-0" style={{ color: "#FACC15" }}>⚡</span>
-            {tTrust("speed")}
-          </span>
-          <span
-            className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.25)]"
-            role="presentation"
-          >
-            <span aria-hidden className="shrink-0" style={{ color: "#60A5FA" }}>🧭</span>
-            {tTrust("discipline")}
-          </span>
-          <span
-            className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.25)]"
-            role="presentation"
-          >
-            <span aria-hidden className="shrink-0" style={{ color: "#34D399" }}>■</span>
-            {tTrust("clean")}
-          </span>
+          {/* Value props badges now inside hero, over photo */}
+          <div className="mt-10 flex justify-center">
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+              <span
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(15,23,42,0.72)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(15,23,42,0.9)] hover:border-[rgba(255,255,255,0.3)]"
+                role="presentation"
+              >
+                <span aria-hidden className="shrink-0" style={{ color: "#FACC15" }}>⚡</span>
+                {tTrust("speed")}
+              </span>
+              <span
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(15,23,42,0.72)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(15,23,42,0.9)] hover:border-[rgba(255,255,255,0.3)]"
+                role="presentation"
+              >
+                <span aria-hidden className="shrink-0" style={{ color: "#60A5FA" }}>🧭</span>
+                {tTrust("discipline")}
+              </span>
+              <span
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(15,23,42,0.72)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(15,23,42,0.9)] hover:border-[rgba(255,255,255,0.3)]"
+                role="presentation"
+              >
+                <span aria-hidden className="shrink-0" style={{ color: "#34D399" }}>■</span>
+                {tTrust("clean")}
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
