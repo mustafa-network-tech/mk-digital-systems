@@ -67,8 +67,6 @@
   "projects": {
     "title": "Projects",
     "heroSubtitle": "Our reference projects and the technologies we use.",
-    "viewAll": "All Projects",
-    "viewAllLink": "All Projects →",
     "demo": "DEMO",
     "backToProjects": "Back to Projects",
     "requestDemo": "Request Demo →",

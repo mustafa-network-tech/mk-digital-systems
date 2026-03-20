@@ -67,8 +67,6 @@
   "projects": {
     "title": "Projeler",
     "heroSubtitle": "Referans projelerimiz ve kullandığımız teknolojiler.",
-    "viewAll": "Tüm Projeler",
-    "viewAllLink": "Tüm Projeler →",
     "demo": "Örnek",
     "backToProjects": "Projelere Dön",
     "requestDemo": "Demo Talep Et →",

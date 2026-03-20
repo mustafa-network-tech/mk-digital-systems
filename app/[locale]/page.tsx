@@ -170,11 +170,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               )
             )}
           </div>
-          <div className="mt-8">
-            <Link href="/projects" className="text-sm font-medium text-[#60A5FA] no-underline underline-offset-4 transition hover:underline">
-              {tProjects("viewAllLink")}
-            </Link>
-          </div>
         </div>
       </section>
 
