@@ -112,4 +112,55 @@ MK Field Ops combines multilingual SaaS architecture, role-based access control,
       "SaaS Architecture",
     ],
   },
+  {
+    id: "2",
+    featured: true,
+    titleTr: "MK Ops",
+    titleEn: "MK Ops",
+    labelTr: "ÜRÜN",
+    labelEn: "PRODUCT",
+    summaryTr: "Operasyon komuta ekranı: görevler, KPI’lar ve saha–ofis görünürlüğü tek panelde.",
+    summaryEn: "Operations command view: tasks, KPIs, and field–office visibility in one panel.",
+    stack: ["Next.js", "TypeScript", "Tailwind", "Supabase", "Dashboard", "SaaS"],
+    subtitleTr: "Operasyon yönetimi ve koordinasyon paneli",
+    subtitleEn: "Operations management and coordination panel",
+    detailTr: `MK Ops, saha ekipleri ve ofis koordinasyonunu aynı operasyon görünümünde birleştirmek için tasarlanmış bir panel ve komuta katmanıdır.
+
+Amaç; günlük operasyon akışını, öncelikleri ve performans göstergelerini tek ekranda toparlamak, gecikmeleri ve darboğazları erken görmektir.
+
+MK Ops şu alanlara odaklanır:
+- görev ve iş kalemi önceliklendirme
+- ekip ve proje bazlı KPI / durum özeti
+- saha ile ofis arasında tutarlı bilgi akışı
+- raporlama ve üst yönetim özeti görünümleri
+- rol bazlı erişim ile sadeleştirilmiş arayüz
+
+MK Field Ops ile birlikte düşünüldüğünde; sahadaki detaylı iş akışları ve üretim takibi Field Ops tarafında, üst düzey operasyon koordinasyonu ve pano ihtiyacı MK Ops ile desteklenir.
+
+Teknik olarak Next.js, TypeScript ve Supabase tabanlı, güvenli oturum ve ölçeklenebilir SaaS yapısına uygundur.`,
+    detailEn: `MK Ops is a panel and command-layer product designed to align field teams and office coordination within one operational view.
+
+The goal is to consolidate daily operations, priorities, and performance signals on a single surface—surfacing delays and bottlenecks early.
+
+MK Ops focuses on:
+- task and work-item prioritization
+- team- and project-level KPI / status summaries
+- consistent information flow between field and office
+- reporting and executive overview views
+- role-based access with a simplified interface
+
+Together with MK Field Ops: detailed field workflows and production tracking live in Field Ops, while higher-level operations coordination and dashboard needs are supported by MK Ops.
+
+Built on Next.js, TypeScript, and Supabase, suitable for secure sessions and scalable SaaS delivery.`,
+    modalStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "Dashboards",
+      "KPI & Reporting",
+      "Role-Based Access",
+      "SaaS",
+    ],
+  },
 ];
