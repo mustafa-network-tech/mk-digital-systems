@@ -5,6 +5,7 @@ import { services } from "@/lib/services";
 import { projects, isFeaturedProject } from "@/lib/projects";
 import { ProcessOrbitNeural } from "@/components/sections/ProcessOrbitNeural";
 import { HomeFeaturedProjectCard } from "./components/HomeFeaturedProjectCard";
+import { HomeServicesPreview } from "./components/HomeServicesPreview";
 import { HeroBackgroundSlider } from "@/components/HeroBackgroundSlider";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -86,58 +87,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* Çözüm alanları önizleme — arka plan küreden ayrışır */}
-      <section
-        id="services"
-        className="section-spacing relative z-[1] border-t border-white/[0.05] bg-[#0B0F14]/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
-      >
-        <div className="container-custom relative">
-          <h2 className="text-section font-semibold tracking-tight text-[#E6EAF0]">{tServices("title")}</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#9CA3AF] md:text-base md:leading-relaxed">
-            {tServices("heroSubtitle")}
-          </p>
-          <div className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-7">
-            {previewServices.map((s) => (
-              <Link
-                key={s.id}
-                href="/services"
-                className="service-card-glow block cursor-pointer rounded-[14px] border border-white/[0.07] bg-[#111827]/95 p-6 text-[#E6EAF0] no-underline backdrop-blur-[2px] transition-colors hover:border-white/[0.12] hover:bg-[#141B2D]"
-              >
-                <div className="service-card-content">
-                  <span
-                    className="service-card-icon mb-2 block opacity-[0.88]"
-                    style={{ fontSize: "21px", color: s.iconColor }}
-                    aria-hidden
-                  >
-                    {s.icon}
-                  </span>
-                  <h3 className="service-card-title mb-2 text-base font-semibold leading-snug md:text-[1.05rem]">
-                    {isTr ? s.titleTr : s.titleEn}
-                  </h3>
-                  <p className="mb-4 max-w-[280px] text-sm leading-relaxed text-[#B9C4D4]">
-                    {isTr ? s.descTr : s.descEn}
-                  </p>
-                  <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
-                    {s.tags.map((tag) => (
-                      <span key={tag} className="service-card-tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-8">
-            <Link
-              href="/services"
-              className="text-sm font-medium text-[#60A5FA] transition duration-200 ease-out hover:underline underline-offset-4"
-            >
-              {tServices("viewAllLink")}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HomeServicesPreview
+        title={tServices("title")}
+        subtitle={tServices("heroSubtitle")}
+        viewAllLabel={tServices("viewAll")}
+        isTr={isTr}
+        items={previewServices}
+      />
 
       {/* Projects preview */}
       <section id="projects" className="section-spacing">
