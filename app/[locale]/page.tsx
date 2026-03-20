@@ -179,6 +179,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </p>
           </div>
         </div>
+        <p className="why-slogan-line mx-auto mt-12 max-w-[min(100%,40rem)] px-2 text-center text-[1.05rem] font-semibold leading-relaxed tracking-tight md:mt-14 md:text-lg md:leading-relaxed">
+          {tWhy("slogan")}
+        </p>
       </section>
 
       {/* Project Process — alt bantla aynı düz slate yüzey */}

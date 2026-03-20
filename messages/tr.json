@@ -38,8 +38,9 @@
     "subtitle": "Kısa bir WhatsApp yazışması, doğru ortaklık için yeterli başlangıç olabilir."
   },
   "why": {
-    "title": "Operasyon ekipleri için; gösterişli lansmanlar için değil",
+    "title": "Gerçek operasyonlar için tasarlanmış sistemler",
     "description": "Ekiplerinizin gerçekten kullandığı sistemlere odaklanıyoruz: anlaşılır mimari, ölçülebilir performans ve bir yıl sonra hâlâ anlamlı yazılım.",
+    "slogan": "Her yapı gerçek operasyonların içinden doğdu.",
     "feature1Title": "Teslim hızı",
     "feature1Desc": "Yalın iterasyon ve sık geri bildirim — yapısal köşeleri kesmeden.",
     "feature2Title": "Sistem düşüncesi",

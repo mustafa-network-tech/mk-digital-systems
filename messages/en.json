@@ -38,8 +38,9 @@
     "subtitle": "A short WhatsApp thread is enough to see if we are the right build partner."
   },
   "why": {
-    "title": "Built for operators, not vanity launches",
+    "title": "Systems designed for real operations",
     "description": "We focus on systems your teams actually run: clear architecture, measurable performance, and software that still makes sense a year from now.",
+    "slogan": "Every build is born from real operations.",
     "feature1Title": "Shipping velocity",
     "feature1Desc": "Lean iterations and tight feedback loops — without cutting structural corners.",
     "feature2Title": "Systems thinking",
