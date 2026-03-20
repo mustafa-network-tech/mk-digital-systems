@@ -48,6 +48,9 @@
     "feature3Title": "Saha testli disiplin",
     "feature3Desc": "Operasyonel gerçeklik; kapsam, geliştirme ve sağlamlaştırmayı şekillendirir."
   },
+  "processOrbit": {
+    "hint": "Bir adıma tıklayarak süreci keşfedin"
+  },
   "process": {
     "title": "Teslim modeli",
     "step1Title": "Keşif",

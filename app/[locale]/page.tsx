@@ -8,6 +8,9 @@ import { ProductShowcaseCard } from "@/components/ProductShowcaseCard";
 import { HomeServicesPreview } from "./components/HomeServicesPreview";
 import { HeroBackgroundSlider } from "@/components/HeroBackgroundSlider";
 
+/** Dağıtımda eski statik önbellek yerine güncel içerik (çeviriler / bölümler) için */
+export const dynamic = "force-dynamic";
+
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeParam } = await params;
   setRequestLocale(localeParam);

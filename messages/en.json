@@ -48,6 +48,9 @@
     "feature3Title": "Field-tested discipline",
     "feature3Desc": "Operational reality informs how we scope, build, and harden products."
   },
+  "processOrbit": {
+    "hint": "Tap a step to explore the flow"
+  },
   "process": {
     "title": "Delivery model",
     "step1Title": "Discovery",

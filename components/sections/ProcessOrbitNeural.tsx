@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { PROCESS_STEPS, PROCESS_SECTION_TITLE, type ProcessStepId } from "@/content/processOrbitNeural";
 
 const STEP_IDS: ProcessStepId[] = [
@@ -28,6 +29,7 @@ const NODE_POSITIONS = Array.from({ length: STEP_COUNT }, (_, i) => getOrbitPosi
 type Props = { locale: "tr" | "en" };
 
 export function ProcessOrbitNeural({ locale }: Props) {
+  const t = useTranslations("processOrbit");
   const [activeId, setActiveId] = useState<ProcessStepId | null>(null);
   const [hoverId, setHoverId] = useState<ProcessStepId | null>(null);
   const isTr = locale === "tr";
@@ -66,7 +68,10 @@ export function ProcessOrbitNeural({ locale }: Props) {
 
   return (
     <section className="relative mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20" aria-label={sectionLabel}>
-      <h2 className="mb-8 text-center text-section font-semibold text-[#E6EAF0] md:mb-10">{sectionLabel}</h2>
+      <h2 className="mb-3 text-center text-section font-semibold text-[#E6EAF0] md:mb-4">{sectionLabel}</h2>
+      <p className="process-orbit-hint mx-auto mb-8 max-w-md px-2 text-center text-[13px] leading-snug text-white/55 md:mb-10 md:text-sm md:text-white/50">
+        {t("hint")}
+      </p>
       {/* Desktop: orbit + center (plain text only when active) */}
       <div className="hidden lg:block">
             <div
@@ -132,7 +137,7 @@ export function ProcessOrbitNeural({ locale }: Props) {
               {activeId !== null && activeStep ? (
                 <div
                   key={activeId ?? ""}
-                  className="process-orbit-center-content"
+                  className="process-orbit-center-content process-orbit-center-panel"
                 >
                   <p className="process-orbit-center-title mt-0">
                     {activeStep.title}
@@ -156,26 +161,26 @@ export function ProcessOrbitNeural({ locale }: Props) {
                   aria-selected={isActive}
                   aria-current={isActive ? "step" : undefined}
                   title={step.title}
-                  className={`process-orbit-node pointer-events-auto absolute z-30 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center border text-center leading-tight transition-[background-color,border-color,box-shadow,transform] duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F14] ${isActive ? "is-active" : ""}`}
+                  className={`process-orbit-node pointer-events-auto absolute z-30 flex cursor-pointer -translate-x-1/2 -translate-y-1/2 items-center justify-center border text-center leading-tight transition-[background-color,border-color,box-shadow,transform] duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F14] ${isActive ? "is-active" : ""}`}
                   style={{
                     left: `${pos.x}%`,
                     top: `${pos.y}%`,
-                    transform: `translate(-50%, -50%) scale(${isActive ? 1.06 : 1})`,
+                    transform: `translate(-50%, -50%) scale(${isActive ? 1.05 : isHover ? 1.04 : 1})`,
                     backgroundColor: isActive
-                      ? "rgba(255,255,255,0.14)"
+                      ? "rgba(255,255,255,0.16)"
                       : isHover
-                        ? "rgba(255,255,255,0.08)"
+                        ? "rgba(255,255,255,0.1)"
                         : "rgba(255,255,255,0.05)",
                     borderColor: isActive
-                      ? "rgba(52,211,153,0.5)"
+                      ? "rgba(52,211,153,0.75)"
                       : isHover
-                        ? "rgba(255,255,255,0.2)"
-                        : "rgba(255,255,255,0.1)",
-                    color: isActive ? "#fff" : "rgba(255,255,255,0.85)",
+                        ? "rgba(96,165,250,0.45)"
+                        : "rgba(255,255,255,0.12)",
+                    color: isActive ? "#fff" : "rgba(255,255,255,0.88)",
                     boxShadow: isActive
-                      ? "0 0 0 1px rgba(255,255,255,0.25), 0 18px 45px rgba(0,0,0,0.35)"
+                      ? "0 0 0 2px rgba(52,211,153,0.35), 0 0 28px rgba(52,211,153,0.25), 0 12px 40px rgba(0,0,0,0.45)"
                       : isHover
-                        ? "0 0 12px rgba(52,211,153,0.12)"
+                        ? "0 0 20px rgba(96,165,250,0.2), 0 0 12px rgba(52,211,153,0.15)"
                         : undefined,
                   }}
                   onMouseEnter={() => setHoverId(step.id)}
@@ -200,22 +205,26 @@ export function ProcessOrbitNeural({ locale }: Props) {
                 aria-selected={activeId === step.id}
                 aria-label={step.title}
                 onClick={() => handleMobileChipClick(step.id)}
-                className="process-mobile-chip w-full rounded-full border border-white/20 bg-white/10 font-medium text-[#E6EAF0] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50"
+                className={`process-mobile-chip w-full cursor-pointer rounded-full border font-medium text-[#E6EAF0] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 active:scale-[0.98] ${activeId === step.id ? "process-mobile-chip--active scale-[1.02]" : "hover:border-white/35 hover:bg-white/12"}`}
                 style={{
-                  backgroundColor: activeId === step.id ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.08)",
-                  borderColor: activeId === step.id ? "rgba(52,211,153,0.45)" : "rgba(255,255,255,0.2)",
+                  backgroundColor: activeId === step.id ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)",
+                  borderColor: activeId === step.id ? "rgba(52,211,153,0.65)" : "rgba(255,255,255,0.22)",
                   color: activeId === step.id ? "#fff" : "rgba(255,255,255,0.9)",
+                  boxShadow:
+                    activeId === step.id
+                      ? "0 0 0 1px rgba(52,211,153,0.35), 0 8px 24px rgba(0,0,0,0.35), 0 0 20px rgba(52,211,153,0.15)"
+                      : undefined,
                 }}
               >
                 <span className="line-clamp-1">{step.nodeTitle}</span>
               </button>
             ))}
           </div>
-          <div className="mt-6 min-h-[80px] px-4 text-center">
+          <div className="mt-6 min-h-[88px] px-3 text-center sm:px-4">
             {activeId !== null && activeStep ? (
               <div
                 key={activeId ?? ""}
-                className="process-orbit-center-content"
+                className="process-orbit-center-content process-orbit-center-panel process-orbit-center-panel--mobile"
               >
                 <p className="process-orbit-center-title mt-0">
                   {activeStep.title}
