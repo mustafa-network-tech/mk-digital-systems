@@ -34,10 +34,7 @@ export function Header() {
   const whatsappUrl = buildWhatsAppUrl(undefined, locale);
 
   return (
-    <header
-      className="app-header-bar sticky top-0 z-50 border-b border-white/[0.07]"
-      style={{ background: "rgba(15,23,42,0.48)" }}
-    >
+    <header className="app-header-bar sticky top-0 z-50 border-b border-white/[0.08]">
       <div className="container-custom flex h-16 items-center justify-between gap-4">
         <Link
           href="/"

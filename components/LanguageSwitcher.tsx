@@ -55,7 +55,7 @@ export function LanguageSwitcher() {
           e.stopPropagation();
           setOpen((o) => !o);
         }}
-        className="flex h-10 min-h-[44px] w-10 min-w-[44px] touch-manipulation items-center justify-center rounded-xl text-xl text-white/80 transition-all duration-150 ease-out bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/[0.08] hover:border-white/15 hover:shadow-[0_0_0_3px_rgba(59,130,246,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[rgba(15,23,42,0.72)] cursor-pointer"
+        className="flex h-10 min-h-[44px] w-10 min-w-[44px] touch-manipulation items-center justify-center rounded-xl text-xl text-white/85 transition-all duration-150 ease-out bg-[#151b26] border border-white/12 hover:bg-[#1a2230] hover:border-white/18 hover:shadow-[0_0_0_3px_rgba(59,130,246,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d1219] cursor-pointer"
         aria-label={t("ariaLabel")}
         aria-expanded={open}
         aria-haspopup="true"
@@ -64,7 +64,7 @@ export function LanguageSwitcher() {
       </button>
 
       <div
-        className={`absolute right-0 top-full z-[200] mt-2 w-44 rounded-xl border border-white/10 bg-[#0B1220]/75 backdrop-blur-xl p-2 shadow-2xl transition-all duration-150 ease-out origin-top-right ${
+        className={`absolute right-0 top-full z-[200] mt-2 w-44 rounded-xl border border-white/12 bg-[#0d1219] p-2 shadow-2xl transition-all duration-150 ease-out origin-top-right ${
           open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-[0.98] pointer-events-none"
         }`}
         role="menu"

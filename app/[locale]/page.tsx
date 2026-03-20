@@ -141,13 +141,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* Why MK Digital Systems — referans yüzey (home-band-surface); Hizmetler/Projeler ile aynı aile */}
-      <section className="why-section home-band-surface home-band-surface--after-projects w-full px-5 py-16 text-center md:px-12 md:py-24">
-        <h2 className="text-2xl font-semibold tracking-tight text-[#e6edf3] md:text-3xl md:font-bold md:italic lg:text-4xl">
-          <span className="why-main-title inline-block max-w-[22ch] md:max-w-none">
+      <section className="why-section home-band-surface home-band-surface--after-projects relative z-[1] w-full px-4 py-16 text-center sm:px-5 md:px-12 md:py-24">
+        <h2 className="w-full min-w-0 text-2xl font-semibold tracking-tight text-[#e6edf3] md:text-3xl md:font-bold md:italic lg:text-4xl">
+          <span className="why-main-title inline-block w-full max-w-full min-w-0 break-words px-0 sm:max-w-[min(100%,40rem)] md:max-w-none">
             {tWhy("title")}
           </span>
         </h2>
-        <p className="why-desc-hover mx-auto mt-4 max-w-[52ch] text-sm leading-relaxed text-white/70 md:mt-6 md:max-w-2xl md:text-base md:text-white/80">
+        <p className="why-desc-hover mx-auto mt-4 block w-full max-w-[52ch] px-0 text-sm leading-relaxed text-white/70 md:mt-6 md:max-w-2xl md:text-base md:text-white/80">
           {tWhy("description")}
         </p>
         <div className="mt-12 grid grid-cols-1 gap-10 md:mt-16 md:flex md:flex-row md:justify-center md:items-start md:gap-12 lg:gap-16">
@@ -179,7 +179,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </p>
           </div>
         </div>
-        <p className="why-slogan-line mx-auto mt-12 max-w-[min(100%,40rem)] px-2 text-center text-[1.05rem] font-semibold leading-relaxed tracking-tight md:mt-14 md:text-lg md:leading-relaxed">
+        <p className="why-slogan-line relative z-[1] mx-auto mt-12 block w-full max-w-[min(100%,40rem)] px-3 text-center text-[1.05rem] font-semibold leading-relaxed tracking-tight md:mt-14 md:px-2 md:text-lg md:leading-relaxed">
           {tWhy("slogan")}
         </p>
       </section>

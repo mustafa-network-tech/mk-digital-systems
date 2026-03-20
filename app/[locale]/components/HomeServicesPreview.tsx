@@ -36,7 +36,7 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
         */}
         <div className="mt-8 flex w-full max-w-full min-w-0 flex-col gap-8 overflow-x-clip lg:mt-10 lg:grid lg:min-h-0 lg:min-w-0 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.49fr)_minmax(0,0.49fr)] lg:grid-rows-2 lg:items-stretch lg:gap-x-7 lg:gap-y-3 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.475fr)_minmax(0,0.475fr)] xl:gap-x-8 xl:gap-y-3.5">
           <div className="min-w-0 px-2 sm:px-4 md:mx-auto md:max-w-[min(100%,52rem)] md:px-3 lg:col-start-1 lg:row-span-2 lg:mx-0 lg:flex lg:min-h-0 lg:w-full lg:max-w-none lg:flex-col lg:self-stretch lg:overflow-hidden lg:px-0">
-            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl bg-[#0B0F14]/50 sm:aspect-[4/3] md:aspect-[16/9] md:min-h-[min(320px,42vh)] md:max-h-[min(480px,55vh)] lg:mx-0 lg:aspect-auto lg:h-full lg:min-h-0 lg:min-w-0 lg:w-full lg:flex-1 lg:rounded-md lg:border-0 lg:bg-[#0B0F14]/30 lg:shadow-none">
+            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl bg-[#0B0F14]/22 sm:aspect-[4/3] md:aspect-[16/9] md:bg-[#0B0F14]/35 md:min-h-[min(320px,42vh)] md:max-h-[min(480px,55vh)] lg:mx-0 lg:aspect-auto lg:h-full lg:min-h-0 lg:min-w-0 lg:w-full lg:flex-1 lg:rounded-md lg:border-0 lg:bg-[#0B0F14]/30 lg:shadow-none">
               <Image
                 src="/images/mk.jpg"
                 alt=""
