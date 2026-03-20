@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { getMkFieldOpsDemoWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { Modal } from "@/components/Modal";
+import { ProductShowcaseCard } from "@/components/ProductShowcaseCard";
 
 type ProjectItem = {
   id: string;
@@ -13,6 +14,7 @@ type ProjectItem = {
   stack: readonly string[];
   label?: string;
   featured?: boolean;
+  productCard?: boolean;
   subtitle?: string;
   modalStack?: readonly string[];
   externalUrl?: string;
@@ -25,16 +27,27 @@ type ProjectItem = {
 export function ProjectsClient({ projects }: { projects: ProjectItem[] }) {
   const t = useTranslations("projects");
   const locale = useLocale() as "tr" | "en";
-  const whatsappDemoUrl = getMkFieldOpsDemoWhatsAppUrl(locale);
+  const whatsappUrl = buildWhatsAppUrl(undefined, locale);
   const [openId, setOpenId] = useState<string | null>(null);
   const selected = projects.find((p) => p.id === openId);
   const badges = selected ? (selected.modalStack ?? selected.stack) : [];
 
   return (
     <>
-      <div className="mt-10 grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
         {projects.map((p) =>
-          p.featured ? (
+          p.productCard && p.externalUrl ? (
+            <ProductShowcaseCard
+              key={p.id}
+              title={p.title}
+              summary={p.summary}
+              stack={p.stack}
+              whatsappUrl={whatsappUrl}
+              detailsUrl={p.externalUrl}
+              requestLabel={t("requestProduct")}
+              viewDetailsLabel={t("viewDetails")}
+            />
+          ) : p.featured ? (
             <div
               key={p.id}
               role="button"
@@ -54,7 +67,7 @@ export function ProjectsClient({ projects }: { projects: ProjectItem[] }) {
                   </span>
                 </div>
                 <a
-                  href={whatsappDemoUrl}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
@@ -154,7 +167,7 @@ export function ProjectsClient({ projects }: { projects: ProjectItem[] }) {
         headerAction={
           selected?.featured ? (
             <a
-              href={whatsappDemoUrl}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-lg bg-[#3B82F6] px-2.5 py-1.5 text-xs font-medium text-white no-underline transition hover:bg-[#60A5FA] hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#60A5FA] focus:ring-offset-2 focus:ring-offset-surface"

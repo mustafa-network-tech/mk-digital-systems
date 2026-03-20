@@ -1,10 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/config/navigation";
-import { buildWhatsAppUrl, getMkFieldOpsDemoWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { services } from "@/lib/services";
-import { projects, isFeaturedProject } from "@/lib/projects";
+import { projects, isProductShowcaseProject } from "@/lib/projects";
 import { ProcessOrbitNeural } from "@/components/sections/ProcessOrbitNeural";
-import { HomeFeaturedProjectCard } from "./components/HomeFeaturedProjectCard";
+import { ProductShowcaseCard } from "@/components/ProductShowcaseCard";
 import { HomeServicesPreview } from "./components/HomeServicesPreview";
 import { HeroBackgroundSlider } from "@/components/HeroBackgroundSlider";
 
@@ -23,7 +23,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   const previewServices = services.slice(0, 4);
   const previewProjects = projects.slice(0, 3);
-  const whatsappDemoUrl = getMkFieldOpsDemoWhatsAppUrl(locale as "tr" | "en");
 
   return (
     <>
@@ -99,18 +98,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section id="projects" className="section-spacing">
         <div className="container-custom">
           <h2 className="text-section font-semibold text-[#E6EAF0]">{tProjects("title")}</h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
             {previewProjects.map((p) =>
-              isFeaturedProject(p) ? (
-                <HomeFeaturedProjectCard
+              isProductShowcaseProject(p) ? (
+                <ProductShowcaseCard
                   key={p.id}
-                  id={p.id}
                   title={isTr ? p.titleTr : p.titleEn}
                   summary={isTr ? p.summaryTr : p.summaryEn}
-                  label={isTr ? p.labelTr : p.labelEn}
                   stack={p.stack}
-                  whatsappDemoUrl={whatsappDemoUrl}
-                  requestDemoLabel={tProjects("requestDemo")}
+                  whatsappUrl={whatsappUrl}
+                  detailsUrl={p.externalUrl}
+                  requestLabel={tProjects("requestProduct")}
+                  viewDetailsLabel={tProjects("viewDetails")}
                 />
               ) : (
                 <Link

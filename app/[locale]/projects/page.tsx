@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/config/navigation";
-import { projects, isFeaturedProject } from "@/lib/projects";
+import { projects, isFeaturedProject, isProductShowcaseProject } from "@/lib/projects";
 import { ProjectsClient } from "./ProjectsClient";
 
 export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -12,6 +12,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
   const projectList = projects.map((p) => {
     const featured = isFeaturedProject(p);
+    const productCard = isProductShowcaseProject(p);
     const hideLabel = "hideLabel" in p && p.hideLabel === true;
     const enOnly = "enOnly" in p && p.enOnly === true;
     const useEn = enOnly || !isTr;
@@ -27,6 +28,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
       stack: p.stack,
       label: hideLabel ? "" : featured ? (useEn ? p.labelEn : p.labelTr) : hasCustomLabel ? (useEn ? p.labelEn : p.labelTr) : t("demo"),
       featured,
+      productCard,
       subtitle: featured ? (useEn ? p.subtitleEn : p.subtitleTr) : hasSubtitle ? (useEn ? p.subtitleEn : p.subtitleTr) : undefined,
       modalStack: featured ? p.modalStack : undefined,
       externalUrl: hasExternalUrl ? p.externalUrl : undefined,
