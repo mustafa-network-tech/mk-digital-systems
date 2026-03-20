@@ -119,7 +119,10 @@
     "copyright": "© 2026 MK Digital Systems.",
     "tagline": "Products • Systems • Infrastructure",
     "privacy": "Privacy",
-    "terms": "Terms of Use"
+    "terms": "Terms of Use",
+    "cta": "Let's build your next system together",
+    "ctaAria": "Contact us on WhatsApp",
+    "ctaPrefill": "Hello, I'm reaching out via the MK Digital Systems website. I'd like to discuss a system or project."
   },
   "legal": {
     "privacy": {
