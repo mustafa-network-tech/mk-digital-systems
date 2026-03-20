@@ -10,11 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0B0F14",
-        base: "#0B0F14",
+        background: "#0d1219",
+        base: "#0d1219",
         surface: "#111827",
         elevated: "#0F172A",
-        hero: "#0B0F14",
+        hero: "#0d1219",
         border: "rgba(255,255,255,0.08)",
         accent: { DEFAULT: "#3B82F6", hover: "#60A5FA" },
         primary: { DEFAULT: "#3B82F6", hover: "#60A5FA" },
@@ -24,7 +24,8 @@ const config: Config = {
         nav: "#E6EAF0",
       },
       backgroundImage: {
-        "hero-gradient": "linear-gradient(180deg, #0B0F14, #111827)",
+        "hero-gradient":
+          "linear-gradient(180deg, rgba(17,31,47,0.45), rgba(11,15,20,0.32))",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "sans-serif"],

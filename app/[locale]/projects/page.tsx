@@ -39,13 +39,13 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
   return (
     <div className="relative z-10 min-h-screen bg-transparent">
-      <section className="relative overflow-hidden pt-7 pb-[18px] px-6 md:px-10 lg:px-12">
+      <section className="page-glass-hero relative overflow-hidden pt-7 pb-[18px] px-6 md:px-10 lg:px-12">
         <h1 className="text-section font-bold text-[#E6EAF0]">{t("title")}</h1>
         <p className="mt-3 max-w-2xl text-base leading-[1.6] text-[#9CA3AF]">
           {t("heroSubtitle")}
         </p>
       </section>
-      <section className="section-spacing px-6 md:px-10 lg:px-12">
+      <section className="section-spacing page-glass-section relative px-6 md:px-10 lg:px-12">
         <Link
           href="/#projects"
           className="inline-flex items-center gap-1.5 text-sm no-underline cursor-pointer mb-[18px] transition-all duration-200 ease-out hover:text-white hover:-translate-x-0.5"

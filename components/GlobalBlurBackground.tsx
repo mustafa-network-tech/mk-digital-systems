@@ -11,7 +11,7 @@ function BackgroundContent() {
 
   return (
     <div
-      className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0B0F14]"
+      className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0d1219]"
       style={{
         position: "fixed",
         top: 0,
@@ -31,14 +31,14 @@ function BackgroundContent() {
           width: "100vw",
           height: "100vh",
           minHeight: "100vh",
-          background: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.15) 0%, transparent 50%)",
+          background: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.22) 0%, transparent 55%)",
         }}
         aria-hidden
       />
 
       {/* Rotating wireframe sphere — ana sayfada hero alanından sonra başlar */}
       <div
-        className={`network-sphere-wrapper absolute inset-0 flex items-center justify-center overflow-hidden blur-[1px] ${isHome ? "network-sphere-wrapper--home" : ""}`}
+        className={`network-sphere-wrapper absolute inset-0 flex items-center justify-center overflow-hidden ${isHome ? "network-sphere-wrapper--home" : ""}`}
       >
         <NetworkSphere />
       </div>

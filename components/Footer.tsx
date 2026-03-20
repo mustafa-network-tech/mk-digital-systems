@@ -9,8 +9,8 @@ export function Footer() {
 
   return (
     <footer
-      className="footer-brand relative z-10 shrink-0 min-h-[72px] w-full border-t border-[rgba(255,255,255,0.08)] py-10 shadow-[0_-1px_0_rgba(255,255,255,0.06)] backdrop-blur-[10px]"
-      style={{ background: "rgba(15,23,42,0.72)" }}
+      className="footer-brand relative z-10 shrink-0 min-h-[72px] w-full border-t border-[rgba(255,255,255,0.08)] py-10 shadow-[0_-1px_0_rgba(255,255,255,0.06)] backdrop-blur-[14px]"
+      style={{ background: "rgba(15,23,42,0.42)" }}
     >
       <div className="container-custom grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-center min-h-[52px]">
         <div className="text-center md:text-left order-2 md:order-1">

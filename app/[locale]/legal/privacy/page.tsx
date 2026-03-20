@@ -7,11 +7,11 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <div className="py-16 md:py-20 px-4 md:px-6 text-center">
+      <div className="page-glass-hero py-16 md:py-20 px-4 md:px-6 text-center">
         <h1 className="text-section text-title font-semibold">{t("privacy.title")}</h1>
         <p className="mt-3 text-body text-base">{t("privacy.heroSubtitle")}</p>
       </div>
-      <section className="pl-6 pr-4 md:pl-12 md:pr-6 text-left max-w-[880px] mx-auto pt-20 pb-16 md:pb-20">
+      <section className="page-glass-section relative pl-6 pr-4 md:pl-12 md:pr-6 text-left max-w-[880px] mx-auto pt-20 pb-16 md:pb-20">
         <p className="text-body text-sm leading-relaxed">{t("privacy.intro")}</p>
 
         <h2 className="text-title text-lg font-semibold mt-10 mb-2 text-center">{t("privacy.section1Title")}</h2>

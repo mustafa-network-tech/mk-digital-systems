@@ -28,7 +28,7 @@ export default async function AboutSection() {
 
   return (
     <>
-      <div className="px-4 py-20 text-left md:px-6 md:py-28 lg:px-8">
+      <div className="page-glass-hero px-4 py-20 text-left md:px-6 md:py-28 lg:px-8">
         <h1 className="text-4xl font-bold tracking-tight text-title md:text-5xl lg:text-6xl">
           {t("title")}
         </h1>
@@ -37,7 +37,7 @@ export default async function AboutSection() {
         </p>
       </div>
 
-      <section className="section-spacing w-full px-4 md:px-6 lg:px-8">
+      <section className="section-spacing page-glass-section w-full px-4 md:px-6 lg:px-8">
         <div className="max-w-3xl text-left">
           <p className="text-body text-base leading-relaxed md:text-[1.05rem] md:leading-[1.75]">
             {t("intro")}

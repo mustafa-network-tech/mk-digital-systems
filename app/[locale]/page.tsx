@@ -94,9 +94,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         items={previewServices}
       />
 
-      {/* Projects preview */}
-      <section id="projects" className="section-spacing">
-        <div className="container-custom">
+      {/* Projects preview — alt bölümle aynı home-band-surface; düz taban (gradient sonu) */}
+      <section id="projects" className="section-spacing home-band-surface home-band-surface--continuation">
+        <div className="container-custom relative">
           <h2 className="text-section font-semibold text-[#E6EAF0]">{tProjects("title")}</h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
             {previewProjects.map((p) =>
@@ -140,8 +140,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* Why MK Digital Systems - mobile: vertical cards (icon / title / desc); desktop: row; no text collision */}
-      <section className="why-section w-full px-5 py-16 text-center md:px-12 md:py-24">
+      {/* Why MK Digital Systems — referans yüzey (home-band-surface); Hizmetler/Projeler ile aynı aile */}
+      <section className="why-section home-band-surface home-band-surface--after-projects w-full px-5 py-16 text-center md:px-12 md:py-24">
         <h2 className="text-2xl font-semibold tracking-tight text-[#e6edf3] md:text-3xl md:font-bold md:italic lg:text-4xl">
           <span className="why-main-title inline-block max-w-[22ch] md:max-w-none">
             {tWhy("title")}
@@ -181,8 +181,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* Project Process — Orbit + Neural (6 steps) */}
-      <section className="relative z-10 w-full px-4 md:px-6 lg:px-8">
+      {/* Project Process — alt bantla aynı düz slate yüzey */}
+      <section className="home-band-surface home-band-surface--process relative z-10 w-full px-4 md:px-6 lg:px-8">
         <ProcessOrbitNeural locale={locale as "tr" | "en"} />
       </section>
     </>

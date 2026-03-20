@@ -44,7 +44,7 @@ export function HeroBackgroundSlider() {
   const current = slides[index];
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#020617]">
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#0d1219]/90">
       <div className={`relative h-full w-full transition-opacity duration-700 ${animClass}`}>
         {/* Katman 1: tüm alan — düşük netlik (silik kartlar / derinlik) */}
         <div className="absolute inset-0 overflow-hidden" aria-hidden>

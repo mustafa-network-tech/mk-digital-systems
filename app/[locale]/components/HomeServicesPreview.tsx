@@ -21,7 +21,7 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
   return (
     <section
       id="services"
-      className="section-spacing relative z-[1] overflow-x-clip border-t border-white/[0.05] bg-[#0B0F14]/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+      className="section-spacing home-band-surface home-band-surface--gradient home-band-surface--after-hero"
     >
       {/* lg+: site container’dan biraz daha geniş max-width + daha az yatay padding (içerik nefes alır) */}
       <div className="container-custom relative lg:max-w-[min(100%,1420px)] lg:px-5 xl:max-w-[min(100%,1500px)] xl:px-6 2xl:max-w-[min(100%,1540px)] 2xl:px-8">
