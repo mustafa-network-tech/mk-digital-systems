@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { PROCESS_STEPS, type ProcessStepId } from "@/content/processOrbitNeural";
+import { PROCESS_STEPS, PROCESS_SECTION_TITLE, type ProcessStepId } from "@/content/processOrbitNeural";
 
 const STEP_IDS: ProcessStepId[] = [
   "request",
@@ -62,8 +62,11 @@ export function ProcessOrbitNeural({ locale }: Props) {
     setActiveId((prev) => (prev === id ? null : id));
   };
 
+  const sectionLabel = isTr ? PROCESS_SECTION_TITLE.tr : PROCESS_SECTION_TITLE.en;
+
   return (
-    <section className="relative mx-auto max-w-6xl px-4 py-16 md:px-6" aria-label="Project process">
+    <section className="relative mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20" aria-label={sectionLabel}>
+      <h2 className="mb-8 text-center text-section font-semibold text-[#E6EAF0] md:mb-10">{sectionLabel}</h2>
       {/* Desktop: orbit + center (plain text only when active) */}
       <div className="hidden lg:block">
             <div

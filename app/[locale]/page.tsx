@@ -27,7 +27,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       {/* Hero + value badges in the same background */}
-      <section className="relative min-h-[78vh] overflow-hidden flex items-center bg-transparent pt-16 md:pt-24 pb-16 md:pb-20">
+      <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-transparent pb-20 pt-16 md:pb-24 md:pt-24">
         <HeroBackgroundSlider />
         <div className="container-custom relative z-10 w-full">
           <h1 className="text-hero-mobile md:text-hero-tablet lg:text-hero-desktop hero-h1 max-w-4xl pt-8 md:pt-12">
@@ -35,28 +35,28 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <span className="hero-accent">{t("titleAccent")}</span>
             {t("titleAfter")}
           </h1>
-          <p className="mt-5 max-w-[600px] text-lg hero-paragraph">
+          <p className="hero-paragraph mt-5 max-w-[36rem] text-base leading-relaxed md:text-lg md:leading-relaxed">
             {t("subtitle")}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Link
-              href="/projects"
-              className="inline-flex items-center justify-center rounded-[10px] bg-[#3B82F6] px-[22px] py-3 text-sm font-medium text-white transition hover:bg-[#60A5FA]"
-            >
-              {t("cta2")}
-            </Link>
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-accent px-[22px] py-3 text-sm font-medium text-[#0B0F14] transition hover:bg-accent-hover"
+              className="inline-flex items-center justify-center rounded-[10px] bg-accent px-[22px] py-3 text-sm font-medium text-[#0B0F14] transition hover:bg-accent-hover"
             >
               {t("ctaQuote")}
             </a>
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center rounded-[10px] border border-white/15 bg-transparent px-[22px] py-3 text-sm font-medium text-[#E6EAF0] transition hover:border-white/25 hover:bg-white/[0.06]"
+            >
+              {t("cta2")}
+            </Link>
           </div>
 
           {/* Value props badges now inside hero, over photo */}
-          <div className="mt-10 flex justify-center">
+          <div className="mt-12 flex justify-center">
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
               <span
                 className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(15,23,42,0.72)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(15,23,42,0.9)] hover:border-[rgba(255,255,255,0.3)]"
@@ -88,6 +88,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section id="services" className="section-spacing">
         <div className="container-custom">
           <h2 className="text-section font-semibold text-[#E6EAF0]">{tServices("title")}</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#9CA3AF] md:text-base">
+            {tServices("heroSubtitle")}
+          </p>
           <div className="mt-10 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {previewServices.map((s) => (
               <Link
@@ -174,16 +177,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* Why MK Digital Systems - mobile: vertical cards (icon / title / desc); desktop: row; no text collision */}
-      <section className="why-section w-full px-5 py-14 text-center md:px-12 md:py-20">
-        <h2 className="text-2xl font-semibold text-[#e6edf3] md:text-3xl md:font-bold md:italic lg:text-4xl">
-          <span className="why-main-title inline-block">
+      <section className="why-section w-full px-5 py-16 text-center md:px-12 md:py-24">
+        <h2 className="text-2xl font-semibold tracking-tight text-[#e6edf3] md:text-3xl md:font-bold md:italic lg:text-4xl">
+          <span className="why-main-title inline-block max-w-[22ch] md:max-w-none">
             {tWhy("title")}
           </span>
         </h2>
-        <p className="why-desc-hover mx-auto mt-3 max-w-[52ch] text-sm leading-relaxed text-white/75 md:mt-5 md:max-w-2xl md:text-base md:text-white md:text-lg">
+        <p className="why-desc-hover mx-auto mt-4 max-w-[52ch] text-sm leading-relaxed text-white/70 md:mt-6 md:max-w-2xl md:text-base md:text-white/80">
           {tWhy("description")}
         </p>
-        <div className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:flex md:flex-row md:justify-center md:items-start md:gap-10 lg:gap-16">
+        <div className="mt-12 grid grid-cols-1 gap-10 md:mt-16 md:flex md:flex-row md:justify-center md:items-start md:gap-12 lg:gap-16">
           <div className="flex flex-col items-center text-center transition-colors duration-200 ease-out hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-2xl" aria-hidden>⚡</span>
             <h3 className="process-step-title mt-3 text-lg font-semibold text-[#e6edf3] transition-colors duration-200 hover:text-white md:text-xl md:font-extrabold md:italic">

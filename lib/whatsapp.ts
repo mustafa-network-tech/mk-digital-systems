@@ -1,8 +1,8 @@
 import { WHATSAPP_NUMBER } from "./constants";
 
 const DEFAULT_MESSAGE: Record<"tr" | "en", string> = {
-  tr: "Merhaba, projem hakkında bilgi almak istiyorum.",
-  en: "Hello, I'd like to get information about my project.",
+  tr: "Merhaba, dijital sistem / ürün ihtiyacımızı konuşmak istiyoruz.",
+  en: "Hello — I'd like to discuss a digital system or product build.",
 };
 
 /** MK Field Ops demo: dedicated number and pre-filled message (TR/EN) */
@@ -18,7 +18,7 @@ export function getMkFieldOpsDemoWhatsAppUrl(locale: "tr" | "en"): string {
   return `https://wa.me/${MK_FIELD_OPS_NUMBER}?text=${text}`;
 }
 
-export function buildWhatsAppUrl(message?: string, locale: "tr" | "en" = "tr"): string {
+export function buildWhatsAppUrl(message?: string, locale: "tr" | "en" = "en"): string {
   const text = message
     ? encodeURIComponent(message)
     : encodeURIComponent(DEFAULT_MESSAGE[locale]);

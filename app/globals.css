@@ -95,7 +95,7 @@ main {
 
 /* Section spacing */
 .section-spacing {
-  @apply py-[80px] md:py-[120px];
+  @apply py-20 md:py-28;
 }
 
 .container-custom {

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "MK Digital Systems",
-    "description": "Premium, minimal and trustworthy digital systems. Next.js, WordPress, SaaS dashboards, Android and PHP solutions."
+    "description": "Digital systems and SaaS-style products — operations tooling, dashboards, and integrations. Minimal architecture, production-grade delivery."
   },
   "nav": {
     "home": "Home",
@@ -9,7 +9,7 @@
     "projects": "Projects",
     "about": "About",
     "contact": "Contact",
-    "whatsappCta": "Get a Quote on WhatsApp"
+    "whatsappCta": "Message us on WhatsApp"
   },
   "common": {
     "brandName": "MK Digital Systems",
@@ -18,51 +18,57 @@
     "closeMenu": "Close menu"
   },
   "hero": {
-    "title": "Premium, minimal and trustworthy digital systems.",
-    "titleBefore": "Premium, minimal and ",
-    "titleAccent": "trustworthy",
-    "titleAfter": " digital systems.",
-    "subtitle": "Next.js, WordPress, SaaS dashboards, Android and PHP solutions.",
-    "cta1": "Get a Quote on WhatsApp",
-    "cta2": "View Projects",
-    "ctaQuote": "Get a Quote"
+    "title": "We engineer digital systems for operations and growth.",
+    "titleBefore": "We engineer ",
+    "titleAccent": "digital systems",
+    "titleAfter": " for operations and growth.",
+    "subtitle": "SaaS products, internal tools, and integrations — minimal architecture, production-grade delivery. Not a brochure-first web shop.",
+    "cta1": "Message us on WhatsApp",
+    "cta2": "Explore products",
+    "ctaQuote": "Discuss your build"
+  },
+  "heroSlider": {
+    "slide0": "Engineering environments built for shipping reliable software.",
+    "slide1": "Product development with clear scope, owners, and delivery rhythm.",
+    "slide2": "Operational systems — not one-off pages.",
+    "slide3": "Infrastructure-minded teams; calm, repeatable delivery."
   },
   "cta": {
-    "title": "Get a quick quote for your project",
-    "subtitle": "Let's start with a short conversation on WhatsApp."
+    "title": "Talk through your system or product requirements",
+    "subtitle": "A short WhatsApp thread is enough to see if we are the right build partner."
   },
   "why": {
-    "title": "Why MK Digital Systems?",
-    "description": "Minimal architecture, fast delivery and long-lasting software infrastructure. We bring your projects to life without unnecessary complexity.",
-    "feature1Title": "Fast Delivery",
-    "feature1Desc": "Projects ready in days, not weeks.",
-    "feature2Title": "Clean Architecture",
-    "feature2Desc": "Easy to maintain and scalable software infrastructure.",
-    "feature3Title": "Real Experience",
-    "feature3Desc": "The combination of field experience and software discipline."
+    "title": "Built for operators, not vanity launches",
+    "description": "We focus on systems your teams actually run: clear architecture, measurable performance, and software that still makes sense a year from now.",
+    "feature1Title": "Shipping velocity",
+    "feature1Desc": "Lean iterations and tight feedback loops — without cutting structural corners.",
+    "feature2Title": "Systems thinking",
+    "feature2Desc": "Data models, permissions, and integrations are designed before pixels.",
+    "feature3Title": "Field-tested discipline",
+    "feature3Desc": "Operational reality informs how we scope, build, and harden products."
   },
   "process": {
-    "title": "Project Process",
-    "step1Title": "Needs Analysis",
-    "step1Desc": "We analyze your project and goals in a short meeting.",
-    "step2Title": "Design & Planning",
-    "step2Desc": "The most suitable software architecture and user experience are planned.",
-    "step3Title": "Development",
-    "step3Desc": "The project is built with clean, scalable code.",
-    "step4Title": "Launch & Support",
-    "step4Desc": "The project goes live and technical support is provided."
+    "title": "Delivery model",
+    "step1Title": "Discovery",
+    "step1Desc": "Goals, constraints, and success metrics are defined up front.",
+    "step2Title": "Architecture",
+    "step2Desc": "Stack, integrations, and security boundaries are agreed before build-heavy work.",
+    "step3Title": "Build",
+    "step3Desc": "Incremental delivery with reviewable milestones.",
+    "step4Title": "Operate",
+    "step4Desc": "Launch, monitor, and iterate with you in production."
   },
   "trust": {
-    "speed": "Speed",
-    "discipline": "Discipline",
-    "clean": "Clean Work"
+    "speed": "Ship fast",
+    "discipline": "Engineering rigor",
+    "clean": "Clean architecture"
   },
   "services": {
-    "title": "Services",
-    "heroSubtitle": "Services tailored to your needs with modern web, mobile and SaaS solutions.",
-    "viewAll": "All Services",
-    "viewAllLink": "All Services →",
-    "backToServices": "Back to Services"
+    "title": "Capabilities",
+    "heroSubtitle": "What we build: product surfaces, control planes, automation, and long-lived infrastructure — not generic “website packages.”",
+    "viewAll": "All capabilities",
+    "viewAllLink": "All capabilities →",
+    "backToServices": "Back to capabilities"
   },
   "projects": {
     "title": "Projects",
@@ -74,26 +80,26 @@
   },
   "about": {
     "title": "About",
-    "heroSubtitle": "Who we are and how we work.",
-    "intro": "MK Digital Systems is a studio focused on building corporate websites, SaaS dashboards, and digital products—combining design and engineering in one workflow. We don't just make things look good; we build fast, reliable systems that support your business goals.",
-    "howWeWork": "How We Work",
-    "howWeWork1": "We clarify scope first, then move into design and development.",
-    "howWeWork2": "One point of contact, transparent process.",
-    "howWeWork3": "No surprises: timeline, revisions, and scope are defined upfront.",
-    "howWeWork4": "Mobile-first, performance, and SEO are baseline standards.",
-    "howWeWork5": "After launch, we provide quick support for small needs.",
-    "whatWeDeliver": "What We Deliver",
-    "whatWeDeliver1": "Corporate websites: modern, trustworthy, and fast.",
-    "whatWeDeliver2": "Admin panels / dashboards tailored to your workflow.",
-    "whatWeDeliver3": "Custom systems: forms, automations, CMS, integrations.",
-    "whatWeDeliver4": "Website improvements: performance, UI/UX modernization.",
-    "whatWeDeliver5": "Scalable architecture: built for the long term.",
-    "tools": "Tools We Use",
-    "toolsDescription": "The technologies we use depend on the project requirements. Our goal is to build fast, reliable and maintainable systems."
+    "heroSubtitle": "A technology partner for products and operational software.",
+    "intro": "MK Digital Systems builds digital systems — SaaS-style products, internal tools, dashboards, and integrations. Design and engineering sit in one workflow: we optimize for reliability, clarity, and what your operators need day to day, not for decorative homepages alone.",
+    "howWeWork": "How we work",
+    "howWeWork1": "Scope, stakeholders, and success metrics are agreed before heavy build work.",
+    "howWeWork2": "Single thread of communication; decisions and trade-offs stay visible.",
+    "howWeWork3": "Timeline, milestones, and change process are explicit — no surprise scope.",
+    "howWeWork4": "Performance, accessibility, and security are baseline, not optional add-ons.",
+    "howWeWork5": "After go-live we stay available for iteration, hardening, and small extensions.",
+    "whatWeDeliver": "What we deliver",
+    "whatWeDeliver1": "Customer-facing and internal web products on modern stacks (e.g. Next.js).",
+    "whatWeDeliver2": "Admin consoles, role-based dashboards, and operational control surfaces.",
+    "whatWeDeliver3": "APIs, automations, CMS-backed properties, and third-party integrations.",
+    "whatWeDeliver4": "Hardening existing systems: performance, UX clarity, technical debt reduction.",
+    "whatWeDeliver5": "Architectures intended to evolve — logging, env separation, and maintainable boundaries.",
+    "tools": "Stack",
+    "toolsDescription": "We choose tools per problem: speed, team fit, and long-term maintainability. The list below is representative, not a rigid menu."
   },
   "contact": {
     "title": "Contact",
-    "heroSubtitle": "Get in touch or message us directly on WhatsApp.",
+    "heroSubtitle": "Describe your system or product need — or reach us on WhatsApp for a faster thread.",
     "name": "Name",
     "email": "Email",
     "message": "Message",
@@ -101,11 +107,11 @@
     "submitSending": "Sending…",
     "successMessage": "Message received ✅",
     "errorMessage": "Failed, please try again.",
-    "whatsapp": "Contact via WhatsApp"
+    "whatsapp": "WhatsApp"
   },
   "footer": {
     "copyright": "© 2026 MK Digital Systems.",
-    "tagline": "Software • Web • Systems",
+    "tagline": "Products • Systems • Infrastructure",
     "privacy": "Privacy",
     "terms": "Terms of Use"
   },
@@ -169,7 +175,7 @@
   },
   "localeSwitcher": {
     "ariaLabel": "Select language",
-    "languageTr": "Turkish (TR)",
+    "languageTr": "Türkçe (TR)",
     "languageEn": "English (EN)"
   },
   "toast": {

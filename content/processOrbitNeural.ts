@@ -1,11 +1,11 @@
 /**
- * Process Orbit Neural — 6-step project flow content (TR + EN).
+ * Process Orbit Neural — 6-step delivery flow (TR + EN).
  * Used by ProcessOrbitNeural.tsx. No hardcoded copy in component.
  */
 
 export const PROCESS_SECTION_TITLE = {
-  tr: "Proje Süreci",
-  en: "Project Flow",
+  tr: "Teslim akışı",
+  en: "How we ship",
 } as const;
 
 export type ProcessStepId = "request" | "analysis" | "design" | "build" | "launch" | "support";
@@ -24,68 +24,68 @@ export interface ProcessStepContent {
 export const PROCESS_STEPS: ProcessStepContent[] = [
   {
     id: "request",
-    nodeTitleTr: "Talep",
-    nodeTitleEn: "Request",
-    titleTr: "Talep",
-    titleEn: "Request",
+    nodeTitleTr: "Brief",
+    nodeTitleEn: "Brief",
+    titleTr: "Brief",
+    titleEn: "Brief",
     descTr:
-      "İhtiyacınızı netleştirir, hedefi ve kapsamı belirleriz. Zaman–bütçe–öncelik üçlüsünü baştan şeffaflaştırırız.",
+      "İş problemi, kullanıcılar ve başarı ölçütleri netleşir. Zaman, risk ve öncelikler baştan şeffaftır.",
     descEn:
-      "We clarify your needs and define scope and goals. We make time–budget–priorities transparent from day one.",
+      "We align on the problem, stakeholders, and success metrics. Time, risk, and priorities are explicit from day one.",
   },
   {
     id: "analysis",
-    nodeTitleTr: "Analiz",
-    nodeTitleEn: "Analysis",
-    titleTr: "Analiz",
-    titleEn: "Analysis",
+    nodeTitleTr: "Keşif",
+    nodeTitleEn: "Discovery",
+    titleTr: "Keşif",
+    titleEn: "Discovery",
     descTr:
-      "Mevcut yapı/altyapı varsa inceleriz. Performans, SEO, güvenlik ve kullanıcı akışı için yol haritası çıkarırız.",
+      "Mevcut sistem veya entegrasyonlar varsa haritalanır. Performans, güvenlik ve veri akışı için teknik yol haritası çıkarılır.",
     descEn:
-      "If there's an existing system, we audit it. We map performance, SEO, security, and user flows into a clear roadmap.",
+      "We map existing systems and integrations. Technical risks, performance, and data flows shape a concrete plan.",
   },
   {
     id: "design",
     nodeTitleTr: "Tasarım",
     nodeTitleEn: "Design",
-    titleTr: "Tasarım & Planlama",
-    titleEn: "Design & Planning",
+    titleTr: "Ürün & bilgi mimarisi",
+    titleEn: "Product & IA",
     descTr:
-      "Arayüz mimarisi, sayfa akışı ve bileşen dili belirlenir. Temiz, hızlı ve marka uyumlu UI hedefleriz.",
+      "Ekran hiyerarşisi, yetkiler ve bileşen dili tanımlanır. Hız, tutarlılık ve operasyonel netlik hedeftir.",
     descEn:
-      "We define UI architecture, page flow, and component language. Clean, fast, brand-aligned UI is the target.",
+      "We define screen hierarchy, permissions, and component language — optimized for speed, consistency, and operational clarity.",
   },
   {
     id: "build",
-    nodeTitleTr: "Kodlama",
+    nodeTitleTr: "Geliştirme",
     nodeTitleEn: "Build",
     titleTr: "Geliştirme",
-    titleEn: "Development",
+    titleEn: "Build",
     descTr:
-      "Next.js / WordPress / PHP gibi uygun teknolojiyle geliştirme yapılır. Kod düzeni, modülerlik ve sürdürülebilirlik esas alınır.",
+      "Seçilen yığınla modüler geliştirme; kod düzeni, test edilebilirlik ve devreye alınabilir parçalar önceliklidir.",
     descEn:
-      "We build with the right stack (Next.js / WordPress / PHP). Modularity, maintainability, and clean code come first.",
+      "Modular engineering on the agreed stack — clean boundaries, testability, and shippable increments come first.",
   },
   {
     id: "launch",
-    nodeTitleTr: "Test & Yayın",
-    nodeTitleEn: "Testing & Launch",
-    titleTr: "Test & Yayın",
-    titleEn: "Testing & Launch",
+    nodeTitleTr: "Yayın",
+    nodeTitleEn: "Launch",
+    titleTr: "Yayın & gözlem",
+    titleEn: "Launch & observe",
     descTr:
-      "Mobil/masaüstü uyumluluk, hız, formlar ve kritik akışlar test edilir. Yayına alınır ve temel izleme kurulur.",
+      "Kritik akışlar doğrulanır, izleme ve geri dönüşler açılır. Üretimde ölçülebilir bir başlangıç hedeflenir.",
     descEn:
-      "We test responsiveness, speed, forms, and critical flows. Then we launch and set up basic monitoring.",
+      "Critical paths are verified; monitoring and feedback loops go live. We aim for a measurable production cutover.",
   },
   {
     id: "support",
-    nodeTitleTr: "Bakım & Destek",
-    nodeTitleEn: "Maintenance",
-    titleTr: "Bakım & Destek",
-    titleEn: "Maintenance & Support",
+    nodeTitleTr: "Evrim",
+    nodeTitleEn: "Evolve",
+    titleTr: "İyileştirme",
+    titleEn: "Improve",
     descTr:
-      "Güncelleme, iyileştirme ve teknik destek devam eder. İhtiyaç oldukça yeni özellikler planlayıp devreye alırız.",
+      "Güncelleme, güvenlik ve küçük özellikler planlı şekilde devam eder; ürün yaşam döngüsüyle birlikte ilerler.",
     descEn:
-      "We keep improving with updates and support. When needed, we plan and ship new features.",
+      "Planned updates, security hygiene, and scoped features continue — software evolves with your operations.",
   },
 ];

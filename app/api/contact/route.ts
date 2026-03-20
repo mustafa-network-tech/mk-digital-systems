@@ -60,7 +60,7 @@ function buildTextBody(body: Body): string {
   const name = (body.name ?? "").trim();
   const email = (body.email ?? "").trim();
   const message = (body.message ?? "").trim();
-  const lang = body.lang ?? "tr";
+  const lang = body.lang ?? "en";
   const pageUrl = body.pageUrl ?? "";
   const timestamp = new Date().toISOString();
 
@@ -123,7 +123,7 @@ export async function POST(req: NextRequest) {
 
     const name = (body.name ?? "").trim();
     const email = (body.email ?? "").trim();
-    const lang = body.lang ?? "tr";
+    const lang = body.lang ?? "en";
 
     await transporter.sendMail({
       from: MAIL_FROM,

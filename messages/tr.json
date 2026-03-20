@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "MK Digital Systems",
-    "description": "Sade, güvenilir dijital sistemler. Next.js, WordPress, SaaS panelleri, Android ve PHP çözümleri."
+    "description": "Dijital sistemler ve SaaS tarzı ürünler — operasyon araçları, paneller ve entegrasyonlar. Sade mimari, üretim kalitesinde teslim."
   },
   "nav": {
     "home": "Anasayfa",
@@ -9,7 +9,7 @@
     "projects": "Projeler",
     "about": "Hakkımızda",
     "contact": "İletişim",
-    "whatsappCta": "WhatsApp'tan Teklif Al"
+    "whatsappCta": "WhatsApp ile yazın"
   },
   "common": {
     "brandName": "MK Digital Systems",
@@ -18,51 +18,57 @@
     "closeMenu": "Menüyü kapat"
   },
   "hero": {
-    "title": "Sade, güvenilir dijital sistemler.",
-    "titleBefore": "Sade, ",
-    "titleAccent": "güvenilir",
-    "titleAfter": " dijital sistemler.",
-    "subtitle": "Next.js, WordPress, SaaS panelleri, Android ve PHP çözümleri.",
-    "cta1": "WhatsApp'tan Teklif Al",
-    "cta2": "Projeleri Gör",
-    "ctaQuote": "Teklif Al"
+    "title": "Operasyon ve büyüme için dijital sistemler geliştiriyoruz.",
+    "titleBefore": "Operasyon ve büyüme için ",
+    "titleAccent": "dijital sistemler",
+    "titleAfter": " geliştiriyoruz.",
+    "subtitle": "SaaS ürünleri, iç araçlar ve entegrasyonlar — sade mimari, üretim kalitesinde teslim. Broşür öncelikli bir web ajansı değiliz.",
+    "cta1": "WhatsApp ile yazın",
+    "cta2": "Ürünleri incele",
+    "ctaQuote": "İhtiyacı konuşalım"
+  },
+  "heroSlider": {
+    "slide0": "Güvenilir yazılım teslimi için tasarlanmış mühendislik ortamları.",
+    "slide1": "Net kapsam, sahiplik ve ritimle ürün geliştirme.",
+    "slide2": "Operasyonel sistemler — tek seferlik sayfalar değil.",
+    "slide3": "Altyapı bilinci yüksek ekipler; sakin, tekrarlanabilir teslimat."
   },
   "cta": {
-    "title": "Projeniz için hızlı teklif alın",
-    "subtitle": "WhatsApp üzerinden kısa bir görüşme ile başlayalım."
+    "title": "Sistem veya ürün ihtiyacınızı birlikte netleştirelim",
+    "subtitle": "Kısa bir WhatsApp yazışması, doğru ortaklık için yeterli başlangıç olabilir."
   },
   "why": {
-    "title": "Neden MK Digital Systems?",
-    "description": "Sade mimari, hızlı teslim ve uzun ömürlü yazılım altyapısı. Projelerinizi gereksiz karmaşıklık olmadan hayata geçiriyoruz.",
-    "feature1Title": "Hızlı Teslim",
-    "feature1Desc": "Projeler haftalar değil günler içinde hazır.",
-    "feature2Title": "Temiz Mimari",
-    "feature2Desc": "Bakımı kolay ve ölçeklenebilir yazılım altyapısı.",
-    "feature3Title": "Gerçek Deneyim",
-    "feature3Desc": "Saha tecrübesi ve yazılım disiplininin birleşimi."
+    "title": "Operasyon ekipleri için; gösterişli lansmanlar için değil",
+    "description": "Ekiplerinizin gerçekten kullandığı sistemlere odaklanıyoruz: anlaşılır mimari, ölçülebilir performans ve bir yıl sonra hâlâ anlamlı yazılım.",
+    "feature1Title": "Teslim hızı",
+    "feature1Desc": "Yalın iterasyon ve sık geri bildirim — yapısal köşeleri kesmeden.",
+    "feature2Title": "Sistem düşüncesi",
+    "feature2Desc": "Veri modeli, yetkiler ve entegrasyonlar; piksellerden önce tasarlanır.",
+    "feature3Title": "Saha testli disiplin",
+    "feature3Desc": "Operasyonel gerçeklik; kapsam, geliştirme ve sağlamlaştırmayı şekillendirir."
   },
   "process": {
-    "title": "Proje Süreci",
-    "step1Title": "İhtiyaç Analizi",
-    "step1Desc": "Projenizi ve hedeflerinizi kısa bir görüşme ile analiz ederiz.",
-    "step2Title": "Tasarım & Planlama",
-    "step2Desc": "En uygun yazılım mimarisi ve kullanıcı deneyimi planlanır.",
+    "title": "Teslim modeli",
+    "step1Title": "Keşif",
+    "step1Desc": "Hedefler, kısıtlar ve başarı ölçütleri başta netleşir.",
+    "step2Title": "Mimari",
+    "step2Desc": "Yığın, entegrasyonlar ve güvenlik sınırları; ağır geliştirmeden önce kilitlenir.",
     "step3Title": "Geliştirme",
-    "step3Desc": "Temiz ve ölçeklenebilir kod ile proje geliştirilir.",
-    "step4Title": "Yayın & Destek",
-    "step4Desc": "Proje yayına alınır ve teknik destek sağlanır."
+    "step3Desc": "İncelenebilir kilometre taşlarıyla artımlı teslimat.",
+    "step4Title": "İşletme",
+    "step4Desc": "Yayın, izleme ve sizinle birlikte üretimde iterasyon."
   },
   "trust": {
-    "speed": "Hız",
-    "discipline": "Disiplin",
-    "clean": "Temiz İş"
+    "speed": "Hızlı teslim",
+    "discipline": "Mühendislik disiplini",
+    "clean": "Sade mimari"
   },
   "services": {
-    "title": "Hizmetler",
-    "heroSubtitle": "Modern web, mobil ve SaaS çözümleri ile ihtiyaçlarınıza uygun hizmetler.",
-    "viewAll": "Tüm Hizmetler",
-    "viewAllLink": "Tüm Hizmetler →",
-    "backToServices": "Hizmetlere Dön"
+    "title": "Yetenekler",
+    "heroSubtitle": "Ürün yüzeyleri, kontrol düzlemleri, otomasyon ve uzun ömürlü altyapı — jenerik “web paketi” değil.",
+    "viewAll": "Tüm yetenekler",
+    "viewAllLink": "Tüm yetenekler →",
+    "backToServices": "Yeteneklere dön"
   },
   "projects": {
     "title": "Projeler",
@@ -74,26 +80,26 @@
   },
   "about": {
     "title": "Hakkımızda",
-    "heroSubtitle": "Biz kimiz ve nasıl çalışıyoruz.",
-    "intro": "MK Digital Systems; kurumsal web siteleri, SaaS panelleri ve dijital ürünler geliştiren, tasarım ve yazılımı aynı masada birleştiren bir stüdyodur. Amacımız \"güzel görünen\" değil; hızlı açılan, güven veren ve iş hedefinize hizmet eden sistemler üretmektir.",
-    "howWeWork": "Nasıl Çalışıyoruz",
-    "howWeWork1": "Önce kapsamı netleştirir, sonra tasarım ve geliştirmeye geçeriz.",
-    "howWeWork2": "Tek iletişim noktasıyla ilerler, süreci şeffaf yönetiriz.",
-    "howWeWork3": "Sürpriz yok: teslim tarihi, revizyon ve kapsam baştan bellidir.",
-    "howWeWork4": "Mobil uyum, hız ve SEO temel standarttır.",
-    "howWeWork5": "Yayın sonrası küçük destek ihtiyaçlarında hızlı geri dönüş sağlarız.",
-    "whatWeDeliver": "Ne Sunuyoruz",
-    "whatWeDeliver1": "Kurumsal web sitesi: güven veren, modern ve hızlı.",
-    "whatWeDeliver2": "Yönetim paneli / dashboard: iş akışına uygun arayüzler.",
-    "whatWeDeliver3": "Özel sistemler: form, otomasyon, içerik yönetimi, entegrasyonlar.",
-    "whatWeDeliver4": "Mevcut site iyileştirme: hız, tasarım, kullanıcı deneyimi.",
-    "whatWeDeliver5": "Uzun vadeli ölçeklenebilir mimari: geleceğe uygun kurulum.",
-    "tools": "Kullandığımız Araçlar",
-    "toolsDescription": "Projelerde kullandığımız teknolojiler hizmetlerimize göre belirlenir. Amacımız hızlı, güvenilir ve sürdürülebilir sistemler geliştirmektir."
+    "heroSubtitle": "Ürün ve operasyon yazılımı için teknoloji ortağı.",
+    "intro": "MK Digital Systems dijital sistemler üretir — SaaS tarzı ürünler, iç araçlar, paneller ve entegrasyonlar. Tasarım ve mühendislik tek akışta: güvenilirlik, netlik ve operatörlerinizin günlük ihtiyaçları önceliklidir; yalnızca süs ana sayfalar değil.",
+    "howWeWork": "Nasıl çalışıyoruz",
+    "howWeWork1": "Ağır geliştirmeden önce kapsam, paydaşlar ve başarı ölçütleri netleşir.",
+    "howWeWork2": "Tek iletişim hattı; kararlar ve ödünler görünür kalır.",
+    "howWeWork3": "Zaman çizelgesi, kilometre taşları ve değişiklik süreci açık — sürpriz kapsam yok.",
+    "howWeWork4": "Performans, erişilebilirlik ve güvenlik taban standarttır, ekstra menü değil.",
+    "howWeWork5": "Canlıya alındıktan sonra iterasyon, sağlamlaştırma ve küçük genişlemeler için yanınızdayız.",
+    "whatWeDeliver": "Ne teslim ediyoruz",
+    "whatWeDeliver1": "Müşteriye ve içe dönük web ürünleri (ör. Next.js ile).",
+    "whatWeDeliver2": "Yönetim konsolları, rol tabanlı paneller ve operasyon kontrol yüzeyleri.",
+    "whatWeDeliver3": "API’ler, otomasyonlar, CMS destekli yapılar ve üçüncü taraf entegrasyonlar.",
+    "whatWeDeliver4": "Mevcut sistemlerin güçlendirilmesi: performans, UX netliği, teknik borç.",
+    "whatWeDeliver5": "Evrilebilir mimari — loglama, ortam ayrımı ve sürdürülebilir sınırlar.",
+    "tools": "Yığın",
+    "toolsDescription": "Aracı problem seçeriz: hız, ekip uyumu ve uzun vadeli sürdürülebilirlik. Aşağıdaki liste temsilidir, katı bir menü değildir."
   },
   "contact": {
     "title": "İletişim",
-    "heroSubtitle": "Bizimle iletişime geçin veya doğrudan WhatsApp üzerinden yazın.",
+    "heroSubtitle": "Sistem veya ürün ihtiyacınızı yazın — daha hızlı için WhatsApp kullanın.",
     "name": "Ad Soyad",
     "email": "E-posta",
     "message": "Mesaj",
@@ -101,11 +107,11 @@
     "submitSending": "Gönderiliyor…",
     "successMessage": "Mesajınız alındı ✅",
     "errorMessage": "Gönderilemedi, tekrar deneyin.",
-    "whatsapp": "WhatsApp ile iletişim"
+    "whatsapp": "WhatsApp"
   },
   "footer": {
     "copyright": "© 2026 MK Digital Systems.",
-    "tagline": "Software • Web • Systems",
+    "tagline": "Ürün • Sistem • Altyapı",
     "privacy": "Gizlilik",
     "terms": "Kullanım Şartları"
   },
@@ -170,7 +176,7 @@
   "localeSwitcher": {
     "ariaLabel": "Dil seçimi",
     "languageTr": "Türkçe (TR)",
-    "languageEn": "İngilizce (EN)"
+    "languageEn": "English (EN)"
   },
   "toast": {
     "demoMessage": "Mesaj hazırlandı (örnek)."
