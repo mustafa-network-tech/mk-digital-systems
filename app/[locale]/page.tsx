@@ -90,7 +90,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <HomeServicesPreview
         title={tServices("title")}
         subtitle={tServices("heroSubtitle")}
-        viewAllLabel={tServices("viewAll")}
+        viewAllLink={tServices("viewAllLink")}
         isTr={isTr}
         items={previewServices}
       />

@@ -7,7 +7,8 @@ export type HomePreviewService = (typeof services)[number];
 type Props = {
   title: string;
   subtitle: string;
-  viewAllLabel: string;
+  /** messages: `services.viewAllLink` (metin ve ok birlikte) — `/services` */
+  viewAllLink: string;
   isTr: boolean;
   items: HomePreviewService[];
 };
@@ -16,7 +17,7 @@ type Props = {
  * Ana sayfa: çözüm alanları önizlemesi — görsel + 4 kart (2×2), mobilde görsel üstte.
  * Tam liste `/services` sayfasında; burada sadece vitrin.
  */
-export function HomeServicesPreview({ title, subtitle, viewAllLabel, isTr, items }: Props) {
+export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items }: Props) {
   return (
     <section
       id="services"
@@ -30,13 +31,14 @@ export function HomeServicesPreview({ title, subtitle, viewAllLabel, isTr, items
 
         {/* Tablet/mobil: dikey; lg+: sol görsel, sağ 2×2 */}
         <div className="mt-8 flex flex-col gap-8 lg:mt-10 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-12">
-          <div className="w-full shrink-0 lg:w-[42%] lg:max-w-md xl:max-w-lg">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111827]/60 shadow-[0_20px_50px_rgba(0,0,0,0.35)] sm:aspect-[5/4] lg:aspect-auto lg:min-h-[min(480px,62vh)]">
+          {/* Görsel: kenarlarda nefes payı; kırpma odak noktası hafif kaydırılmış (merkezden yan tarafa) */}
+          <div className="w-full shrink-0 px-3 sm:px-5 lg:w-[42%] lg:max-w-md lg:px-2 xl:max-w-lg xl:px-3">
+            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111827]/60 shadow-[0_20px_50px_rgba(0,0,0,0.35)] sm:aspect-[5/4] lg:aspect-auto lg:min-h-[min(480px,62vh)]">
               <Image
                 src="/images/mk.jpg"
                 alt=""
                 fill
-                className="object-cover object-center"
+                className="object-cover object-[56%_center] sm:object-[54%_center] lg:object-[52%_center]"
                 sizes="(max-width: 1024px) 100vw, 38vw"
               />
               <div
@@ -87,12 +89,12 @@ export function HomeServicesPreview({ title, subtitle, viewAllLabel, isTr, items
           </div>
         </div>
 
-        <div className="mt-8 flex justify-center sm:justify-start lg:mt-10">
+        <div className="mt-8 px-1 sm:mt-9 sm:px-0 lg:mt-10">
           <Link
             href="/services"
-            className="inline-flex items-center justify-center rounded-[10px] border border-white/[0.12] bg-white/[0.05] px-5 py-2.5 text-sm font-semibold text-[#F1F5F9] shadow-[0_4px_24px_rgba(0,0,0,0.22)] transition duration-200 ease-out hover:border-[#60A5FA]/35 hover:bg-[#1e293b]/90 hover:text-white"
+            className="inline-flex max-w-full items-center gap-1.5 text-sm font-medium text-[#60A5FA] transition duration-200 ease-out hover:text-[#93C5FD] hover:underline hover:underline-offset-4"
           >
-            {viewAllLabel}
+            {viewAllLink}
           </Link>
         </div>
       </div>
