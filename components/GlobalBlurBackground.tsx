@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/config/navigation";
 import { NetworkSphere } from "@/components/NetworkSphere";
 
 function BackgroundContent() {
   const pathname = usePathname();
   const isProjectsPage = pathname?.includes("/projects") ?? false;
+  /** Hero alanı ana sayfada; küre fotoğraf slider ile çakışmasın */
+  const isHome = pathname === "/";
 
   return (
     <div
@@ -36,12 +38,14 @@ function BackgroundContent() {
         aria-hidden
       />
 
-      {/* Rotating wireframe sphere - centered in viewport, no stretch; opacity lower on mobile / raised on Projects */}
-      <div
-        className={`network-sphere-wrapper absolute inset-0 flex items-center justify-center blur-[1px] ${isProjectsPage ? "network-sphere-wrapper--projects" : ""}`}
-      >
-        <NetworkSphere />
-      </div>
+      {/* Rotating wireframe sphere — ana sayfa (hero) hariç */}
+      {!isHome ? (
+        <div
+          className={`network-sphere-wrapper absolute inset-0 flex items-center justify-center blur-[1px] ${isProjectsPage ? "network-sphere-wrapper--projects" : ""}`}
+        >
+          <NetworkSphere />
+        </div>
+      ) : null}
 
       {/* Soft floating blurred orbs - dark theme */}
       <div
