@@ -69,7 +69,7 @@
   },
   "services": {
     "title": "What we build",
-    "heroSubtitle": "Operations panels, internal tools, analytics surfaces, and customer-facing products — production systems, not agency hand-offs.",
+    "heroSubtitle": "Operations panels, internal tools, analytics surfaces, and SaaS-style products — systems that carry your teams’ day-to-day work. Lean architecture, production-grade delivery.",
     "viewAll": "All solution areas",
     "viewAllLink": "All solution areas →",
     "backToServices": "Back to solution areas"

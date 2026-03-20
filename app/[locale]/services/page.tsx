@@ -14,7 +14,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
       <section className="page-glass-hero relative z-[1] overflow-hidden border-b border-white/[0.06] py-16 md:py-20">
         <div className="container-custom relative z-10">
           <h1 className="text-section font-semibold tracking-tight text-[#E6EAF0]">{t("title")}</h1>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-[#9CA3AF]">{t("heroSubtitle")}</p>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-[#9CA3AF] md:text-white">{t("heroSubtitle")}</p>
         </div>
       </section>
       <section className="section-spacing page-glass-section relative z-[1]">

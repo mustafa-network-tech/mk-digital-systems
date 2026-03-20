@@ -26,7 +26,7 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
       {/* lg+: site container’dan biraz daha geniş max-width + daha az yatay padding (içerik nefes alır) */}
       <div className="container-custom relative lg:max-w-[min(100%,1420px)] lg:px-5 xl:max-w-[min(100%,1500px)] xl:px-6 2xl:max-w-[min(100%,1540px)] 2xl:px-8">
         <h2 className="text-section font-semibold tracking-tight text-[#E6EAF0]">{title}</h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#9CA3AF] md:text-base md:leading-relaxed lg:max-w-3xl">
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#9CA3AF] md:text-base md:leading-relaxed md:text-white lg:max-w-3xl">
           {subtitle}
         </p>
 
