@@ -29,11 +29,11 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
           {subtitle}
         </p>
 
-        {/* Mobil/tablet: dikey; masaüstü (lg+): sol görsel, sağ 2×2 */}
-        <div className="mt-8 flex min-w-0 flex-col gap-8 lg:mt-10 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-12">
-          {/* Görsel: masaüstünde lg+ padding ile biraz içeri çekilir (kenarlardan nefes); <lg düzeni aynı */}
-          <div className="min-w-0 w-full shrink-0 px-2 sm:px-4 md:mx-auto md:max-w-[min(100%,52rem)] md:px-3 lg:mx-0 lg:w-[46%] lg:max-w-xl lg:px-4 lg:py-2 xl:max-w-2xl xl:px-5 xl:py-3">
-            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0f172a] shadow-[0_20px_50px_rgba(0,0,0,0.35)] sm:aspect-[4/3] md:aspect-[16/9] md:min-h-[min(320px,42vh)] md:max-h-[min(480px,55vh)] lg:aspect-auto lg:min-h-[min(440px,56vh)] lg:max-h-[min(520px,62vh)]">
+        {/* Mobil/tablet: dikey; masaüstü (lg+): sol görsel, sağ 2×2 — taşmayı önlemek için w-full + gap küçültüldü */}
+        <div className="mt-8 flex w-full max-w-full min-w-0 flex-col gap-8 overflow-x-clip lg:mt-10 lg:flex-row lg:items-stretch lg:gap-7 xl:gap-9">
+          {/* Görsel: masaüstünde daha dar + daha fazla iç boşluk (overflow azalır) */}
+          <div className="min-w-0 w-full shrink-0 px-2 sm:px-4 md:mx-auto md:max-w-[min(100%,52rem)] md:px-3 lg:mx-0 lg:w-[38%] lg:max-w-md lg:px-5 lg:py-2 xl:w-[40%] xl:max-w-lg xl:px-6 xl:py-3">
+            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0f172a] shadow-[0_20px_50px_rgba(0,0,0,0.35)] sm:aspect-[4/3] md:aspect-[16/9] md:min-h-[min(320px,42vh)] md:max-h-[min(480px,55vh)] lg:aspect-auto lg:min-h-[min(380px,50vh)] lg:max-h-[min(450px,54vh)]">
               <Image
                 src="/images/mk.jpg"
                 alt=""
@@ -49,15 +49,15 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
             </div>
           </div>
 
-          <div className="min-w-0 flex-1">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-rows-2 lg:gap-4">
+          <div className="min-w-0 flex-1 overflow-x-clip lg:min-w-0">
+            <div className="grid min-w-0 grid-cols-2 gap-3 sm:gap-4 lg:grid-rows-2 lg:gap-3 xl:gap-4">
               {items.map((s) => (
                 <Link
                   key={s.id}
                   href={`/services#${s.id}`}
-                  className="service-card-glow service-card-glow--home-preview flex min-h-0 flex-col rounded-[14px] border border-white/[0.07] bg-[#111827]/95 p-4 text-[#E6EAF0] no-underline backdrop-blur-[2px] transition-colors hover:border-white/[0.12] hover:bg-[#141B2D] sm:p-5"
+                  className="service-card-glow service-card-glow--home-preview flex min-h-0 min-w-0 flex-col rounded-[14px] border border-white/[0.07] bg-[#111827]/95 p-4 text-[#E6EAF0] no-underline backdrop-blur-[2px] transition-colors hover:border-white/[0.12] hover:bg-[#141B2D] sm:p-5 lg:p-4 xl:p-5"
                 >
-                  <div className="service-card-content flex min-h-0 flex-1 flex-col">
+                  <div className="service-card-content flex min-h-0 min-w-0 flex-1 flex-col">
                     <span
                       className="service-card-icon mb-1.5 block shrink-0 opacity-[0.88] sm:mb-2"
                       style={{ fontSize: "19px", color: s.iconColor }}
@@ -65,7 +65,7 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
                     >
                       {s.icon}
                     </span>
-                    <h3 className="service-card-title mb-1.5 text-[0.95rem] font-semibold leading-snug sm:mb-2 sm:text-base md:text-[1.05rem]">
+                    <h3 className="service-card-title service-card-title--home-preview mb-1.5 text-[0.95rem] font-semibold leading-snug sm:mb-2 sm:text-base md:text-[1.05rem]">
                       {isTr ? s.titleTr : s.titleEn}
                     </h3>
                     <p className="mb-2 line-clamp-2 max-w-none text-[0.8125rem] leading-relaxed text-[#B9C4D4] sm:line-clamp-3 sm:text-sm lg:line-clamp-none lg:text-sm">
