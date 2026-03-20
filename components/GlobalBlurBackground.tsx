@@ -11,9 +11,12 @@ function BackgroundContent() {
   /** Ana sayfa: küre hero bandının altında başlar (hero bitince görünür) */
   const isHome = pathname === "/";
 
+  /** Ana sayfa: küre yalnızca hero altındaki şeritte; canvas fixed olmadığı için taşmaz */
   const spherePositionClass = isHome
-    ? "left-0 right-0 bottom-0 top-[min(88vh,52rem)] md:top-[min(84vh,48rem)]"
+    ? "left-0 right-0 bottom-0 top-[min(80vh,48rem)] md:top-[min(76vh,44rem)]"
     : "inset-0";
+
+  const sphereModeClass = isHome ? "network-sphere-wrapper--below-hero" : "";
 
   return (
     <div
@@ -44,7 +47,7 @@ function BackgroundContent() {
 
       {/* Rotating wireframe sphere — ana sayfada hero alanından sonra başlar */}
       <div
-        className={`network-sphere-wrapper absolute flex items-center justify-center blur-[1px] ${spherePositionClass} ${isProjectsPage ? "network-sphere-wrapper--projects" : ""}`}
+        className={`network-sphere-wrapper absolute flex items-center justify-center overflow-hidden blur-[1px] ${spherePositionClass} ${sphereModeClass} ${isProjectsPage ? "network-sphere-wrapper--projects" : ""}`}
       >
         <NetworkSphere />
       </div>

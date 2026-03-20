@@ -64,11 +64,11 @@
     "clean": "Clean architecture"
   },
   "services": {
-    "title": "Capabilities",
-    "heroSubtitle": "What we build: product surfaces, control planes, automation, and long-lived infrastructure — not generic “website packages.”",
-    "viewAll": "All capabilities",
-    "viewAllLink": "All capabilities →",
-    "backToServices": "Back to capabilities"
+    "title": "What we build",
+    "heroSubtitle": "Operations panels, internal tools, analytics surfaces, and customer-facing products — production systems, not agency hand-offs.",
+    "viewAll": "All solution areas",
+    "viewAllLink": "All solution areas →",
+    "backToServices": "Back to solution areas"
   },
   "projects": {
     "title": "Projects",

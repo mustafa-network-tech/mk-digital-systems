@@ -64,11 +64,11 @@
     "clean": "Sade mimari"
   },
   "services": {
-    "title": "Yetenekler",
-    "heroSubtitle": "Ürün yüzeyleri, kontrol düzlemleri, otomasyon ve uzun ömürlü altyapı — jenerik “web paketi” değil.",
-    "viewAll": "Tüm yetenekler",
-    "viewAllLink": "Tüm yetenekler →",
-    "backToServices": "Yeteneklere dön"
+    "title": "Ne Kuruyoruz",
+    "heroSubtitle": "Operasyon panelleri, iç araçlar, analiz yüzeyleri ve müşteriye dönük ürünler — ajans teslimi değil, üretimde çalışan sistemler.",
+    "viewAll": "Tüm çözüm alanları",
+    "viewAllLink": "Tüm çözüm alanları →",
+    "backToServices": "Çözüm alanlarına dön"
   },
   "projects": {
     "title": "Projeler",

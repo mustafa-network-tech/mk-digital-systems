@@ -44,7 +44,7 @@ export function HeroBackgroundSlider() {
   const current = slides[index];
 
   return (
-    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-[#020617]">
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#020617]">
       <div className={`relative h-full w-full transition-opacity duration-700 ${animClass}`}>
         {/* Katman 1: tüm alan — düşük netlik (silik kartlar / derinlik) */}
         <div className="absolute inset-0 overflow-hidden" aria-hidden>
@@ -92,9 +92,9 @@ export function HeroBackgroundSlider() {
         />
         {/* Çok hafif grain — performans: statik SVG tile */}
         <div className="hero-bg-grain absolute inset-0 z-[1] opacity-[0.04] md:opacity-[0.035]" aria-hidden />
-        {/* Slogan bandı — masaüstünde sağda, metinle çakışmaz */}
-        <div className="absolute bottom-6 left-4 right-4 z-[2] max-w-xl rounded-2xl border border-white/[0.07] bg-black/50 px-4 py-2.5 text-center text-xs leading-snug text-slate-100/90 backdrop-blur-xl sm:text-sm md:bottom-8 md:left-auto md:right-8 md:translate-x-0 md:text-left md:text-sm">
-          {current.caption}
+        {/* Slogan — yüksek kontrast, alta yakın; rozetlerle çakışmaması için sayfada mb ile ayrılır */}
+        <div className="hero-slider-caption absolute bottom-2 left-3 right-3 z-[5] max-w-xl rounded-xl border border-white/20 bg-[rgba(15,23,42,0.92)] px-4 py-3 text-center text-sm font-medium leading-snug text-white shadow-[0_10px_40px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-md sm:left-4 sm:right-4 sm:text-[0.9375rem] md:bottom-3 md:left-auto md:right-6 md:max-w-md md:text-left md:text-sm">
+          <span className="[text-shadow:0_1px_2px_rgba(0,0,0,0.85)]">{current.caption}</span>
         </div>
       </div>
     </div>
