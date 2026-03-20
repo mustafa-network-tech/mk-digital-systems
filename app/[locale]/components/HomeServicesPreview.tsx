@@ -30,19 +30,19 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
         </p>
 
         {/*
-          Mobil: görsel üstte, altında 4 kart (2×2).
-          Masaüstü (lg+): CSS Grid — sol sütun görsel (row-span-2), sağda 2×2 kart.
-          Görsel yüksekliği = sağdaki iki satır kartın toplam yüksekliği (aynı grid satırları).
+          Mobil/tablet: aşağıdaki lg: sınıfları yok — sadece flex + üstte görsel.
+          Masaüstü (lg+): grid — sol görsel row-span-2 (yükseklik = sağ 2×2 ile aynı), sağda daha dar 2×2.
+          Desktop görsel: daha geniş sütun oranı, hafif/serbest çerçeve, contain ile taşma yok.
         */}
-        <div className="mt-8 flex w-full max-w-full min-w-0 flex-col gap-8 overflow-x-clip lg:mt-10 lg:grid lg:grid-cols-[minmax(260px,0.42fr)_1fr_1fr] lg:grid-rows-2 lg:gap-x-6 lg:gap-y-4 xl:gap-x-8">
-          <div className="min-w-0 px-2 sm:px-4 md:mx-auto md:max-w-[min(100%,52rem)] md:px-3 lg:col-start-1 lg:row-span-2 lg:mx-0 lg:flex lg:min-h-0 lg:w-full lg:max-w-none lg:flex-col lg:self-stretch lg:px-0">
-            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl bg-[#0B0F14]/50 sm:aspect-[4/3] md:aspect-[16/9] md:min-h-[min(320px,42vh)] md:max-h-[min(480px,55vh)] lg:mx-0 lg:aspect-auto lg:h-full lg:min-h-0 lg:w-full lg:flex-1 lg:rounded-3xl lg:bg-transparent lg:shadow-[0_28px_80px_rgba(0,0,0,0.22)]">
+        <div className="mt-8 flex w-full max-w-full min-w-0 flex-col gap-8 overflow-x-clip lg:mt-10 lg:grid lg:min-w-0 lg:grid-cols-[minmax(300px,0.52fr)_minmax(0,0.24fr)_minmax(0,0.24fr)] lg:grid-rows-2 lg:gap-x-8 lg:gap-y-4 xl:grid-cols-[minmax(320px,0.54fr)_minmax(0,0.23fr)_minmax(0,0.23fr)] xl:gap-x-10">
+          <div className="min-w-0 px-2 sm:px-4 md:mx-auto md:max-w-[min(100%,52rem)] md:px-3 lg:col-start-1 lg:row-span-2 lg:mx-0 lg:flex lg:min-h-0 lg:w-full lg:max-w-none lg:flex-col lg:self-stretch lg:overflow-hidden lg:px-0 lg:pr-1">
+            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl bg-[#0B0F14]/50 sm:aspect-[4/3] md:aspect-[16/9] md:min-h-[min(320px,42vh)] md:max-h-[min(480px,55vh)] lg:mx-0 lg:aspect-auto lg:h-full lg:min-h-0 lg:w-full lg:flex-1 lg:rounded-2xl lg:border-0 lg:bg-[#0B0F14]/35 lg:shadow-none">
               <Image
                 src="/images/mk.jpg"
                 alt=""
                 fill
-                sizes="(max-width: 1023px) min(100vw, 52rem), 42vw"
-                className="object-contain object-center lg:object-cover lg:object-[50%_42%]"
+                sizes="(max-width: 1023px) min(100vw, 52rem), (max-width: 1536px) 52vw, 46vw"
+                className="object-contain object-center lg:object-contain lg:object-center lg:p-0"
                 priority={false}
               />
             </div>
@@ -53,7 +53,7 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
               <Link
                 key={s.id}
                 href={`/services#${s.id}`}
-                className="service-card-glow service-card-glow--home-preview flex min-h-0 min-w-0 flex-col rounded-[14px] border border-white/[0.07] bg-[#111827]/95 p-4 no-underline backdrop-blur-[2px] transition-colors hover:border-white/[0.12] hover:bg-[#141B2D] sm:p-5 lg:min-h-0 lg:p-4"
+                className="service-card-glow service-card-glow--home-preview flex min-h-0 min-w-0 flex-col rounded-[14px] border border-white/[0.07] bg-[#111827]/95 p-4 no-underline backdrop-blur-[2px] transition-colors hover:border-white/[0.12] hover:bg-[#141B2D] sm:p-5 lg:min-h-0 lg:max-w-full lg:p-3.5 xl:p-4"
               >
                 <div className="service-card-content flex min-h-0 min-w-0 flex-1 flex-col">
                   <span
