@@ -42,8 +42,8 @@ main {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: min(128vmin, 1400px);
-  height: min(128vmin, 1400px);
+  width: min(97vmin, 1050px);
+  height: min(97vmin, 1050px);
   min-width: 0;
   min-height: 0;
   display: flex;
@@ -75,6 +75,16 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Ana sayfa: küre biraz daha görünür */
+.network-sphere-wrapper--home {
+  opacity: 0.2;
+}
+@media (max-width: 767px) {
+  .network-sphere-wrapper--home {
+    opacity: 0.16;
+  }
 }
 
 .hero-h1 {
