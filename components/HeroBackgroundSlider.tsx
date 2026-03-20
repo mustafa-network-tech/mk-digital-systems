@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 
-/** `public/hero/` — hero.jpg, hero1.jpg, hero2.jpg */
-const HERO_BACKGROUNDS = ["/hero/hero.jpg", "/hero/hero1.jpg", "/hero/hero2.jpg"] as const;
+/** `public/hero/` — mk.jpg, mk1.jpg, mk2.jpg, mk3.jpg */
+const HERO_BACKGROUNDS = ["/hero/mk.jpg", "/hero/mk1.jpg", "/hero/mk2.jpg", "/hero/mk3.jpg"] as const;
 
-type SlideKey = "slide0" | "slide1" | "slide2";
+type SlideKey = "slide0" | "slide1" | "slide2" | "slide3";
 
 const animations = [
   "hero-slide-animate-fade-up",
