@@ -251,14 +251,12 @@ main {
   text-shadow: 0 1px 10px rgba(15, 23, 42, 0.4);
 }
 
-/* Ana sayfa “Ne Kuruyoruz” önizleme: masaüstünde başlıklar bir tık daha açık */
-@media (min-width: 1024px) {
-  .service-card-title--home-preview {
-    color: #f8fafc;
-    text-shadow:
-      0 1px 14px rgba(15, 23, 42, 0.5),
-      0 0 1px rgba(255, 255, 255, 0.14);
-  }
+/* Ana sayfa “Ne Kuruyoruz” önizleme: 4 kart başlığı net beyaz (tüm kırılımlar) */
+.service-card-glow--home-preview .service-card-title--home-preview {
+  color: #ffffff;
+  text-shadow:
+    0 1px 14px rgba(15, 23, 42, 0.55),
+    0 0 1px rgba(255, 255, 255, 0.2);
 }
 .service-card-glow .service-card-icon {
   transition: transform 0.25s ease;
