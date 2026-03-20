@@ -111,10 +111,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   >
                     {s.icon}
                   </span>
-                  <h3 className="mb-2 text-base font-semibold leading-snug text-[#E6EAF0] md:text-[1.05rem]">
+                  <h3 className="service-card-title mb-2 text-base font-semibold leading-snug md:text-[1.05rem]">
                     {isTr ? s.titleTr : s.titleEn}
                   </h3>
-                  <p className="mb-4 max-w-[280px] text-sm leading-relaxed text-[#9CA3AF]/95">
+                  <p className="mb-4 max-w-[280px] text-sm leading-relaxed text-[#B9C4D4]">
                     {isTr ? s.descTr : s.descEn}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-1.5 pt-1">

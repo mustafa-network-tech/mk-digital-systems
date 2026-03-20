@@ -246,6 +246,10 @@ main {
   position: relative;
   z-index: 1;
 }
+.service-card-title {
+  color: #F2F6FF;
+  text-shadow: 0 1px 10px rgba(15, 23, 42, 0.4);
+}
 .service-card-glow .service-card-icon {
   transition: transform 0.25s ease;
 }
