@@ -35,8 +35,8 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-[rgba(255,255,255,0.08)] shadow-navbar backdrop-blur-[10px]"
-      style={{ background: "rgba(15,23,42,0.72)" }}
+      className="app-header-bar sticky top-0 z-50 border-b border-white/[0.07]"
+      style={{ background: "rgba(15,23,42,0.82)" }}
     >
       <div className="container-custom flex h-16 items-center justify-between gap-4">
         <Link
@@ -61,10 +61,10 @@ export function Header() {
               <Link
                 key={href}
                 href={href}
-                className={`text-sm transition ${
+                className={`nav-link-desktop text-sm ${
                   active
-                    ? "text-[#F1F5F9] font-medium underline decoration-accent decoration-2 underline-offset-4"
-                    : "text-[#C5CDD9] hover:text-[#F1F5F9]"
+                    ? "nav-link-desktop--active font-medium underline decoration-accent decoration-2 underline-offset-[6px]"
+                    : "text-[#b8c0cc]"
                 }`}
               >
                 {t(key)}

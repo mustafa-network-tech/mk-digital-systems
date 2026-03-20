@@ -30,53 +30,55 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-transparent pb-20 pt-16 md:pb-24 md:pt-24">
         <HeroBackgroundSlider />
         <div className="container-custom relative z-10 w-full">
-          <h1 className="text-hero-mobile md:text-hero-tablet lg:text-hero-desktop hero-h1 max-w-4xl pt-8 md:pt-12">
-            {t("titleBefore")}
-            <span className="hero-accent">{t("titleAccent")}</span>
-            {t("titleAfter")}
-          </h1>
-          <p className="hero-paragraph mt-5 max-w-[36rem] text-base leading-relaxed md:text-lg md:leading-relaxed">
-            {t("subtitle")}
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="hero-copy max-w-[40rem] pt-8 md:max-w-[44rem] md:pt-12">
+            <h1 className="text-hero-mobile md:text-hero-tablet lg:text-hero-desktop hero-h1 max-w-4xl [text-shadow:0_1px_32px_rgba(2,6,23,0.85)]">
+              {t("titleBefore")}
+              <span className="hero-accent">{t("titleAccent")}</span>
+              {t("titleAfter")}
+            </h1>
+            <p className="hero-paragraph mt-5 max-w-[36rem] text-base leading-relaxed md:text-lg md:leading-relaxed [text-shadow:0_1px_24px_rgba(2,6,23,0.9)]">
+              {t("subtitle")}
+            </p>
+          </div>
+          <div className="mt-10 flex max-w-[40rem] flex-wrap items-center gap-3 md:max-w-[44rem]">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-[10px] bg-accent px-[22px] py-3 text-sm font-medium text-[#0B0F14] transition hover:bg-accent-hover"
+              className="hero-cta-primary inline-flex items-center justify-center rounded-[10px] px-[22px] py-3 text-sm font-semibold text-white"
             >
               {t("ctaQuote")}
             </a>
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center rounded-[10px] border border-white/15 bg-transparent px-[22px] py-3 text-sm font-medium text-[#E6EAF0] transition hover:border-white/25 hover:bg-white/[0.06]"
+              className="hero-cta-secondary inline-flex items-center justify-center rounded-[10px] px-[22px] py-3 text-sm font-medium text-[#E6EAF0]/90"
             >
               {t("cta2")}
             </Link>
           </div>
 
-          {/* Value props badges now inside hero, over photo */}
-          <div className="mt-12 flex justify-center">
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+          {/* Value props — küçük, subtle, geniş aralık */}
+          <div className="mt-12 flex justify-center md:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-8 md:justify-start md:gap-12">
               <span
-                className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(15,23,42,0.72)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(15,23,42,0.9)] hover:border-[rgba(255,255,255,0.3)]"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-[rgba(15,23,42,0.45)] py-[7px] px-[14px] text-xs font-medium text-[#E6EAF0]/72 shadow-[0_4px_20px_rgba(0,0,0,0.25)] backdrop-blur-sm md:py-2 md:px-[15px]"
                 role="presentation"
               >
-                <span aria-hidden className="shrink-0" style={{ color: "#FACC15" }}>⚡</span>
+                <span aria-hidden className="shrink-0 text-[0.85em] opacity-80" style={{ color: "#FACC15" }}>⚡</span>
                 {tTrust("speed")}
               </span>
               <span
-                className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(15,23,42,0.72)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(15,23,42,0.9)] hover:border-[rgba(255,255,255,0.3)]"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-[rgba(15,23,42,0.45)] py-[7px] px-[14px] text-xs font-medium text-[#E6EAF0]/72 shadow-[0_4px_20px_rgba(0,0,0,0.25)] backdrop-blur-sm md:py-2 md:px-[15px]"
                 role="presentation"
               >
-                <span aria-hidden className="shrink-0" style={{ color: "#60A5FA" }}>🧭</span>
+                <span aria-hidden className="shrink-0 text-[0.85em] opacity-80" style={{ color: "#60A5FA" }}>🧭</span>
                 {tTrust("discipline")}
               </span>
               <span
-                className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(15,23,42,0.72)] py-[10px] px-[18px] text-sm font-medium text-[#E6EAF0] shadow-[0_10px_30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-[0.25s] ease-[ease] hover:-translate-y-[3px] hover:bg-[rgba(15,23,42,0.9)] hover:border-[rgba(255,255,255,0.3)]"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-[rgba(15,23,42,0.45)] py-[7px] px-[14px] text-xs font-medium text-[#E6EAF0]/72 shadow-[0_4px_20px_rgba(0,0,0,0.25)] backdrop-blur-sm md:py-2 md:px-[15px]"
                 role="presentation"
               >
-                <span aria-hidden className="shrink-0" style={{ color: "#34D399" }}>■</span>
+                <span aria-hidden className="shrink-0 text-[0.85em] opacity-80" style={{ color: "#34D399" }}>■</span>
                 {tTrust("clean")}
               </span>
             </div>

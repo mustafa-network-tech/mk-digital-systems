@@ -8,8 +8,12 @@ import { NetworkSphere } from "@/components/NetworkSphere";
 function BackgroundContent() {
   const pathname = usePathname();
   const isProjectsPage = pathname?.includes("/projects") ?? false;
-  /** Hero alanı ana sayfada; küre fotoğraf slider ile çakışmasın */
+  /** Ana sayfa: küre hero bandının altında başlar (hero bitince görünür) */
   const isHome = pathname === "/";
+
+  const spherePositionClass = isHome
+    ? "left-0 right-0 bottom-0 top-[min(88vh,52rem)] md:top-[min(84vh,48rem)]"
+    : "inset-0";
 
   return (
     <div
@@ -38,14 +42,12 @@ function BackgroundContent() {
         aria-hidden
       />
 
-      {/* Rotating wireframe sphere — ana sayfa (hero) hariç */}
-      {!isHome ? (
-        <div
-          className={`network-sphere-wrapper absolute inset-0 flex items-center justify-center blur-[1px] ${isProjectsPage ? "network-sphere-wrapper--projects" : ""}`}
-        >
-          <NetworkSphere />
-        </div>
-      ) : null}
+      {/* Rotating wireframe sphere — ana sayfada hero alanından sonra başlar */}
+      <div
+        className={`network-sphere-wrapper absolute flex items-center justify-center blur-[1px] ${spherePositionClass} ${isProjectsPage ? "network-sphere-wrapper--projects" : ""}`}
+      >
+        <NetworkSphere />
+      </div>
 
       {/* Soft floating blurred orbs - dark theme */}
       <div
