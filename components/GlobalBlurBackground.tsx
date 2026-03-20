@@ -7,7 +7,6 @@ import { NetworkSphere } from "@/components/NetworkSphere";
 
 function BackgroundContent() {
   const pathname = usePathname();
-  const isProjectsPage = pathname?.includes("/projects") ?? false;
   /** Ana sayfa: küre hero bandının altında başlar (hero bitince görünür) */
   const isHome = pathname === "/";
 
@@ -47,7 +46,7 @@ function BackgroundContent() {
 
       {/* Rotating wireframe sphere — ana sayfada hero alanından sonra başlar */}
       <div
-        className={`network-sphere-wrapper absolute flex items-center justify-center overflow-hidden blur-[1px] ${spherePositionClass} ${sphereModeClass} ${isProjectsPage ? "network-sphere-wrapper--projects" : ""}`}
+        className={`network-sphere-wrapper absolute flex items-center justify-center overflow-hidden blur-[1px] ${spherePositionClass} ${sphereModeClass}`}
       >
         <NetworkSphere />
       </div>
