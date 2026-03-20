@@ -21,7 +21,7 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
   return (
     <section
       id="services"
-      className="section-spacing relative z-[1] border-t border-white/[0.05] bg-[#0B0F14]/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+      className="section-spacing relative z-[1] overflow-x-clip border-t border-white/[0.05] bg-[#0B0F14]/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
     >
       <div className="container-custom relative">
         <h2 className="text-section font-semibold tracking-tight text-[#E6EAF0]">{title}</h2>
@@ -29,20 +29,21 @@ export function HomeServicesPreview({ title, subtitle, viewAllLink, isTr, items 
           {subtitle}
         </p>
 
-        {/* Tablet/mobil: dikey; lg+: sol görsel, sağ 2×2 */}
-        <div className="mt-8 flex flex-col gap-8 lg:mt-10 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-12">
-          {/* Görsel: kenarlarda nefes payı; kırpma odak noktası hafif kaydırılmış (merkezden yan tarafa) */}
-          <div className="w-full shrink-0 px-3 sm:px-5 lg:w-[42%] lg:max-w-md lg:px-2 xl:max-w-lg xl:px-3">
-            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111827]/60 shadow-[0_20px_50px_rgba(0,0,0,0.35)] sm:aspect-[5/4] lg:aspect-auto lg:min-h-[min(480px,62vh)]">
+        {/* Mobil/tablet: dikey; masaüstü (lg+): sol görsel, sağ 2×2 */}
+        <div className="mt-8 flex min-w-0 flex-col gap-8 lg:mt-10 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-12">
+          {/* Görsel: masaüstünde lg+ padding ile biraz içeri çekilir (kenarlardan nefes); <lg düzeni aynı */}
+          <div className="min-w-0 w-full shrink-0 px-2 sm:px-4 md:mx-auto md:max-w-[min(100%,52rem)] md:px-3 lg:mx-0 lg:w-[46%] lg:max-w-xl lg:px-4 lg:py-2 xl:max-w-2xl xl:px-5 xl:py-3">
+            <div className="relative mx-auto aspect-[16/10] w-full max-w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0f172a] shadow-[0_20px_50px_rgba(0,0,0,0.35)] sm:aspect-[4/3] md:aspect-[16/9] md:min-h-[min(320px,42vh)] md:max-h-[min(480px,55vh)] lg:aspect-auto lg:min-h-[min(440px,56vh)] lg:max-h-[min(520px,62vh)]">
               <Image
                 src="/images/mk.jpg"
                 alt=""
                 fill
-                className="object-cover object-[56%_center] sm:object-[54%_center] lg:object-[52%_center]"
-                sizes="(max-width: 1024px) 100vw, 38vw"
+                sizes="(max-width: 1023px) min(100vw, 52rem), 40vw"
+                className="object-contain object-center lg:object-cover lg:object-[52%_center]"
+                priority={false}
               />
               <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0F14]/35 via-transparent to-[#0B0F14]/10"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0F14]/25 via-transparent to-transparent lg:from-[#0B0F14]/35 lg:to-[#0B0F14]/10"
                 aria-hidden
               />
             </div>
