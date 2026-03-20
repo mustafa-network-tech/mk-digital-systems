@@ -4,32 +4,30 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 
-const SLIDE_SRC = [
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80",
-] as const;
+/** `public/hero/` — hero.jpg, hero1.jpg, hero2.jpg */
+const HERO_BACKGROUNDS = ["/hero/hero.jpg", "/hero/hero1.jpg", "/hero/hero2.jpg"] as const;
+
+type SlideKey = "slide0" | "slide1" | "slide2";
 
 const animations = [
   "hero-slide-animate-fade-up",
   "hero-slide-animate-fade-right",
   "hero-slide-animate-zoom-in",
-];
+] as const;
 
 export function HeroBackgroundSlider() {
   const t = useTranslations("heroSlider");
   const slides = useMemo(
     () =>
-      SLIDE_SRC.map((src, i) => ({
+      HERO_BACKGROUNDS.map((src, i) => ({
         src,
-        caption: t(`slide${i}` as "slide0" | "slide1" | "slide2" | "slide3"),
+        caption: t(`slide${i}` as SlideKey),
       })),
     [t]
   );
 
   const [index, setIndex] = useState(0);
-  const [animClass, setAnimClass] = useState(animations[0]);
+  const [animClass, setAnimClass] = useState<(typeof animations)[number]>(animations[0]);
 
   useEffect(() => {
     const interval = setInterval(() => {

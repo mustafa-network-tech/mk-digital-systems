@@ -8,12 +8,6 @@ const requestConfigPath = "./i18n/request.ts";
 /** @type {import('next').NextConfig} */
 const nextConfig = withNextIntl({
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
     formats: ["image/avif", "image/webp"],
   },
   // Next.js 16 uses top-level turbopack (not experimental.turbo). The next-intl plugin
