@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { locales, type Locale } from "@/config/i18n";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobileWhatsAppFab } from "@/components/MobileWhatsAppFab";
 import { GlobalBlurBackground } from "@/components/GlobalBlurBackground";
 import { LocaleGuard } from "@/components/LocaleGuard";
 import type { Metadata } from "next";
@@ -43,6 +44,7 @@ export default async function LocaleLayout({
         <Header />
         <main className="relative z-10 flex-1 pt-2">{children}</main>
         <Footer />
+        <MobileWhatsAppFab />
       </div>
     </NextIntlClientProvider>
   );
