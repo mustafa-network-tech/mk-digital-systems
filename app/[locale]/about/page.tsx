@@ -1,9 +1,3 @@
-import { setRequestLocale } from "next-intl/server";
-import AboutSection from "@/components/AboutSection";
-
-export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  return <AboutSection />;
-}
+﻿import { permanentRedirect } from "next/navigation";
+import { validLocale } from "@/lib/seo";
+export default async function LegacyAbout({ params }: { params: Promise<{ locale: string }> }) { permanentRedirect(`/${validLocale((await params).locale)}`); }

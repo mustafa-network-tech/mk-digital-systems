@@ -16,6 +16,8 @@ export function LanguageSwitcher() {
   const localeCodes: Record<Locale, string> = {
     tr: "TR",
     en: "EN",
+    de: "DE",
+    fr: "FR",
   };
 
   const handleChange = (next: Locale) => {

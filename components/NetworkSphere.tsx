@@ -22,7 +22,6 @@ export function NetworkSphere() {
     renderer.setPixelRatio(1);
 
     const radius = 3;
-    const segments = 32;
     const geo = new THREE.IcosahedronGeometry(radius, 1);
     const edges = new THREE.EdgesGeometry(geo);
     const line = new THREE.LineSegments(

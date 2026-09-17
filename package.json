@@ -6,19 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint app components config content i18n lib tests proxy.ts playwright.config.ts next.config.mjs eslint.config.mjs tailwind.config.ts",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "framer-motion": "11.0.0",
     "lucide-react": "^0.577.0",
-    "next": "^16.1.6",
-    "next-intl": "^4.8.3",
-    "nodemailer": "^8.0.1",
+    "next": "^16.3.5",
+    "next-intl": "^4.14.5",
+    "nodemailer": "^10.0.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "^0.162.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@types/node": "20.10.0",
     "@types/nodemailer": "^7.0.11",
     "@types/react": "18.2.37",
@@ -26,8 +30,8 @@
     "@types/three": "^0.183.1",
     "autoprefixer": "10.4.16",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^16.1.6",
-    "postcss": "8.4.32",
+    "eslint-config-next": "^16.3.5",
+    "postcss": "^8.5.23",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
   }

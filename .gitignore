@@ -20,3 +20,8 @@ build
 # OS / IDE
 .DS_Store
 Thumbs.db
+playwright-report/
+test-results/
+artifacts/qa/
+artifacts/source/
+source-*.html

@@ -1,50 +1,74 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ContactForm } from "./ContactForm";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
-
-export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+﻿import { setRequestLocale } from "next-intl/server";
+import { getContent } from "@/content/site";
+import { selectedProjects } from "@/content/projects";
+import { validLocale, pageMetadata, pageSchema } from "@/lib/seo";
+import { contactConfig } from "@/lib/contact-config";
+import { JsonLd } from "@/components/brand/JsonLd";
+import { PageIntro } from "@/components/brand/PageIntro";
+import { ProjectBrief } from "@/components/brand/ProjectBrief";
+import { Arrow } from "@/components/brand/Arrow";
+type Props = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ type?: string; project?: string }>;
+};
+export async function generateMetadata({ params }: Props) {
+  return pageMetadata(validLocale((await params).locale), "contact");
+}
+export default async function Contact({ params, searchParams }: Props) {
+  const locale = validLocale((await params).locale);
   setRequestLocale(locale);
-
-  const t = await getTranslations("contact");
-  const tToast = await getTranslations("toast");
-
+  const c = getContent(locale);
+  const query = await searchParams;
+  const project = selectedProjects.some((p) => p.id === query.project)
+    ? query.project
+    : undefined;
   return (
-    <>
-      <section className="page-glass-hero relative overflow-hidden py-16 md:py-20">
-        <div className="container-custom relative z-10">
-          <h1 className="text-section text-title font-semibold">{t("title")}</h1>
-          <p className="mt-3 max-w-2xl text-body text-base">
-            {t("heroSubtitle")}
-          </p>
-        </div>
-      </section>
-      <section className="section-spacing page-glass-section relative">
-        <div className="container-custom max-w-xl">
-          <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-surface p-8 md:p-10 shadow-card">
-            <ContactForm
-              locale={locale as "tr" | "en"}
-              nameLabel={t("name")}
-              emailLabel={t("email")}
-              messageLabel={t("message")}
-              submitLabel={t("submit")}
-              submitSending={t("submitSending")}
-              successMessage={t("successMessage")}
-              errorMessage={t("errorMessage")}
-            />
-            <p className="mt-6 text-sm text-muted">
-              <a
-                href={buildWhatsAppUrl(undefined, locale as "tr" | "en")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                {t("whatsapp")}
-              </a>
-            </p>
+    <div className="contact-page">
+      <JsonLd data={pageSchema(locale, "contact")} />
+      <PageIntro
+        label={c.contact.label}
+        title={c.contact.title}
+        description={c.contact.description}
+      />
+      <div className="contact-layout wrap">
+        <ProjectBrief
+          locale={locale}
+          copy={c.contact}
+          initialType={query.type}
+          project={project}
+        />
+        <aside className="contact-aside">
+          <h2>{c.contact.direct}</h2>
+          <div className="contact-channels">
+            <a href={contactConfig.phoneHref}>
+              <div>
+                <span>{c.pricing.call}</span>
+                <small>{contactConfig.phone}</small>
+              </div>
+              <Arrow diagonal />
+            </a>
+            <a href={contactConfig.emailHref}>
+              <div>
+                <span>{c.contact.emailUs}</span>
+                <small>{contactConfig.email}</small>
+              </div>
+              <Arrow diagonal />
+            </a>
+            <a
+              href={contactConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{c.contact.whatsapp}</span>
+              <Arrow diagonal />
+            </a>
           </div>
-        </div>
-      </section>
-    </>
+          <div className="contact-note">
+            <h2 className="next-heading">{c.contact.next}</h2>
+            <p>{c.contact.nextText}</p>
+          </div>
+        </aside>
+      </div>
+    </div>
   );
 }

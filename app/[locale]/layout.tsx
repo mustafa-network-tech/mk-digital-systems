@@ -1,28 +1,24 @@
-import { notFound } from "next/navigation";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+﻿import { setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import { locales, type Locale } from "@/config/i18n";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { MobileWhatsAppFab } from "@/components/MobileWhatsAppFab";
-import { GlobalBlurBackground } from "@/components/GlobalBlurBackground";
-import { LocaleGuard } from "@/components/LocaleGuard";
-import type { Metadata } from "next";
-
+import type { Metadata, Viewport } from "next";
+import "../globals.css";
+import { locales } from "@/config/i18n";
+import { getContent } from "@/content/site";
+import { validLocale } from "@/lib/seo";
+import { Navigation } from "@/components/brand/Navigation";
+import { SiteFooter } from "@/components/brand/SiteFooter";
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  if (!locales.includes(locale as Locale)) return {};
-  const t = await getTranslations({ locale, namespace: "meta" });
-  return {
-    title: t("title"),
-    description: t("description"),
-  };
-}
-
+export const metadata: Metadata = {
+  icons: { icon: "/brand/icon-192.png", apple: "/apple-touch-icon.png" },
+  manifest: "/manifest.webmanifest",
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f5f4ef",
+};
 export default async function LocaleLayout({
   children,
   params,
@@ -30,22 +26,23 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-  if (!locales.includes(locale as Locale)) notFound();
+  const locale = validLocale((await params).locale);
   setRequestLocale(locale);
-
-  const messages = await getMessages({ locale });
-
+  const copy = getContent(locale);
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <LocaleGuard />
-      <GlobalBlurBackground />
-      <div className="relative flex min-h-screen flex-col">
-        <Header />
-        <main className="relative z-10 flex-1 pt-2">{children}</main>
-        <Footer />
-        <MobileWhatsAppFab />
-      </div>
-    </NextIntlClientProvider>
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={{}}>
+          <a href="#main" className="skip-link">
+            {copy.nav.skip}
+          </a>
+          <Navigation locale={locale} copy={copy.nav} />
+          <main id="main" tabIndex={-1}>
+            {children}
+          </main>
+          <SiteFooter locale={locale} copy={copy} />
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

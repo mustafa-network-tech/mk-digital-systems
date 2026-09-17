@@ -158,7 +158,7 @@ export function ProcessOrbitNeural({ locale }: Props) {
                   key={step.id}
                   type="button"
                   aria-label={step.title}
-                  aria-selected={isActive}
+                  aria-pressed={isActive}
                   aria-current={isActive ? "step" : undefined}
                   title={step.title}
                   className={`process-orbit-node pointer-events-auto absolute z-30 flex cursor-pointer -translate-x-1/2 -translate-y-1/2 items-center justify-center border text-center leading-tight transition-[background-color,border-color,box-shadow,transform] duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F14] ${isActive ? "is-active" : ""}`}
@@ -202,7 +202,7 @@ export function ProcessOrbitNeural({ locale }: Props) {
                 key={step.id}
                 type="button"
                 aria-current={activeId === step.id ? "step" : undefined}
-                aria-selected={activeId === step.id}
+                aria-pressed={activeId === step.id}
                 aria-label={step.title}
                 onClick={() => handleMobileChipClick(step.id)}
                 className={`process-mobile-chip w-full cursor-pointer rounded-full border font-medium text-[#E6EAF0] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 active:scale-[0.98] ${activeId === step.id ? "process-mobile-chip--active scale-[1.02]" : "hover:border-white/35 hover:bg-white/12"}`}
