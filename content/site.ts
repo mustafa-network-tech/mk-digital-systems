@@ -59,6 +59,8 @@ export type SiteContent = {
     all: string;
     explore: string;
     discuss: string;
+    live: string;
+    inquiry: string;
     problem: string;
     solution: string;
     experience: string;
@@ -103,6 +105,7 @@ export type SiteContent = {
     intro: string;
     direct: string;
     emailUs: string;
+    call: string;
     whatsapp: string;
     next: string;
     nextText: string;
@@ -137,6 +140,9 @@ export type SiteContent = {
     terms: string;
     copyright: string;
     top: string;
+    socialLabel: string;
+    socialProfile: string;
+    signature: string;
   };
   legal: {
     privacyTitle: string;

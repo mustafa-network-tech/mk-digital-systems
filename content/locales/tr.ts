@@ -63,8 +63,11 @@ const tr: SiteContent = {
     description:
       "Gerçek iş ihtiyaçlarını anlaşılır dijital deneyimlere dönüştüren ürünler ve örnek uygulamalar.",
     all: "Tüm çalışmaları keşfedin",
-    explore: "Projeyi keşfedin",
-    discuss: "Benzer bir projeyi konuşalım",
+    explore: "Çalışmayı incele",
+    discuss: "WhatsApp’tan bilgi al",
+    live: "Canlı sistemi incele",
+    inquiry:
+      "Merhaba, {project} benzeri bir çözüm hakkında bilgi almak istiyorum.",
     problem: "İhtiyaç",
     solution: "Yaklaşımımız",
     experience: "Bir araya getirdikleri",
@@ -271,14 +274,15 @@ const tr: SiteContent = {
     ],
   },
   contact: {
-    label: "PROJENİZİ KONUŞALIM",
+    label: "BİZE ULAŞIN",
     title: "İyi işler,\nbir konuşmayla başlar.",
     description:
       "Aklınızdakini anlatın. Bir fikir, çözülmesi gereken bir sorun ya da daha kolay yürüyebilecek bir iş.",
     intro: "Başlamak için birkaç ayrıntı yeterli.",
-    direct: "Doğrudan konuşmayı mı tercih edersiniz?",
-    emailUs: "Bize yazın",
-    whatsapp: "WhatsApp'tan konuşalım",
+    direct: "Size uygun yoldan ulaşın.",
+    call: "Ara",
+    emailUs: "E-posta gönder",
+    whatsapp: "WhatsApp’tan yaz",
     next: "Sonrasında ne oluyor?",
     nextText:
       "Talebinizi inceler, gerekli soruları sorar ve kapsamı birlikte belirlemeden önce uygun yaklaşımı konuşuruz.",
@@ -324,6 +328,11 @@ const tr: SiteContent = {
     terms: "Koşullar",
     copyright: "Tüm hakları saklıdır.",
     top: "Başa dön",
+    socialLabel: "Sosyal medya",
+    socialProfile:
+      "MK Digital Systems {platform} profili — yeni sekmede açılır",
+    signature:
+      "Mustafa Öner tarafından geliştirilen dijital ürünler ve özel yazılımlar",
   },
   legal: {
     privacyTitle: "Gizlilik bildirimi",
@@ -370,7 +379,7 @@ const tr: SiteContent = {
     home: {
       title: "MK Digital Systems | Web siteleri & özel işletme yazılımları",
       description:
-        "İşinizin çalışma biçimine göre tasarlanan dijital deneyimler ve işletme yazılımları. MK Digital Systems çalışmalarını keşfedin, projenizi konuşalım.",
+        "İşinizin çalışma biçimine göre tasarlanan dijital deneyimler ve işletme yazılımları. MK Digital Systems çalışmalarını keşfedin, ihtiyacınız için bize ulaşın.",
     },
     solutions: {
       title: "Çözümler | MK Digital Systems",
@@ -383,7 +392,7 @@ const tr: SiteContent = {
         "Saha operasyonları, konaklama, tarım, restoranlar ve dijital deneyimler için bağımsız ürünleri ve örnek uygulamaları keşfedin.",
     },
     contact: {
-      title: "Projenizi konuşalım | MK Digital Systems",
+      title: "İletişim | MK Digital Systems",
       description:
         "Fikrinizi veya işletmenizin ihtiyacını MK Digital Systems ile paylaşın. Kısa bir proje talebi gönderin ya da e-posta ve WhatsApp'tan ulaşın.",
     },

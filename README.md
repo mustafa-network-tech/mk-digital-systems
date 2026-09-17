@@ -37,3 +37,11 @@ See [redesign report](REDESIGN-REPORT.md) and [audit](REDESIGN.md).
 Home includes a compact three-category preview; Solutions includes the eight-level catalog at `#pricing`. `content/pricing.ts` is the single amount/market source; `content/pricing-copy.ts` contains all four localized narratives. All locales currently use the independently defined Turkish price book in TRY. Future market books can use EUR/USD without exchange-rate conversion. Contact URLs live in `lib/contact-config.ts`; `NEXT_PUBLIC_PHONE_NUMBER` optionally overrides the call number, otherwise the existing WhatsApp number is used.
 
 See [pricing implementation report](PRICING-REPORT.md).
+
+## Production contact details
+
+The central contact configuration defaults to `mkdigitalsystems@gmail.com` and `0545 659 75 51` (`+905456597551`). Privacy/terms email links, footer, Contact and Organization JSON-LD use that source. Update old deployment overrides for `NEXT_PUBLIC_CONTACT_EMAIL` and `MAIL_TO` before redeploying. Formspree recipients must be updated in the provider account separately; changing source code does not change the account's recipient. See [production cleanup report](PRODUCTION-CLEANUP-REPORT.md).
+
+## Footer social links
+
+Instagram (`@mk_digital.systems`) and TikTok (`@mk_digital_systems`) are configured in `lib/site-links.ts`. Only configured URLs render; add a verified Facebook URL there when available. The footer keeps its primary call/WhatsApp/email actions, small monochrome social icons, localized accessible labels and the mustafaoner.net creator credit. Social links open in a new tab. The requested map was cancelled and no map iframe or map configuration is included.

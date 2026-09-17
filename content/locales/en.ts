@@ -63,8 +63,11 @@ const en: SiteContent = {
     description:
       "Working products and demonstration projects that turn real business needs into clear digital experiences.",
     all: "Explore all work",
-    explore: "Explore project",
-    discuss: "Discuss a similar project",
+    explore: "Explore the work",
+    discuss: "Ask us on WhatsApp",
+    live: "Explore the live system",
+    inquiry:
+      "Hello, I would like information about a solution similar to {project}.",
     problem: "The need",
     solution: "Our approach",
     experience: "What it brings together",
@@ -274,9 +277,10 @@ const en: SiteContent = {
     description:
       "Tell us what you have in mind. A challenge, an idea, or a process that could work better.",
     intro: "A few details are enough to get started.",
-    direct: "Prefer a direct conversation?",
-    emailUs: "Write to us",
-    whatsapp: "Talk on WhatsApp",
+    direct: "Choose how to reach us.",
+    call: "Call us",
+    emailUs: "Send an email",
+    whatsapp: "Message on WhatsApp",
     next: "What happens next?",
     nextText:
       "We review your brief, ask the useful questions, and discuss an approach before defining the scope together.",
@@ -323,6 +327,9 @@ const en: SiteContent = {
     terms: "Terms",
     copyright: "All rights reserved.",
     top: "Back to top",
+    socialLabel: "Social media",
+    socialProfile: "MK Digital Systems on {platform} — opens in a new tab",
+    signature: "Digital products and custom software developed by Mustafa Öner",
   },
   legal: {
     privacyTitle: "Privacy notice",
@@ -369,7 +376,7 @@ const en: SiteContent = {
     home: {
       title: "MK Digital Systems | Websites & custom business software",
       description:
-        "Digital experiences and useful business software built around the way you work. Explore MK Digital Systems projects and start a conversation.",
+        "Digital experiences and useful business software built around the way you work. Explore MK Digital Systems projects and get in touch about your needs.",
     },
     solutions: {
       title: "Solutions | MK Digital Systems",
@@ -382,7 +389,7 @@ const en: SiteContent = {
         "Explore independent products and demos for field operations, hospitality, agriculture, restaurants and digital experiences.",
     },
     contact: {
-      title: "Start a project | MK Digital Systems",
+      title: "Contact | MK Digital Systems",
       description:
         "Share your idea or business challenge with MK Digital Systems. Send a short project brief or contact us by email and WhatsApp.",
     },

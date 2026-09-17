@@ -1384,6 +1384,60 @@ img {
   border-radius: 5px;
 }
 /* Signature closing */
+.footer-signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 24px 0;
+}
+.footer-socials {
+  display: flex;
+  gap: 8px;
+}
+.footer-socials > a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
+  border-radius: 50%;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+.footer-socials > a:hover {
+  color: var(--blue);
+  background: #244de008;
+  box-shadow: 0 0 12px #244de014;
+}
+.footer-signature > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0;
+}
+.footer-signature > p a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.footer-signature > p a:hover {
+  color: var(--blue);
+}
+.footer-signature > p a svg {
+  width: 15px;
+  height: 15px;
+}
+@media (max-width: 767px) {
+  .footer-signature > p {
+    max-width: 48ch;
+  }
+}
 .site-footer {
   background: #e9eae2;
   padding: 70px 0 24px;
@@ -1399,6 +1453,41 @@ img {
 .footer-invitation h2 {
   font-size: clamp(38px, 5.2vw, 76px);
   margin-top: 24px;
+}
+.footer-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  max-width: 420px;
+  flex: 0 1 420px;
+}
+.footer-contact-actions .button {
+  width: 100%;
+  justify-content: space-between;
+}
+.footer-contact-actions > a {
+  min-height: 48px;
+}
+@media (max-width: 767px) {
+  .footer-contact-actions {
+    flex: none;
+    max-width: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .footer-contact-actions .button {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .footer-contact-actions .text-link {
+    justify-content: space-between;
+  }
+  .contact-aside {
+    order: -1;
+  }
 }
 .footer-cta {
   display: flex;
@@ -2499,8 +2588,14 @@ img {
 .pricing-preview .pricing-amount {
   margin: 20px 0 0;
 }
-.pricing-preview .pricing-amount strong, .pricing-preview .pricing-amount > span { display: block; }
-.pricing-preview .pricing-amount > span { font-size: 12px; margin-top: 4px; }
+.pricing-preview .pricing-amount strong,
+.pricing-preview .pricing-amount > span {
+  display: block;
+}
+.pricing-preview .pricing-amount > span {
+  font-size: 12px;
+  margin-top: 4px;
+}
 .pricing-contact {
   display: flex;
   justify-content: space-between;

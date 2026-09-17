@@ -63,8 +63,11 @@ const fr: SiteContent = {
     description:
       "Des produits et démonstrations qui transforment des besoins concrets en expériences numériques claires.",
     all: "Découvrir tous les projets",
-    explore: "Explorer le projet",
-    discuss: "Parlons d'un projet similaire",
+    explore: "Découvrir la réalisation",
+    discuss: "Se renseigner sur WhatsApp",
+    live: "Découvrir le système en ligne",
+    inquiry:
+      "Bonjour, je souhaite des informations sur une solution similaire à {project}.",
     problem: "Le besoin",
     solution: "Notre approche",
     experience: "Ce qui se rassemble",
@@ -287,9 +290,10 @@ const fr: SiteContent = {
     description:
       "Parlez-nous d'une idée, d'un défi ou d'un processus qui pourrait être plus simple.",
     intro: "Quelques détails suffisent pour commencer.",
-    direct: "Vous préférez un échange direct ?",
-    emailUs: "Écrivez-nous",
-    whatsapp: "Échanger sur WhatsApp",
+    direct: "Choisissez votre moyen de contact.",
+    call: "Appeler",
+    emailUs: "Envoyer un e-mail",
+    whatsapp: "Écrire sur WhatsApp",
     next: "Et ensuite ?",
     nextText:
       "Nous lisons votre demande, posons les questions utiles et discutons d'une approche avant de définir ensemble le périmètre.",
@@ -336,6 +340,11 @@ const fr: SiteContent = {
     terms: "Conditions",
     copyright: "Tous droits réservés.",
     top: "Retour en haut",
+    socialLabel: "Réseaux sociaux",
+    socialProfile:
+      "MK Digital Systems sur {platform} — s’ouvre dans un nouvel onglet",
+    signature:
+      "Produits numériques et logiciels sur mesure développés par Mustafa Öner",
   },
   legal: {
     privacyTitle: "Notice de confidentialité",
@@ -395,7 +404,7 @@ const fr: SiteContent = {
         "Explorez nos produits indépendants et démos pour le terrain, l'hébergement, l'agriculture, la restauration et les expériences numériques.",
     },
     contact: {
-      title: "Démarrer un projet | MK Digital Systems",
+      title: "Contact | MK Digital Systems",
       description:
         "Partagez votre idée ou défi métier avec MK Digital Systems. Envoyez une demande courte ou contactez-nous par e-mail et WhatsApp.",
     },

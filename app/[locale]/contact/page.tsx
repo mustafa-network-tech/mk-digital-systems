@@ -42,8 +42,8 @@ export default async function Contact({ params, searchParams }: Props) {
           <div className="contact-channels">
             <a href={contactConfig.phoneHref}>
               <div>
-                <span>{c.pricing.call}</span>
-                <small>{contactConfig.phone}</small>
+                <span>{c.contact.call}</span>
+                <small>{contactConfig.phoneDisplay}</small>
               </div>
               <Arrow diagonal />
             </a>

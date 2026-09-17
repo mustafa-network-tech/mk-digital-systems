@@ -1,7 +1,8 @@
 ﻿import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { validateBrief } from "@/lib/contact-validation";
-const MAIL_TO = process.env.MAIL_TO || "mkdigitalsystems@hotmail.com";
+import { contactConfig } from "@/lib/contact-config";
+const MAIL_TO = process.env.MAIL_TO || contactConfig.email;
 const RATE_LIMIT_MS = 60_000;
 // Per-instance abuse guard. Use a shared rate limiter for multi-instance production traffic.
 const rateLimitMap = new Map<string, number>();

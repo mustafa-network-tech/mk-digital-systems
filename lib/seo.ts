@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/config/i18n";
 import { getContent } from "@/content/site";
-import { CONTACT_EMAIL } from "@/lib/constants";
+import { contactConfig } from "@/lib/contact-config";
 import {
   SITE_URL,
   isIndexable,
@@ -57,7 +57,8 @@ export function pageSchema(locale: Locale, page: PageKey) {
       "@id": orgId,
       name: "MK Digital Systems",
       url: SITE_URL,
-      email: CONTACT_EMAIL,
+      email: contactConfig.email,
+      telephone: contactConfig.phone,
       logo: `${SITE_URL}/brand/icon-512.png`,
       description: c.footer.description,
     },

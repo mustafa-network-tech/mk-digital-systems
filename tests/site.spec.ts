@@ -286,6 +286,7 @@ test("WCAG accessibility checks on primary pages and the mobile menu", async ({
 }) => {
   for (const suffix of pages) {
     await page.goto(`/en${suffix}`);
+    if (!suffix) await expect(page.locator(".need-content")).toHaveCSS("opacity", "1");
     const result = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();

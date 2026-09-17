@@ -5,6 +5,7 @@ import type { SiteContent } from "@/content/site";
 import { projectStatus } from "@/content/project-stories";
 import { ProjectScene } from "./ProjectScene";
 import { Arrow } from "./Arrow";
+import { whatsappInquiry } from "@/lib/contact-config";
 export function ProjectStory({
   project,
   copy,
@@ -20,6 +21,7 @@ export function ProjectStory({
 }) {
   const story = copy.stories[project.id];
   const Heading = full ? "h2" : "h3";
+  const exploreLabel = project.status === "active" ? copy.live : copy.explore;
   return (
     <article
       id={project.id}
@@ -66,20 +68,24 @@ export function ProjectStory({
               target="_blank"
               rel="noopener noreferrer"
               className="text-link"
-              aria-label={`${copy.explore} — ${story.name || project.name}`}
+              aria-label={`${exploreLabel} — ${story.name || project.name}`}
             >
-              {copy.explore}
+              {exploreLabel}
               <Arrow diagonal />
             </a>
           ) : (
-            <Link
+            <a
               className="text-link"
-              href={`/contact?project=${project.id}`}
+              href={whatsappInquiry(
+                copy.inquiry.replace("{project}", story.name || project.name),
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={`${copy.discuss} — ${story.name || project.name}`}
             >
               {copy.discuss}
               <Arrow diagonal />
-            </Link>
+            </a>
           )}
           {!full && (
             <Link

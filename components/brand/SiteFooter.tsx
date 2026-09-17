@@ -2,9 +2,10 @@ import { Link } from "@/config/navigation";
 import { type Locale } from "@/config/i18n";
 import { LocaleLinks } from "./LocaleLinks";
 import type { SiteContent } from "@/content/site";
-import { CONTACT_EMAIL } from "@/lib/constants";
 import { contactConfig } from "@/lib/contact-config";
 import { Arrow } from "./Arrow";
+import { SocialIcon } from "./SocialIcon";
+import { socialLinks, siteLinks } from "@/lib/site-links";
 export function SiteFooter({
   locale,
   copy,
@@ -20,17 +21,25 @@ export function SiteFooter({
             <p className="eyebrow">{copy.footer.label}</p>
             <h2>{copy.footer.title}</h2>
           </div>
-          <a
-            href={contactConfig.whatsappHref}
-            className="footer-cta"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>{copy.footer.cta}</span>
-            <span className="cta-circle">
+          <div className="footer-contact-actions">
+            <a className="text-link" href={contactConfig.phoneHref}>
+              {copy.contact.call}
               <Arrow diagonal />
-            </span>
-          </a>
+            </a>
+            <a
+              className="button"
+              href={contactConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {copy.contact.whatsapp}
+              <Arrow diagonal />
+            </a>
+            <a className="text-link" href={contactConfig.emailHref}>
+              {copy.contact.emailUs}
+              <Arrow diagonal />
+            </a>
+          </div>
         </div>
         <div className="footer-mid">
           <p>{copy.footer.description}</p>
@@ -39,8 +48,8 @@ export function SiteFooter({
             <Link href="/work">{copy.nav.work}</Link>
             <Link href="/contact">{copy.nav.contact}</Link>
           </nav>
-          <a className="footer-email" href={`mailto:${CONTACT_EMAIL}`}>
-            {CONTACT_EMAIL}
+          <a className="footer-email" href={contactConfig.emailHref}>
+            {contactConfig.email}
             <Arrow diagonal />
           </a>
         </div>
@@ -52,6 +61,38 @@ export function SiteFooter({
               ✳
             </span>
           </span>
+        </div>
+        <div className="footer-signature">
+          <nav className="footer-socials" aria-label={copy.footer.socialLabel}>
+            {socialLinks
+              .filter((link) => link.url)
+              .map((link) => (
+                <a
+                  key={link.platform}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={copy.footer.socialProfile.replace(
+                    "{platform}",
+                    link.name,
+                  )}
+                >
+                  <SocialIcon platform={link.platform} />
+                </a>
+              ))}
+          </nav>
+          <p>
+            {copy.footer.signature}
+            <span aria-hidden="true"> · </span>
+            <a
+              href={siteLinks.creator}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {siteLinks.creatorLabel}
+              <Arrow diagonal />
+            </a>
+          </p>
         </div>
         <div className="footer-bottom">
           <p>

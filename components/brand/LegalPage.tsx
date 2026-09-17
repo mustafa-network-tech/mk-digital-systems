@@ -1,5 +1,5 @@
 import type { SiteContent } from "@/content/site";
-import { CONTACT_EMAIL } from "@/lib/constants";
+import { contactConfig } from "@/lib/contact-config";
 import { PageIntro } from "./PageIntro";
 export function LegalPage({
   copy,
@@ -29,8 +29,8 @@ export function LegalPage({
           </section>
         ))}
         <p>{copy.legal.updated}</p>
-        <a className="text-link" href={`mailto:${CONTACT_EMAIL}`}>
-          {CONTACT_EMAIL}
+        <a className="text-link" href={contactConfig.emailHref}>
+          {contactConfig.email}
         </a>
       </div>
     </>

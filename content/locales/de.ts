@@ -63,8 +63,11 @@ const de: SiteContent = {
     description:
       "Digitale Produkte und Demonstrationsprojekte, die konkrete Bedürfnisse in verständliche Erlebnisse übersetzen.",
     all: "Alle Projekte entdecken",
-    explore: "Projekt entdecken",
-    discuss: "Ein ähnliches Projekt besprechen",
+    explore: "Die Arbeit ansehen",
+    discuss: "Informationen per WhatsApp",
+    live: "Das Live-System ansehen",
+    inquiry:
+      "Guten Tag, ich möchte Informationen zu einer Lösung ähnlich wie {project} erhalten.",
     problem: "Der Bedarf",
     solution: "Unser Ansatz",
     experience: "Was zusammenkommt",
@@ -279,9 +282,10 @@ const de: SiteContent = {
     description:
       "Erzählen Sie uns von Ihrer Idee, einer Herausforderung oder einem Ablauf, der leichter werden könnte.",
     intro: "Ein paar Details reichen für den Anfang.",
-    direct: "Lieber direkt miteinander sprechen?",
-    emailUs: "Schreiben Sie uns",
-    whatsapp: "Auf WhatsApp sprechen",
+    direct: "Wählen Sie Ihren Kontaktweg.",
+    call: "Anrufen",
+    emailUs: "E-Mail senden",
+    whatsapp: "Per WhatsApp schreiben",
     next: "Was passiert danach?",
     nextText:
       "Wir lesen Ihre Anfrage, stellen die hilfreichen Fragen und besprechen einen Ansatz, bevor wir gemeinsam den Umfang festlegen.",
@@ -328,6 +332,9 @@ const de: SiteContent = {
     terms: "Bedingungen",
     copyright: "Alle Rechte vorbehalten.",
     top: "Nach oben",
+    socialLabel: "Soziale Medien",
+    socialProfile: "MK Digital Systems auf {platform} — öffnet einen neuen Tab",
+    signature: "Digitale Produkte und individuelle Software von Mustafa Öner",
   },
   legal: {
     privacyTitle: "Datenschutzhinweis",
@@ -388,7 +395,7 @@ const de: SiteContent = {
         "Eigenständige Produkte und Demos für Außendienst, Beherbergung, Landwirtschaft, Gastronomie und digitale Erlebnisse.",
     },
     contact: {
-      title: "Projekt besprechen | MK Digital Systems",
+      title: "Kontakt | MK Digital Systems",
       description:
         "Teilen Sie Ihre Idee oder betriebliche Herausforderung mit MK Digital Systems. Senden Sie eine kurze Anfrage oder schreiben Sie per E-Mail und WhatsApp.",
     },
