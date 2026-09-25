@@ -205,6 +205,13 @@ test("safe preview indexing, OG cards, legal routes and legacy redirects", async
   }
   expect((await request.get("/en/does-not-exist")).status()).toBe(404);
 });
+test("root opens Turkish regardless of browser language", async ({ request }) => {
+  for (const lang of ["en-US,en;q=0.9", "de-DE", "fr-FR", "tr-TR"]) {
+    const r = await request.get("/", { maxRedirects: 0, headers: { "accept-language": lang } });
+    expect([307, 308]).toContain(r.status());
+    expect(new URL(r.headers().location, "http://x").pathname).toBe("/tr");
+  }
+});
 test("API validation rejects malformed types, missing consent and oversized briefs before delivery", async ({
   request,
 }) => {
@@ -326,19 +333,19 @@ test("configured production sitemap and preview exclusion", () => {
     return compiledModule.exports;
   }
   const env = {SITE_URL: "https://agency.example", VERCEL_ENV: "production"};
-  const config = load("lib/site-config.ts", {"@/config/i18n": {locales}}, env);
-  const sitemap = load("app/sitemap.ts", {"@/config/i18n": {locales}, "@/lib/site-config": config}, env).default();
+  const config = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}}, env);
+  const sitemap = load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config}, env).default();
   expect(sitemap).toHaveLength(24);
   expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24);
   for (const entry of sitemap) {
     expect(entry.url).toMatch(/^https:\/\/agency\.example\/(tr|en|de|fr)(\/|$)/);
     expect(Object.keys(entry.alternates.languages)).toHaveLength(5);
-    expect(entry.alternates.languages["x-default"]).toContain("/en");
+    expect(entry.alternates.languages["x-default"]).toContain("/tr");
   }
   const robots = load("app/robots.ts", {"@/lib/site-config": config}, env).default();
   expect(robots.sitemap).toBe("https://agency.example/sitemap.xml");
   const previewEnv = {...env, VERCEL_ENV: "preview"};
-  const preview = load("lib/site-config.ts", {"@/config/i18n": {locales}}, previewEnv);
+  const preview = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}}, previewEnv);
   expect(preview.isIndexable).toBe(false);
-  expect(load("app/sitemap.ts", {"@/config/i18n": {locales}, "@/lib/site-config": preview}, previewEnv).default()).toEqual([]);
+  expect(load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": preview}, previewEnv).default()).toEqual([]);
 });

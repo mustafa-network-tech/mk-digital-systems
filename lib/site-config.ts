@@ -1,4 +1,4 @@
-import { locales, type Locale } from "@/config/i18n";
+import { defaultLocale, locales, type Locale } from "@/config/i18n";
 export const configuredSiteUrl = process.env.SITE_URL?.trim();
 function origin(value: string): string {
   const url = new URL(value);
@@ -35,6 +35,6 @@ export function languageAlternates(page: PageKey) {
     ...Object.fromEntries(
       locales.map((locale) => [locale, pageUrl(locale, page)]),
     ),
-    "x-default": pageUrl("en", page),
+    "x-default": pageUrl(defaultLocale, page),
   };
 }

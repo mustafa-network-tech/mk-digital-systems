@@ -3,7 +3,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "MK Digital Systems",
     short_name: "MK Digital",
-    start_url: "/en",
+    start_url: "/tr",
     display: "browser",
     background_color: "#f5f4ef",
     theme_color: "#244de0",

@@ -56,7 +56,7 @@ for (const locale of locales) {
       for (const alternate of [...locales,"x-default"]) {
         const href = (await page.locator(`link[rel="alternate"][hreflang="${alternate}"]`).getAttribute("href"))!;
         expect(new URL(href).origin).toBe(canonical.origin);
-        expect(new URL(href).pathname).toBe(`/${alternate === "x-default" ? "en" : alternate}${path}`);
+        expect(new URL(href).pathname).toBe(`/${alternate === "x-default" ? "tr" : alternate}${path}`);
       }
       await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content",canonical.href);
       await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
