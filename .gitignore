@@ -25,3 +25,6 @@ test-results/
 artifacts/qa/
 artifacts/source/
 source-*.html
+
+# TypeScript incremental build info
+*.tsbuildinfo

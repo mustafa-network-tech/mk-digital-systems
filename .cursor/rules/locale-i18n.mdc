@@ -1,22 +1,22 @@
 ---
-description: Site-wide locale rule: TR = only Turkish, EN = only English
+description: Site-wide locale rule: every locale (tr, en, de, fr) shows only its own language
 alwaysApply: true
 ---
 
 # Locale / Dil Kuralı
 
-- **TR** seçiliyken sitede ve tüm sayfalarda **sadece Türkçe** metin gösterilir.
-- **EN** seçiliyken sitede ve tüm sayfalarda **sadece İngilizce** metin gösterilir.
-- Türkçe ve İngilizce asla aynı sayfada karıştırılmaz.
+- Site dört dilde yayınlanır: **tr** (varsayılan), **en**, **de**, **fr**.
+- Seçili dildeki sayfada yalnızca o dilin metni gösterilir; diller asla aynı sayfada karıştırılmaz.
 
 ## Uygulama
 
-1. **Arayüz metinleri**: Tüm kullanıcıya görünen metinler `messages/tr.json` ve `messages/en.json` üzerinden gelmeli; `getTranslations` / `useTranslations` kullan, sabit (hardcoded) dil metni yazma.
-2. **Veri (servisler, projeler)**: `lib/services.ts` ve `lib/projects.ts` içinde her metin için `titleTr`/`titleEn`, `descTr`/`descEn`, `summaryTr`/`summaryEn`, `detailTr`/`detailEn` kullan. Sayfalarda mutlaka `const isTr = locale === "tr"` ile seç: `isTr ? x.titleTr : x.titleEn`.
-3. **Metadata**: Sayfa başlığı ve açıklama locale’e göre `messages` içindeki `meta.title` ve `meta.description` ile ayarlanmalı (`generateMetadata` ile).
-4. **HTML lang**: Root layout’ta `<html lang={...}>` değeri `X-NEXT-INTL-LOCALE` header’ına göre `tr` veya `en` olmalı.
+1. **Arayüz metinleri**: Kullanıcıya görünen bütün metinler `content/locales/{tr,en,de,fr}.ts` dosyalarından `getContent(locale)` ile gelir. Bileşenlere sabit (hardcoded) dil metni yazma.
+2. **Proje verisi**: Projelerin olgusal bilgileri (katman, durum, bağlantılar, hizmetler, sektörler) `content/projects.ts` içindedir; proje metinleri proje kimliğine bağlı olarak dil başına tutulur. Başka bir proje listesi oluşturma.
+3. **Fiyatlar**: `content/pricing.ts` (fiyat defteri) ve `content/pricing-copy.ts` (metinler).
+4. **Metadata**: `lib/seo.ts` içindeki `pageMetadata` / `pageSchema` kullanılır; canonical ve hreflang `lib/site-config.ts` üzerinden üretilir.
+5. **HTML lang**: `app/[locale]/layout.tsx` içinde `<html lang={locale}>`.
 
 ## Yeni sayfa / bileşen eklerken
 
-- Metin için çeviri anahtarı ekle: hem `messages/tr.json` hem `messages/en.json`.
-- Veri listesi ekliyorsan her dil için alan tanımla (…Tr / …En) ve sayfada locale’e göre doğru alanı kullan.
+- Yeni metin anahtarını dört dilin hepsine ekle (`SiteContent` tipi eksik anahtarı derleme hatası olarak yakalar).
+- Arayüzü en uzun metinler çıkan **Almanca** ile kontrol et.
