@@ -3,18 +3,9 @@ import en from "./locales/en";
 import tr from "./locales/tr";
 import de from "./locales/de";
 import fr from "./locales/fr";
-import { additionalStories } from "./project-stories";
 import { pricingCopy, type PricingCopy } from "./pricing-copy";
+import type { ProjectLink, ProjectStatus } from "./projects";
 
-export type StoryCopy = {
-  name?: string;
-  industry: string;
-  headline: string;
-  problem: string;
-  solution: string;
-  features: string[];
-  alt: string;
-};
 export type SiteContent = {
   nav: {
     home: string;
@@ -57,17 +48,14 @@ export type SiteContent = {
     title: string;
     description: string;
     all: string;
-    explore: string;
     discuss: string;
-    live: string;
     inquiry: string;
     problem: string;
     solution: string;
     experience: string;
-    demo: string;
-    project: string;
     diagram: string;
-    stories: Record<string, StoryCopy>;
+    statuses: Record<ProjectStatus, string>;
+    linkLabels: Record<ProjectLink["kind"], string>;
   };
   solutions: {
     label: string;
@@ -83,7 +71,6 @@ export type SiteContent = {
       description: string;
       for: string;
       features: string[];
-      project: string;
     }[];
   };
   process: {
@@ -165,26 +152,5 @@ export function getContent(
   locale: Locale,
 ): SiteContent & { pricing: PricingCopy } {
   const content = dictionaries[locale];
-  return {
-    ...content,
-    pricing: pricingCopy[locale],
-    work: {
-      ...content.work,
-      stories: {
-        ...content.work.stories,
-        ...additionalStories[locale],
-        santiye: {
-          ...content.work.stories.santiye,
-          name: (
-            {
-              en: "Construction Management",
-              tr: "Şantiye Yönetim Sistemi",
-              de: "Baustellenmanagement",
-              fr: "Gestion de chantier",
-            } as const
-          )[locale],
-        },
-      },
-    },
-  };
+  return { ...content, pricing: pricingCopy[locale] };
 }

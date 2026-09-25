@@ -63,106 +63,23 @@ const en: SiteContent = {
     description:
       "Working products and demonstration projects that turn real business needs into clear digital experiences.",
     all: "Explore all work",
-    explore: "Explore the work",
     discuss: "Ask us on WhatsApp",
-    live: "Explore the live system",
     inquiry:
       "Hello, I would like information about a solution similar to {project}.",
     problem: "The need",
     solution: "Our approach",
     experience: "What it brings together",
-    demo: "Demonstration project",
-    project: "Independent project",
     diagram: "WORKFLOW OVERVIEW",
-    stories: {
-      "mk-ops": {
-        industry: "FIELD OPERATIONS",
-        headline: "Keep the field and the office on the same page.",
-        problem:
-          "Jobs, teams and inventory need a shared view, beyond disconnected messages and spreadsheets.",
-        solution:
-          "A central workspace for work tracking, projects, inventory and role-based access.",
-        features: [
-          "Work tracking",
-          "Team coordination",
-          "Inventory visibility",
-        ],
-        alt: "Existing MK Ops website showing its field operations product",
-      },
-      "mavi-resepsiyon": {
-        industry: "HOSPITALITY",
-        headline: "A calmer day at reception.",
-        problem:
-          "Reservations, room status and payments are all part of the same guest experience.",
-        solution:
-          "A hotel operations demo connecting room planning, check-in, collections and management views.",
-        features: ["Room planning", "Guest arrivals", "Payments & records"],
-        alt: "Workflow connecting room planning, guest arrivals and payments",
-      },
-      "mk-farm": {
-        industry: "AGRICULTURE",
-        headline: "Every animal. A clearer picture.",
-        problem:
-          "Individual animal records need to stay connected to everyday farm work.",
-        solution:
-          "A farm management application bringing QR identity, weighing and health history together.",
-        features: ["QR identity", "Weight history", "Health records"],
-        alt: "Actual MK Farm overview",
-      },
-      "mavi-adisyon": {
-        industry: "RESTAURANTS",
-        headline: "From the first order to the final bill.",
-        problem:
-          "Waiters, kitchen staff and cashiers need to follow the same order journey.",
-        solution:
-          "A restaurant demo with coordinated waiter, kitchen, cashier and management views.",
-        features: ["Waiter", "Kitchen", "Cashier", "Management"],
-        alt: "Restaurant workflow from waiter to kitchen, cashier and management",
-      },
-      "mavi-kadraj": {
-        industry: "PHOTOGRAPHY & CONTENT",
-        headline: "Give visual stories room to breathe.",
-        problem:
-          "Photography needs an organized home that makes images and stories easy to discover.",
-        solution:
-          "A photography platform combining galleries, travel writing and manageable content.",
-        features: [
-          "Photo galleries",
-          "Visual storytelling",
-          "Content publishing",
-        ],
-        alt: "Existing Mavi Kadraj photography website with its actual photographs",
-      },
-      namehub: {
-        industry: "DIGITAL PRESENCE",
-        headline: "A clear digital introduction.",
-        problem:
-          "A business website needs to bring its identity and offering into one accessible experience.",
-        solution:
-          "A website project with a clear content structure and a responsive digital presence.",
-        features: ["Brand expression", "Clear navigation", "Mobile experience"],
-        alt: "Existing Namehub.tr website capture",
-      },
-      santiye: {
-        industry: "CONSTRUCTION & FIELD WORK",
-        headline: "See what is moving. Know what is waiting.",
-        problem:
-          "Project stages, locations and pending work are difficult to track in separate records.",
-        solution:
-          "A construction tracking system organizing project stages, status and searchable records.",
-        features: ["Project stages", "Status tracking", "Searchable records"],
-        alt: "Actual construction-management dashboard",
-      },
-      "mk-skor": {
-        industry: "ASSESSMENT & ANALYSIS",
-        headline: "Make performance easier to understand.",
-        problem:
-          "Tests and measurements need context across time, beyond a single result.",
-        solution:
-          "An assessment product combining tests, time-based evaluation and statistical reporting.",
-        features: ["Assessments", "Progress tracking", "Statistical reports"],
-        alt: "Assessment workflow connecting tests, progress and reports",
-      },
+    statuses: {
+      "live-demo": "Live demo",
+      "closed-test": "Closed testing",
+      "sample-site": "Sample site",
+      "in-use": "In active use",
+    },
+    linkLabels: {
+      demo: "Open live demo",
+      product: "Product website",
+      site: "Visit site",
     },
   },
   solutions: {
@@ -186,7 +103,6 @@ const en: SiteContent = {
           "Content & discovery platforms",
           "Customer inquiry journeys",
         ],
-        project: "mavi-kadraj-otel",
       },
       {
         id: "custom",
@@ -199,7 +115,6 @@ const en: SiteContent = {
           "Digital products & first versions",
           "Connected tools & automations",
         ],
-        project: "mk-traceops",
       },
       {
         id: "business",
@@ -212,7 +127,6 @@ const en: SiteContent = {
           "Reservations, orders & records",
           "Management views & reporting",
         ],
-        project: "mavi-resepsiyon",
       },
       {
         id: "smart",
@@ -225,7 +139,6 @@ const en: SiteContent = {
           "Assisted customer journeys",
           "Practical automation prototypes",
         ],
-        project: "",
       },
     ],
   },

@@ -1,61 +1,68 @@
 import Image from "next/image";
 import { Arrow } from "./Arrow";
-import type { ProjectRecord } from "@/content/projects";
-import type { StoryCopy } from "@/content/site";
+import type { Project } from "@/content/projects";
+import type { ProjectCopy } from "@/content/project-copy";
+
+const glyph = (project: Project) =>
+  project.sectors.includes("hospitality")
+    ? "⌑"
+    : project.sectors.includes("restaurant")
+      ? "✳"
+      : "◇";
+
 export function ProjectScene({
   project,
   story,
   diagramLabel,
   priority = false,
 }: {
-  project: ProjectRecord;
-  story: StoryCopy;
+  project: Project;
+  story: ProjectCopy;
   diagramLabel: string;
   priority?: boolean;
 }) {
+  const name = story.name || project.name;
+  const media = project.media;
+  const steps = story.modules ?? [];
   return (
     <div
-      className={`project-scene scene-${project.scene} scene-${project.kind} ${project.image ? "has-image" : ""}`}
+      className={`project-scene scene-${project.scene} ${media ? `has-image scene-${media.frame}` : ""}`}
     >
       <div className="scene-top">
-        <span>{story.name || project.name}</span>
+        <span>{name}</span>
         <span className="scene-glyph" aria-hidden="true">
           ↗
         </span>
       </div>
-      {project.image ? (
+      {media ? (
         <div className="real-interface">
           <div className="interface-chrome" aria-hidden="true">
             <i />
             <i />
             <i />
-            <span>{story.name || project.name}</span>
+            <span>{name}</span>
           </div>
           <div className="interface-image">
             <Image
-              src={project.image}
-              alt={story.alt}
+              src={media.src}
+              alt={story.alt ?? name}
               fill
               sizes="(max-width: 767px) 90vw, (max-width: 1100px) 80vw, 680px"
               priority={priority}
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: media.frame === "phone" ? "contain" : "cover" }}
             />
           </div>
         </div>
       ) : (
         <div className="workflow-scene">
           <span className="workflow-symbol" aria-hidden="true">
-            {project.kind === "hotel"
-              ? "⌑"
-              : project.kind === "restaurant"
-                ? "✳"
-                : "◇"}
+            {glyph(project)}
           </span>
           <div className="workflow-steps">
-            {story.features.map((feature, i) => (
-              <div key={feature}>
-                <span>{feature}</span>
-                {i < story.features.length - 1 && <Arrow />}
+            {steps.map((step, i) => (
+              <div key={step}>
+                <span>{step}</span>
+                {i < steps.length - 1 && <Arrow />}
               </div>
             ))}
           </div>

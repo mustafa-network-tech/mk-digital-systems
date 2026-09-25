@@ -63,106 +63,23 @@ const tr: SiteContent = {
     description:
       "Gerçek iş ihtiyaçlarını anlaşılır dijital deneyimlere dönüştüren ürünler ve örnek uygulamalar.",
     all: "Tüm çalışmaları keşfedin",
-    explore: "Çalışmayı incele",
     discuss: "WhatsApp’tan bilgi al",
-    live: "Canlı sistemi incele",
     inquiry:
       "Merhaba, {project} benzeri bir çözüm hakkında bilgi almak istiyorum.",
     problem: "İhtiyaç",
     solution: "Yaklaşımımız",
     experience: "Bir araya getirdikleri",
-    demo: "Örnek uygulama",
-    project: "Bağımsız proje",
     diagram: "İŞ AKIŞINA GENEL BAKIŞ",
-    stories: {
-      "mk-ops": {
-        industry: "SAHA OPERASYONLARI",
-        headline: "Saha ve ofis aynı işin içinde.",
-        problem:
-          "İşlerin, ekiplerin ve stokların ayrı mesajlar ve tablolar yerine ortak bir görünümde izlenmesi gerekir.",
-        solution:
-          "İş takibi, proje yönetimi, envanter ve görev bazlı erişimi bir araya getiren çalışma alanı.",
-        features: ["İş takibi", "Ekip koordinasyonu", "Envanter görünürlüğü"],
-        alt: "MK Ops saha operasyonları ürününün mevcut web sitesi görüntüsü",
-      },
-      "mavi-resepsiyon": {
-        industry: "KONAKLAMA",
-        headline: "Resepsiyonda daha sakin bir gün.",
-        problem:
-          "Rezervasyonlar, oda durumu ve tahsilatlar aynı misafir deneyiminin parçalarıdır.",
-        solution:
-          "Oda planı, giriş işlemleri, tahsilat ve yönetim ekranlarını bağlayan otel operasyon demosu.",
-        features: ["Oda planı", "Misafir girişi", "Tahsilat & kayıtlar"],
-        alt: "Oda planı, misafir girişi ve tahsilatı bağlayan iş akışı",
-      },
-      "mk-farm": {
-        industry: "TARIM & HAYVANCILIK",
-        headline: "Her hayvan için daha net bir kayıt.",
-        problem:
-          "Hayvanların bireysel kayıtları, çiftliğin günlük işleriyle birlikte takip edilebilmelidir.",
-        solution:
-          "QR kimlik, tartım ve sağlık geçmişini bir araya getiren çiftlik yönetim uygulaması.",
-        features: ["QR kimlik", "Kilo geçmişi", "Sağlık kayıtları"],
-        alt: "MK Farm uygulamasının gerçek genel bakış ekranı",
-      },
-      "mavi-adisyon": {
-        industry: "RESTORANLAR",
-        headline: "İlk siparişten hesabın kapanışına.",
-        problem:
-          "Garson, mutfak ve kasa aynı siparişin hangi aşamada olduğunu görebilmelidir.",
-        solution:
-          "Garson, mutfak, kasa ve yönetim ekranlarını ortak akışta birleştiren restoran demosu.",
-        features: ["Garson", "Mutfak", "Kasa", "Yönetim"],
-        alt: "Garson, mutfak, kasa ve yönetim arasındaki restoran iş akışı",
-      },
-      "mavi-kadraj": {
-        industry: "FOTOĞRAF & İÇERİK",
-        headline: "Görsel hikâyelere alan açın.",
-        problem:
-          "Fotoğraflar ve hikâyeler, kolay keşfedilebilecekleri düzenli bir dijital alana ihtiyaç duyar.",
-        solution:
-          "Galerileri, gezi yazılarını ve içerik yönetimini bir araya getiren fotoğraf platformu.",
-        features: [
-          "Fotoğraf galerileri",
-          "Görsel hikâyeler",
-          "İçerik yayınlama",
-        ],
-        alt: "Mavi Kadraj fotoğraf sitesinin gerçek fotoğraflarıyla mevcut ekran görüntüsü",
-      },
-      namehub: {
-        industry: "DİJİTAL VARLIK",
-        headline: "İşinizi anlaşılır biçimde tanıtın.",
-        problem:
-          "Bir web sitesi, markanın kimliğini ve sunduklarını kolay kullanılan bir deneyimde birleştirmelidir.",
-        solution:
-          "Açık içerik yapısı ve farklı ekranlara uyumlu dijital varlık sunan web sitesi projesi.",
-        features: ["Marka anlatımı", "Kolay gezinme", "Mobil deneyim"],
-        alt: "Namehub.tr web sitesinin mevcut ekran görüntüsü",
-      },
-      santiye: {
-        industry: "İNŞAAT & SAHA İŞLERİ",
-        headline: "Neyin ilerlediğini, neyin beklediğini görün.",
-        problem:
-          "Proje aşamaları, konumlar ve bekleyen işler ayrı kayıtlarda kolayca kaybolur.",
-        solution:
-          "Proje aşamalarını, durumları ve aranabilir kayıtları düzenleyen şantiye takip sistemi.",
-        features: ["Proje aşamaları", "Durum takibi", "Aranabilir kayıtlar"],
-        alt: "Şantiye yönetim uygulamasının gerçek kontrol paneli",
-      },
-      "mk-skor": {
-        industry: "DEĞERLENDİRME & ANALİZ",
-        headline: "Gelişimi daha kolay anlayın.",
-        problem:
-          "Testlerin ve ölçümlerin tek bir sonuçtan öte, zaman içindeki anlamı görülebilmelidir.",
-        solution:
-          "Testleri, zamana bağlı değerlendirmeyi ve istatistiksel raporlamayı birleştiren ürün.",
-        features: [
-          "Değerlendirmeler",
-          "Gelişim takibi",
-          "İstatistiksel raporlar",
-        ],
-        alt: "Test, gelişim takibi ve raporlamayı bağlayan değerlendirme iş akışı",
-      },
+    statuses: {
+      "live-demo": "Canlı demo",
+      "closed-test": "Kapalı test",
+      "sample-site": "Örnek site",
+      "in-use": "Aktif kullanımda",
+    },
+    linkLabels: {
+      demo: "Canlı demoyu incele",
+      product: "Ürün sitesi",
+      site: "Siteyi incele",
     },
   },
   solutions: {
@@ -186,7 +103,6 @@ const tr: SiteContent = {
           "İçerik & keşif platformları",
           "Müşteri talep akışları",
         ],
-        project: "mavi-kadraj-otel",
       },
       {
         id: "custom",
@@ -199,7 +115,6 @@ const tr: SiteContent = {
           "Dijital ürünler & ilk sürümler",
           "Araçlar arası bağlantı & otomasyon",
         ],
-        project: "mk-traceops",
       },
       {
         id: "business",
@@ -212,7 +127,6 @@ const tr: SiteContent = {
           "Rezervasyon, sipariş & kayıtlar",
           "Yönetim ekranları & raporlama",
         ],
-        project: "mavi-resepsiyon",
       },
       {
         id: "smart",
@@ -225,7 +139,6 @@ const tr: SiteContent = {
           "Yardımcı müşteri deneyimleri",
           "Pratik otomasyon prototipleri",
         ],
-        project: "",
       },
     ],
   },

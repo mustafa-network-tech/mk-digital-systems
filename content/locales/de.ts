@@ -63,110 +63,23 @@ const de: SiteContent = {
     description:
       "Digitale Produkte und Demonstrationsprojekte, die konkrete Bedürfnisse in verständliche Erlebnisse übersetzen.",
     all: "Alle Projekte entdecken",
-    explore: "Die Arbeit ansehen",
     discuss: "Informationen per WhatsApp",
-    live: "Das Live-System ansehen",
     inquiry:
       "Guten Tag, ich möchte Informationen zu einer Lösung ähnlich wie {project} erhalten.",
     problem: "Der Bedarf",
     solution: "Unser Ansatz",
     experience: "Was zusammenkommt",
-    demo: "Demonstrationsprojekt",
-    project: "Eigenständiges Projekt",
     diagram: "ABLAUF IM ÜBERBLICK",
-    stories: {
-      "mk-ops": {
-        industry: "AUSSENDIENST",
-        headline: "Außendienst und Büro auf demselben Stand.",
-        problem:
-          "Aufträge, Teams und Bestände brauchen einen gemeinsamen Überblick statt einzelner Nachrichten und Tabellen.",
-        solution:
-          "Ein Arbeitsbereich für Aufgaben, Projekte, Bestände und rollenbasierten Zugriff.",
-        features: [
-          "Aufgabenverfolgung",
-          "Teamkoordination",
-          "Bestandsübersicht",
-        ],
-        alt: "Bestehende MK Ops Website für Außendienstabläufe",
-      },
-      "mavi-resepsiyon": {
-        industry: "BEHERBERGUNG",
-        headline: "Ein ruhigerer Tag an der Rezeption.",
-        problem:
-          "Reservierungen, Zimmerstatus und Zahlungen gehören zu einem gemeinsamen Gästeerlebnis.",
-        solution:
-          "Eine Hoteldemo verbindet Zimmerplanung, Ankunft, Zahlungseingänge und Verwaltungsansichten.",
-        features: ["Zimmerplanung", "Gästeankunft", "Zahlungen & Daten"],
-        alt: "Ablauf von Zimmerplanung über Ankunft bis zur Zahlung",
-      },
-      "mk-farm": {
-        industry: "LANDWIRTSCHAFT",
-        headline: "Jedes Tier. Ein klarer Überblick.",
-        problem:
-          "Individuelle Tierdaten müssen mit der täglichen Arbeit auf dem Hof verbunden bleiben.",
-        solution:
-          "Eine Hofverwaltung führt QR-Identität, Gewicht und Gesundheitsverlauf zusammen.",
-        features: ["QR-Identität", "Gewichtsverlauf", "Gesundheitsdaten"],
-        alt: "Tatsächliche Übersicht der Anwendung MK Farm",
-      },
-      "mavi-adisyon": {
-        industry: "GASTRONOMIE",
-        headline: "Von der Bestellung bis zur Rechnung.",
-        problem:
-          "Service, Küche und Kasse müssen denselben Bestellablauf verfolgen können.",
-        solution:
-          "Eine Restaurantdemo mit abgestimmten Ansichten für Service, Küche, Kasse und Leitung.",
-        features: ["Service", "Küche", "Kasse", "Leitung"],
-        alt: "Restaurantablauf zwischen Service, Küche, Kasse und Leitung",
-      },
-      "mavi-kadraj": {
-        industry: "FOTOGRAFIE & INHALTE",
-        headline: "Visuellen Geschichten Raum geben.",
-        problem:
-          "Fotografie braucht einen geordneten Ort, an dem Bilder und Geschichten leicht auffindbar sind.",
-        solution:
-          "Eine Plattform verbindet Fotogalerien, Reiseberichte und Inhaltsverwaltung.",
-        features: [
-          "Fotogalerien",
-          "Visuelle Geschichten",
-          "Inhalte veröffentlichen",
-        ],
-        alt: "Bestehende Fotografie-Website Mavi Kadraj",
-      },
-      namehub: {
-        industry: "DIGITALER AUFTRITT",
-        headline: "Ein klarer digitaler Einstieg.",
-        problem:
-          "Eine Unternehmenswebsite soll Identität und Angebot in einem zugänglichen Erlebnis verbinden.",
-        solution:
-          "Ein Websiteprojekt mit klarer Inhaltsstruktur und einem Auftritt für unterschiedliche Geräte.",
-        features: ["Markenauftritt", "Klare Navigation", "Mobile Nutzung"],
-        alt: "Bestehende Website Namehub.tr",
-      },
-      santiye: {
-        industry: "BAU & AUSSENDIENST",
-        headline: "Sehen, was vorangeht. Wissen, was wartet.",
-        problem:
-          "Projektphasen, Orte und offene Aufgaben sind in getrennten Aufzeichnungen schwer zu verfolgen.",
-        solution:
-          "Ein Bausystem organisiert Projektphasen, Status und durchsuchbare Datensätze.",
-        features: ["Projektphasen", "Statusverfolgung", "Durchsuchbare Daten"],
-        alt: "Tatsächliches Dashboard der Baustellenverwaltung",
-      },
-      "mk-skor": {
-        industry: "BEWERTUNG & ANALYSE",
-        headline: "Entwicklung leichter verstehen.",
-        problem:
-          "Tests und Messungen brauchen einen zeitlichen Zusammenhang über ein Einzelergebnis hinaus.",
-        solution:
-          "Ein Bewertungsprodukt verbindet Tests, zeitliche Auswertung und statistische Berichte.",
-        features: [
-          "Bewertungen",
-          "Fortschrittsverfolgung",
-          "Statistische Berichte",
-        ],
-        alt: "Bewertungsablauf mit Tests, Fortschritt und Berichten",
-      },
+    statuses: {
+      "live-demo": "Live-Demo",
+      "closed-test": "Geschlossener Test",
+      "sample-site": "Beispielseite",
+      "in-use": "Im aktiven Einsatz",
+    },
+    linkLabels: {
+      demo: "Live-Demo öffnen",
+      product: "Produktwebsite",
+      site: "Website ansehen",
     },
   },
   solutions: {
@@ -190,7 +103,6 @@ const de: SiteContent = {
           "Inhalts- & Entdeckungsplattformen",
           "Wege zur Kundenanfrage",
         ],
-        project: "mavi-kadraj-otel",
       },
       {
         id: "custom",
@@ -203,7 +115,6 @@ const de: SiteContent = {
           "Digitale Produkte & erste Versionen",
           "Verbundene Werkzeuge & Automatisierung",
         ],
-        project: "mk-traceops",
       },
       {
         id: "business",
@@ -216,7 +127,6 @@ const de: SiteContent = {
           "Reservierungen, Bestellungen & Daten",
           "Verwaltungsansichten & Berichte",
         ],
-        project: "mavi-resepsiyon",
       },
       {
         id: "smart",
@@ -229,7 +139,6 @@ const de: SiteContent = {
           "Unterstützte Kundenabläufe",
           "Praktische Automatisierungsprototypen",
         ],
-        project: "",
       },
     ],
   },

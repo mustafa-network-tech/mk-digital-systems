@@ -63,118 +63,23 @@ const fr: SiteContent = {
     description:
       "Des produits et démonstrations qui transforment des besoins concrets en expériences numériques claires.",
     all: "Découvrir tous les projets",
-    explore: "Découvrir la réalisation",
     discuss: "Se renseigner sur WhatsApp",
-    live: "Découvrir le système en ligne",
     inquiry:
       "Bonjour, je souhaite des informations sur une solution similaire à {project}.",
     problem: "Le besoin",
     solution: "Notre approche",
     experience: "Ce qui se rassemble",
-    demo: "Projet de démonstration",
-    project: "Projet indépendant",
     diagram: "VUE D'ENSEMBLE DU PARCOURS",
-    stories: {
-      "mk-ops": {
-        industry: "OPÉRATIONS DE TERRAIN",
-        headline: "Le terrain et le bureau, au même rythme.",
-        problem:
-          "Les missions, équipes et stocks demandent une vision commune au-delà des messages et tableaux dispersés.",
-        solution:
-          "Un espace pour suivre les tâches, projets, stocks et accès selon les rôles.",
-        features: [
-          "Suivi des tâches",
-          "Coordination des équipes",
-          "Visibilité des stocks",
-        ],
-        alt: "Site existant de MK Ops consacré aux opérations de terrain",
-      },
-      "mavi-resepsiyon": {
-        industry: "HÉBERGEMENT",
-        headline: "Une journée plus sereine à la réception.",
-        problem:
-          "Réservations, état des chambres et paiements font partie d'une même expérience client.",
-        solution:
-          "Une démonstration hôtelière relie planning des chambres, arrivées, encaissements et gestion.",
-        features: [
-          "Planning des chambres",
-          "Arrivée des clients",
-          "Paiements & dossiers",
-        ],
-        alt: "Parcours reliant chambres, arrivée des clients et paiements",
-      },
-      "mk-farm": {
-        industry: "AGRICULTURE",
-        headline: "Chaque animal. Une vision plus claire.",
-        problem:
-          "Les dossiers individuels des animaux doivent rester liés au travail quotidien de la ferme.",
-        solution:
-          "Une application agricole réunit identité QR, pesées et historique de santé.",
-        features: ["Identité QR", "Historique du poids", "Dossiers de santé"],
-        alt: "Vue générale réelle de l’application MK Farm",
-      },
-      "mavi-adisyon": {
-        industry: "RESTAURATION",
-        headline: "De la première commande à l'addition.",
-        problem:
-          "Le service, la cuisine et la caisse doivent suivre le même parcours de commande.",
-        solution:
-          "Une démonstration de restaurant avec des vues coordonnées pour le service, la cuisine, la caisse et la gestion.",
-        features: ["Service", "Cuisine", "Caisse", "Gestion"],
-        alt: "Parcours du restaurant entre service, cuisine, caisse et gestion",
-      },
-      "mavi-kadraj": {
-        industry: "PHOTOGRAPHIE & CONTENU",
-        headline: "Laisser respirer les histoires visuelles.",
-        problem:
-          "La photographie a besoin d'un espace organisé où images et récits se découvrent facilement.",
-        solution:
-          "Une plateforme photographique relie galeries, récits de voyage et publication de contenu.",
-        features: ["Galeries photo", "Récits visuels", "Publication"],
-        alt: "Site photographique existant de Mavi Kadraj",
-      },
-      namehub: {
-        industry: "PRÉSENCE NUMÉRIQUE",
-        headline: "Une présentation numérique claire.",
-        problem:
-          "Un site d'entreprise doit réunir son identité et son offre dans une expérience accessible.",
-        solution:
-          "Un projet web avec une structure éditoriale claire et une présence adaptée aux écrans.",
-        features: [
-          "Expression de marque",
-          "Navigation claire",
-          "Expérience mobile",
-        ],
-        alt: "Capture existante du site Namehub.tr",
-      },
-      santiye: {
-        industry: "CONSTRUCTION & TERRAIN",
-        headline: "Voir ce qui avance. Savoir ce qui attend.",
-        problem:
-          "Les étapes, lieux et tâches en attente se suivent difficilement dans des dossiers séparés.",
-        solution:
-          "Un système de chantier organise les étapes, les états et les dossiers consultables.",
-        features: [
-          "Étapes des projets",
-          "Suivi des états",
-          "Dossiers consultables",
-        ],
-        alt: "Tableau de bord réel de gestion de chantier",
-      },
-      "mk-skor": {
-        industry: "ÉVALUATION & ANALYSE",
-        headline: "Mieux comprendre la progression.",
-        problem:
-          "Les tests et mesures ont besoin de contexte dans le temps au-delà d'un résultat isolé.",
-        solution:
-          "Un produit d'évaluation associe tests, suivi dans le temps et rapports statistiques.",
-        features: [
-          "Évaluations",
-          "Suivi de progression",
-          "Rapports statistiques",
-        ],
-        alt: "Parcours d'évaluation reliant tests, progression et rapports",
-      },
+    statuses: {
+      "live-demo": "Démo en ligne",
+      "closed-test": "Test fermé",
+      "sample-site": "Site d’exemple",
+      "in-use": "En utilisation active",
+    },
+    linkLabels: {
+      demo: "Ouvrir la démo",
+      product: "Site du produit",
+      site: "Voir le site",
     },
   },
   solutions: {
@@ -198,7 +103,6 @@ const fr: SiteContent = {
           "Plateformes de contenu & découverte",
           "Parcours de prise de contact",
         ],
-        project: "mavi-kadraj-otel",
       },
       {
         id: "custom",
@@ -211,7 +115,6 @@ const fr: SiteContent = {
           "Produits numériques & premières versions",
           "Outils connectés & automatisations",
         ],
-        project: "mk-traceops",
       },
       {
         id: "business",
@@ -224,7 +127,6 @@ const fr: SiteContent = {
           "Réservations, commandes & dossiers",
           "Vues de gestion & rapports",
         ],
-        project: "mavi-resepsiyon",
       },
       {
         id: "smart",
@@ -237,7 +139,6 @@ const fr: SiteContent = {
           "Parcours clients assistés",
           "Prototypes d'automatisation pratiques",
         ],
-        project: "",
       },
     ],
   },

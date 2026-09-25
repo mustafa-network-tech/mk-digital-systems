@@ -120,7 +120,7 @@ test("customer pathway responds to keyboard and links to a matching solution", a
 test("project brief retains failed submissions and submits company as a genuine field", async ({
   page,
 }) => {
-  await page.goto("/en/contact?type=business&project=mavi-resepsiyon");
+  await page.goto("/en/contact?type=business&project=mk-resepsiyon");
   await expect(page.locator('input[value="business"]')).toBeChecked();
   await page.locator("#name").fill("Test Visitor");
   await page.locator("#email").fill("visitor@example.test");
@@ -148,7 +148,7 @@ test("project brief retains failed submissions and submits company as a genuine 
     "We would like a clearer booking workflow for our team.",
   );
   expect(sentBody).toContain("Test Company");
-  expect(sentBody).toContain("mavi-resepsiyon");
+  expect(sentBody).toContain("mk-resepsiyon");
   await page.unroute("https://formspree.io/**");
   await page.route("https://formspree.io/**", (route) =>
     route.fulfill({

@@ -3,7 +3,8 @@ import AxeBuilder from "@axe-core/playwright";
 import { locales } from "../config/i18n";
 import { getContent } from "../content/site";
 import { contactConfig, normalizePhone } from "../lib/contact-config";
-import { selectedProjects } from "../content/projects";
+import { projectsByLayer } from "../content/projects";
+import { getProjectCopy } from "../content/project-copy";
 
 test("contact defaults and domestic numbers share valid international URLs", () => {
   expect(normalizePhone("0545 659 75 51")).toBe("905456597551");
@@ -106,13 +107,14 @@ for (const locale of locales) {
     expect(titles.size).toBe(6);
     expect(descriptions.size).toBe(6);
     await page.goto(`/${locale}/work`);
-    for (const project of selectedProjects) {
+    for (const project of projectsByLayer("flagship")) {
       const link = page.locator(`#${project.id} .story-links > a`).first();
-      if (project.url) await expect(link).toHaveAttribute("href", project.url);
+      const first = project.links[0] ?? project.parts?.flatMap((part) => part.links)[0];
+      if (first) await expect(link).toHaveAttribute("href", first.url);
       else
         expect(
           new URL((await link.getAttribute("href"))!).searchParams.get("text"),
-        ).toContain(copy.work.stories[project.id].name || project.name);
+        ).toContain(getProjectCopy(locale, project.id).name ?? project.name);
     }
     await page.goto(`/${locale}/contact`);
     await page.setViewportSize({ width: 390, height: 844 });

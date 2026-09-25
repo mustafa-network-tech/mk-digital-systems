@@ -1,15 +1,22 @@
 import Image from "next/image";
 import { contactConfig } from "@/lib/contact-config";
 import { Link } from "@/config/navigation";
+import type { Locale } from "@/config/i18n";
 import type { SiteContent } from "@/content/site";
+import { getProject } from "@/content/projects";
+import { getProjectCopy } from "@/content/project-copy";
 import { Arrow } from "./Arrow";
 export function Hero({
   copy,
-  work,
+  locale,
 }: {
   copy: SiteContent["hero"];
-  work: SiteContent["work"];
+  locale: Locale;
 }) {
+  const main = getProject("saha-santiye")!;
+  const mainCopy = getProjectCopy(locale, main.id);
+  const secondary = getProject("mk-farm")!;
+  const secondaryCopy = getProjectCopy(locale, secondary.id);
   return (
     <section className="hero wrap">
       <p className="eyebrow hero-eyebrow">
@@ -50,13 +57,13 @@ export function Hero({
               <i />
               <i />
             </span>
-            <span>{work.stories.santiye.industry}</span>
+            <span>{mainCopy.industry}</span>
             <span aria-hidden="true">↗</span>
           </div>
           <div className="hero-screen-image">
             <Image
-              src="/work/santiye-yonetim-sistemi.webp"
-              alt={work.stories.santiye.alt}
+              src={main.media!.src}
+              alt={mainCopy.alt ?? main.name}
               fill
               priority
               sizes="(max-width: 767px) 48vw, 450px"
@@ -66,13 +73,13 @@ export function Hero({
         </div>
         <div className="hero-screen hero-screen-secondary">
           <div className="screen-chrome">
-            <span>MK FARM</span>
+            <span>{(secondaryCopy.name ?? secondary.name).toUpperCase()}</span>
             <span aria-hidden="true">↗</span>
           </div>
           <div className="hero-screen-image">
             <Image
-              src="/work/mk-farm.webp"
-              alt={work.stories["mk-farm"].alt}
+              src={secondary.media!.src}
+              alt={secondaryCopy.alt ?? secondary.name}
               fill
               sizes="(max-width: 767px) 48vw, 450px"
               style={{ objectFit: "contain" }}

@@ -1,7 +1,8 @@
 import { setRequestLocale } from "next-intl/server";
 import { Pricing } from "@/components/brand/Pricing";
 import { getContent } from "@/content/site";
-import { selectedProjects } from "@/content/projects";
+import { projectsForService, type ServiceId } from "@/content/projects";
+import { getProjectCopy } from "@/content/project-copy";
 import { validLocale, pageMetadata, pageSchema } from "@/lib/seo";
 import { Link } from "@/config/navigation";
 import { JsonLd } from "@/components/brand/JsonLd";
@@ -26,7 +27,8 @@ export default async function Solutions({ params }: Props) {
       />
       <div className="solutions-list wrap">
         {c.solutions.items.map((item, i) => {
-          const p = selectedProjects.find((p) => p.id === item.project);
+          // Example: the first verified project for this service family (flagship first).
+          const p = projectsForService(item.id as ServiceId).find((p) => p.status);
           return (
             <section id={item.id} key={item.id} className="solution-family">
               <div>
@@ -55,7 +57,7 @@ export default async function Solutions({ params }: Props) {
                   <Link className="solution-example" href={`/work#${p.id}`}>
                     <div>
                       <span>{c.solutions.example}</span>
-                      <strong>{p.name}</strong>
+                      <strong>{getProjectCopy(locale, p.id).name ?? p.name}</strong>
                     </div>
                     <Arrow diagonal />
                   </Link>

@@ -1,6 +1,6 @@
 ﻿import { setRequestLocale } from "next-intl/server";
 import { getContent } from "@/content/site";
-import { selectedProjects } from "@/content/projects";
+import { projectsByLayer } from "@/content/projects";
 import { validLocale, pageMetadata, pageSchema } from "@/lib/seo";
 import { Link } from "@/config/navigation";
 import { Hero } from "@/components/brand/Hero";
@@ -21,7 +21,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <JsonLd data={pageSchema(locale, "home")} />
-      <Hero copy={c.hero} work={c.work} />
+      <Hero copy={c.hero} locale={locale} />
       <section className="section wrap needs-section">
         <div className="section-head">
           <div>
@@ -47,7 +47,7 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
         <div className="stories-list">
-          {selectedProjects.slice(0, 6).map((p, i) => (
+          {projectsByLayer("flagship").slice(0, 6).map((p, i) => (
             <ProjectStory
               key={p.id}
               project={p}

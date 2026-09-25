@@ -1,6 +1,6 @@
 ﻿import { setRequestLocale } from "next-intl/server";
 import { getContent } from "@/content/site";
-import { selectedProjects } from "@/content/projects";
+import { getProject } from "@/content/projects";
 import { validLocale, pageMetadata, pageSchema } from "@/lib/seo";
 import { contactConfig } from "@/lib/contact-config";
 import { JsonLd } from "@/components/brand/JsonLd";
@@ -19,7 +19,7 @@ export default async function Contact({ params, searchParams }: Props) {
   setRequestLocale(locale);
   const c = getContent(locale);
   const query = await searchParams;
-  const project = selectedProjects.some((p) => p.id === query.project)
+  const project = query.project && getProject(query.project)
     ? query.project
     : undefined;
   return (
