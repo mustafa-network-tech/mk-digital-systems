@@ -4,7 +4,7 @@ import tr from "./locales/tr";
 import de from "./locales/de";
 import fr from "./locales/fr";
 import { pricingCopy, type PricingCopy } from "./pricing-copy";
-import type { ProjectLink, ProjectStatus } from "./projects";
+import type { ProjectLayer, ProjectLink, ProjectStatus } from "./projects";
 
 export type SiteContent = {
   nav: {
@@ -54,6 +54,9 @@ export type SiteContent = {
     solution: string;
     experience: string;
     diagram: string;
+    filter: string;
+    allLabel: string;
+    layers: Record<ProjectLayer, { label: string; title: string; description: string }>;
     statuses: Record<ProjectStatus, string>;
     linkLabels: Record<ProjectLink["kind"], string>;
   };

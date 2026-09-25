@@ -76,6 +76,28 @@ const en: SiteContent = {
       "sample-site": "Sample site",
       "in-use": "In active use",
     },
+    filter: "Filter work",
+    allLabel: "All",
+    layers: {
+      "flagship": {
+        label: "Systems",
+        title: "Business systems",
+        description:
+          "Systems we build for day-to-day operations, each starting from a real problem.",
+      },
+      "selected": {
+        label: "Selected",
+        title: "Selected work",
+        description:
+          "Digital products, mobile apps and creative web experiences.",
+      },
+      "sector-demo": {
+        label: "Sector sites",
+        title: "Sector websites",
+        description:
+          "Sample websites we designed for different industries.",
+      },
+    },
     linkLabels: {
       demo: "Open live demo",
       product: "Product website",

@@ -76,6 +76,28 @@ const tr: SiteContent = {
       "sample-site": "Örnek site",
       "in-use": "Aktif kullanımda",
     },
+    filter: "Çalışmaları filtrele",
+    allLabel: "Tümü",
+    layers: {
+      "flagship": {
+        label: "Sistemler",
+        title: "İşletme sistemleri",
+        description:
+          "İşletmelerin günlük operasyonu için geliştirdiğimiz sistemler; her biri gerçek bir sorundan yola çıkıyor.",
+      },
+      "selected": {
+        label: "Seçilmiş",
+        title: "Seçilmiş çalışmalar",
+        description:
+          "Dijital ürünler, mobil uygulamalar ve yaratıcı web deneyimleri.",
+      },
+      "sector-demo": {
+        label: "Sektör siteleri",
+        title: "Sektör web siteleri",
+        description:
+          "Farklı sektörler için hazırladığımız örnek web siteleri.",
+      },
+    },
     linkLabels: {
       demo: "Canlı demoyu incele",
       product: "Ürün sitesi",

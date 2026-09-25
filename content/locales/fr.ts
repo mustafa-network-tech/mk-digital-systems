@@ -76,6 +76,28 @@ const fr: SiteContent = {
       "sample-site": "Site d’exemple",
       "in-use": "En utilisation active",
     },
+    filter: "Filtrer les réalisations",
+    allLabel: "Tout",
+    layers: {
+      "flagship": {
+        label: "Systèmes",
+        title: "Systèmes d’entreprise",
+        description:
+          "Des systèmes pour les opérations quotidiennes, chacun né d’un problème réel.",
+      },
+      "selected": {
+        label: "Sélection",
+        title: "Réalisations choisies",
+        description:
+          "Produits numériques, applications mobiles et expériences web créatives.",
+      },
+      "sector-demo": {
+        label: "Sites sectoriels",
+        title: "Sites sectoriels",
+        description:
+          "Des exemples de sites conçus pour différents secteurs.",
+      },
+    },
     linkLabels: {
       demo: "Ouvrir la démo",
       product: "Site du produit",

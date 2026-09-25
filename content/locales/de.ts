@@ -76,6 +76,28 @@ const de: SiteContent = {
       "sample-site": "Beispielseite",
       "in-use": "Im aktiven Einsatz",
     },
+    filter: "Arbeiten filtern",
+    allLabel: "Alle",
+    layers: {
+      "flagship": {
+        label: "Systeme",
+        title: "Unternehmenssysteme",
+        description:
+          "Systeme für den täglichen Betrieb – jedes beginnt bei einem echten Problem.",
+      },
+      "selected": {
+        label: "Ausgewählt",
+        title: "Ausgewählte Arbeiten",
+        description:
+          "Digitale Produkte, mobile Apps und kreative Web-Erlebnisse.",
+      },
+      "sector-demo": {
+        label: "Branchen-Websites",
+        title: "Branchen-Websites",
+        description:
+          "Beispiel-Websites, die wir für verschiedene Branchen gestaltet haben.",
+      },
+    },
     linkLabels: {
       demo: "Live-Demo öffnen",
       product: "Produktwebsite",
