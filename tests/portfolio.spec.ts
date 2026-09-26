@@ -52,21 +52,25 @@ test("every project is described in every locale; flagship copy is complete", ()
 });
 
 // What each label promises must be backed by the data.
-const needsPublicLink: ProjectStatus[] = ["live-demo", "sample-site", "in-use"];
+// Live demo and sample site need something public to open.
+const needsPublicLink: ProjectStatus[] = ["live-demo", "sample-site"];
 test("status rules: links are HTTPS and every label is backed by the data", () => {
   for (const p of projects) {
     const links = allLinks(p);
     for (const link of links) expect(link.url, p.id).toMatch(/^https:\/\/[^\s]+$/);
-    // Live demo, sample site and in use need something public to open and verify.
     if (p.status && needsPublicLink.includes(p.status))
       expect(links.length, `${p.id} is "${p.status}" without a public link`).toBeGreaterThan(0);
     // Coming soon is roadmap only: it never offers a demo, so it carries no links at all.
     if (p.status === "coming-soon") expect(links, `${p.id} is coming soon but has links`).toEqual([]);
-    // Without a public link the only possible labels are closed test (e.g. a store test) or coming soon.
-    if (!links.length) expect([undefined, "closed-test", "coming-soon"], p.id).toContain(p.status);
+    // Without a public link the only possible labels are closed test, in use or coming soon.
+    if (!links.length) expect([undefined, "closed-test", "in-use", "coming-soon"], p.id).toContain(p.status);
     for (const part of p.parts ?? [])
       if (part.status && needsPublicLink.includes(part.status))
         expect(part.links.length, `${p.id}/${part.id}`).toBeGreaterThan(0);
+    // In use = a real system: never send visitors into it through a demo link.
+    for (const item of [{ id: p.id, status: p.status, links: p.links }, ...(p.parts ?? [])])
+      if (item.status === "in-use")
+        expect(item.links.filter((l) => l.kind === "demo"), `${p.id}/${item.id} is in use`).toEqual([]);
   }
   // Sector sites are sample sites by definition.
   for (const p of projectsByLayer("sector-demo")) expect(p.status, p.id).toBe("sample-site");

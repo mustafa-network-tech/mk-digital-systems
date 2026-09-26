@@ -106,9 +106,11 @@ export const projects: Project[] = [
         ],
       },
       {
+        // A working system in real use (confirmed by Mustafa, 2026-09-26). No public
+        // link: visitors must never be sent to the real system or its data.
         id: "santiye-yonetim",
-        status: "live-demo",
-        links: [{ kind: "demo", url: "https://santiye-yonetim.oner334480.workers.dev" }],
+        status: "in-use",
+        links: [],
       },
     ],
     caseStudy: true,
