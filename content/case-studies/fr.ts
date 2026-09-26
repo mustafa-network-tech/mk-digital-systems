@@ -118,6 +118,186 @@ const fr: Partial<Record<ProjectId, CaseStudyCopy>> = {
       ],
     },
   },
+  "mk-adisyon": {
+    meta: {
+      title: "Gestion des commandes et additions en restauration | MK Digital Systems",
+      description:
+        "MK Adisyon relie service, cuisine, caisse et gestion dans un système web actif. Son application mobile est en test fermé.",
+    },
+    title: "Piloter le restaurant dans un même flux, de la commande au paiement",
+    lead:
+      "MK Adisyon est un produit à deux surfaces qui fait travailler l'équipe sur une même addition, de la première commande à table jusqu'à la préparation et à l'encaissement : un système web actif et une application mobile en test fermé.",
+    audience: {
+      heading: "Le problème de qui ?",
+      text:
+        "Des restaurants et cafés qui coordonnent en même temps commande, préparation, service et paiement. L'information saisie par le serveur doit parvenir à la cuisine, à la caisse et à la gestion sans nouvelle saisie.",
+      points: [
+        "Les équipes de salle qui suivent les zones et l'état des tables",
+        "La cuisine qui gère les commandes en attente, en préparation et prêtes",
+        "La caisse qui traite les paiements partagés ou partiels",
+        "La direction qui suit produits, tables, services et opérations",
+      ],
+    },
+    problem: {
+      heading: "Quel était le problème ?",
+      text:
+        "L'exploitation d'un restaurant passe entre des équipes qui avancent à des rythmes différents. Si détails de commande, changements de table et état du paiement ne partagent pas le même dossier, retards, doubles saisies et malentendus augmentent.",
+      points: [
+        "Des états de table et de commande différents selon les équipes",
+        "Des options, notes ou tours de service incomplets en cuisine",
+        "Des commandes prêtes qui n'arrivent pas à temps à l'équipe de salle",
+        "Le partage par personne ou par article qui ralentit l'encaissement",
+      ],
+    },
+    approach: {
+      heading: "Comment l'avons-nous abordé ?",
+      text:
+        "Nous avons conçu des vues centrées sur chaque rôle tout en les reliant à la même addition. La table ouverte en salle, l'état de préparation en cuisine et les étapes de paiement restent ainsi dans un flux continu.",
+      points: [
+        "Vues orientées tâches pour le service, la cuisine, la caisse et la gestion",
+        "Un seul dossier de commande, de la table à la clôture du paiement",
+        "États explicites : en préparation, prêt et servi",
+        "Mise en page adaptée à la tâche sur téléphone et ordinateur",
+      ],
+    },
+    solution: {
+      heading: "Un vrai système web et une application mobile en test fermé",
+      text:
+        "MK Adisyon possède deux surfaces produit réelles. Les fonctions opérationnelles ci-dessous sont vérifiées dans le système web actif. Une application mobile distincte a été développée et se trouve en test fermé ; seuls les éléments vérifiés lui sont attribués ici.",
+      parts: {
+        web: {
+          summary:
+            "Le système web actif réunit tables, commandes, cuisine, service, caisse et gestion dans des vues adaptées aux rôles.",
+          highlights: [
+            "Zones et tables, ouverture de table et nombre de convives",
+            "Produits, options, notes, tours de service et envoi en cuisine",
+            "Flux des commandes en attente, en préparation, prêtes et servies",
+            "Déplacement et fusion de tables, séparation de l'addition",
+            "Partage par montant, personne ou article et paiements partiels",
+            "Services, produits, tables, dépenses, finances et journal d'activité",
+          ],
+        },
+        mobile: {
+          summary:
+            "La deuxième surface développée de MK Adisyon est son application mobile. Elle est en test fermé ; cette étude n'étend pas son périmètre au-delà de l'écran d'accueil vérifié.",
+          highlights: [
+            "Une surface MK Adisyon réelle et développée",
+            "Actuellement en test fermé",
+            "Une adresse d'application vérifiée, distincte du système web",
+          ],
+        },
+      },
+    },
+    screens: {
+      "adisyon-cashier": {
+        caption: "Système web · Caisse : addition ouverte, partage du paiement et modes d'encaissement dans une vue.",
+        alt: "Écran de caisse web MK Adisyon avec commande et paiement d'exemple",
+      },
+      "adisyon-waiter": {
+        caption: "Système web · Service : l'interface web responsive sur téléphone ; ce n'est pas l'application mobile.",
+        alt: "Écran responsive de service MK Adisyon avec tables d'exemple",
+      },
+      "adisyon-mobile-app": {
+        caption: "Application mobile · Écran d'accueil MK Adisyon vérifié de la surface en test fermé.",
+        alt: "Écran d'accueil de l'application mobile MK Adisyon en test fermé",
+      },
+    },
+    screensNote:
+      "Les données des écrans web sont des exemples. La vue serveur encadrée comme un téléphone est l'interface web responsive ; l'écran de l'application séparée est clairement indiqué. « Mavi Adisyon » dans l'interface web est une dette de rebranding existante ; le nom public est MK Adisyon.",
+    ctaText:
+      "Si vous voulez réunir commande, cuisine et paiement autour du même dossier, examinons ensemble le fonctionnement actuel de votre restaurant.",
+    modules: {
+      heading: "Modules vérifiés dans le système web",
+      items: [
+        { title: "Salles et tables", text: "Zones et tables sont suivies par état ; l'ouverture d'une table commence avec le nombre de convives." },
+        { title: "Commande en salle", text: "Les produits sont ajoutés avec options, notes et tours de service, puis envoyés en cuisine." },
+        { title: "Écran cuisine", text: "Les commandes passent d'en attente à en préparation puis prêtes ; le service reçoit l'information." },
+        { title: "Opérations de table", text: "Les tables ouvertes peuvent être déplacées ou fusionnées, et les articles séparés sur une autre addition." },
+        { title: "Caisse et paiement", text: "L'addition se partage par montant, personne ou article ; paiements partiels et modes sont enregistrés." },
+        { title: "Service et mouvements de caisse", text: "Ouverture, entrées, sorties et comptage de caisse restent dans le même dossier opérationnel." },
+        { title: "Gestion", text: "Produits, tables, cuisine, service, caisse, dépenses, finances et activités sont suivis dans les vues de gestion." },
+      ],
+    },
+  },
+  "mk-farm": {
+    meta: {
+      title: "Gestion des fermes et des opérations d'élevage | MK Digital Systems",
+      description:
+        "MK Farm réunit animaux, poids, lait, santé, insémination, QR, rapports et saisies terrain dans un système multi-fermes avec mode hors ligne.",
+    },
+    title: "Faire passer les registres quotidiens de la ferme du terrain au rapport",
+    lead:
+      "MK Farm réunit les opérations par animal dans un registre numérique. Propriétaires et personnel travaillent sur les mêmes données à jour, de la saisie rapide sur le terrain aux rapports de gestion.",
+    audience: {
+      heading: "Le problème de qui ?",
+      text:
+        "Des exploitations qui gèrent ensemble bovins viande et lait, personnel et soins quotidiens. Elles doivent accéder vite à l'historique d'un animal sur le terrain et produire des rapports à partir du même dossier.",
+      points: [
+        "Les propriétaires qui gèrent une ou plusieurs fermes",
+        "Le personnel qui saisit poids, lait, santé et insémination",
+        "Les responsables qui suivent l'historique et les contrôles à venir",
+        "Les équipes qui préparent les rapports périodiques de production et d'exploitation",
+      ],
+    },
+    problem: {
+      heading: "Quel était le problème ?",
+      text:
+        "Quand identité, pesées, lait, traitements et inséminations restent dans des cahiers séparés, l'historique est difficile à suivre et les tâches à venir faciles à manquer. La connexion sur le terrain peut aussi retarder la saisie.",
+      points: [
+        "L'état actuel et l'historique d'un animal sont conservés à des endroits différents",
+        "L'animal correct n'est pas rapidement accessible depuis sa boucle",
+        "Contrôles, délais d'attente des médicaments et répétitions sont oubliés",
+        "Une coupure de connexion reporte ou fait ressaisir les données terrain",
+      ],
+    },
+    approach: {
+      heading: "Comment l'avons-nous abordé ?",
+      text:
+        "Nous avons structuré les données autour du cycle de vie de l'animal, transformé le travail quotidien en formulaires courts et les besoins de gestion en rapports et alertes filtrables. La file hors ligne fait partie de l'usage terrain.",
+      points: [
+        "Accès séparé par adhésion à la ferme et rôles propriétaire-personnel",
+        "Accès rapide à la fiche animale par boucle et QR",
+        "Flux distincts mais reliés pour poids, lait, santé et insémination",
+        "Synchronisation contrôlée et gestion des conflits au retour de la connexion",
+      ],
+    },
+    solution: {
+      heading: "Saisies terrain, historique animal et rapports dans le même système",
+      text:
+        "MK Farm associe adhésion multi-fermes, accès par rôle et cycle de vie animal à une vraie API et une base persistante. Sa PWA responsive permet l'usage hors ligne des données déjà chargées et la synchronisation ultérieure des saisies en attente.",
+    },
+    screens: {
+      "farm-dashboard": {
+        caption: "Vue d'ensemble : nombre d'animaux, lait du jour, suivi, dernières pesées et rappels.",
+        alt: "Vue d'ensemble MK Farm avec résumé de ferme issu des données locales d'exemple",
+      },
+      "farm-animals-mobile": {
+        caption: "Vue terrain responsive : liste par boucle, nom, catégorie et race.",
+        alt: "Vue téléphone MK Farm avec une liste d'animaux d'exemple",
+      },
+      "farm-reports": {
+        caption: "Rapports : synthèse et export de la production laitière avec filtres par date et animal.",
+        alt: "Rapport de production laitière MK Farm avec données locales d'exemple",
+      },
+    },
+    screensNote:
+      "Ces écrans montrent des données entièrement fictives générées par le chargeur de démonstration local ; personnes, ferme, animaux et boucles ne sont pas des dossiers réels.",
+    ctaText:
+      "Si vous voulez réunir saisies terrain, historique animal et rapports dans le même flux, examinons ensemble le fonctionnement actuel de votre ferme.",
+    modules: {
+      heading: "Modules principaux",
+      items: [
+        { title: "Fermes et équipe", text: "Adhésions des propriétaires et du personnel, validations et espace actif sont gérés ensemble." },
+        { title: "Fiches animales", text: "Identité, boucle, état et cycle de vie des bovins viande et lait restent sur une même fiche." },
+        { title: "Identité QR", text: "Affichage, impression et lecture du QR par caméra ou lecteur externe ouvrent la fiche animale." },
+        { title: "Poids et pesée", text: "Saisies manuelles ou balance simulée, historique et écart avec la pesée précédente sont suivis." },
+        { title: "Production laitière", text: "Les volumes matin et soir sont saisis par animal et date, puis réunis dans les rapports de période." },
+        { title: "Santé et insémination", text: "Examens, médicaments, contrôles vétérinaires et historique d'insémination sont reliés à la fiche." },
+        { title: "Alertes et rapports", text: "Contrôles à venir et exceptions sont listés ; les données de lait et de ferme s'exportent." },
+        { title: "Synchronisation hors ligne", text: "Les saisies restent dans la file de l'appareil puis sont envoyées avec contrôles de version et de conflit." },
+      ],
+    },
+  },
 };
 
 export default fr;

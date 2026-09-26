@@ -131,6 +131,7 @@ const de: SiteContent = {
     linkLabels: {
       demo: "Live-Demo öffnen",
       product: "Produktwebsite",
+      app: "Mobile App öffnen",
       site: "Website ansehen",
     },
   },

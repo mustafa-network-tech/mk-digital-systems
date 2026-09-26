@@ -131,6 +131,7 @@ const tr: SiteContent = {
     linkLabels: {
       demo: "Canlı demoyu incele",
       product: "Ürün sitesi",
+      app: "Mobil uygulamayı aç",
       site: "Siteyi incele",
     },
   },

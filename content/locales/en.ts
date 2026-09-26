@@ -131,6 +131,7 @@ const en: SiteContent = {
     linkLabels: {
       demo: "Open live demo",
       product: "Product website",
+      app: "Open mobile app",
       site: "Visit site",
     },
   },

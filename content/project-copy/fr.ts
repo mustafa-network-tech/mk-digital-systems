@@ -31,17 +31,17 @@ const fr: ProjectCopyBook = {
   },
   "mk-adisyon": {
     industry: "RESTAURANTS & CAFÉS",
-    summary: "Un parcours de commande et d’addition pour restaurants et cafés, sur le web et sur mobile.",
+    summary: "Un produit de commande et d’addition avec système web actif et application mobile en test fermé.",
     headline: "De la première commande à l’addition.",
     problem:
       "Service, cuisine et caisse doivent voir à quelle étape en est une même commande.",
     solution:
-      "Une application web qui réunit les écrans service, cuisine, caisse et gestion dans un même parcours, et une application mobile pour prendre les commandes sur téléphone.",
-    modules: ["Service", "Cuisine", "Caisse", "Gestion", "Commande mobile"],
+      "Un système web actif qui réunit service, cuisine, caisse et gestion, plus une application mobile distincte, développée et en test fermé.",
+    modules: ["Service", "Cuisine", "Caisse", "Gestion", "Application mobile · test fermé"],
     alt: "Démo MK Adisyon avec des données d’exemple : la caisse avec tables ouvertes et paiements",
     parts: {
       web: { name: "Application web", description: "Écrans service, cuisine, caisse et gestion." },
-      mobile: { name: "Application mobile", description: "Application Android, en test fermé sur Google Play." },
+      mobile: { name: "Application mobile", description: "Application mobile développée, actuellement en test fermé." },
     },
   },
   "mk-farm": {

@@ -31,13 +31,13 @@ const tr: ProjectCopyBook = {
   "mk-adisyon": {
     industry: "RESTORAN & KAFE",
     summary:
-      "Restoran ve kafeler için web ve mobilde çalışan sipariş ve adisyon akışı.",
+      "Restoran ve kafeler için çalışan web sistemi ve kapalı testte mobil uygulaması olan sipariş ve adisyon ürünü.",
     headline: "İlk siparişten hesabın kapanışına.",
     problem:
       "Garson, mutfak ve kasa aynı siparişin hangi aşamada olduğunu görebilmelidir.",
     solution:
-      "Garson, mutfak, kasa ve yönetim ekranlarını ortak akışta birleştiren web uygulaması ve siparişi telefondan almak için mobil uygulama.",
-    modules: ["Garson", "Mutfak", "Kasa", "Yönetim", "Mobil sipariş"],
+      "Garson, mutfak, kasa ve yönetim ekranlarını ortak akışta birleştiren çalışan web sistemi; ayrıca geliştirilmiş ve kapalı testte olan ayrı mobil uygulama.",
+    modules: ["Garson", "Mutfak", "Kasa", "Yönetim", "Mobil uygulama · kapalı test"],
     alt: "MK Adisyon demosunda örnek verilerle kasa paneli: açık masalar ve tahsilatlar",
     parts: {
       web: {
@@ -46,7 +46,7 @@ const tr: ProjectCopyBook = {
       },
       mobile: {
         name: "Mobil uygulama",
-        description: "Android uygulaması; Play Store'da kapalı test aşamasında.",
+        description: "Geliştirilmiş mobil uygulama; kapalı test sürecinde.",
       },
     },
   },

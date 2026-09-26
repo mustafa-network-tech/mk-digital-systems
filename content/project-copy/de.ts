@@ -31,17 +31,17 @@ const de: ProjectCopyBook = {
   },
   "mk-adisyon": {
     industry: "RESTAURANTS & CAFÉS",
-    summary: "Bestell- und Abrechnungsablauf für Restaurants und Cafés – im Web und mobil.",
+    summary: "Bestell- und Bonprodukt für Gastronomie mit laufendem Websystem und mobiler App im geschlossenen Test.",
     headline: "Von der ersten Bestellung bis zur Rechnung.",
     problem:
       "Service, Küche und Kasse müssen sehen, in welcher Phase sich dieselbe Bestellung befindet.",
     solution:
-      "Eine Web-App, die Service-, Küchen-, Kassen- und Verwaltungsansichten in einem Ablauf verbindet, plus eine mobile App für Bestellungen am Tisch.",
-    modules: ["Service", "Küche", "Kasse", "Verwaltung", "Mobile Bestellung"],
+      "Ein laufendes Websystem, das Service, Küche, Kasse und Verwaltung verbindet, plus eine getrennte entwickelte mobile App im geschlossenen Test.",
+    modules: ["Service", "Küche", "Kasse", "Verwaltung", "Mobile App · geschlossener Test"],
     alt: "MK Adisyon-Demo mit Beispieldaten: Kassenansicht mit offenen Tischen und Zahlungen",
     parts: {
       web: { name: "Web-App", description: "Ansichten für Service, Küche, Kasse und Verwaltung." },
-      mobile: { name: "Mobile App", description: "Android-App, derzeit im geschlossenen Test bei Google Play." },
+      mobile: { name: "Mobile App", description: "Entwickelte mobile App, derzeit im geschlossenen Test." },
     },
   },
   "mk-farm": {

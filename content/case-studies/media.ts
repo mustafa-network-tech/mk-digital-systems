@@ -27,4 +27,14 @@ export const caseStudyMedia: Partial<Record<ProjectId, CaseScreen[]>> = {
     { id: "santiye-mobile", src: "/cases/santiye-projects-mobile.webp", width: 560, height: 1212, frame: "phone", part: "santiye-yonetim" },
     desktop("santiye-dashboard", "/cases/santiye-dashboard.webp", "santiye-yonetim"),
   ],
+  "mk-adisyon": [
+    desktop("adisyon-cashier", "/hero/adisyon-kasa.webp", "web"),
+    { id: "adisyon-waiter", src: "/hero/adisyon-garson.webp", width: 560, height: 1212, frame: "phone", part: "web" },
+    { id: "adisyon-mobile-app", src: "/cases/adisyon-mobile-app.webp", width: 390, height: 844, frame: "phone", part: "mobile" },
+  ],
+  "mk-farm": [
+    desktop("farm-dashboard", "/cases/farm-dashboard.webp"),
+    { id: "farm-animals-mobile", src: "/cases/farm-animals-mobile.webp", width: 390, height: 844, frame: "phone" },
+    desktop("farm-reports", "/cases/farm-reports.webp"),
+  ],
 };

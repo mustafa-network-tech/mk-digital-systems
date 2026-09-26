@@ -33,8 +33,8 @@ export type SectorId =
   | "lifestyle";
 /** The three visitor intents used by the hero and the brief. */
 export type NeedId = "operations" | "presence" | "idea";
-/** demo = working demo, product = the product's own website, site = a public website */
-export type ProjectLink = { kind: "demo" | "product" | "site"; url: string };
+/** demo = working demo, product = product website, app = application entry, site = public website */
+export type ProjectLink = { kind: "demo" | "product" | "app" | "site"; url: string };
 export type ProjectMedia = { src: string; frame: "phone" | "desktop" };
 /** A sub-system or surface of one project (e.g. MK OPS inside Saha ve Şantiye). */
 export type ProjectPart = { id: string; status?: ProjectStatus; links: ProjectLink[] };
@@ -129,7 +129,11 @@ export const projects: Project[] = [
     links: [],
     parts: [
       { id: "web", status: "live-demo", links: [{ kind: "demo", url: "https://adisyonn.vercel.app" }] },
-      { id: "mobile", status: "closed-test", links: [] },
+      {
+        id: "mobile",
+        status: "closed-test",
+        links: [{ kind: "app", url: "https://adisyon-app-umber.vercel.app" }],
+      },
     ],
     caseStudy: true,
   },

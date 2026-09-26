@@ -118,6 +118,186 @@ const en: Partial<Record<ProjectId, CaseStudyCopy>> = {
       ],
     },
   },
+  "mk-adisyon": {
+    meta: {
+      title: "Restaurant ordering and check management | MK Digital Systems",
+      description:
+        "MK Adisyon connects waiter, kitchen, cashier and management flows in a working web system. Its mobile application is in closed testing.",
+    },
+    title: "Managing restaurant operations in one flow, from order to payment",
+    lead:
+      "MK Adisyon is a two-surface product that keeps the restaurant team on one shared record, from the first table order through kitchen preparation to closing the bill: a working web system and a mobile application in closed testing.",
+    audience: {
+      heading: "Whose problem?",
+      text:
+        "Restaurants and cafés coordinating ordering, preparation, service and payment at the same time. Information entered by a waiter needs to reach the kitchen, cashier and management without being entered again.",
+      points: [
+        "Service teams following room and table status",
+        "Kitchens managing waiting, preparing and ready orders",
+        "Cashiers handling split or partial payments",
+        "Managers overseeing products, tables, shifts and operations",
+      ],
+    },
+    problem: {
+      heading: "What was the problem?",
+      text:
+        "Restaurant operations move between teams working at different speeds. When order details, table changes and payment status do not live in one record, delays, duplicate entry and misunderstandings become more likely.",
+      points: [
+        "Different teams seeing different table and order states",
+        "Product options, notes and service rounds reaching the kitchen incompletely",
+        "Ready orders not reaching the service team at the right time",
+        "Per-person or per-item bill splitting slowing down checkout",
+      ],
+    },
+    approach: {
+      heading: "How did we approach it?",
+      text:
+        "We designed task-focused views for each role while keeping every role connected to the same check. A table opened by a waiter, kitchen preparation and cashier payment steps therefore stay in one continuous flow.",
+      points: [
+        "Task-focused screens for waiter, kitchen, cashier and management roles",
+        "One order record followed from the table through payment closure",
+        "Explicit state changes such as preparing, ready and served",
+        "Layouts suited to the task on phone and desktop screens",
+      ],
+    },
+    solution: {
+      heading: "A real web system and a mobile application in closed testing",
+      text:
+        "MK Adisyon has two real product surfaces. The operational features below are verified in the working web system. A separate mobile application has been developed and is in closed testing; this study attributes only verified scope to it.",
+      parts: {
+        web: {
+          summary:
+            "The working web system brings table, ordering, kitchen, service, cashier and management flows together in role-based views.",
+          highlights: [
+            "Areas and tables, table opening and guest count",
+            "Products, options, notes, service rounds and kitchen dispatch",
+            "Waiting, preparing, ready and served order flow",
+            "Moving and merging tables, and splitting a bill",
+            "Amount-, person- or item-based splits and partial payments",
+            "Shifts, products, tables, expenses, finance and activity logs",
+          ],
+        },
+        mobile: {
+          summary:
+            "MK Adisyon's second developed product surface is its mobile application. It is in closed testing; this study does not extend its feature scope beyond the verified welcome screen.",
+          highlights: [
+            "A real, developed MK Adisyon product surface",
+            "Currently in closed testing",
+            "A verified application address separate from the web system",
+          ],
+        },
+      },
+    },
+    screens: {
+      "adisyon-cashier": {
+        caption: "Web system · Cashier: the open check, payment splits and collection options in one view.",
+        alt: "MK Adisyon web cashier screen with sample order and payment data",
+      },
+      "adisyon-waiter": {
+        caption: "Web system · Waiter: the working responsive web interface on a phone; this is not the mobile application.",
+        alt: "MK Adisyon responsive web waiter screen with sample table data",
+      },
+      "adisyon-mobile-app": {
+        caption: "Mobile application · Verified MK Adisyon welcome screen from the closed-test surface.",
+        alt: "Welcome screen of the MK Adisyon mobile application in closed testing",
+      },
+    },
+    screensNote:
+      "Records in the web screens are sample data. The phone-framed waiter view is the responsive web interface; the separate mobile app screen is labelled explicitly. “Mavi Adisyon” in the web interface is existing rebrand debt; the public product name is MK Adisyon.",
+    ctaText:
+      "If you want to bring ordering, kitchen and payment work onto one shared record, let’s review how your restaurant operates today.",
+    modules: {
+      heading: "Modules verified in the web system",
+      items: [
+        { title: "Rooms and tables", text: "Areas and tables are tracked by state; opening a table starts with its guest count." },
+        { title: "Waiter order flow", text: "Products are added with options, notes and service rounds, then sent to the kitchen." },
+        { title: "Kitchen display", text: "Orders move through waiting, preparing and ready states, and readiness is sent back to service." },
+        { title: "Table operations", text: "Open tables can be moved or merged, and their items can be split into another bill." },
+        { title: "Cashier and payment", text: "Bills can be split by amount, person or item; partial payments and different methods are recorded." },
+        { title: "Shift and cash movements", text: "Shift opening, cash in and out, and cash counts remain in the same operational record." },
+        { title: "Management", text: "Products, tables, kitchen, waiter, cashier, expenses, finance and activity are followed from management views." },
+      ],
+    },
+  },
+  "mk-farm": {
+    meta: {
+      title: "Farm and livestock operations management | MK Digital Systems",
+      description:
+        "MK Farm brings livestock, weight, milk, health, breeding, QR, reports and field records into a multi-farm system with offline support.",
+    },
+    title: "Taking daily farm records from the field to reporting",
+    lead:
+      "MK Farm brings animal-level operational records into one digital logbook. Owners and staff work with the same current data, from quick entries in the field to management reports.",
+    audience: {
+      heading: "Whose problem?",
+      text:
+        "Farms managing beef and dairy animals, staff and daily care records together. They need quick access to animal history in the field and the ability to report on the same record in the office.",
+      points: [
+        "Owners managing one or more farms",
+        "Field staff entering weight, milk, health and breeding records",
+        "Managers following animal history and upcoming checks",
+        "Teams preparing periodic production and operations reports",
+      ],
+    },
+    problem: {
+      heading: "What was the problem?",
+      text:
+        "When animal details, weighing, milk, treatment and breeding records stay in separate notebooks, history is harder to follow and upcoming work is easier to miss. Field connectivity can also delay recording.",
+      points: [
+        "Current animal state and history being held in different places",
+        "Not reaching the right animal quickly from its ear tag",
+        "Missing check dates, medicine withdrawal periods and repeat procedures",
+        "Delaying or re-entering field records when the connection drops",
+      ],
+    },
+    approach: {
+      heading: "How did we approach it?",
+      text:
+        "We built the data model around the animal lifecycle, turning daily work into short forms and management needs into filterable reports and alerts. The offline queue is treated as part of field use, not an afterthought.",
+      points: [
+        "Access separated by farm membership and owner-staff roles",
+        "Fast entry to an animal card through ear tags and QR",
+        "Separate but connected flows for weight, milk, health and breeding",
+        "Controlled synchronization and conflict handling when connectivity returns",
+      ],
+    },
+    solution: {
+      heading: "Field records, animal history and reporting in one system",
+      text:
+        "MK Farm combines multi-farm membership, role-based access and animal lifecycle records with a real API and persistent database. Its responsive PWA supports offline use of previously loaded data and later synchronization of queued records.",
+    },
+    screens: {
+      "farm-dashboard": {
+        caption: "Overview: animal count, daily milk, work needing attention, recent weights and reminders.",
+        alt: "MK Farm overview with farm summary from local sample data",
+      },
+      "farm-animals-mobile": {
+        caption: "Responsive field view: animal list by ear tag, name, category and breed.",
+        alt: "MK Farm phone view with a sample animal list",
+      },
+      "farm-reports": {
+        caption: "Reports: milk production summary and export with date and animal filters.",
+        alt: "MK Farm milk production report with local sample data",
+      },
+    },
+    screensNote:
+      "These screens use entirely fictional records generated by the product's local demo loader; the people, farm, animals and ear tags shown are not real records.",
+    ctaText:
+      "If you want field records, animal history and reporting to share one workflow on your farm, let’s review how your team works today.",
+    modules: {
+      heading: "Core modules",
+      items: [
+        { title: "Farms and staff", text: "Owner and staff memberships, approval states and the active workspace are managed together." },
+        { title: "Animal cards", text: "Identity, ear tag, state and lifecycle details for beef and dairy animals stay on one card." },
+        { title: "QR identity", text: "QR display, printing and access through a camera or external scanner open the animal card." },
+        { title: "Weight and weighing", text: "Manual or mock-scale entries, measurement history and change from the previous weight are tracked." },
+        { title: "Milk production", text: "Morning and evening milk records are entered by animal and date, then combined in period reports." },
+        { title: "Health and breeding", text: "Examinations, medicine, veterinary checks and breeding history are connected to the animal card." },
+        { title: "Alerts and reports", text: "Upcoming checks and operational exceptions are listed; milk and farm data can be exported." },
+        { title: "Offline synchronization", text: "Records remain in a device queue and are sent with version and conflict checks when connectivity returns." },
+      ],
+    },
+  },
 };
 
 export default en;

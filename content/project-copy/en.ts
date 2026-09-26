@@ -31,17 +31,17 @@ const en: ProjectCopyBook = {
   },
   "mk-adisyon": {
     industry: "RESTAURANTS & CAFÉS",
-    summary: "An ordering and bill flow for restaurants and cafés, on the web and on mobile.",
+    summary: "An ordering and bill product for restaurants and cafés, with a working web system and a mobile app in closed testing.",
     headline: "From the first order to closing the bill.",
     problem:
       "Waiters, kitchen and cashier need to see which stage the same order has reached.",
     solution:
-      "A web app that brings waiter, kitchen, cashier and management screens into one flow, plus a mobile app for taking orders on the phone.",
-    modules: ["Waiter", "Kitchen", "Cashier", "Management", "Mobile ordering"],
+      "A working web system that brings waiter, kitchen, cashier and management screens into one flow, plus a separate developed mobile app in closed testing.",
+    modules: ["Waiter", "Kitchen", "Cashier", "Management", "Mobile app · closed testing"],
     alt: "MK Adisyon demo with sample data: the cashier panel with open tables and payments",
     parts: {
       web: { name: "Web app", description: "Waiter, kitchen, cashier and management screens." },
-      mobile: { name: "Mobile app", description: "Android app, currently in closed testing on Google Play." },
+      mobile: { name: "Mobile app", description: "Developed mobile app, currently in closed testing." },
     },
   },
   "mk-farm": {
