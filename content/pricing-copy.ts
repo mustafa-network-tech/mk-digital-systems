@@ -1,5 +1,5 @@
 import type { Locale } from "@/config/i18n";
-import type { PricingId } from "./pricing";
+import type { PricingGroup, PricingId } from "./pricing";
 
 export type PricingCopy = {
   previewFrom: string;
@@ -19,6 +19,9 @@ export type PricingCopy = {
   inquiry: string;
   contactTitle: string;
   groups: [string, string, string];
+  /** Shown instead of an amount where no price book exists (en/de/fr). */
+  quote: string;
+  groupTitles: Record<PricingGroup, string>;
   items: Record<PricingId, { title: string; description: string }>;
 };
 export const pricingCopy: Record<Locale, PricingCopy> = {
@@ -44,6 +47,8 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
       "Merhaba, {service} için başlangıç kapsamı ve fiyatı hakkında bilgi almak istiyorum.",
     contactTitle: "Size uygun kapsamı\nbirlikte netleştirelim.",
     groups: ["Web & dijital deneyimler", "Özel yazılım", "İşletme sistemleri"],
+    quote: "Proje bazlı teklif",
+    groupTitles: { new: "Yeni proje", support: "Mevcut sitenize destek" },
     items: {
       landing_page: {
         title: "Landing page",
@@ -85,34 +90,51 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
         description:
           "Kullanıcı rolleri ve ayrı işletme alanlarıyla büyümeye hazır bir dijital ürün geliştirin.",
       },
+      mobile_app: {
+        title: "Mobil uygulama",
+        description:
+          "İşletmeniz veya fikriniz için Android ve iOS’ta çalışan, kolay kullanılan bir uygulama geliştirin.",
+      },
+      wordpress_revision: {
+        title: "WordPress site düzenleme / revize",
+        description:
+          "Mevcut WordPress sitenizin tasarımını, içeriğini veya işleyişini ihtiyaçlarınıza göre güncelleyin.",
+      },
+      seo: {
+        title: "SEO çalışmaları",
+        description:
+          "Sitenizin arama motorlarında daha kolay bulunması için teknik altyapıyı ve içerikleri iyileştirin.",
+      },
     },
   },
   en: {
     previewFrom: "Starting from",
-    label: "STARTING PRICES",
-    title: "A starting point\nfor your idea.",
+    label: "PRICING",
+    title: "Priced around\nyour project.",
     description:
-      "Every project is different. Explore starting budgets for similar scopes, then shape the right approach for your business.",
+      "Every project is different, so we quote each one on its own scope. See what we build, then tell us what you need.",
     disclaimer:
-      "These are starting prices. The final project fee depends on scope, features and your requirements.",
-    previewTitle: "A clearer budget\nfor your first step.",
+      "Pricing is project-based. We prepare a quotation once we understand your scope, features and requirements.",
+    previewTitle: "A clear quote\nfor your first step.",
     previewDescription:
-      "From a web experience to a system built around your business. Find a place to start.",
-    viewAll: "Explore all starting prices",
+      "From a web experience to a system built around your business. Tell us about your project and we’ll prepare a quote.",
+    viewAll: "See all services",
     from: "From ",
     suffix: "",
-    cta: "Ask us on WhatsApp",
+    cta: "Request a quote on WhatsApp",
     call: "Call us",
     whatsapp: "Message on WhatsApp",
     email: "Send an email",
     inquiry:
-      "Hello, I would like to learn about the starting scope and price for {service}.",
+      "Hello, I would like a project-based quotation for {service}.",
     contactTitle: "Let’s find the scope\nthat fits your business.",
     groups: [
       "Web & digital experiences",
       "Custom software",
       "Business systems",
     ],
+    quote: "Project-based quotation",
+    groupTitles: { new: "New projects", support: "Support for your existing website" },
     items: {
       landing_page: {
         title: "Landing page",
@@ -154,34 +176,51 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
         description:
           "Build a product ready to grow, with user roles and separate workspaces for multiple businesses.",
       },
+      mobile_app: {
+        title: "Mobile app",
+        description:
+          "Build an easy-to-use app for your business or idea, running on Android and iOS.",
+      },
+      wordpress_revision: {
+        title: "WordPress updates / redesign",
+        description:
+          "Update the design, content or behaviour of your existing WordPress site to fit your needs.",
+      },
+      seo: {
+        title: "SEO work",
+        description:
+          "Improve your site’s technical foundation and content so people find you more easily in search.",
+      },
     },
   },
   de: {
     previewFrom: "Einstieg ab",
-    label: "EINSTIEGSPREISE",
-    title: "Ein Ausgangspunkt\nfür Ihre Idee.",
+    label: "PREISE",
+    title: "Preise, die sich\nnach Ihrem Projekt richten.",
     description:
-      "Jedes Projekt ist anders. Entdecken Sie Einstiegsbudgets für vergleichbare Vorhaben und finden Sie den passenden Umfang für Ihr Unternehmen.",
+      "Jedes Projekt ist anders – deshalb erstellen wir für jedes ein Angebot nach seinem Umfang. Sehen Sie, was wir entwickeln, und erzählen Sie uns von Ihrem Vorhaben.",
     disclaimer:
-      "Die genannten Beträge sind Einstiegspreise. Der endgültige Projektpreis richtet sich nach Umfang, Funktionen und Anforderungen.",
-    previewTitle: "Ein klareres Budget\nfür den ersten Schritt.",
+      "Unsere Preise sind projektbezogen. Wir erstellen ein Angebot, sobald wir Umfang, Funktionen und Anforderungen kennen.",
+    previewTitle: "Ein klares Angebot\nfür den ersten Schritt.",
     previewDescription:
-      "Vom Webauftritt bis zur individuellen Unternehmenslösung. Finden Sie Ihren Einstieg.",
-    viewAll: "Alle Einstiegspreise ansehen",
+      "Vom Webauftritt bis zur individuellen Unternehmenslösung. Erzählen Sie uns von Ihrem Projekt – wir erstellen ein Angebot.",
+    viewAll: "Alle Leistungen ansehen",
     from: "Ab ",
     suffix: "",
-    cta: "Informationen per WhatsApp",
+    cta: "Angebot per WhatsApp anfragen",
     call: "Anrufen",
     whatsapp: "Per WhatsApp schreiben",
     email: "E-Mail senden",
     inquiry:
-      "Guten Tag, ich möchte mehr über den Einstiegsumfang und Preis für {service} erfahren.",
+      "Guten Tag, ich möchte ein projektbezogenes Angebot für {service} anfragen.",
     contactTitle: "Finden wir den Umfang,\nder zu Ihnen passt.",
     groups: [
       "Web & digitale Erlebnisse",
       "Individuelle Software",
       "Unternehmenssysteme",
     ],
+    quote: "Projektbezogenes Angebot",
+    groupTitles: { new: "Neue Projekte", support: "Unterstützung für Ihre bestehende Website" },
     items: {
       landing_page: {
         title: "Landingpage",
@@ -223,34 +262,51 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
         description:
           "Entwickeln Sie ein wachstumsfähiges Produkt mit Benutzerrollen und getrennten Bereichen für mehrere Unternehmen.",
       },
+      mobile_app: {
+        title: "Mobile App",
+        description:
+          "Entwickeln Sie eine benutzerfreundliche App für Ihr Unternehmen oder Ihre Idee – für Android und iOS.",
+      },
+      wordpress_revision: {
+        title: "WordPress-Überarbeitung",
+        description:
+          "Passen Sie Design, Inhalte oder Funktionen Ihrer bestehenden WordPress-Website an Ihre Anforderungen an.",
+      },
+      seo: {
+        title: "SEO-Optimierung",
+        description:
+          "Verbessern Sie technische Basis und Inhalte Ihrer Website, damit Sie in Suchmaschinen leichter gefunden werden.",
+      },
     },
   },
   fr: {
     previewFrom: "À partir de",
-    label: "TARIFS DE DÉPART",
-    title: "Un point de départ\npour votre idée.",
+    label: "TARIFS",
+    title: "Un tarif adapté\nà votre projet.",
     description:
-      "Chaque projet est différent. Découvrez des budgets de départ pour des besoins comparables, puis définissons le périmètre qui vous convient.",
+      "Chaque projet est différent : nous établissons donc un devis selon son périmètre. Découvrez ce que nous réalisons, puis parlez-nous de votre besoin.",
     disclaimer:
-      "Ces montants sont des tarifs de départ. Le prix final dépend du périmètre, des fonctionnalités et de vos besoins.",
-    previewTitle: "Un budget plus clair\npour le premier pas.",
+      "Nos tarifs sont établis sur devis. Nous préparons une proposition une fois le périmètre, les fonctionnalités et vos besoins définis.",
+    previewTitle: "Un devis clair\npour le premier pas.",
     previewDescription:
-      "D’une présence web à un système conçu pour votre activité. Trouvez votre point de départ.",
-    viewAll: "Voir tous les tarifs de départ",
+      "D’une présence web à un système conçu pour votre activité. Parlez-nous de votre projet, nous préparons un devis.",
+    viewAll: "Voir tous les services",
     from: "À partir de ",
     suffix: "",
-    cta: "Se renseigner sur WhatsApp",
+    cta: "Demander un devis sur WhatsApp",
     call: "Appeler",
     whatsapp: "Écrire sur WhatsApp",
     email: "Envoyer un e-mail",
     inquiry:
-      "Bonjour, je souhaite en savoir plus sur le périmètre initial et le tarif pour {service}.",
+      "Bonjour, je souhaite recevoir un devis pour {service}.",
     contactTitle: "Définissons le périmètre\nadapté à votre activité.",
     groups: [
       "Web & expériences numériques",
       "Logiciel sur mesure",
       "Systèmes de gestion",
     ],
+    quote: "Sur devis",
+    groupTitles: { new: "Nouveaux projets", support: "Accompagnement de votre site existant" },
     items: {
       landing_page: {
         title: "Landing page",
@@ -291,6 +347,21 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
         title: "Système multi-utilisateur / SaaS",
         description:
           "Développez un produit prêt à grandir, avec des rôles utilisateurs et des espaces séparés pour plusieurs entreprises.",
+      },
+      mobile_app: {
+        title: "Application mobile",
+        description:
+          "Développez une application simple à utiliser pour votre activité ou votre idée, sur Android et iOS.",
+      },
+      wordpress_revision: {
+        title: "Refonte / mise à jour WordPress",
+        description:
+          "Mettez à jour le design, le contenu ou le fonctionnement de votre site WordPress existant.",
+      },
+      seo: {
+        title: "Référencement (SEO)",
+        description:
+          "Améliorez les bases techniques et les contenus de votre site pour être trouvé plus facilement dans les moteurs de recherche.",
       },
     },
   },

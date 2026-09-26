@@ -2666,6 +2666,22 @@ img {
 .pricing-section {
   scroll-margin-top: 110px;
 }
+.pricing-group + .pricing-group {
+  margin-top: 56px;
+}
+.pricing-group-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.pricing-quote {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+}
 .pricing-catalog {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2684,7 +2700,8 @@ img {
   font-weight: 600;
   padding-top: 6px;
 }
-.pricing-copy h3 {
+.pricing-copy :is(h3, h4) {
+  font-weight: 500;
   font-size: clamp(22px, 2.1vw, 30px);
   line-height: 1.15;
   letter-spacing: -0.9px;
@@ -2804,7 +2821,7 @@ img {
     grid-template-columns: 25px minmax(0, 1fr);
     column-gap: 12px;
   }
-  .pricing-copy h3 {
+  .pricing-copy :is(h3, h4) {
     font-size: 23px;
     margin-bottom: 10px;
   }
