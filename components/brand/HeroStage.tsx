@@ -50,9 +50,9 @@ export function HeroStage({
   const list = ids.map((id) => slides.find((s) => s.id === id)!);
   const active = list[index % list.length];
   // Images are only mounted once a slide is shown or next in line (lazy loading).
-  const [loaded, setLoaded] = useState<Set<HeroSlideId>>(
-    () => new Set([rotation[0], rotation[1]]),
-  );
+  // The next slide waits for idle, so nothing competes with the first screen (LCP).
+  const [loaded, setLoaded] = useState<Set<HeroSlideId>>(() => new Set([rotation[0]]));
+  const [idle, setIdle] = useState(false);
   const pointer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -66,14 +66,32 @@ export function HeroStage({
     return () => query.removeEventListener("change", update);
   }, []);
 
+  // After the page has loaded and the main thread is free: preload the next slide, start autoplay.
   useEffect(() => {
-    const next = list[(index + 1) % list.length].id;
+    let handle = 0;
+    const start = () => {
+      // Safari has no requestIdleCallback: a short timeout after load does the same job.
+      handle =
+        typeof window.requestIdleCallback === "function"
+          ? window.requestIdleCallback(() => setIdle(true), { timeout: 2500 })
+          : window.setTimeout(() => setIdle(true), 1200);
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => {
+      window.removeEventListener("load", start);
+      if (typeof window.cancelIdleCallback === "function") window.cancelIdleCallback(handle);
+      window.clearTimeout(handle);
+    };
+  }, []);
+
+  useEffect(() => {
+    // The shown slide always loads (manual steps included); the next one only once idle.
+    const wanted = idle ? [active.id, list[(index + 1) % list.length].id] : [active.id];
     setLoaded((current) =>
-      current.has(active.id) && current.has(next)
-        ? current
-        : new Set([...current, active.id, next]),
+      wanted.every((id) => current.has(id)) ? current : new Set([...current, ...wanted]),
     );
-  }, [active.id, index, list]);
+  }, [active.id, index, list, idle]);
 
   const go = useCallback(
     (step: number) => setIndex((i) => (i + step + list.length) % list.length),
@@ -81,13 +99,13 @@ export function HeroStage({
   );
 
   useEffect(() => {
-    if (!playing || hold) return;
+    if (!playing || hold || !idle) return;
     const timer = window.setInterval(() => {
       if (document.visibilityState === "visible") go(1);
     }, INTERVAL);
     return () => window.clearInterval(timer);
     // index restarts the timer after a manual step, so the next slide gets its full time.
-  }, [playing, hold, go, need, index]);
+  }, [playing, hold, idle, go, need, index]);
 
   const choose = (id: NeedId) => {
     setNeed((current) => (current === id ? null : id));
@@ -139,14 +157,15 @@ export function HeroStage({
         }}
       >
         <div className="stage-backdrop" aria-hidden="true">
-          {/* Seen at low opacity, so a small file is enough; it is in view, so it loads early. */}
+          {/* Decorative, seen at low opacity: a small file with low fetch priority, so the
+              first product screen (the LCP image) gets the bandwidth. */}
           <Image
             src={backdrop.src}
             alt=""
             fill
             sizes="(max-width: 767px) 50vw, 760px"
             quality={40}
-            priority
+            fetchPriority="low"
           />
         </div>
         <div
