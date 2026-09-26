@@ -25,6 +25,13 @@ const nextConfig = withNextIntl({
       "/tr/legal/terms": "/tr/yasal/kosullar",
     };
     return [
+      // The old production alias moves to the real domain, path and query kept.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "mk-digital-systems-seven.vercel.app" }],
+        destination: "https://www.mk-digitalsystems.com/:path*",
+        statusCode: 301,
+      },
       ...Object.entries(turkish).map(([source, destination]) => ({ source, destination, statusCode: 301 })),
       { source: "/:locale(tr|en|de|fr)/services", destination: "/:locale/solutions", permanent: true },
       { source: "/:locale(tr|en|de|fr)/projects", destination: "/:locale/work", permanent: true },
