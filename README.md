@@ -40,7 +40,7 @@ See [pricing implementation report](PRICING-REPORT.md).
 
 ## Production contact details
 
-The central contact configuration defaults to `mkdigitalsystems@gmail.com` and `0545 659 75 51` (`+905456597551`). Privacy/terms email links, footer, Contact and Organization JSON-LD use that source. Update old deployment overrides for `NEXT_PUBLIC_CONTACT_EMAIL` and `MAIL_TO` before redeploying. Formspree recipients must be updated in the provider account separately; changing source code does not change the account's recipient. See [production cleanup report](PRODUCTION-CLEANUP-REPORT.md).
+The central contact configuration (`lib/contact-config.ts`) defaults to `iletisim@mk-digitalsystems.com` and `0545 659 75 51` (`+905456597551`). Privacy/terms email links, footer, Contact and Organization JSON-LD use that source. Update old deployment overrides for `NEXT_PUBLIC_CONTACT_EMAIL` and `MAIL_TO` before redeploying. Formspree recipients must be updated in the provider account separately; changing source code does not change the account's recipient. See [production cleanup report](PRODUCTION-CLEANUP-REPORT.md).
 
 ## Footer social links
 

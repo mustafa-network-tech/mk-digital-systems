@@ -12,7 +12,8 @@ test("contact defaults and domestic numbers share valid international URLs", () 
   expect(normalizePhone("5456597551")).toBe("905456597551");
   expect(normalizePhone("+90 545 659 75 51")).toBe("905456597551");
   expect(normalizePhone("00905456597551")).toBe("905456597551");
-  expect(contactConfig.email).toBe("mkdigitalsystems@gmail.com");
+  expect(contactConfig.email).toBe("iletisim@mk-digitalsystems.com");
+  expect(contactConfig.emailHref).toBe("mailto:iletisim@mk-digitalsystems.com");
   expect(contactConfig.phoneDisplay).toBe("0545 659 75 51");
   expect(contactConfig.phoneHref).toBe("tel:+905456597551");
   expect(contactConfig.whatsappHref).toBe("https://wa.me/905456597551");
@@ -42,7 +43,7 @@ for (const locale of locales) {
         actions.locator('a[href="https://wa.me/905456597551"]'),
       ).toHaveText(copy.contact.whatsapp);
       await expect(
-        actions.locator('a[href="mailto:mkdigitalsystems@gmail.com"]'),
+        actions.locator(`a[href="${contactConfig.emailHref}"]`),
       ).toHaveText(copy.contact.emailUs);
       expect(await page.locator("body").innerText()).not.toMatch(
         /hotmail\.com|Projenizi konuşalım|Benzer bir projeyi konuşalım|Discuss a similar project|Parlons d'un projet similaire|Ein ähnliches Projekt besprechen/,
@@ -74,7 +75,8 @@ for (const locale of locales) {
       const organization = schema["@graph"].find(
         (node: Record<string, unknown>) => node["@type"] === "Organization",
       );
-      expect(organization.email).toBe("mkdigitalsystems@gmail.com");
+      expect(organization.email).toBe(contactConfig.email);
+      expect(organization.contactPoint.email).toBe(contactConfig.email);
       expect(organization.telephone).toBe("+905456597551");
       expect(
         schema["@graph"].some((node: Record<string, unknown>) =>
@@ -101,9 +103,9 @@ for (const locale of locales) {
       if (path.startsWith("/legal/"))
         await expect(
           page.locator(
-            '.legal-content a[href="mailto:mkdigitalsystems@gmail.com"]',
+            `.legal-content a[href="${contactConfig.emailHref}"]`,
           ),
-        ).toHaveText("mkdigitalsystems@gmail.com");
+        ).toHaveText(contactConfig.email);
     }
     expect(titles.size).toBe(6);
     expect(descriptions.size).toBe(6);

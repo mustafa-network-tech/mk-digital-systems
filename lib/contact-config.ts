@@ -10,8 +10,9 @@ const whatsapp = normalizePhone(
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905456597551",
 );
 const phone = normalizePhone(process.env.NEXT_PUBLIC_PHONE_NUMBER || whatsapp);
+/** Public corporate contact address; every page, mailto link and JSON-LD reads it from here. */
 const email =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "mkdigitalsystems@gmail.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "iletisim@mk-digitalsystems.com";
 const phoneDisplay = /^905\d{9}$/.test(phone)
   ? `0${phone.slice(2, 5)} ${phone.slice(5, 8)} ${phone.slice(8, 10)} ${phone.slice(10)}`
   : `+${phone}`;

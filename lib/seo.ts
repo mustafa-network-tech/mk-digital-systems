@@ -48,20 +48,31 @@ export function pageMetadata(locale: Locale, page: PageKey): Metadata {
     },
   };
 }
+/** The organization, with the public contact point from lib/contact-config. */
+function organizationNode(locale: Locale) {
+  return {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: "MK Digital Systems",
+    url: SITE_URL,
+    email: contactConfig.email,
+    telephone: contactConfig.phone,
+    logo: `${SITE_URL}/brand/icon-512.png`,
+    description: getContent(locale).footer.description,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: contactConfig.email,
+      telephone: contactConfig.phone,
+      availableLanguage: ["tr", "en", "de", "fr"],
+    },
+  };
+}
 export function pageSchema(locale: Locale, page: PageKey) {
   const c = getContent(locale);
   const orgId = `${SITE_URL}/#organization`;
   const graph: Record<string, unknown>[] = [
-    {
-      "@type": "Organization",
-      "@id": orgId,
-      name: "MK Digital Systems",
-      url: SITE_URL,
-      email: contactConfig.email,
-      telephone: contactConfig.phone,
-      logo: `${SITE_URL}/brand/icon-512.png`,
-      description: c.footer.description,
-    },
+    organizationNode(locale),
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
