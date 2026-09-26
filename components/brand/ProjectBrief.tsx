@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@/config/navigation";
 import type { Locale } from "@/config/i18n";
 import type { SiteContent } from "@/content/site";
@@ -23,6 +23,11 @@ export function ProjectBrief({
   const [invalid, setInvalid] = useState(false);
   const inFlight = useRef(false);
   const feedback = useRef<HTMLDivElement>(null);
+  // The success view replaces the form, so focus it once it is rendered
+  // (a requestAnimationFrame alone can run before React commits it).
+  useEffect(() => {
+    if (status === "success") feedback.current?.focus();
+  }, [status]);
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inFlight.current) return;
