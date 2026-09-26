@@ -171,6 +171,10 @@ const tr: Partial<Record<ProjectId, CaseStudyCopy>> = {
         caption: "Mobil uygulama · Kapalı test yüzeyinin doğrulanmış MK Adisyon karşılama ekranı.",
         alt: "Kapalı testteki MK Adisyon mobil uygulamasının karşılama ekranı",
       },
+      "adisyon-kitchen": {
+        caption: "Web uygulaması · Mutfak: siparişler masa, tur ve istasyona göre kartlarda; bekliyor, hazırlanıyor ve hazır durumlarıyla.",
+        alt: "MK Adisyon demosunda örnek siparişlerle mutfak ekranı",
+      },
     },
     screensNote:
       "Web ekranlarındaki kayıtlar örnek veridir. Telefon çerçevesindeki garson ekranı responsive web arayüzüdür; ayrı mobil uygulama ekranı açıkça etiketlenmiştir. Web arayüzünde görünen “Mavi Adisyon” adı mevcut rebrand teknik borcudur; public ürün adı MK Adisyon'dur.",

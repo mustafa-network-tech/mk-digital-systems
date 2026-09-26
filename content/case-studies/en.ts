@@ -201,6 +201,10 @@ const en: Partial<Record<ProjectId, CaseStudyCopy>> = {
         caption: "Mobile application · Verified MK Adisyon welcome screen from the closed-test surface.",
         alt: "Welcome screen of the MK Adisyon mobile application in closed testing",
       },
+      "adisyon-kitchen": {
+        caption: "Web application · Kitchen: orders as cards by table, round and station, marked waiting, preparing or ready.",
+        alt: "MK Adisyon demo kitchen screen with sample orders",
+      },
     },
     screensNote:
       "Records in the web screens are sample data. The phone-framed waiter view is the responsive web interface; the separate mobile app screen is labelled explicitly. “Mavi Adisyon” in the web interface is existing rebrand debt; the public product name is MK Adisyon.",

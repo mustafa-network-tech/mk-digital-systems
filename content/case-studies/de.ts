@@ -201,6 +201,10 @@ const de: Partial<Record<ProjectId, CaseStudyCopy>> = {
         caption: "Mobile Anwendung · Geprüfter MK Adisyon Startbildschirm der geschlossenen Testoberfläche.",
         alt: "Startbildschirm der mobilen MK Adisyon Anwendung im geschlossenen Test",
       },
+      "adisyon-kitchen": {
+        caption: "Webanwendung · Küche: Bestellungen als Karten nach Tisch, Runde und Station, markiert als wartend, in Zubereitung oder fertig.",
+        alt: "Küchenansicht der MK-Adisyon-Demo mit Beispielbestellungen",
+      },
     },
     screensNote:
       "Die Einträge der Webansichten sind Beispieldaten. Die Serviceansicht im Handyrahmen ist responsives Web; die separate App-Ansicht ist ausdrücklich markiert. „Mavi Adisyon“ in der Weboberfläche ist bestehende Rebranding-Schuld; der öffentliche Produktname lautet MK Adisyon.",

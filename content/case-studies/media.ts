@@ -14,6 +14,8 @@ export type CaseScreen = {
   height: number;
   frame: "desktop" | "phone";
   part?: string;
+  /** The screen the home page's Selected Works uses: one per case study, never a hero screen. */
+  featured?: boolean;
 };
 
 const desktop = (id: string, src: string, part?: string): CaseScreen => ({ id, src, width: 1600, height: 1000, frame: "desktop", part });
@@ -22,15 +24,16 @@ export const caseStudyMedia: Partial<Record<ProjectId, CaseScreen[]>> = {
   "saha-santiye": [
     desktop("ops-approvals", "/hero/ops-approvals.webp"),
     { id: "ops-mobile", src: "/hero/saha-santiye-phone.webp", width: 560, height: 1120, frame: "phone" },
-    desktop("ops-management", "/cases/mkops-management.webp"),
+    { ...desktop("ops-management", "/cases/mkops-management.webp"), featured: true },
   ],
   "mk-adisyon": [
     desktop("adisyon-cashier", "/hero/adisyon-kasa.webp", "web"),
     { id: "adisyon-waiter", src: "/hero/adisyon-garson.webp", width: 560, height: 1212, frame: "phone", part: "web" },
+    { ...desktop("adisyon-kitchen", "/cases/adisyon-kitchen.webp", "web"), featured: true },
     { id: "adisyon-mobile-app", src: "/cases/adisyon-mobile-app.webp", width: 390, height: 844, frame: "phone", part: "mobile" },
   ],
   "mk-farm": [
-    desktop("farm-dashboard", "/cases/farm-dashboard.webp"),
+    { ...desktop("farm-dashboard", "/cases/farm-dashboard.webp"), featured: true },
     { id: "farm-animals-mobile", src: "/cases/farm-animals-mobile.webp", width: 390, height: 844, frame: "phone" },
     desktop("farm-reports", "/cases/farm-reports.webp"),
   ],

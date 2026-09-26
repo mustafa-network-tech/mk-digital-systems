@@ -201,6 +201,10 @@ const fr: Partial<Record<ProjectId, CaseStudyCopy>> = {
         caption: "Application mobile · Écran d'accueil MK Adisyon vérifié de la surface en test fermé.",
         alt: "Écran d'accueil de l'application mobile MK Adisyon en test fermé",
       },
+      "adisyon-kitchen": {
+        caption: "Application web · Cuisine : les commandes en cartes par table, tour et poste, marquées en attente, en préparation ou prêtes.",
+        alt: "Écran cuisine de la démo MK Adisyon avec des commandes d’exemple",
+      },
     },
     screensNote:
       "Les données des écrans web sont des exemples. La vue serveur encadrée comme un téléphone est l'interface web responsive ; l'écran de l'application séparée est clairement indiqué. « Mavi Adisyon » dans l'interface web est une dette de rebranding existante ; le nom public est MK Adisyon.",
