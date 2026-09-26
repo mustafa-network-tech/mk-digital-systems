@@ -37,19 +37,6 @@ export type SiteContent = {
     /** Third caption item for non-flagship work (flagship shows its status). */
     tags: Record<"selected" | "sector-demo", string>;
   };
-  needs: {
-    label: string;
-    title: string;
-    description: string;
-    explore: string;
-    items: {
-      title: string;
-      subtitle: string;
-      description: string;
-      steps: string[];
-      family: string;
-    }[];
-  };
   work: {
     label: string;
     /** Intro label on /work; label stays on the home section. */
@@ -71,33 +58,11 @@ export type SiteContent = {
     statuses: Record<ProjectStatus, string>;
     linkLabels: Record<ProjectLink["kind"], string>;
   };
-  solutions: {
-    label: string;
-    title: string;
-    description: string;
-    audience: string;
-    builds: string;
-    example: string;
-    cta: string;
-    items: {
-      id: string;
-      title: string;
-      description: string;
-      for: string;
-      features: string[];
-    }[];
-  };
   process: {
     label: string;
     title: string;
     description: string;
     steps: { title: string; description: string }[];
-  };
-  industries: {
-    label: string;
-    title: string;
-    description: string;
-    items: string[];
   };
   contact: {
     label: string;

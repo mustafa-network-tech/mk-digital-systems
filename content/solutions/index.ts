@@ -1,8 +1,11 @@
-import type { Locale } from "@/config/i18n";
+import { locales, type Locale } from "@/config/i18n";
 import { projects, projectsForService, type Project, type ProjectId, type ServiceId } from "@/content/projects";
 import { getPricing, marketForLocale, type PricingCategory } from "@/content/pricing";
 import { briefTypeForService, type BriefType } from "@/content/brief";
 import tr from "./tr";
+import en from "./en";
+import de from "./de";
+import fr from "./fr";
 
 /* ==========================================================================
  * Solutions: the four commercial axes (Faz 4). One source for the hub, the
@@ -116,12 +119,13 @@ export type SolutionsCopy = {
   items: Record<SolutionId, SolutionPageCopy>;
 };
 
-/** Written languages; a solution page exists only where its copy does (drives routes, hreflang, sitemap). */
-const books: Partial<Record<Locale, SolutionsCopy>> = { tr };
+/** Every language writes every solution: a missing one is a type error. */
+const books: Record<Locale, SolutionsCopy> = { tr, en, de, fr };
 
-export function getSolutionsCopy(locale: Locale): SolutionsCopy | undefined {
+export function getSolutionsCopy(locale: Locale): SolutionsCopy {
   return books[locale];
 }
+/** Languages with solution pages (drives routes, hreflang and the sitemap). */
 export function solutionLocales(): Locale[] {
-  return (Object.keys(books) as Locale[]).filter((locale) => books[locale]);
+  return [...locales];
 }

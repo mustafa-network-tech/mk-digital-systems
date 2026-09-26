@@ -52,39 +52,6 @@ const de: SiteContent = {
       "sector-demo": "Beispielseite",
     },
   },
-  needs: {
-    label: "HIER FÄNGT ES AN",
-    title: "Was würde Ihren\nArbeitsalltag verbessern?",
-    description:
-      "Sie brauchen kein technisches Konzept. Erzählen Sie uns einfach, was sich ändern soll.",
-    explore: "Diese Lösung entdecken",
-    items: [
-      {
-        title: "Einen stärkeren Eindruck machen.",
-        subtitle: "Websites & digitale Erlebnisse",
-        description:
-          "Ein digitaler Auftritt, der Sie treffend darstellt, Orientierung bietet und den nächsten Schritt einfach macht.",
-        steps: ["Entdecken", "Erkunden", "Kontakt aufnehmen"],
-        family: "web",
-      },
-      {
-        title: "Die tägliche Arbeit erleichtern.",
-        subtitle: "Individuelle Software & Betriebssysteme",
-        description:
-          "Aufgaben, Daten und Teams zusammenbringen. Eine Lösung für Ihre Abläufe entwickeln, statt Ihre Arbeit an ein Werkzeug anzupassen.",
-        steps: ["Ordnen", "Abstimmen", "Überblick behalten"],
-        family: "business",
-      },
-      {
-        title: "Eine Idee Wirklichkeit werden lassen.",
-        subtitle: "Individuelle digitale Produkte",
-        description:
-          "Den nützlichen Kern Ihrer Idee finden, das Erlebnis gestalten und eine erste Version für echte Nutzung entwickeln.",
-        steps: ["Formulieren", "Entwickeln", "Verbessern"],
-        family: "custom",
-      },
-    ],
-  },
   work: {
     label: "AUSGEWÄHLTE PROJEKTE",
     pageLabel: "PROJEKTE",
@@ -137,107 +104,37 @@ const de: SiteContent = {
       site: "Website ansehen",
     },
   },
-  solutions: {
-    label: "LÖSUNGEN",
-    title: "Für das entwickelt,\nwas Ihr Geschäft braucht.",
-    description:
-      "Ein besseres Erlebnis für Ihre Kunden. Ein klarerer Alltag für Ihr Team. Eine Idee, die Wirklichkeit wird.",
-    audience: "Für wen?",
-    builds: "Was wir entwickeln",
-    example: "Ein Beispiel entdecken",
-    cta: "Erzählen Sie uns von Ihrem Bedarf",
-    items: [
-      {
-        id: "web",
-        title: "Web & digitale Erlebnisse",
-        description:
-          "Ihr Geschäft leichter finden, verstehen und wählen. Wir verbinden Ihre Geschichte mit einem angenehmen Nutzungserlebnis.",
-        for: "Unternehmen, eigenständige Marken und Fachleute, die ihren digitalen Auftritt stärken möchten.",
-        features: [
-          "Marken- und Unternehmenswebsites",
-          "Inhalts- & Entdeckungsplattformen",
-          "Wege zur Kundenanfrage",
-        ],
-      },
-      {
-        id: "custom",
-        title: "Individuelle Software",
-        description:
-          "Wenn Standardwerkzeuge nicht passen, beginnen wir bei Ihren tatsächlichen Abläufen und den wichtigen Aufgaben.",
-        for: "Teams mit besonderen Abläufen, einer Produktidee oder einer Aufgabe, für die Standardsoftware nicht reicht.",
-        features: [
-          "Individuelle Webanwendungen",
-          "Digitale Produkte & erste Versionen",
-          "Verbundene Werkzeuge & Automatisierung",
-        ],
-      },
-      {
-        id: "business",
-        title: "Betriebliche Verwaltungssysteme",
-        description:
-          "Menschen, Daten und tägliche Entscheidungen an einem Ort. Ein klarer nächster Schritt für alle Beteiligten.",
-        for: "Hotels, Restaurants, Höfe und Außendienstteams mit unterschiedlichen Rollen.",
-        features: [
-          "Abläufe & Teamkoordination",
-          "Reservierungen, Bestellungen & Daten",
-          "Verwaltungsansichten & Berichte",
-        ],
-      },
-      {
-        id: "smart",
-        title: "Intelligente & sprachbasierte Erlebnisse",
-        description:
-          "Einfachere Wege zum Fragen, Finden und Handeln erkunden. Sprachbasierte und unterstützte Erlebnisse mit einem konkreten Nutzen gestalten.",
-        for: "Unternehmen, die zugänglichere Kundenkontakte oder geführte interne Abläufe erkunden möchten.",
-        features: [
-          "Konzepte für Sprachinteraktion",
-          "Unterstützte Kundenabläufe",
-          "Praktische Automatisierungsprototypen",
-        ],
-      },
-    ],
-  },
   process: {
     label: "SO ARBEITEN WIR",
-    title: "Zuerst hören wir zu.\nDann setzen wir um.",
+    title: "Zuerst hören wir zu.\nDann bauen wir gemeinsam.",
     description:
-      "Eine gemeinsame Richtung, klare Entscheidungen und ein nützlicher Schritt in jeder Phase.",
+      "In jedem Projekt dieselbe Reihenfolge: erst die Arbeit verstehen, dann bauen.",
     steps: [
       {
         title: "Verstehen",
-        description: "Ihre Menschen, Ihre Abläufe und was sich ändern soll.",
+        description:
+          "Wir hören zu, wie die Arbeit heute läuft, wer das System nutzt und was sich ändern soll.",
       },
       {
         title: "Gestalten",
-        description: "Den Weg klären, bevor die Details entstehen.",
+        description:
+          "Vor der Entwicklung klären wir Ablauf und Ansichten.",
       },
       {
         title: "Entwickeln",
         description:
-          "Die vereinbarte Richtung in ein nutzbares Erlebnis übersetzen.",
+          "Wir setzen die vereinbarte Richtung in ein funktionierendes System um.",
       },
       {
-        title: "Starten",
-        description: "Details prüfen und Ihr System in Gebrauch bringen.",
+        title: "Testen",
+        description:
+          "Wir erproben es in echten Nutzungsszenarien und schließen Lücken vor dem Start.",
       },
       {
-        title: "Verbessern",
-        description: "Aus dem Alltag lernen und den nächsten Schritt formen.",
+        title: "Starten und in Betrieb nehmen",
+        description:
+          "Wir veröffentlichen das System und öffnen es für Ihr Team und Ihre Kunden.",
       },
-    ],
-  },
-  industries: {
-    label: "ERFAHRUNG AUS TATSÄCHLICHEN PROJEKTEN",
-    title: "Verschiedene Welten.\nKonkrete tägliche Aufgaben.",
-    description:
-      "Unsere eigenständigen Projekte und Demos erkunden digitale Erlebnisse für unterschiedliche Arbeitsweisen.",
-    items: [
-      "Beherbergung",
-      "Gastronomie",
-      "Landwirtschaft",
-      "Außendienst",
-      "Fertigung",
-      "Immobilien",
     ],
   },
   contact: {
@@ -365,15 +262,14 @@ const de: SiteContent = {
   },
   meta: {
     home: {
-      title:
-        "MK Digital Systems | Websites & individuelle Unternehmenssoftware",
+      title: "MK Digital Systems | Webdesign, individuelle Software & mobile Apps",
       description:
-        "Digitale Erlebnisse und nützliche Software passend zu Ihren Abläufen. Entdecken Sie MK Digital Systems Projekte und beginnen Sie ein Gespräch.",
+        "Websites, individuelle Software, Betriebsmanagement-Systeme und mobile Apps. Sehen Sie echte Arbeiten und sprechen Sie mit uns über Ihren Bedarf.",
     },
     solutions: {
-      title: "Lösungen | MK Digital Systems",
+      title: "Web- und Softwarelösungen | MK Digital Systems",
       description:
-        "Websites, individuelle Software, betriebliche Verwaltungssysteme und intelligente Erlebnisse für Ihre Kunden und täglichen Abläufe.",
+        "Webdesign, individuelle Software, Betriebsmanagement-Systeme und mobile Apps – jeweils mit echten Arbeiten. Finden Sie die passende Lösung.",
     },
     work: {
       title: "Ausgewählte Projekte | MK Digital Systems",

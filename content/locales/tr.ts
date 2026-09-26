@@ -52,39 +52,6 @@ const tr: SiteContent = {
       "sector-demo": "Örnek site",
     },
   },
-  needs: {
-    label: "BAŞLAMAK İÇİN DOĞRU YER",
-    title: "İşinizde neyi\ndaha iyi yapabiliriz?",
-    description:
-      "Teknik bir dosyaya ihtiyacınız yok. Neyi değiştirmek istediğinizi anlatmanız yeterli.",
-    explore: "Bu çözümü keşfedin",
-    items: [
-      {
-        title: "Dijitalde daha güçlü görünebilirim.",
-        subtitle: "Web siteleri & dijital deneyimler",
-        description:
-          "Sizi doğru anlatan, ziyaretçinin aradığını kolayca bulduğu ve iletişime geçmek istediği bir dijital deneyim.",
-        steps: ["Keşfet", "Tanı", "İletişime geç"],
-        family: "web",
-      },
-      {
-        title: "Günlük işlerimi kolaylaştırabilirim.",
-        subtitle: "Özel yazılım & işletme sistemleri",
-        description:
-          "Dağınık görevleri, kayıtları ve ekipleri bir araya getirin. İşinizi bir programa uydurmak yerine, sisteminizi işinize göre kuralım.",
-        steps: ["Düzenle", "Birlikte çalış", "Net gör"],
-        family: "business",
-      },
-      {
-        title: "Aklımdaki fikri hayata geçirebilirim.",
-        subtitle: "Özel dijital ürünler",
-        description:
-          "Fikrinizin işe yarayan özünü bulalım. Deneyimini tasarlayalım ve insanların kullanabileceği ilk sürümü birlikte geliştirelim.",
-        steps: ["Şekillendir", "Geliştir", "İyileştir"],
-        family: "custom",
-      },
-    ],
-  },
   work: {
     label: "SEÇİLMİŞ ÇALIŞMALAR",
     pageLabel: "ÇALIŞMALAR",
@@ -137,66 +104,6 @@ const tr: SiteContent = {
       site: "Siteyi incele",
     },
   },
-  solutions: {
-    label: "ÇÖZÜMLER",
-    title: "İşinizin ihtiyaçlarına\ngöre şekillenir.",
-    description:
-      "Müşteriniz için daha iyi bir deneyim. Ekibiniz için daha net bir gün. Hayata geçen yeni bir fikir.",
-    audience: "Kimler için?",
-    builds: "Neler geliştirebiliriz?",
-    example: "Çalışan bir örneği keşfedin",
-    cta: "İhtiyacınızı anlatın",
-    items: [
-      {
-        id: "web",
-        title: "Web & dijital deneyimler",
-        description:
-          "İşinizin bulunmasını, anlaşılmasını ve tercih edilmesini kolaylaştıralım. Markanızı insanların severek kullandığı bir deneyimle buluşturalım.",
-        for: "Dijitalde daha güçlü bir varlık isteyen işletmeler, bağımsız markalar ve profesyoneller.",
-        features: [
-          "Marka ve işletme web siteleri",
-          "İçerik & keşif platformları",
-          "Müşteri talep akışları",
-        ],
-      },
-      {
-        id: "custom",
-        title: "Özel yazılım",
-        description:
-          "Hazır araçlar yetmediğinde işinizin gerçekte nasıl yürüdüğünden başlayalım. Önemli işleri kolaylaştıran yazılımlar tasarlayalım.",
-        for: "Kendine özgü iş akışı, ürün fikri veya standart araçlarla çözülemeyen süreci olan ekipler.",
-        features: [
-          "İhtiyaca özel web uygulamaları",
-          "Dijital ürünler & ilk sürümler",
-          "Araçlar arası bağlantı & otomasyon",
-        ],
-      },
-      {
-        id: "business",
-        title: "İşletme yönetim sistemleri",
-        description:
-          "İnsanları, kayıtları ve günlük kararları aynı yerde buluşturalım. Herkes için sıradaki adımı daha net hale getirelim.",
-        for: "Farklı rollerle çalışan oteller, restoranlar, çiftlikler ve saha ekipleri.",
-        features: [
-          "Operasyon & ekip koordinasyonu",
-          "Rezervasyon, sipariş & kayıtlar",
-          "Yönetim ekranları & raporlama",
-        ],
-      },
-      {
-        id: "smart",
-        title: "Akıllı & sesli deneyimler",
-        description:
-          "Soru sormanın, bilgi bulmanın ve işlem yapmanın daha kolay yollarını keşfedelim. Sesli ve yardımcı deneyimleri somut bir amaca göre şekillendirelim.",
-        for: "Müşteri iletişimini kolaylaştırmak veya ekiplerine yönlendirmeli iş akışları sunmak isteyen işletmeler.",
-        features: [
-          "Sesli etkileşim fikirleri",
-          "Yardımcı müşteri deneyimleri",
-          "Pratik otomasyon prototipleri",
-        ],
-      },
-    ],
-  },
   process: {
     label: "NASIL ÇALIŞIYORUZ?",
     title: "Önce dinliyoruz.\nSonra birlikte kuruyoruz.",
@@ -224,20 +131,6 @@ const tr: SiteContent = {
         title: "Yayına almak ve kullanıma açmak",
         description: "Sistemi yayına alıyor, ekibinizin ve müşterilerinizin kullanımına açıyoruz.",
       },
-    ],
-  },
-  industries: {
-    label: "GERÇEK ÇALIŞMALARDAN GELEN DENEYİM",
-    title: "Farklı dünyalar.\nGerçek günlük ihtiyaçlar.",
-    description:
-      "Bağımsız projelerimiz ve örnek uygulamalarımız, dijital deneyimlerin farklı işlere nasıl uyum sağlayabileceğini gösterir.",
-    items: [
-      "Konaklama",
-      "Restoranlar",
-      "Tarım",
-      "Saha operasyonları",
-      "Fotoğraf",
-      "Gayrimenkul",
     ],
   },
   contact: {

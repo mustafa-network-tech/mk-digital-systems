@@ -7,7 +7,6 @@ import { Arrow } from "./Arrow";
 import { SocialIcon } from "./SocialIcon";
 import { socialLinks, siteLinks } from "@/lib/site-links";
 import { getSolutionsCopy, solutionIds, solutionRoutes } from "@/content/solutions";
-import { getHomeCopy } from "@/content/home";
 import { FooterInvitation } from "./FooterInvitation";
 export function SiteFooter({
   locale,
@@ -20,7 +19,7 @@ export function SiteFooter({
   return (
     <footer className="site-footer">
       <div className="wrap">
-        <FooterInvitation homeHasCta={!!getHomeCopy(locale)}>
+        <FooterInvitation>
         <div className="footer-invitation">
           <div>
             <p className="eyebrow">{copy.footer.label}</p>
@@ -54,16 +53,14 @@ export function SiteFooter({
             <Link href="/work">{copy.nav.work}</Link>
             <Link href="/contact">{copy.nav.contact}</Link>
           </nav>
-          {solutions && (
-            <nav className="footer-solutions" aria-labelledby="footer-solutions-title">
-              <p id="footer-solutions-title">{copy.nav.solutions}</p>
-              {solutionIds.map((id) => (
-                <Link key={id} href={solutionRoutes[id]}>
-                  {solutions.items[id].name}
-                </Link>
-              ))}
-            </nav>
-          )}
+          <nav className="footer-solutions" aria-labelledby="footer-solutions-title">
+            <p id="footer-solutions-title">{copy.nav.solutions}</p>
+            {solutionIds.map((id) => (
+              <Link key={id} href={solutionRoutes[id]}>
+                {solutions.items[id].name}
+              </Link>
+            ))}
+          </nav>
           <a className="footer-email" href={contactConfig.emailHref}>
             {contactConfig.email}
             <Arrow diagonal />

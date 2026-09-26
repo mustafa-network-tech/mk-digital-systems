@@ -52,39 +52,6 @@ const fr: SiteContent = {
       "sector-demo": "Site d’exemple",
     },
   },
-  needs: {
-    label: "UN BON POINT DE DÉPART",
-    title: "Qu'est-ce qui faciliterait\nvotre quotidien ?",
-    description:
-      "Pas besoin d'un cahier des charges technique. Dites-nous simplement ce que vous souhaitez changer.",
-    explore: "Découvrir cette solution",
-    items: [
-      {
-        title: "Faire une meilleure première impression.",
-        subtitle: "Sites & expériences numériques",
-        description:
-          "Une présence qui vous ressemble, aide chacun à trouver l'essentiel et facilite la prise de contact.",
-        steps: ["Découvrir", "Explorer", "Échanger"],
-        family: "web",
-      },
-      {
-        title: "Simplifier le travail au quotidien.",
-        subtitle: "Logiciels sur mesure & systèmes métier",
-        description:
-          "Rassembler tâches, informations et équipes. Concevoir autour de vos processus pour respecter votre façon de travailler.",
-        steps: ["Organiser", "Coordonner", "Voir clairement"],
-        family: "business",
-      },
-      {
-        title: "Donner vie à une idée.",
-        subtitle: "Produits numériques sur mesure",
-        description:
-          "Trouver le cœur utile de votre idée, concevoir l'expérience et créer une première version à mettre entre les mains des utilisateurs.",
-        steps: ["Définir", "Construire", "Faire évoluer"],
-        family: "custom",
-      },
-    ],
-  },
   work: {
     label: "PROJETS CHOISIS",
     pageLabel: "PROJETS",
@@ -137,107 +104,37 @@ const fr: SiteContent = {
       site: "Voir le site",
     },
   },
-  solutions: {
-    label: "SOLUTIONS",
-    title: "Conçues pour\nvos besoins réels.",
-    description:
-      "Une meilleure expérience client. Un quotidien plus clair pour votre équipe. Une idée qui prend vie.",
-    audience: "Pour qui ?",
-    builds: "Ce que nous créons",
-    example: "Découvrir un exemple",
-    cta: "Parlez-nous de votre besoin",
-    items: [
-      {
-        id: "web",
-        title: "Web & expériences numériques",
-        description:
-          "Faciliter la découverte, la compréhension et le choix de votre entreprise. Relier votre histoire à une expérience agréable.",
-        for: "Entreprises, marques indépendantes et professionnels qui souhaitent renforcer leur présence numérique.",
-        features: [
-          "Sites de marque et d'entreprise",
-          "Plateformes de contenu & découverte",
-          "Parcours de prise de contact",
-        ],
-      },
-      {
-        id: "custom",
-        title: "Logiciels sur mesure",
-        description:
-          "Quand les outils standards ne conviennent pas, partons de vos processus réels et des tâches qui comptent.",
-        for: "Équipes ayant un processus particulier, une idée de produit ou un besoin que les outils courants ne couvrent pas.",
-        features: [
-          "Applications web adaptées",
-          "Produits numériques & premières versions",
-          "Outils connectés & automatisations",
-        ],
-      },
-      {
-        id: "business",
-        title: "Systèmes de gestion métier",
-        description:
-          "Rassembler personnes, informations et décisions quotidiennes. Clarifier la prochaine action pour chacun.",
-        for: "Hôtels, restaurants, exploitations et équipes de terrain travaillant avec plusieurs rôles.",
-        features: [
-          "Opérations & coordination",
-          "Réservations, commandes & dossiers",
-          "Vues de gestion & rapports",
-        ],
-      },
-      {
-        id: "smart",
-        title: "Expériences intelligentes & vocales",
-        description:
-          "Explorer des façons plus simples de demander, trouver et agir. Donner un objectif utile aux interactions vocales et assistées.",
-        for: "Entreprises explorant des interactions clients plus accessibles ou des processus internes guidés.",
-        features: [
-          "Concepts d'interaction vocale",
-          "Parcours clients assistés",
-          "Prototypes d'automatisation pratiques",
-        ],
-      },
-    ],
-  },
   process: {
     label: "NOTRE MÉTHODE",
-    title: "D'abord, vous écouter.\nPuis, concrétiser.",
+    title: "D'abord, vous écouter.\nPuis, construire ensemble.",
     description:
-      "Une direction commune, des décisions claires et une étape utile à chaque phase.",
+      "Le même ordre à chaque projet : comprendre le travail, puis construire.",
     steps: [
       {
         title: "Comprendre",
-        description: "Vos équipes, vos processus et ce qui doit changer.",
+        description:
+          "Nous écoutons comment le travail se déroule aujourd’hui, qui l’utilisera et ce qui doit changer.",
       },
       {
         title: "Concevoir",
-        description: "Clarifier le parcours avant de construire les détails.",
+        description:
+          "Nous clarifions le parcours et les écrans avant de développer.",
       },
       {
         title: "Développer",
         description:
-          "Transformer la direction choisie en expérience utilisable.",
+          "Nous transformons la direction choisie en un système qui fonctionne.",
       },
       {
-        title: "Lancer",
-        description: "Vérifier les détails et mettre votre système en service.",
+        title: "Tester",
+        description:
+          "Nous l’essayons dans des scénarios d’usage réels et comblons les manques avant la mise en ligne.",
       },
       {
-        title: "Améliorer",
-        description: "Apprendre de l'usage quotidien et préparer la suite.",
+        title: "Mettre en ligne et en service",
+        description:
+          "Nous publions le système et l’ouvrons à votre équipe et à vos clients.",
       },
-    ],
-  },
-  industries: {
-    label: "L'EXPÉRIENCE PAR LES PROJETS",
-    title: "Des univers différents.\nDes besoins quotidiens concrets.",
-    description:
-      "Nos projets indépendants et démonstrations explorent des expériences numériques adaptées à différentes façons de travailler.",
-    items: [
-      "Hébergement",
-      "Restauration",
-      "Agriculture",
-      "Opérations de terrain",
-      "Industrie",
-      "Services numériques",
     ],
   },
   contact: {
@@ -367,14 +264,14 @@ const fr: SiteContent = {
   },
   meta: {
     home: {
-      title: "MK Digital Systems | Sites web & logiciels métier sur mesure",
+      title: "MK Digital Systems | Sites web, logiciel sur mesure et apps mobiles",
       description:
-        "Des expériences numériques et des logiciels utiles, adaptés à votre façon de travailler. Découvrez les projets MK Digital Systems et échangeons.",
+        "Sites web, logiciels sur mesure, systèmes de gestion et applications mobiles. Découvrez de vraies réalisations et parlez-nous de votre besoin.",
     },
     solutions: {
-      title: "Solutions | MK Digital Systems",
+      title: "Solutions web et logicielles | MK Digital Systems",
       description:
-        "Sites web, logiciels sur mesure, systèmes de gestion et expériences intelligentes conçus autour de vos clients et opérations quotidiennes.",
+        "Sites web, logiciel sur mesure, systèmes de gestion et applications mobiles, chacun avec de vraies réalisations. Trouvez la solution adaptée.",
     },
     work: {
       title: "Projets choisis | MK Digital Systems",

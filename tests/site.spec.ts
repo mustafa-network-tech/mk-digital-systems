@@ -6,6 +6,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { localPath, type Route } from "./paths";
 import * as caseStudies from "../content/case-studies";
 import * as solutions from "../content/solutions";
+import { getSolutionsCopy } from "../content/solutions";
 const widths = [360, 375, 390, 430, 768, 1024, 1440];
 const pages: Route[] = ["/", "/solutions", "/work", "/contact"];
 for (const locale of locales) {
@@ -108,19 +109,15 @@ test("mobile menu has keyboard containment, Escape and usable locale navigation"
 test("customer pathway responds to keyboard and links to a matching solution", async ({
   page,
 }) => {
+  // From a need on the home page to its solution page, by keyboard only.
   await page.goto("/en");
-  await page.locator("#need-business").focus();
+  const link = page.locator("#business .solution-row-more");
+  await expect(link).toHaveAttribute("href", "/en/solutions/business-management-systems");
+  await link.focus();
+  await expect(link).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(page.locator("#need-business")).toHaveAttribute(
-    "aria-expanded",
-    "true",
-  );
-  await expect(page.locator("#need-detail .text-link")).toHaveAttribute(
-    "href",
-    "/en/solutions#business",
-  );
-  await page.locator("#need-detail .text-link").click();
-  await expect(page).toHaveURL(/\/en\/solutions#business$/);
+  await expect(page).toHaveURL(/\/en\/solutions\/business-management-systems$/);
+  await expect(page.locator("h1")).toHaveText(getSolutionsCopy("en").items.business.title);
 });
 test("project brief retains failed submissions and submits company as a genuine field", async ({
   page,
@@ -316,7 +313,8 @@ test("WCAG accessibility checks on primary pages and the mobile menu", async ({
 }) => {
   for (const suffix of pages) {
     await page.goto(localPath("en", suffix));
-    if (suffix === "/") await expect(page.locator(".need-content")).toHaveCSS("opacity", "1");
+    // Wait for the home page's sections to render before scanning.
+    if (suffix === "/") await expect(page.locator(".solution-row").first()).toBeVisible();
     const result = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();

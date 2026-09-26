@@ -27,7 +27,7 @@ type Copy = SiteContent & { pricing: PricingCopy };
  * content/projects, prices from content/pricing; nothing is hard-coded here.
  */
 export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale; c: Copy }) {
-  const all = getSolutionsCopy(locale)!;
+  const all = getSolutionsCopy(locale);
   const copy = all.items[id];
   const labels = all.page;
   const work = solutionProjects(id);
@@ -38,8 +38,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
     ? getPricing(market).filter((level) => (supportPricingIds as readonly string[]).includes(level.id))
     : [];
   const briefType = solutionBriefType(id);
-  let n = 0;
-  const number = () => String(++n).padStart(2, "0");
   const priceRow = (level: (typeof prices)[number]) => (
     <article key={level.id} className="pricing-entry" data-pricing-id={level.id}>
       <div className="pricing-copy">
@@ -86,7 +84,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
 
       <section className="case-section wrap" aria-labelledby="solution-needs">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">{number()}</span>
           <h2 id="solution-needs">{copy.needs.heading}</h2>
         </div>
         <div className="case-section-body">
@@ -100,7 +97,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
 
       <section className="case-section wrap" aria-labelledby="solution-method">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">{number()}</span>
           <h2 id="solution-method">{copy.method.heading}</h2>
         </div>
         <div className="case-section-body">
@@ -115,7 +111,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
 
       <section className="case-section wrap" aria-labelledby="solution-builds">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">{number()}</span>
           <h2 id="solution-builds">{copy.builds.heading}</h2>
         </div>
         <div className="case-modules">
@@ -130,7 +125,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
 
       <section className="case-section wrap" id="solution-work" aria-labelledby="solution-work-title">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">{number()}</span>
           <h2 id="solution-work-title">{copy.work.heading}</h2>
         </div>
         <div className="case-section-body">
@@ -157,7 +151,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
 
       <section className="case-section wrap" aria-labelledby="solution-prices">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">{number()}</span>
           <h2 id="solution-prices">{labels.price}</h2>
         </div>
         {prices.length > 0 ? (
@@ -178,7 +171,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
 
       <section className="case-section wrap" aria-labelledby="solution-faq">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">{number()}</span>
           <h2 id="solution-faq">{copy.faq.heading}</h2>
         </div>
         <div className="faq-list">
@@ -193,7 +185,6 @@ export function SolutionPage({ id, locale, c }: { id: SolutionId; locale: Locale
 
       <nav className="case-section wrap solution-others" aria-labelledby="solution-others">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">{number()}</span>
           <h2 id="solution-others">{labels.others}</h2>
         </div>
         <ul>

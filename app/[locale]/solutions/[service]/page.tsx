@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getContent } from "@/content/site";
-import { getSolutionsCopy, solutionBySlug, solutionIds, solutionLocales, solutionSlug } from "@/content/solutions";
+import { solutionBySlug, solutionIds, solutionLocales, solutionSlug } from "@/content/solutions";
 import { solutionMetadata, solutionSchema, validLocale } from "@/lib/seo";
 import { JsonLd } from "@/components/brand/JsonLd";
 import { SolutionPage } from "@/components/brand/SolutionPage";
@@ -9,7 +9,7 @@ import { SolutionPage } from "@/components/brand/SolutionPage";
 type Props = { params: Promise<{ locale: string; service: string }> };
 
 // Internal slugs are the English ones; config/i18n pathnames maps each to its localized URL.
-// Only written languages get pages; any other slug is a 404.
+// Any other slug is a 404.
 export const dynamicParams = false;
 export function generateStaticParams() {
   return solutionLocales().flatMap((locale) => solutionIds.map((id) => ({ locale, service: solutionSlug(id) })));
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 function resolve(locale: string, service: string) {
   const l = validLocale(locale);
   const id = solutionBySlug(service);
-  if (!id || !getSolutionsCopy(l)) notFound();
+  if (!id) notFound();
   return { locale: l, id };
 }
 export async function generateMetadata({ params }: Props) {

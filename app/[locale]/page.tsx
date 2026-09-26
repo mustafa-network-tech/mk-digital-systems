@@ -1,12 +1,9 @@
 import { setRequestLocale } from "next-intl/server";
 import { getContent } from "@/content/site";
-import { projectsByLayer } from "@/content/projects";
 import { getHomeCopy } from "@/content/home";
 import { validLocale, pageMetadata, pageSchema } from "@/lib/seo";
 import { Link } from "@/config/navigation";
 import { Hero } from "@/components/brand/Hero";
-import { NeedsExplorer } from "@/components/brand/NeedsExplorer";
-import { ProjectStory } from "@/components/brand/ProjectStory";
 import { Process } from "@/components/brand/Process";
 import { Arrow } from "@/components/brand/Arrow";
 import { JsonLd } from "@/components/brand/JsonLd";
@@ -18,123 +15,41 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props) {
   return pageMetadata(validLocale((await params).locale), "home");
 }
+/**
+ * Hero → Selected Works → Solutions → Founder → Process → Starting prices → FAQ →
+ * Final CTA. Each section has one job; copy lives in content/home and content/solutions.
+ */
 export default async function HomePage({ params }: Props) {
   const locale = validLocale((await params).locale);
   setRequestLocale(locale);
   const c = getContent(locale);
   const home = getHomeCopy(locale);
-  if (home)
-    return (
-      <>
-        <JsonLd data={pageSchema(locale, "home")} />
-        <Hero copy={c.hero} statuses={c.work.statuses} locale={locale} />
-        <SelectedWorks copy={home.selectedWorks} c={c} locale={locale} />
-        <section className="section wrap home-solutions" aria-labelledby="home-solutions-title">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">{home.solutions.label}</p>
-              <h2 id="home-solutions-title">{home.solutions.title}</h2>
-            </div>
-            <div className="section-description">
-              <p>{home.solutions.description}</p>
-              <Link className="text-link" href="/solutions">
-                {home.solutions.all}
-                <Arrow />
-              </Link>
-            </div>
-          </div>
-          <SolutionsOverview locale={locale} c={c} labels={home.solutions} />
-        </section>
-        <Founder copy={home.founder} />
-        <Process copy={c.process} />
-        <Pricing locale={locale} copy={c.pricing} preview />
-        <HomeFaq copy={home.faq} />
-        <FinalCta copy={home.finalCta} c={c} />
-      </>
-    );
-  // Languages not written yet keep the previous home sections.
   return (
     <>
       <JsonLd data={pageSchema(locale, "home")} />
       <Hero copy={c.hero} statuses={c.work.statuses} locale={locale} />
-      <section className="section wrap needs-section">
+      <SelectedWorks copy={home.selectedWorks} c={c} locale={locale} />
+      <section className="section wrap home-solutions" aria-labelledby="home-solutions-title">
         <div className="section-head">
           <div>
-            <p className="eyebrow">{c.needs.label}</p>
-            <h2>{c.needs.title}</h2>
-          </div>
-          <p className="section-description">{c.needs.description}</p>
-        </div>
-        <NeedsExplorer copy={c.needs} />
-      </section>
-      <section className="section wrap selected-work">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">{c.work.label}</p>
-            <h2>{c.work.title}</h2>
+            <p className="eyebrow">{home.solutions.label}</p>
+            <h2 id="home-solutions-title">{home.solutions.title}</h2>
           </div>
           <div className="section-description">
-            <p>{c.work.description}</p>
-            <Link className="text-link" href="/work">
-              {c.work.all}
+            <p>{home.solutions.description}</p>
+            <Link className="text-link" href="/solutions">
+              {home.solutions.all}
               <Arrow />
             </Link>
           </div>
         </div>
-        <div className="stories-list">
-          {projectsByLayer("flagship").slice(0, 6).map((p, i) => (
-            <ProjectStory
-              key={p.id}
-              project={p}
-              copy={c.work}
-              caseLabel={c.caseStudy.read}
-              locale={locale}
-              index={i}
-            />
-          ))}
-        </div>
+        <SolutionsOverview locale={locale} c={c} labels={home.solutions} />
       </section>
-      <section className="capabilities-section">
-        <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">{c.solutions.label}</p>
-              <h2>{c.solutions.title}</h2>
-            </div>
-            <p className="section-description">{c.solutions.description}</p>
-          </div>
-          <div className="capability-list">
-            {c.solutions.items.map((item, i) => (
-              <Link href={{ pathname: "/solutions", hash: item.id }} key={item.id}>
-                <span className="capability-symbol" aria-hidden="true">
-                  {["◇", "⊞", "◎", "✳"][i]}
-                </span>
-                <h3>{item.title}</h3>
-                <Arrow diagonal />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Founder copy={home.founder} />
       <Process copy={c.process} />
       <Pricing locale={locale} copy={c.pricing} preview />
-      <section className="section wrap industry-section">
-        <p className="eyebrow">{c.industries.label}</p>
-        <div className="industry-content">
-          <div>
-            <h2>{c.industries.title}</h2>
-            <p>{c.industries.description}</p>
-          </div>
-          <ul>
-            {c.industries.items.map((s) => (
-              <li key={s}>
-                {s}
-                <span aria-hidden="true">↗</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <HomeFaq copy={home.faq} />
+      <FinalCta copy={home.finalCta} c={c} />
     </>
   );
 }

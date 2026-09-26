@@ -20,10 +20,10 @@ export function SolutionsOverview({
   c: SiteContent;
   labels: { need: string; approach: string; example: string };
 }) {
-  const copy = getSolutionsCopy(locale)!;
+  const copy = getSolutionsCopy(locale);
   return (
     <ol className="solution-rows">
-      {solutionIds.map((id, i) => {
+      {solutionIds.map((id) => {
         const item = copy.items[id];
         const project = getProject(solutionShowcase[id].home)!;
         const story = getProjectCopy(locale, project.id);
@@ -32,9 +32,6 @@ export function SolutionsOverview({
           <li key={id} id={id} className="solution-row">
             <div className="solution-row-intro">
               <div className="solution-row-head">
-                <span className="case-number" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 <h3>
                   <Link href={solutionRoutes[id]}>{item.name}</Link>
                 </h3>

@@ -52,39 +52,6 @@ const en: SiteContent = {
       "sector-demo": "Sample site",
     },
   },
-  needs: {
-    label: "A GOOD PLACE TO START",
-    title: "What would make\nyour business better?",
-    description:
-      "You don't need a technical brief. Just a clear idea of what you want to change.",
-    explore: "Explore this solution",
-    items: [
-      {
-        title: "Make a stronger first impression.",
-        subtitle: "Websites & digital experiences",
-        description:
-          "A digital presence that expresses who you are, helps people find what they need, and makes the next step easy.",
-        steps: ["Discover", "Explore", "Connect"],
-        family: "web",
-      },
-      {
-        title: "Make the everyday work easier.",
-        subtitle: "Custom software & business systems",
-        description:
-          "Bring scattered tasks, records and teams together. Build around your workflow, instead of changing your business to fit a tool.",
-        steps: ["Organize", "Coordinate", "See clearly"],
-        family: "business",
-      },
-      {
-        title: "Turn an idea into something real.",
-        subtitle: "Custom digital products",
-        description:
-          "Explore the useful core of your idea, design the experience, and build a first version you can put in people's hands.",
-        steps: ["Shape", "Build", "Evolve"],
-        family: "custom",
-      },
-    ],
-  },
   work: {
     label: "SELECTED WORK",
     pageLabel: "WORK",
@@ -137,106 +104,37 @@ const en: SiteContent = {
       site: "Visit site",
     },
   },
-  solutions: {
-    label: "SOLUTIONS",
-    title: "Built for what\nyour business needs.",
-    description:
-      "A better experience for your customers. A clearer day for your team. A new idea brought to life.",
-    audience: "Who it's for",
-    builds: "What we can build",
-    example: "See it in practice",
-    cta: "Tell us what you need",
-    items: [
-      {
-        id: "web",
-        title: "Web & digital experiences",
-        description:
-          "Make your business easier to find, understand and choose. We connect your story with an experience people enjoy using.",
-        for: "Businesses, independent brands and professionals ready for a stronger digital presence.",
-        features: [
-          "Brand and business websites",
-          "Content & discovery platforms",
-          "Customer inquiry journeys",
-        ],
-      },
-      {
-        id: "custom",
-        title: "Custom software",
-        description:
-          "When off-the-shelf tools don't fit, start with how your business actually works. Design useful software around the tasks that matter.",
-        for: "Teams with a specific workflow, a product idea, or a process that standard tools cannot support.",
-        features: [
-          "Purpose-built web applications",
-          "Digital products & first versions",
-          "Connected tools & automations",
-        ],
-      },
-      {
-        id: "business",
-        title: "Business management systems",
-        description:
-          "Bring people, records and everyday decisions into one place. Make the next action clearer for everyone involved.",
-        for: "Hospitality, restaurants, farms and field teams working across multiple roles.",
-        features: [
-          "Operations & team coordination",
-          "Reservations, orders & records",
-          "Management views & reporting",
-        ],
-      },
-      {
-        id: "smart",
-        title: "Smart & voice experiences",
-        description:
-          "Explore simpler ways for people to ask, find and act. We shape voice and assisted experiences around a clear, useful purpose.",
-        for: "Businesses exploring more accessible customer interactions or guided internal workflows.",
-        features: [
-          "Voice-led interaction concepts",
-          "Assisted customer journeys",
-          "Practical automation prototypes",
-        ],
-      },
-    ],
-  },
   process: {
     label: "HOW WE WORK",
-    title: "First, we listen.\nThen, we make it work.",
+    title: "First, we listen.\nThen, we build it together.",
     description:
-      "A shared direction, clear decisions and something useful at every stage.",
+      "The same order on every project: understand the work first, then build.",
     steps: [
       {
         title: "Understand",
-        description: "Your people, your workflow, and what needs to change.",
+        description:
+          "We listen to how the work runs today, who will use it and what needs to change.",
       },
       {
         title: "Design",
-        description: "Make the journey clear before building the details.",
+        description:
+          "We make the flow and the screens clear before development starts.",
       },
       {
         title: "Build",
-        description: "Turn the agreed direction into a working experience.",
+        description:
+          "We turn the agreed direction into a working system.",
       },
       {
-        title: "Launch",
-        description: "Check the details and bring your system into use.",
+        title: "Test",
+        description:
+          "We try it in real usage scenarios and close gaps before launch.",
       },
       {
-        title: "Improve",
-        description: "Learn from daily use and shape what comes next.",
+        title: "Launch and open for use",
+        description:
+          "We launch the system and open it to your team and customers.",
       },
-    ],
-  },
-  industries: {
-    label: "EXPERIENCE THROUGH ACTUAL WORK",
-    title: "Different worlds.\nReal everyday needs.",
-    description:
-      "Our independent and demo projects explore how digital experiences can fit different ways of working.",
-    items: [
-      "Hospitality",
-      "Restaurants",
-      "Agriculture",
-      "Field operations",
-      "Manufacturing",
-      "Real estate",
     ],
   },
   contact: {
@@ -364,14 +262,14 @@ const en: SiteContent = {
   },
   meta: {
     home: {
-      title: "MK Digital Systems | Websites & custom business software",
+      title: "MK Digital Systems | Web design, custom software & mobile apps",
       description:
-        "Digital experiences and useful business software built around the way you work. Explore MK Digital Systems projects and get in touch about your needs.",
+        "Websites, custom software, business management systems and mobile apps. See real work and talk to MK Digital Systems about what you need.",
     },
     solutions: {
-      title: "Solutions | MK Digital Systems",
+      title: "Web and software solutions | MK Digital Systems",
       description:
-        "Websites, custom software, business management systems and smart experiences designed around your customers and everyday operations.",
+        "Web design, custom software, business management systems and mobile apps, each shown with real work. Find the solution that fits your need.",
     },
     work: {
       title: "Selected work | MK Digital Systems",

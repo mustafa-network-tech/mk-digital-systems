@@ -129,26 +129,14 @@ export function pageSchema(locale: Locale, page: PageKey) {
         },
       ],
     });
-  // Written solution pages carry their own Service node; the hub only lists them.
-  if (page === "solutions" && !getSolutionsCopy(locale))
-    c.solutions.items.forEach((item) =>
-      graph.push({
-        "@type": "Service",
-        "@id": `${pageUrl(locale, page)}#${item.id}`,
-        name: item.title,
-        description: item.description,
-        serviceType: item.title,
-        provider: { "@id": orgId },
-        url: `${pageUrl(locale, page)}#${item.id}`,
-      }),
-    );
+  // The hub lists the solutions; each solution page carries its own Service node.
   return { "@context": "https://schema.org", "@graph": graph };
 }
 
 /* ---------- Solutions (/solutions/[service]) ---------- */
 
 export function solutionMetadata(locale: Locale, id: SolutionId): Metadata {
-  const copy = getSolutionsCopy(locale)!.items[id];
+  const copy = getSolutionsCopy(locale).items[id];
   const route = solutionRoutes[id];
   const available = solutionLocales();
   const url = solutionUrl(locale, route);
@@ -179,7 +167,7 @@ export function solutionMetadata(locale: Locale, id: SolutionId): Metadata {
  */
 export function solutionSchema(locale: Locale, id: SolutionId) {
   const c = getContent(locale);
-  const copy = getSolutionsCopy(locale)!.items[id];
+  const copy = getSolutionsCopy(locale).items[id];
   const url = solutionUrl(locale, solutionRoutes[id]);
   const orgId = `${SITE_URL}/#organization`;
   return {

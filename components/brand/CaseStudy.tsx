@@ -29,24 +29,17 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
   const screens = caseStudyScreens(id);
   const heroDesktop = screens.find((s) => s.frame === "desktop");
   const heroPhone = screens.find((s) => s.frame === "phone" && s.part === heroDesktop?.part);
-  // Related solutions: written solution pages where they exist, else the hub's sections.
+  // Related solutions: the solution pages of the project's service families.
   const solutionPages = getSolutionsCopy(locale);
-  const solutions = solutionPages
-    ? project.services.filter(isSolutionId).map((s) => ({
-        id: s,
-        title: solutionPages.items[s].name,
-        href: solutionRoutes[s],
-      }))
-    : project.services
-        .filter((s) => c.solutions.items.some((item) => item.id === s))
-        .map((s) => ({
-          id: s,
-          title: c.solutions.items.find((item) => item.id === s)!.title,
-          href: { pathname: "/solutions" as const, hash: s },
-        }));
+  const solutions = project.services.filter(isSolutionId).map((s) => ({
+    id: s,
+    title: solutionPages.items[s].name,
+    href: solutionRoutes[s],
+  }));
   const related = relatedProjects(id);
   const links = projectLinks(project, locale, c.work.linkLabels);
   const alt = (screen: CaseScreen) => copy.screens[screen.id]?.alt ?? name;
+  // Stable ids for the first sections' headings (no visible numbering).
   let n = 0;
   const number = () => String(++n).padStart(2, "0");
   return (
@@ -130,9 +123,6 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
 
       <section className="case-section wrap" aria-labelledby="case-solution">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">
-            {number()}
-          </span>
           <h2 id="case-solution">{copy.solution.heading}</h2>
         </div>
         <div className="case-section-body">
@@ -186,9 +176,6 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
 
       <section className="case-section wrap" aria-labelledby="case-screens">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">
-            {number()}
-          </span>
           <h2 id="case-screens">{labels.screensHeading}</h2>
         </div>
         <div className="case-gallery">
@@ -219,9 +206,6 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
 
       <section className="case-section wrap" aria-labelledby="case-modules">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">
-            {number()}
-          </span>
           <h2 id="case-modules">{copy.modules.heading}</h2>
         </div>
         <div className="case-modules">
@@ -236,9 +220,6 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
 
       <section className="case-section wrap" aria-labelledby="case-status">
         <div className="case-section-head">
-          <span className="case-number" aria-hidden="true">
-            {number()}
-          </span>
           <h2 id="case-status">{labels.statusHeading}</h2>
         </div>
         <ul className="case-status">
@@ -266,9 +247,6 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
       {(solutions.length > 0 || related.length > 0) && (
         <section className="case-section wrap" aria-labelledby="case-related">
           <div className="case-section-head">
-            <span className="case-number" aria-hidden="true">
-              {number()}
-            </span>
             <h2 id="case-related">{labels.relatedWork}</h2>
           </div>
           {solutions.length > 0 && (
@@ -326,9 +304,6 @@ function Section({ number, section }: { number: string; section: CaseStudySectio
   return (
     <section className="case-section wrap" aria-labelledby={id}>
       <div className="case-section-head">
-        <span className="case-number" aria-hidden="true">
-          {number}
-        </span>
         <h2 id={id}>{section.heading}</h2>
       </div>
       <div className="case-section-body">

@@ -2,6 +2,9 @@ import type { Locale } from "@/config/i18n";
 import { projects, type Project } from "@/content/projects";
 import { caseStudyScreens } from "@/content/case-studies";
 import tr from "./tr";
+import en from "./en";
+import de from "./de";
+import fr from "./fr";
 
 /**
  * Home page sections after the hero (Faz 4): Selected Works → Solutions → Founder →
@@ -37,9 +40,9 @@ export type HomeCopy = {
   };
 };
 
-/** Written languages; other locales keep the previous home sections until translated. */
-const books: Partial<Record<Locale, HomeCopy>> = { tr };
-export function getHomeCopy(locale: Locale): HomeCopy | undefined {
+/** Every language writes every section: a missing one is a type error. */
+const books: Record<Locale, HomeCopy> = { tr, en, de, fr };
+export function getHomeCopy(locale: Locale): HomeCopy {
   return books[locale];
 }
 

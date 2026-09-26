@@ -33,13 +33,10 @@ export function Pricing({
         {preview ? <span>{copy.previewFrom}</span> : copy.suffix}
       </p>
     );
-  const entry = (level: Level, index: number, Title: "h3" | "h4") => {
+  const entry = (level: Level, Title: "h3" | "h4") => {
     const item = copy.items[level.id];
     return (
       <article key={level.id} className="pricing-entry" data-pricing-id={level.id}>
-        <span className="pricing-index" aria-hidden="true">
-          {String(index + 1).padStart(2, "0")}
-        </span>
         <div className="pricing-copy">
           <Title>{item.title}</Title>
           <p>{item.description}</p>
@@ -60,7 +57,7 @@ export function Pricing({
   };
   // Home preview: one row per solution axis at its lowest starting price (derived, never typed in).
   const solutions = getSolutionsCopy(locale);
-  const previewRows = market && solutions
+  const previewRows = market
     ? solutionIds.map((id) => ({ id, name: solutions.items[id].name, level: solutionStartingPrice(id, locale)! }))
     : [];
   return (
@@ -107,7 +104,7 @@ export function Pricing({
             <div className="pricing-catalog">
               {prices
                 .filter((level) => level.group === group)
-                .map((level) => entry(level, prices.indexOf(level), "h4"))}
+                .map((level) => entry(level, "h4"))}
             </div>
           </div>
         ))

@@ -16,7 +16,7 @@ export async function GET(
   // A case study card uses its own title and sits under "Work"; a solution page under "Solutions".
   const caseStudy = getCaseStudy(locale as Locale, page);
   const solutionId = solutionBySlug(page);
-  const solution = solutionId ? getSolutionsCopy(locale as Locale)?.items[solutionId] : undefined;
+  const solution = solutionId ? getSolutionsCopy(locale as Locale).items[solutionId] : undefined;
   if (!caseStudy && !solution && !["home", "work", "solutions", "contact"].includes(page))
     return new Response("Not found", { status: 404 });
   const c = getContent(locale as Locale);
@@ -24,13 +24,13 @@ export async function GET(
   const title = caseStudy
     ? caseStudy.title
     : solution
-      ? solution.title
+      ? solution.title.replace(/­/g, "")
     : key === "home"
       ? `${c.hero.title} ${c.hero.accent}`
       : key === "work"
         ? c.work.title
         : key === "solutions"
-          ? c.solutions.title
+          ? getSolutionsCopy(locale as Locale).hub.title
           : c.contact.title;
   const [mark, font] = await Promise.all([
     readFile(path.join(process.cwd(), "public/brand/icon-192.png")),
