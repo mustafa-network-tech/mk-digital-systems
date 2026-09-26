@@ -1,15 +1,18 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/config/i18n";
 import {
+  caseStudyAlternates,
+  caseStudyUrl,
   isIndexable,
   languageAlternates,
   pagePaths,
   pageUrl,
   type PageKey,
 } from "@/lib/site-config";
+import { caseStudyIds, caseStudyLocales } from "@/content/case-studies";
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!isIndexable) return [];
-  return locales.flatMap((locale) =>
+  const pages = locales.flatMap((locale) =>
     (Object.keys(pagePaths) as PageKey[]).map((page) => ({
       url: pageUrl(locale, page),
       changeFrequency: "monthly" as const,
@@ -22,4 +25,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: languageAlternates(page) },
     })),
   );
+  // Case studies: one entry per written locale, linked to each other.
+  const cases = caseStudyIds.flatMap((id) => {
+    const available = caseStudyLocales(id);
+    return available.map((locale) => ({
+      url: caseStudyUrl(locale, id),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: { languages: caseStudyAlternates(id, available) },
+    }));
+  });
+  return [...pages, ...cases];
 }

@@ -4,21 +4,23 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { locales, type Locale } from "@/config/i18n";
 import { getContent } from "@/content/site";
+import { getCaseStudy } from "@/content/case-studies";
 export const runtime = "nodejs";
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ locale: string; page: string }> },
 ) {
   const { locale, page } = await params;
-  if (
-    !locales.includes(locale as Locale) ||
-    !["home", "work", "solutions", "contact"].includes(page)
-  )
+  if (!locales.includes(locale as Locale)) return new Response("Not found", { status: 404 });
+  // A case study card uses its own title and sits under "Work".
+  const caseStudy = getCaseStudy(locale as Locale, page);
+  if (!caseStudy && !["home", "work", "solutions", "contact"].includes(page))
     return new Response("Not found", { status: 404 });
   const c = getContent(locale as Locale);
-  const key = page as "home" | "work" | "solutions" | "contact";
-  const title =
-    key === "home"
+  const key = (caseStudy ? "work" : page) as "home" | "work" | "solutions" | "contact";
+  const title = caseStudy
+    ? caseStudy.title
+    : key === "home"
       ? `${c.hero.title} ${c.hero.accent}`
       : key === "work"
         ? c.work.title
@@ -79,7 +81,7 @@ export async function GET(
           fontSize: 18,
         }}
       >
-        <span>{c.nav[key === "home" ? "solutions" : key]}</span>
+        <span>{caseStudy ? c.caseStudy.label : c.nav[key === "home" ? "solutions" : key]}</span>
         <span>MK</span>
       </div>
     </div>,

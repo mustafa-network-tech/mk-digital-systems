@@ -338,6 +338,28 @@ const de: SiteContent = {
     ],
     updated: "Aktualisiert im September 2026",
   },
+  caseStudy: {
+    label: "PROJEKTGESCHICHTE",
+    sector: "Branche",
+    services: "Was wir entwickelt haben",
+    status: "Status",
+    serviceNames: {
+      "web": "Web",
+      "custom": "Individuelle Software",
+      "business": "Unternehmenssysteme",
+      "mobile": "Mobile App",
+      "smart": "Smarte Erlebnisse",
+    },
+    screensHeading: "Das entstandene System",
+    statusHeading: "Wo steht es heute?",
+    relatedWork: "Verwandte Arbeiten",
+    relatedSolutions: "Passende Lösungen",
+    ctaTitle: "Ein ähnliches Problem?",
+    ctaPrimary: "Per WhatsApp erzählen",
+    ctaSecondary: "Bedarf beschreiben",
+    inquiry: "Guten Tag, ich habe die Projektgeschichte {project} gelesen. Wir haben einen ähnlichen Bedarf.",
+    read: "Projektgeschichte lesen",
+  },
   meta: {
     home: {
       title:

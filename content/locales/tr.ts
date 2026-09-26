@@ -340,6 +340,28 @@ const tr: SiteContent = {
     ],
     updated: "Güncelleme: Eylül 2026",
   },
+  caseStudy: {
+    label: "PROJE HİKÂYESİ",
+    sector: "Sektör",
+    services: "Ne geliştirdik",
+    status: "Durum",
+    serviceNames: {
+      "web": "Web",
+      "custom": "Özel yazılım",
+      "business": "İşletme sistemleri",
+      "mobile": "Mobil uygulama",
+      "smart": "Akıllı deneyimler",
+    },
+    screensHeading: "Ortaya çıkan sistem",
+    statusHeading: "Bugün nerede?",
+    relatedWork: "İlgili çalışmalar",
+    relatedSolutions: "İlgili çözümler",
+    ctaTitle: "Benzer bir sorununuz mu var?",
+    ctaPrimary: "WhatsApp’tan anlatın",
+    ctaSecondary: "İhtiyacınızı yazın",
+    inquiry: "Merhaba, {project} proje hikâyesini inceledim. Benzer bir ihtiyacımız var.",
+    read: "Proje hikâyesini okuyun",
+  },
   meta: {
     home: {
       title: "MK Digital Systems | Web siteleri & özel işletme yazılımları",

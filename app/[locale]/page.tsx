@@ -52,6 +52,7 @@ export default async function HomePage({ params }: Props) {
               key={p.id}
               project={p}
               copy={c.work}
+              caseLabel={c.caseStudy.read}
               locale={locale}
               index={i}
             />

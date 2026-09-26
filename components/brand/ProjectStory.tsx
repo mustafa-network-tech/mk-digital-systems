@@ -2,6 +2,7 @@ import { Link } from "@/config/navigation";
 import type { Locale } from "@/config/i18n";
 import type { Project, ProjectLink } from "@/content/projects";
 import { getProjectCopy } from "@/content/project-copy";
+import { getCaseStudy } from "@/content/case-studies";
 import type { SiteContent } from "@/content/site";
 import { ProjectScene } from "./ProjectScene";
 import { Arrow } from "./Arrow";
@@ -31,17 +32,22 @@ export function ProjectStory({
   locale,
   full = false,
   index = 0,
+  caseLabel,
 }: {
   project: Project;
   copy: SiteContent["work"];
   locale: Locale;
   full?: boolean;
   index?: number;
+  /** "Read the case study" label; the link appears only when one is written. */
+  caseLabel?: string;
 }) {
   const story = getProjectCopy(locale, project.id);
   const name = story.name || project.name;
   const links = projectLinks(project, locale, copy.linkLabels);
   const shown = full ? links : links.slice(0, 1);
+  const hasCase = !!caseLabel && !!getCaseStudy(locale, project.id);
+  const caseHref = { pathname: "/work/[slug]" as const, params: { slug: project.id } };
   return (
     <article
       id={project.id}
@@ -97,6 +103,12 @@ export function ProjectStory({
           </div>
         )}
         <div className="story-links">
+          {full && hasCase && (
+            <Link href={caseHref} className="button button-small">
+              {caseLabel}
+              <Arrow />
+            </Link>
+          )}
           {project.status === "coming-soon" ? null : shown.length ? (
             shown.map((link) => (
               <a
@@ -125,9 +137,9 @@ export function ProjectStory({
           )}
           {!full && (
             <Link
-              href={{ pathname: "/work", hash: project.id }}
+              href={hasCase ? caseHref : { pathname: "/work", hash: project.id }}
               className="story-more"
-              aria-label={`${copy.all} — ${name}`}
+              aria-label={hasCase ? `${caseLabel} — ${name}` : `${copy.all} — ${name}`}
             >
               <Arrow />
             </Link>

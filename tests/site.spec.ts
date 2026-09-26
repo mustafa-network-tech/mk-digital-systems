@@ -4,6 +4,7 @@ import { locales, pathnames } from "../config/i18n";
 import { validateBrief } from "../lib/contact-validation";
 import AxeBuilder from "@axe-core/playwright";
 import { localPath, type Route } from "./paths";
+import * as caseStudies from "../content/case-studies";
 const widths = [360, 375, 390, 430, 768, 1024, 1440];
 const pages: Route[] = ["/", "/solutions", "/work", "/contact"];
 for (const locale of locales) {
@@ -355,9 +356,10 @@ test("configured production sitemap and preview exclusion", () => {
   }
   const env = {SITE_URL: "https://agency.example", VERCEL_ENV: "production"};
   const config = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr", pathnames}}, env);
-  const sitemap = load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config}, env).default();
-  expect(sitemap).toHaveLength(24);
-  expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24);
+  const sitemap = load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config, "@/content/case-studies": caseStudies}, env).default();
+  const caseEntries = caseStudies.caseStudyIds.reduce((n, id) => n + caseStudies.caseStudyLocales(id).length, 0);
+  expect(sitemap).toHaveLength(24 + caseEntries);
+  expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24 + caseEntries);
   for (const entry of sitemap) {
     expect(entry.url).toMatch(/^https:\/\/agency\.example\/(tr|en|de|fr)(\/|$)/);
     expect(Object.keys(entry.alternates.languages)).toHaveLength(5);
@@ -370,10 +372,12 @@ test("configured production sitemap and preview exclusion", () => {
   expect(urls.filter((url: string) => /\/tr\/(solutions|work|contact|legal)/.test(url))).toEqual([]);
   const work = sitemap.find((entry: {url:string}) => entry.url.endsWith("/tr/calismalar"));
   expect(work.alternates.languages).toMatchObject({en: "https://agency.example/en/work", "x-default": "https://agency.example/tr/calismalar"});
+  const story = sitemap.find((entry: {url:string}) => entry.url.endsWith("/tr/calismalar/saha-santiye"));
+  expect(story.alternates.languages).toMatchObject({en: "https://agency.example/en/work/saha-santiye", "x-default": "https://agency.example/tr/calismalar/saha-santiye"});
   const robots = load("app/robots.ts", {"@/lib/site-config": config}, env).default();
   expect(robots.sitemap).toBe("https://agency.example/sitemap.xml");
   const previewEnv = {...env, VERCEL_ENV: "preview"};
   const preview = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr", pathnames}}, previewEnv);
   expect(preview.isIndexable).toBe(false);
-  expect(load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": preview}, previewEnv).default()).toEqual([]);
+  expect(load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": preview, "@/content/case-studies": caseStudies}, previewEnv).default()).toEqual([]);
 });

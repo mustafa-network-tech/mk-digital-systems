@@ -35,6 +35,7 @@ const nextConfig = withNextIntl({
         statusCode: 301,
       },
       ...Object.entries(turkish).map(([source, destination]) => ({ source, destination, statusCode: 301 })),
+      { source: "/tr/work/:slug", destination: "/tr/calismalar/:slug", statusCode: 301 },
       { source: "/:locale(tr|en|de|fr)/services", destination: "/:locale/solutions", permanent: true },
       { source: "/:locale(tr|en|de|fr)/projects", destination: "/:locale/work", permanent: true },
       { source: "/:locale(tr|en|de|fr)/about", destination: "/:locale", permanent: true },

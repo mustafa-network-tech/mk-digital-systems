@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/config/navigation";
+import { useLocaleHref } from "./useLocaleHref";
 import { locales, type Locale } from "@/config/i18n";
 import type { SiteContent } from "@/content/site";
 import { Brand } from "./Brand";
@@ -20,6 +21,7 @@ export function Navigation({
   copy: SiteContent["nav"];
 }) {
   const path = usePathname();
+  const localeHref = useLocaleHref();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -156,7 +158,7 @@ export function Navigation({
               {locales.map((l) => (
                 <Link
                   key={l}
-                  href={path || "/"}
+                  href={localeHref}
                   locale={l}
                   hrefLang={l}
                   lang={l}
@@ -218,7 +220,7 @@ export function Navigation({
             {locales.map((l) => (
               <Link
                 key={l}
-                href={path || "/"}
+                href={localeHref}
                 locale={l}
                 hrefLang={l}
                 lang={l}

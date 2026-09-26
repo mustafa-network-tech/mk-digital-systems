@@ -418,3 +418,24 @@ export function projectsForSector(sector: SectorId): Project[] {
     projects.filter((p) => p.layer === layer && p.sectors.includes(sector)),
   );
 }
+/**
+ * Related work for a project, derived from shared sectors (weighted) and services.
+ * Coming-soon projects are left out; flagship systems come first on a tie.
+ */
+export function relatedProjects(id: ProjectId, limit = 3): Project[] {
+  const self = getProject(id);
+  if (!self) return [];
+  return projects
+    .filter((p) => p.id !== id && p.status !== "coming-soon")
+    .map((p) => ({
+      p,
+      score:
+        2 * p.sectors.filter((s) => self.sectors.includes(s)).length +
+        p.services.filter((s) => self.services.includes(s)).length +
+        (p.layer === "flagship" ? 0.5 : 0),
+    }))
+    .filter((r) => r.score >= 1)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((r) => r.p);
+}

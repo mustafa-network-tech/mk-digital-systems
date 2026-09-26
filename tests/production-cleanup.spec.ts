@@ -111,7 +111,7 @@ for (const locale of locales) {
     expect(descriptions.size).toBe(6);
     await page.goto(localPath(locale, "/work"));
     for (const project of projectsByLayer("flagship")) {
-      const link = page.locator(`#${project.id} .story-links > a`).first();
+      const link = page.locator(`#${project.id} .story-links > a[target="_blank"]`).first();
       const first = project.links[0] ?? project.parts?.flatMap((part) => part.links)[0];
       if (first) await expect(link).toHaveAttribute("href", first.url);
       else

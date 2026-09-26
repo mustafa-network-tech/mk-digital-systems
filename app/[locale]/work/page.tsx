@@ -56,6 +56,7 @@ export default async function Work({ params }: Props) {
                       key={p.id}
                       project={p}
                       copy={c.work}
+              caseLabel={c.caseStudy.read}
                       locale={locale}
                       full
                       index={i}

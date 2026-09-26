@@ -337,6 +337,28 @@ const en: SiteContent = {
     ],
     updated: "Updated September 2026",
   },
+  caseStudy: {
+    label: "CASE STUDY",
+    sector: "Sector",
+    services: "What we built",
+    status: "Status",
+    serviceNames: {
+      "web": "Web",
+      "custom": "Custom software",
+      "business": "Business systems",
+      "mobile": "Mobile app",
+      "smart": "Smart experiences",
+    },
+    screensHeading: "The resulting system",
+    statusHeading: "Where is it today?",
+    relatedWork: "Related work",
+    relatedSolutions: "Related solutions",
+    ctaTitle: "Facing a similar problem?",
+    ctaPrimary: "Tell us on WhatsApp",
+    ctaSecondary: "Describe your need",
+    inquiry: "Hello, I read the {project} case study. We have a similar need.",
+    read: "Read the case study",
+  },
   meta: {
     home: {
       title: "MK Digital Systems | Websites & custom business software",

@@ -4,7 +4,7 @@ import tr from "./locales/tr";
 import de from "./locales/de";
 import fr from "./locales/fr";
 import { pricingCopy, type PricingCopy } from "./pricing-copy";
-import type { NeedId, ProjectLayer, ProjectLink, ProjectStatus } from "./projects";
+import type { NeedId, ProjectLayer, ProjectLink, ProjectStatus, ServiceId } from "./projects";
 import type { HeroSlideId } from "./hero";
 
 export type SiteContent = {
@@ -150,6 +150,22 @@ export type SiteContent = {
     termsIntro: string;
     termsSections: { title: string; body: string }[];
     updated: string;
+  };
+  caseStudy: {
+    label: string;
+    sector: string;
+    services: string;
+    status: string;
+    serviceNames: Record<ServiceId, string>;
+    screensHeading: string;
+    statusHeading: string;
+    relatedWork: string;
+    relatedSolutions: string;
+    ctaTitle: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    inquiry: string;
+    read: string;
   };
   meta: Record<
     "home" | "solutions" | "work" | "contact" | "privacy" | "terms",

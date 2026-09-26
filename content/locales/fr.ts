@@ -340,6 +340,28 @@ const fr: SiteContent = {
     ],
     updated: "Mise à jour : septembre 2026",
   },
+  caseStudy: {
+    label: "ÉTUDE DE CAS",
+    sector: "Secteur",
+    services: "Ce que nous avons conçu",
+    status: "Statut",
+    serviceNames: {
+      "web": "Web",
+      "custom": "Logiciel sur mesure",
+      "business": "Systèmes de gestion",
+      "mobile": "Application mobile",
+      "smart": "Expériences intelligentes",
+    },
+    screensHeading: "Le système obtenu",
+    statusHeading: "Où en est-il aujourd’hui ?",
+    relatedWork: "Réalisations liées",
+    relatedSolutions: "Solutions liées",
+    ctaTitle: "Un problème similaire ?",
+    ctaPrimary: "Nous écrire sur WhatsApp",
+    ctaSecondary: "Décrire votre besoin",
+    inquiry: "Bonjour, j’ai lu l’étude de cas {project}. Nous avons un besoin similaire.",
+    read: "Lire l’étude de cas",
+  },
   meta: {
     home: {
       title: "MK Digital Systems | Sites web & logiciels métier sur mesure",

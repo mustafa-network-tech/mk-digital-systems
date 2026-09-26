@@ -14,6 +14,7 @@ export const pathnames = {
   "/": "/",
   "/solutions": { tr: "/cozumler" },
   "/work": { tr: "/calismalar" },
+  "/work/[slug]": { tr: "/calismalar/[slug]" },
   "/contact": { tr: "/iletisim" },
   "/legal/privacy": { tr: "/yasal/gizlilik" },
   "/legal/terms": { tr: "/yasal/kosullar" },
