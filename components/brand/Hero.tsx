@@ -4,7 +4,7 @@ import type { Locale } from "@/config/i18n";
 import type { SiteContent } from "@/content/site";
 import { getProject } from "@/content/projects";
 import { getProjectCopy } from "@/content/project-copy";
-import { heroNeedSlides, heroRotation, heroSlides } from "@/content/hero";
+import { heroBackdrop, heroNeedSlides, heroRotation, heroSlides } from "@/content/hero";
 import { Arrow } from "./Arrow";
 import { HeroStage, type StageSlide } from "./HeroStage";
 
@@ -75,6 +75,7 @@ export function Hero({
         slides={slides}
         rotation={heroRotation}
         needSlides={heroNeedSlides}
+        backdrop={heroBackdrop}
         copy={{
           visual: copy.visual,
           needsLabel: copy.needsLabel,

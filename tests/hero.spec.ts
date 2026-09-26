@@ -3,13 +3,14 @@ import { join } from "node:path";
 import { test, expect } from "@playwright/test";
 import { locales } from "../config/i18n";
 import { getContent } from "../content/site";
-import { heroNeedSlides, heroRotation, heroSlideIds, heroSlides } from "../content/hero";
+import { heroBackdrop, heroNeedSlides, heroRotation, heroSlideIds, heroSlides } from "../content/hero";
 
 test("every hero slide has its images and copy in every locale", () => {
   expect(heroSlides.map((s) => s.id)).toEqual([...heroSlideIds]);
   for (const slide of heroSlides)
     for (const image of [...slide.screens, ...(slide.logo ? [slide.logo] : [])])
       expect(existsSync(join("public", image.src)), image.src).toBe(true);
+  expect(existsSync(join("public", heroBackdrop.src))).toBe(true);
   // Real project → real screen: no logos, posters or brand artwork as stage surfaces.
   for (const slide of heroSlides)
     for (const screen of slide.screens) expect(screen.src, slide.id).not.toMatch(/\/(gp|mk\d?|aira|mavikadraj|mkops)\.(jpe?g|png)$/);
@@ -21,7 +22,7 @@ test("every hero slide has its images and copy in every locale", () => {
 
 test("need chips bring their products forward and the stage is fully controllable", async ({ page }) => {
   const copy = getContent("tr").hero;
-  await page.goto("/tr");
+  await page.goto("/tr", { waitUntil: "networkidle" });
   const stage = page.locator(".hero-stage");
   const activeName = stage.locator(".stage-name");
   const name = (id: string) => heroSlides.find((s) => s.id === id)!;
@@ -57,7 +58,7 @@ test("need chips bring their products forward and the stage is fully controllabl
 test("reduced motion starts paused but can still be played", async ({ browser }) => {
   const context = await browser.newContext({ reducedMotion: "reduce" });
   const page = await context.newPage();
-  await page.goto("/tr");
+  await page.goto("/tr", { waitUntil: "networkidle" });
   const dots = page.locator(".hero-stage .stage-dots button");
   await expect(dots.first()).toHaveAttribute("aria-current", "true");
   await expect(page.getByRole("button", { name: getContent("tr").hero.stage.play })).toBeVisible();
@@ -70,7 +71,7 @@ test("reduced motion starts paused but can still be played", async ({ browser })
 });
 
 test("autoplay keeps going with the pointer over the stage and after a click", async ({ page }) => {
-  await page.goto("/tr");
+  await page.goto("/tr", { waitUntil: "networkidle" });
   const stage = page.locator(".hero-stage");
   const dots = stage.locator(".stage-dots button");
   await expect(dots.first()).toHaveAttribute("aria-current", "true");

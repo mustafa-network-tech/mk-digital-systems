@@ -72,12 +72,11 @@ test("status rules: links are HTTPS and every label is backed by the data", () =
   for (const p of projectsByLayer("sector-demo")) expect(p.status, p.id).toBe("sample-site");
 });
 
-test("card media exists and grid projects have an image", () => {
+test("every project is shown with a real screen of its own product", () => {
   for (const p of projects) {
     if (p.media) expect(existsSync(join("public", p.media.src)), p.media.src).toBe(true);
     // A coming-soon project waits for its own visual identity instead of a placeholder screen.
-    if (p.layer !== "flagship" && p.status !== "coming-soon")
-      expect(p.media, `${p.id} needs card media`).toBeTruthy();
+    if (p.status !== "coming-soon") expect(p.media, `${p.id} needs a real screenshot`).toBeTruthy();
   }
 });
 

@@ -32,11 +32,13 @@ export function HeroStage({
   slides,
   rotation,
   needSlides,
+  backdrop,
   copy,
 }: {
   slides: StageSlide[];
   rotation: HeroSlideId[];
   needSlides: Record<NeedId, HeroSlideId[]>;
+  backdrop: HeroImage;
   copy: Copy;
 }) {
   const [need, setNeed] = useState<NeedId | null>(null);
@@ -136,6 +138,17 @@ export function HeroStage({
           if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
         }}
       >
+        <div className="stage-backdrop" aria-hidden="true">
+          {/* Seen at low opacity, so a small file is enough; it is in view, so it loads early. */}
+          <Image
+            src={backdrop.src}
+            alt=""
+            fill
+            sizes="(max-width: 767px) 50vw, 760px"
+            quality={40}
+            priority
+          />
+        </div>
         <div
           className="stage-slides"
           aria-live={playing && !hold ? "off" : "polite"}

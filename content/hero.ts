@@ -156,6 +156,9 @@ export const heroSlides: HeroSlide[] = [
   },
 ];
 
+/** Faint MK brand atmosphere behind the stage (no artwork with invented figures). */
+export const heroBackdrop: HeroImage = { src: "/hero/mk.jpg", width: 1536, height: 1024 };
+
 /**
  * Default rotation alternates very different kinds of work (operations system,
  * mobile app, creative web, business system, digital discovery product, content

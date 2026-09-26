@@ -38,7 +38,7 @@ const en: ProjectCopyBook = {
     solution:
       "A web app that brings waiter, kitchen, cashier and management screens into one flow, plus a mobile app for taking orders on the phone.",
     modules: ["Waiter", "Kitchen", "Cashier", "Management", "Mobile ordering"],
-    alt: "Restaurant workflow across waiter, kitchen, cashier and management",
+    alt: "MK Adisyon demo with sample data: the cashier panel with open tables and payments",
     parts: {
       web: { name: "Web app", description: "Waiter, kitchen, cashier and management screens." },
       mobile: { name: "Mobile app", description: "Android app, currently in closed testing on Google Play." },
@@ -64,7 +64,7 @@ const en: ProjectCopyBook = {
     solution:
       "A hotel operations system connecting the room plan, check-in, payments and management screens.",
     modules: ["Room plan", "Guest check-in", "Payments & records"],
-    alt: "Workflow connecting the room plan, guest check-in and payments",
+    alt: "MK Resepsiyon demo with sample data: the front desk overview",
   },
   "mk-pati": {
     industry: "VETERINARY CLINICS",
@@ -76,7 +76,7 @@ const en: ProjectCopyBook = {
     solution:
       "A clinic management system that combines patient, examination, vaccination and appointment records, supported by an AI clinic assistant.",
     modules: ["Patient records", "Examinations & vaccinations", "Appointments", "AI clinic assistant"],
-    alt: "Clinic workflow connecting patients, examinations, vaccinations and appointments",
+    alt: "Opening screen of the MK Pati product website",
   },
   "mk-kargo": {
     industry: "CARGO & LOGISTICS",
@@ -87,7 +87,7 @@ const en: ProjectCopyBook = {
     solution:
       "A customer site that calculates prices instantly by size and route, and an operations panel for requests, orders, vehicles and document exports.",
     modules: ["Instant price calculation", "Shipment requests", "Order and vehicle management", "PDF and Excel exports"],
-    alt: "Cargo workflow connecting price calculation, requests and order management",
+    alt: "Opening screen of the MK Kargo sample website",
   },
   namehub: {
     industry: "DIGITAL PRODUCT",

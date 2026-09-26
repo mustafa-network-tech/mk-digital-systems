@@ -38,7 +38,7 @@ const fr: ProjectCopyBook = {
     solution:
       "Une application web qui réunit les écrans service, cuisine, caisse et gestion dans un même parcours, et une application mobile pour prendre les commandes sur téléphone.",
     modules: ["Service", "Cuisine", "Caisse", "Gestion", "Commande mobile"],
-    alt: "Parcours du restaurant entre service, cuisine, caisse et gestion",
+    alt: "Démo MK Adisyon avec des données d’exemple : la caisse avec tables ouvertes et paiements",
     parts: {
       web: { name: "Application web", description: "Écrans service, cuisine, caisse et gestion." },
       mobile: { name: "Application mobile", description: "Application Android, en test fermé sur Google Play." },
@@ -64,7 +64,7 @@ const fr: ProjectCopyBook = {
     solution:
       "Un système d’exploitation hôtelier qui relie plan des chambres, arrivées, encaissements et écrans de gestion.",
     modules: ["Plan des chambres", "Arrivée des clients", "Encaissements & registres"],
-    alt: "Parcours reliant plan des chambres, arrivées et encaissements",
+    alt: "Démo MK Resepsiyon avec des données d’exemple : vue d’ensemble de la réception",
   },
   "mk-pati": {
     industry: "CLINIQUES VÉTÉRINAIRES",
@@ -76,7 +76,7 @@ const fr: ProjectCopyBook = {
     solution:
       "Un système de gestion de clinique qui réunit patients, examens, vaccins et rendez-vous, avec l’appui d’un assistant clinique IA.",
     modules: ["Dossiers patients", "Examens & vaccins", "Rendez-vous", "Assistant clinique IA"],
-    alt: "Parcours de la clinique reliant patients, examens, vaccins et rendez-vous",
+    alt: "Écran d’accueil du site produit MK Pati",
   },
   "mk-kargo": {
     industry: "FRET & LOGISTIQUE",
@@ -87,7 +87,7 @@ const fr: ProjectCopyBook = {
     solution:
       "Un site client qui calcule instantanément le prix selon les dimensions et le trajet, et un panneau d’exploitation pour les demandes, commandes, véhicules et exports de documents.",
     modules: ["Calcul de prix instantané", "Demandes d’envoi", "Gestion des commandes et véhicules", "Exports PDF et Excel"],
-    alt: "Parcours de fret reliant calcul de prix, demandes et gestion des commandes",
+    alt: "Écran d’accueil du site d’exemple MK Kargo",
   },
   namehub: {
     industry: "PRODUIT NUMÉRIQUE",

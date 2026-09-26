@@ -494,7 +494,21 @@ img {
   touch-action: pan-y;
   user-select: none;
 }
-/* Clean atmosphere: light, a faint geometric grid, no artwork or figures. */
+/* Atmosphere: the faint MK artwork (mk.jpg) with a scrim for the caption, and a faint grid. */
+.stage-backdrop {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+}
+.stage-backdrop img {
+  object-fit: cover;
+}
+.stage-backdrop:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #111514 0%, #111514d9 20%, #11151400 48%);
+}
 .hero-stage:before {
   content: "";
   position: absolute;
@@ -2865,6 +2879,17 @@ img {
   .real-interface {
     width: 68%;
     max-width: 250px;
+  }
+}
+/* Desktop screenshots fill the scene; the narrow sizes above are for phone screens. */
+.scene-desktop .real-interface {
+  width: 92%;
+  max-width: 640px;
+}
+@media (max-width: 767px) {
+  .scene-desktop .real-interface {
+    width: 94%;
+    max-width: none;
   }
 }
 /* Readable labels and accessible mobile dialog controls. */

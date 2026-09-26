@@ -38,7 +38,7 @@ const de: ProjectCopyBook = {
     solution:
       "Eine Web-App, die Service-, Küchen-, Kassen- und Verwaltungsansichten in einem Ablauf verbindet, plus eine mobile App für Bestellungen am Tisch.",
     modules: ["Service", "Küche", "Kasse", "Verwaltung", "Mobile Bestellung"],
-    alt: "Restaurant-Ablauf zwischen Service, Küche, Kasse und Verwaltung",
+    alt: "MK Adisyon-Demo mit Beispieldaten: Kassenansicht mit offenen Tischen und Zahlungen",
     parts: {
       web: { name: "Web-App", description: "Ansichten für Service, Küche, Kasse und Verwaltung." },
       mobile: { name: "Mobile App", description: "Android-App, derzeit im geschlossenen Test bei Google Play." },
@@ -64,7 +64,7 @@ const de: ProjectCopyBook = {
     solution:
       "Ein Hotelbetriebssystem, das Zimmerplan, Check-in, Zahlungen und Verwaltungsansichten verbindet.",
     modules: ["Zimmerplan", "Gäste-Check-in", "Zahlungen & Belege"],
-    alt: "Ablauf, der Zimmerplan, Check-in und Zahlungen verbindet",
+    alt: "MK Resepsiyon-Demo mit Beispieldaten: Übersicht der Rezeption",
   },
   "mk-pati": {
     industry: "TIERARZTPRAXEN",
@@ -76,7 +76,7 @@ const de: ProjectCopyBook = {
     solution:
       "Ein Praxisverwaltungssystem, das Patienten-, Untersuchungs-, Impf- und Termindaten bündelt – unterstützt durch einen KI-Praxisassistenten.",
     modules: ["Patientenakten", "Untersuchungen & Impfungen", "Termine", "KI-Praxisassistent"],
-    alt: "Praxisablauf, der Patienten, Untersuchungen, Impfungen und Termine verbindet",
+    alt: "Startansicht der MK Pati Produktwebsite",
   },
   "mk-kargo": {
     industry: "FRACHT & LOGISTIK",
@@ -87,7 +87,7 @@ const de: ProjectCopyBook = {
     solution:
       "Eine Kundenseite, die Preise nach Maßen und Strecke sofort berechnet, und ein Betriebspanel für Anfragen, Aufträge, Fahrzeuge und Dokumentexporte.",
     modules: ["Sofortige Preisberechnung", "Sendungsanfragen", "Auftrags- und Fahrzeugverwaltung", "PDF- und Excel-Exporte"],
-    alt: "Frachtablauf, der Preisberechnung, Anfragen und Auftragsverwaltung verbindet",
+    alt: "Startansicht der MK Kargo Beispiel-Website",
   },
   namehub: {
     industry: "DIGITALES PRODUKT",

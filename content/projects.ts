@@ -123,6 +123,7 @@ export const projects: Project[] = [
     needs: ["operations"],
     cardType: "system",
     scene: "blue",
+    media: { src: "/work/mk-adisyon.webp", frame: "desktop" },
     links: [],
     parts: [
       { id: "web", status: "live-demo", links: [{ kind: "demo", url: "https://adisyonn.vercel.app" }] },
@@ -140,6 +141,7 @@ export const projects: Project[] = [
     needs: ["operations"],
     cardType: "system",
     scene: "blue",
+    media: { src: "/work/mk-resepsiyon.webp", frame: "desktop" },
     links: [{ kind: "demo", url: "https://resepsiyon.vercel.app" }],
   },
   {
@@ -152,6 +154,7 @@ export const projects: Project[] = [
     needs: ["operations"],
     cardType: "system",
     scene: "paper",
+    media: { src: "/work/mk-pati.webp", frame: "desktop" },
     links: [{ kind: "demo", url: "https://mavi-pati.vercel.app" }],
   },
   {
@@ -178,6 +181,7 @@ export const projects: Project[] = [
     needs: ["operations"],
     cardType: "system",
     scene: "ink",
+    media: { src: "/work/mk-kargo.webp", frame: "desktop" },
     links: [],
   },
   /* ---------- Selected works ---------- */

@@ -38,7 +38,7 @@ const tr: ProjectCopyBook = {
     solution:
       "Garson, mutfak, kasa ve yönetim ekranlarını ortak akışta birleştiren web uygulaması ve siparişi telefondan almak için mobil uygulama.",
     modules: ["Garson", "Mutfak", "Kasa", "Yönetim", "Mobil sipariş"],
-    alt: "Garson, mutfak, kasa ve yönetim arasındaki restoran iş akışı",
+    alt: "MK Adisyon demosunda örnek verilerle kasa paneli: açık masalar ve tahsilatlar",
     parts: {
       web: {
         name: "Web uygulaması",
@@ -72,7 +72,7 @@ const tr: ProjectCopyBook = {
     solution:
       "Oda planı, giriş işlemleri, tahsilat ve yönetim ekranlarını bağlayan otel operasyon sistemi.",
     modules: ["Oda planı", "Misafir girişi", "Tahsilat & kayıtlar"],
-    alt: "Oda planı, misafir girişi ve tahsilatı bağlayan iş akışı",
+    alt: "MK Resepsiyon demosunda örnek verilerle resepsiyon genel bakış ekranı",
   },
   "mk-pati": {
     industry: "VETERİNER KLİNİKLERİ",
@@ -84,7 +84,7 @@ const tr: ProjectCopyBook = {
     solution:
       "Hasta, muayene, aşı ve randevu kayıtlarını birleştiren, yapay zekâ destekli klinik danışmanıyla desteklenen klinik yönetim sistemi.",
     modules: ["Hasta kayıtları", "Muayene & aşı takibi", "Randevular", "AI klinik danışmanı"],
-    alt: "Hasta, muayene, aşı ve randevuyu bağlayan klinik iş akışı",
+    alt: "MK Pati ürün sitesinin açılış ekranı",
   },
   "mk-kargo": {
     industry: "KARGO & LOJİSTİK",
@@ -101,7 +101,7 @@ const tr: ProjectCopyBook = {
       "Sipariş ve araç yönetimi",
       "PDF ve Excel çıktıları",
     ],
-    alt: "Fiyat hesaplama, talep ve sipariş yönetimini bağlayan kargo iş akışı",
+    alt: "MK Kargo örnek web sitesinin açılış ekranı",
   },
   namehub: {
     industry: "DİJİTAL ÜRÜN",
