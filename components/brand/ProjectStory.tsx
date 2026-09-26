@@ -40,7 +40,6 @@ export function ProjectStory({
 }) {
   const story = getProjectCopy(locale, project.id);
   const name = story.name || project.name;
-  const Heading = full ? "h2" : "h3";
   const links = projectLinks(project, locale, copy.linkLabels);
   const shown = full ? links : links.slice(0, 1);
   return (
@@ -59,7 +58,7 @@ export function ProjectStory({
           )}
         </div>
         <p className="project-name">{name}</p>
-        <Heading className="story-title">{story.headline ?? story.summary}</Heading>
+        <h3 className="story-title">{story.headline ?? story.summary}</h3>
         {story.problem && story.solution && (
           <div className="story-explanation">
             <div>
