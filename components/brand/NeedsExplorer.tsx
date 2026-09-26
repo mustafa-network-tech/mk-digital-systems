@@ -46,7 +46,7 @@ export function NeedsExplorer({ copy }: { copy: SiteContent["needs"] }) {
               </span>
             ))}
           </div>
-          <Link className="text-link" href={`/solutions#${item.family}`}>
+          <Link className="text-link" href={{ pathname: "/solutions", hash: item.family }}>
             {copy.explore}
             <Arrow />
           </Link>

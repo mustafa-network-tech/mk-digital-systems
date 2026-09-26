@@ -125,7 +125,7 @@ export function ProjectStory({
           )}
           {!full && (
             <Link
-              href={`/work#${project.id}`}
+              href={{ pathname: "/work", hash: project.id }}
               className="story-more"
               aria-label={`${copy.all} — ${name}`}
             >

@@ -14,7 +14,18 @@ const nextConfig = withNextIntl({
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
+    // Old English-slug /tr URLs → Turkish slugs (config/i18n.ts pathnames): one 301 hop, query kept.
+    const turkish = {
+      "/tr/solutions": "/tr/cozumler",
+      "/tr/services": "/tr/cozumler",
+      "/tr/work": "/tr/calismalar",
+      "/tr/projects": "/tr/calismalar",
+      "/tr/contact": "/tr/iletisim",
+      "/tr/legal/privacy": "/tr/yasal/gizlilik",
+      "/tr/legal/terms": "/tr/yasal/kosullar",
+    };
     return [
+      ...Object.entries(turkish).map(([source, destination]) => ({ source, destination, statusCode: 301 })),
       { source: "/:locale(tr|en|de|fr)/services", destination: "/:locale/solutions", permanent: true },
       { source: "/:locale(tr|en|de|fr)/projects", destination: "/:locale/work", permanent: true },
       { source: "/:locale(tr|en|de|fr)/about", destination: "/:locale", permanent: true },

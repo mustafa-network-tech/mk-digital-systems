@@ -1,10 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { getContent } from "../content/site";
-import { locales } from "../config/i18n";
+import { locales, pathnames } from "../config/i18n";
 import { validateBrief } from "../lib/contact-validation";
 import AxeBuilder from "@axe-core/playwright";
+import { localPath, type Route } from "./paths";
 const widths = [360, 375, 390, 430, 768, 1024, 1440];
-const pages = ["", "/solutions", "/work", "/contact"];
+const pages: Route[] = ["/", "/solutions", "/work", "/contact"];
 for (const locale of locales) {
   test(`${locale}: routes, responsive layout, semantics and SEO`, async ({
     page,
@@ -15,7 +16,7 @@ for (const locale of locales) {
       if (e.type() === "error") errors.push(e.text());
     });
     for (const suffix of pages) {
-      await page.goto(`/${locale}${suffix}`);
+      await page.goto(localPath(locale, suffix));
       await expect(page.locator("html")).toHaveAttribute("lang", locale);
       await expect(page.locator("h1")).toHaveCount(1);
       await expect(page.locator("main")).toBeVisible();
@@ -24,7 +25,7 @@ for (const locale of locales) {
       await expect(page).toHaveTitle(c.meta[key as "home"].title);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
         "href",
-        `http://localhost:3000/${locale}${suffix}`,
+        `http://localhost:3000${localPath(locale, suffix)}`,
       );
       for (const l of [...locales, "x-default"])
         await expect(
@@ -66,7 +67,7 @@ for (const locale of locales) {
   });
 }
 test("language selection preserves the current page", async ({ page }) => {
-  await page.goto("/tr/work");
+  await page.goto("/tr/calismalar");
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.locator(".language-menu summary").click();
   await page.locator(".language-options a[hreflang=de]").click();
@@ -74,6 +75,8 @@ test("language selection preserves the current page", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", "de");
   await page.locator(".footer-languages a[hreflang=fr]").click();
   await expect(page).toHaveURL(/\/fr\/work$/);
+  await page.locator(".footer-languages a[hreflang=tr]").click();
+  await expect(page).toHaveURL(/\/tr\/calismalar$/);
 });
 test("mobile menu has keyboard containment, Escape and usable locale navigation", async ({
   page,
@@ -188,7 +191,7 @@ test("safe preview indexing, OG cards, legal routes and legacy redirects", async
   expect(await sitemap.text()).not.toContain("<url>");
   for (const locale of locales)
     for (const kind of ["privacy", "terms"])
-      expect((await request.get(`/${locale}/legal/${kind}`)).ok()).toBe(true);
+      expect((await request.get(localPath(locale, `/legal/${kind}` as Route))).ok()).toBe(true);
   for (const locale of locales) for (const page of ["home", "solutions", "work", "contact"]) {
     const image = await request.get(`/og/${locale}/${page}`);
     expect(image.status()).toBe(200);
@@ -203,6 +206,23 @@ test("safe preview indexing, OG cards, legal routes and legacy redirects", async
     expect(r.status()).toBe(308);
     expect(r.headers().location).toBe(`/de/${to}`.replace(/\/$/, ""));
   }
+  // Old English-slug Turkish URLs move to Turkish slugs in one 301, keeping the query.
+  for (const [from, to] of [
+    ["/tr/solutions", "/tr/cozumler"],
+    ["/tr/services", "/tr/cozumler"],
+    ["/tr/work", "/tr/calismalar"],
+    ["/tr/projects", "/tr/calismalar"],
+    ["/tr/contact?type=web", "/tr/iletisim?type=web"],
+    ["/tr/legal/privacy", "/tr/yasal/gizlilik"],
+    ["/tr/legal/terms", "/tr/yasal/kosullar"],
+  ]) {
+    const r = await request.get(from, { maxRedirects: 0 });
+    expect(r.status(), from).toBe(301);
+    expect(r.headers().location).toBe(to);
+    expect((await request.get(to)).status(), to).toBe(200);
+  }
+  // Other locales keep English slugs; Turkish slugs are Turkish only.
+  expect((await request.get("/en/work", { maxRedirects: 0 })).status()).toBe(200);
   expect((await request.get("/en/does-not-exist")).status()).toBe(404);
 });
 test("root opens Turkish regardless of browser language", async ({ request }) => {
@@ -276,7 +296,7 @@ test("genuine company fields are not treated as honeypots", () => {
 test("save reviewable desktop and mobile page captures", async ({ page }) => {
   for (const suffix of pages) {
     await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.goto(`/tr${suffix}`);
+    await page.goto(localPath("tr", suffix));
     await page.screenshot({
       path: `artifacts/qa/desktop-${suffix.slice(1) || "home"}.png`,
       fullPage: true,
@@ -292,8 +312,8 @@ test("WCAG accessibility checks on primary pages and the mobile menu", async ({
   page,
 }) => {
   for (const suffix of pages) {
-    await page.goto(`/en${suffix}`);
-    if (!suffix) await expect(page.locator(".need-content")).toHaveCSS("opacity", "1");
+    await page.goto(localPath("en", suffix));
+    if (suffix === "/") await expect(page.locator(".need-content")).toHaveCSS("opacity", "1");
     const result = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();
@@ -333,7 +353,7 @@ test("configured production sitemap and preview exclusion", () => {
     return compiledModule.exports;
   }
   const env = {SITE_URL: "https://agency.example", VERCEL_ENV: "production"};
-  const config = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}}, env);
+  const config = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr", pathnames}}, env);
   const sitemap = load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config}, env).default();
   expect(sitemap).toHaveLength(24);
   expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24);
@@ -342,10 +362,17 @@ test("configured production sitemap and preview exclusion", () => {
     expect(Object.keys(entry.alternates.languages)).toHaveLength(5);
     expect(entry.alternates.languages["x-default"]).toContain("/tr");
   }
+  const urls = sitemap.map((entry: {url:string}) => entry.url);
+  expect(urls).toContain("https://agency.example/tr/calismalar");
+  expect(urls).toContain("https://agency.example/tr/yasal/gizlilik");
+  expect(urls).toContain("https://agency.example/de/work");
+  expect(urls.filter((url: string) => /\/tr\/(solutions|work|contact|legal)/.test(url))).toEqual([]);
+  const work = sitemap.find((entry: {url:string}) => entry.url.endsWith("/tr/calismalar"));
+  expect(work.alternates.languages).toMatchObject({en: "https://agency.example/en/work", "x-default": "https://agency.example/tr/calismalar"});
   const robots = load("app/robots.ts", {"@/lib/site-config": config}, env).default();
   expect(robots.sitemap).toBe("https://agency.example/sitemap.xml");
   const previewEnv = {...env, VERCEL_ENV: "preview"};
-  const preview = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}}, previewEnv);
+  const preview = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr", pathnames}}, previewEnv);
   expect(preview.isIndexable).toBe(false);
   expect(load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": preview}, previewEnv).default()).toEqual([]);
 });

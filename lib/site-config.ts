@@ -1,4 +1,4 @@
-import { defaultLocale, locales, type Locale } from "@/config/i18n";
+import { defaultLocale, locales, pathnames, type Locale } from "@/config/i18n";
 export const configuredSiteUrl = process.env.SITE_URL?.trim();
 function origin(value: string): string {
   const url = new URL(value);
@@ -18,8 +18,9 @@ export const isIndexable =
   !!configuredSiteUrl &&
   process.env.VERCEL_ENV !== "preview" &&
   new URL(SITE_URL).protocol === "https:";
+/** Internal route per page; the public, localized path comes from `pathnames`. */
 export const pagePaths = {
-  home: "",
+  home: "/",
   solutions: "/solutions",
   work: "/work",
   contact: "/contact",
@@ -27,8 +28,13 @@ export const pagePaths = {
   terms: "/legal/terms",
 } as const;
 export type PageKey = keyof typeof pagePaths;
+export function localizedPath(locale: Locale, page: PageKey): string {
+  const entry: string | Partial<Record<Locale, string>> = pathnames[pagePaths[page]];
+  const path = typeof entry === "string" ? entry : (entry[locale] ?? pagePaths[page]);
+  return path === "/" ? "" : path;
+}
 export function pageUrl(locale: Locale, page: PageKey) {
-  return `${SITE_URL}/${locale}${pagePaths[page]}`;
+  return `${SITE_URL}/${locale}${localizedPath(locale, page)}`;
 }
 export function languageAlternates(page: PageKey) {
   return {

@@ -84,7 +84,7 @@ export function Pricing({
       <div className="pricing-bottom">
         <p className="pricing-disclaimer">{copy.disclaimer}</p>
         {preview && (
-          <Link className="text-link" href="/solutions#pricing">
+          <Link className="text-link" href={{ pathname: "/solutions", hash: "pricing" }}>
             {copy.viewAll}
             <Arrow />
           </Link>

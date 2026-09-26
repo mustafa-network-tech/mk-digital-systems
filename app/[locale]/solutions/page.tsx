@@ -54,7 +54,7 @@ export default async function Solutions({ params }: Props) {
                   </div>
                 </div>
                 {p && (
-                  <Link className="solution-example" href={`/work#${p.id}`}>
+                  <Link className="solution-example" href={{ pathname: "/work", hash: p.id }}>
                     <div>
                       <span>{c.solutions.example}</span>
                       <strong>{getProjectCopy(locale, p.id).name ?? p.name}</strong>
@@ -63,7 +63,7 @@ export default async function Solutions({ params }: Props) {
                   </Link>
                 )}
                 <div className="solution-links">
-                  <Link className="button" href={`/contact?type=${item.id}`}>
+                  <Link className="button" href={{ pathname: "/contact", query: { type: item.id } }}>
                     {c.solutions.cta}
                     <Arrow diagonal />
                   </Link>

@@ -69,7 +69,7 @@ export default async function HomePage({ params }: Props) {
           </div>
           <div className="capability-list">
             {c.solutions.items.map((item, i) => (
-              <Link href={`/solutions#${item.id}`} key={item.id}>
+              <Link href={{ pathname: "/solutions", hash: item.id }} key={item.id}>
                 <span className="capability-symbol" aria-hidden="true">
                   {["◇", "⊞", "◎", "✳"][i]}
                 </span>

@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { locales } from "../config/i18n";
+import { locales, type Locale } from "../config/i18n";
 import { getContent } from "../content/site";
 import { contactConfig, normalizePhone } from "../lib/contact-config";
+import { localPath, type Route } from "./paths";
 import { projectsByLayer } from "../content/projects";
 import { getProjectCopy } from "../content/project-copy";
 
@@ -24,14 +25,14 @@ for (const locale of locales) {
     const titles = new Set<string>(),
       descriptions = new Set<string>();
     for (const path of [
-      "",
+      "/",
       "/solutions",
       "/work",
       "/contact",
       "/legal/privacy",
       "/legal/terms",
-    ]) {
-      await page.goto(`/${locale}${path}`);
+    ] as Route[]) {
+      await page.goto(localPath(locale, path));
       const actions = page.locator(".footer-contact-actions");
       await expect(actions.locator("a")).toHaveCount(3);
       await expect(actions.locator('a[href="tel:+905456597551"]')).toHaveText(
@@ -53,11 +54,11 @@ for (const locale of locales) {
           .getAttribute("content"))!,
       );
       const canonical = new URL((await page.locator('link[rel="canonical"]').getAttribute("href"))!);
-      expect(canonical.pathname).toBe(`/${locale}${path}`);
+      expect(canonical.pathname).toBe(localPath(locale, path));
       for (const alternate of [...locales,"x-default"]) {
         const href = (await page.locator(`link[rel="alternate"][hreflang="${alternate}"]`).getAttribute("href"))!;
         expect(new URL(href).origin).toBe(canonical.origin);
-        expect(new URL(href).pathname).toBe(`/${alternate === "x-default" ? "tr" : alternate}${path}`);
+        expect(new URL(href).pathname).toBe(localPath(alternate === "x-default" ? "tr" : (alternate as Locale), path));
       }
       await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content",canonical.href);
       await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
@@ -106,7 +107,7 @@ for (const locale of locales) {
     }
     expect(titles.size).toBe(6);
     expect(descriptions.size).toBe(6);
-    await page.goto(`/${locale}/work`);
+    await page.goto(localPath(locale, "/work"));
     for (const project of projectsByLayer("flagship")) {
       const link = page.locator(`#${project.id} .story-links > a`).first();
       const first = project.links[0] ?? project.parts?.flatMap((part) => part.links)[0];
@@ -116,7 +117,7 @@ for (const locale of locales) {
           new URL((await link.getAttribute("href"))!).searchParams.get("text"),
         ).toContain(getProjectCopy(locale, project.id).name ?? project.name);
     }
-    await page.goto(`/${locale}/contact`);
+    await page.goto(localPath(locale, "/contact"));
     await page.setViewportSize({ width: 390, height: 844 });
     const channels = (await page.locator(".contact-channels").boundingBox())!;
     const form = (await page.locator(".brief-form").boundingBox())!;

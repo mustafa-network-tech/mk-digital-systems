@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { locales } from "../config/i18n";
 import { getContent } from "../content/site";
+import { localPath } from "./paths";
 import {
   getPricing,
   formatStartingPrice,
@@ -38,9 +39,9 @@ for (const locale of locales) {
     );
     await expect(
       page.locator(".pricing-preview .pricing-bottom a"),
-    ).toHaveAttribute("href", `/${locale}/solutions#pricing`);
+    ).toHaveAttribute("href", `${localPath(locale, "/solutions")}#pricing`);
     await page.locator(".pricing-preview .pricing-bottom a").click();
-    await expect(page).toHaveURL(new RegExp(`/${locale}/solutions#pricing$`));
+    await expect(page).toHaveURL(new RegExp(`${localPath(locale, "/solutions")}#pricing$`));
     const pricing = page.locator("#pricing");
     await expect(pricing.locator("article")).toHaveCount(8);
     await expect(pricing.locator("h2")).toHaveText(copy.title);
@@ -62,7 +63,7 @@ for (const locale of locales) {
     await expect(
       pricing.locator(".pricing-contact-links a").last(),
     ).toHaveAttribute("href", /^mailto:/);
-    const html = await (await request.get(`/${locale}/solutions`)).text();
+    const html = await (await request.get(localPath(locale, "/solutions"))).text();
     expect(html).toContain('id="pricing"');
     expect(html).toContain(formatStartingPrice(35000, "TRY", locale));
     for (const width of [360, 375, 390, 430, 768, 1024, 1440]) {

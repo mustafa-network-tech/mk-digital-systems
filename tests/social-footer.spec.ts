@@ -2,13 +2,14 @@ import { test, expect } from "@playwright/test";
 import { locales } from "../config/i18n";
 import { getContent } from "../content/site";
 import { socialLinks, siteLinks } from "../lib/site-links";
+import { localPath } from "./paths";
 
 for (const locale of locales) {
   test(`${locale}: secondary social links and creator credit without a map`, async ({
     page,
   }) => {
     const copy = getContent(locale);
-    await page.goto(`/${locale}/contact`);
+    await page.goto(localPath(locale, "/contact"));
     await expect(page.locator('iframe[src*="google.com/maps"]')).toHaveCount(0);
     const socials = page.locator(".footer-socials");
     await expect(socials.locator("a")).toHaveCount(2);
