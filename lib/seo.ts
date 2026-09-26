@@ -210,7 +210,7 @@ export function caseStudySchema(locale: Locale, id: ProjectId) {
         about: getProjectCopy(locale, id).industry,
         image: caseStudyScreens(id).map((screen) => `${SITE_URL}${screen.src}`),
       },
-      { "@type": "Organization", "@id": orgId, name: "MK Digital Systems", url: SITE_URL },
+      organizationNode(locale),
       { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "MK Digital Systems", url: SITE_URL, publisher: { "@id": orgId } },
     ],
   };
