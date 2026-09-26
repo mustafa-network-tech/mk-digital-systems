@@ -1,13 +1,11 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { cityIds, citySlug, getCity, heroExists, readyCities, serviceAreasCopy, type CityPage } from "../content/cities";
+import { cityIds, citySlug, getCity, readyCities, serviceAreasCopy, type CityPage } from "../content/cities";
 import { getProject } from "../content/projects";
 import { solutionIds } from "../content/solutions";
 
 const all: CityPage[] = cityIds.map(getCity);
 const published = readyCities();
-/** Cities with a real Mavi Kadraj archive photo; every other hero is a labelled illustration. */
-const archivePhotos = ["bolu", "canakkale", "bursa", "nevsehir"];
 
 /** Every visible word of a city page, with the city's own name masked out. */
 function body(city: CityPage) {
@@ -59,10 +57,6 @@ test("eighteen written city pages, Turkish slugs, researched sources", () => {
     expect(city.title, city.id).toContain(city.name.slice(0, 4));
     expect(city.sources.length, city.id).toBeGreaterThanOrEqual(3);
     for (const source of city.sources) expect(source.url, city.id).toMatch(/^https?:\/\/[^/]*\.(gov\.tr|org\.tr|bel\.tr)\//);
-    // Hero: a real archive photo only where one exists; everything else is labelled an illustration.
-    expect(city.hero.src).toMatch(new RegExp(`^/cities/${city.id}\\.(webp|jpg|jpeg|avif)$`));
-    expect(city.hero.kind, city.id).toBe(archivePhotos.includes(city.id) ? "photo" : "illustration");
-    expect(city.hero.alt.length, city.id).toBeGreaterThan(20);
   }
 });
 
@@ -137,19 +131,12 @@ test("honest pages: no office, branch, local clients, rankings or invented figur
   }
 });
 
-test("a city is published only with its hero image", () => {
-  for (const city of all)
-    expect(published.includes(city), city.id).toBe(heroExists(city) || process.env.CITY_PREVIEW === "1");
+test("every ready city is published, and city pages carry no image", () => {
+  expect(published).toEqual(all.filter((city) => city.ready));
+  for (const city of all) expect(JSON.stringify(city), city.id).not.toMatch(/\.(webp|jpe?g|png|avif)"/);
 });
 
 test("service areas index: Turkish only, one footer link, no city list in the footer", async ({ page, request }) => {
-  if (!published.length) {
-    // No hero added yet: no index, no footer link.
-    expect((await request.get("/tr/hizmet-bolgeleri")).status()).toBe(404);
-    await page.goto("/tr");
-    await expect(page.locator(".site-footer").getByRole("link", { name: serviceAreasCopy.label })).toHaveCount(0);
-    return;
-  }
   const index = await request.get("/tr/hizmet-bolgeleri");
   expect(index.status()).toBe(200);
   for (const path of ["/en/service-areas", "/de/service-areas", "/fr/service-areas", "/en/hizmet-bolgeleri"])
@@ -172,8 +159,8 @@ test("service areas index: Turkish only, one footer link, no city list in the fo
   expect(results.violations).toEqual([]);
 });
 
-test("published city pages: SEO, schema, labelled hero, Turkish only", async ({ page, request }) => {
-  test.skip(!published.length, "No city has its hero image yet (or build with CITY_PREVIEW=1).");
+test("published city pages: SEO, schema, no image, Turkish only", async ({ page, request }) => {
+  expect(published.length).toBe(18);
   for (const city of published) {
     const slug = citySlug(city.id);
     for (const locale of ["en", "de", "fr"]) expect((await request.get(`/${locale}/${slug}`)).status(), `${locale}/${slug}`).toBe(404);
@@ -195,9 +182,7 @@ test("published city pages: SEO, schema, labelled hero, Turkish only", async ({ 
     const service = graph.find((n: { "@type": string }) => n["@type"] === "Service");
     expect(service.areaServed.name).toBe(city.name);
     await expect(page.locator(".breadcrumb a").nth(1)).toHaveAttribute("href", "/tr/hizmet-bolgeleri");
-    const caption = page.locator(".city-figure figcaption");
-    if (city.hero.kind === "illustration") await expect(caption).toContainText("gerçek bir fotoğraf değildir");
-    else await expect(caption).toContainText("Mavi Kadraj");
+    await expect(page.locator(".city-hero img, .city-hero figure")).toHaveCount(0);
     // Switching language leaves the Turkish-only page for that language's home.
     await expect(page.locator(".footer-languages a[hreflang=en]")).toHaveAttribute("href", "/en");
     await expect(page.locator(`[data-solution]`)).toHaveCount(4);

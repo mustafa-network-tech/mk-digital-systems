@@ -297,7 +297,6 @@ export function citySchema(city: CityPage) {
         isPartOf: { "@id": `${SITE_URL}/#website` },
         breadcrumb: { "@id": `${url}#breadcrumb` },
         mainEntity: { "@id": `${url}#service` },
-        primaryImageOfPage: `${SITE_URL}${city.hero.src}`,
       },
       {
         "@type": "BreadcrumbList",

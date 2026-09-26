@@ -14,14 +14,6 @@ export const karaman: CityPage = {
   title: "Türkçenin başkenti Karaman'da yazılım da anlaşılır konuşmalı.",
   lead:
     "Karaman, bisküviden elmaya ülke üretiminde ağırlığı olan bir şehir. Buradaki gıda üreticileri, tarım işletmeleri ve tedarikçileri için ekipte herkesin ilk günden anlayacağı, sade Türkçe arayüzlü yönetim sistemleri ve özel yazılımlar geliştiriyoruz.",
-  hero: {
-    src: "/cities/karaman.webp",
-    alt: "Geniş bir yayla, tek başına yükselen volkanik bir dağ ve önde elma bahçesi sıraları",
-    kind: "illustration",
-    caption: "Karaman ovası ve Karadağ yönü.",
-    focus: "40% 55%",
-    source: "Mustafa tarafından eklenecek; ova, volkanik dağ ve elma bahçesi temalı üretilmiş görsel",
-  },
   summary: "Bisküvi ve gıda sanayi, elma ve tahıl: sipariş, bayi, depo ve üretim takibi.",
   blocks: [
     {

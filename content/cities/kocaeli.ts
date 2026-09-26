@@ -14,14 +14,6 @@ export const kocaeli: CityPage = {
   title: "Türkiye sanayisinin merkezinde, Kocaeli'nin tedarikçileri için yazılım.",
   lead:
     "Kocaeli; organize sanayi bölgeleri, limanları ve dış ticaret hacmiyle Türkiye sanayisinin merkezi. İzmit'ten Gebze'ye büyük üreticilere hizmet veren tedarikçi, bakım ve lojistik firmaları için iş emrini, saha ekibini ve kalite kaydını tek yerde toplayan sistemler geliştiriyoruz.",
-  hero: {
-    src: "/cities/kocaeli.webp",
-    alt: "Alacakaranlıkta uzun bir körfez, uzakta asma köprü ve rıhtımda liman vinçleri",
-    kind: "illustration",
-    caption: "İzmit Körfezi, liman vinçleri ve köprü; alacakaranlık.",
-    focus: "55% 55%",
-    source: "Mustafa tarafından eklenecek; körfez, köprü ve liman temalı üretilmiş görsel",
-  },
   summary: "OSB'ler, limanlar ve dış ticaret: tedarikçi, bakım ve lojistik firmaları için saha ve iş emri.",
   blocks: [
     {

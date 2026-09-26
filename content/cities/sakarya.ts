@@ -14,14 +14,6 @@ export const sakarya: CityPage = {
   title: "Sakarya'da tedarik zinciri hızlı; takip sistemi de ona yetişmeli.",
   lead:
     "Adapazarı çevresinde otomobil, otobüs, traktör, raylı sistem araçları ve savunma sanayine üretim yapan işletmeler, büyük bir tedarik zincirinin halkaları. Sakarya'daki işletmeler için bu zincirde güven veren web siteleri ve işi kayıt altına alan yazılımlar geliştiriyoruz.",
-  hero: {
-    src: "/cities/sakarya.webp",
-    alt: "Ovanın içinden kıvrılarak akan nehir, tarlalar ve uzakta göl",
-    kind: "illustration",
-    caption: "Sakarya ovası, kıvrılan nehir ve Sapanca yönü.",
-    focus: "45% 50%",
-    source: "Mustafa tarafından eklenecek; ova, nehir ve göl temalı üretilmiş görsel",
-  },
   summary: "Otomotiv, raylı sistem ve makine tedarikçileri; Sapanca turizmi.",
   blocks: [
     {

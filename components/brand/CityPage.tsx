@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Link } from "@/config/navigation";
-import { cityPageCopy, citySlug, heroExists, readyCities, serviceAreasCopy, type CityPage } from "@/content/cities";
+import { cityPageCopy, citySlug, readyCities, serviceAreasCopy, type CityPage } from "@/content/cities";
 import type { CityBlock } from "@/content/cities/types";
 import { getContent } from "@/content/site";
 import { getProject } from "@/content/projects";
@@ -12,8 +12,8 @@ import { whatsappInquiry } from "@/lib/contact-config";
 import { Arrow } from "./Arrow";
 
 /**
- * A Turkish city page: hero with the city image, then the city's own sections in the
- * order it sets (content/cities). Projects appear as capability examples only.
+ * A Turkish city page: text hero, then the city's own sections in the order it sets
+ * (content/cities). No city image. Projects appear as capability examples only.
  */
 export function CityPageView({ city }: { city: CityPage }) {
   const c = getContent("tr");
@@ -213,23 +213,6 @@ export function CityPageView({ city }: { city: CityPage }) {
             <Arrow diagonal />
           </a>
         </div>
-        <figure className={`city-figure city-figure-${city.hero.kind}`}>
-          <div className="city-figure-frame">
-            {heroExists(city) && (
-              <Image
-                src={city.hero.src}
-                alt={city.hero.alt}
-                fill
-                priority
-                sizes="(max-width: 1100px) 92vw, 640px"
-                style={{ objectFit: "cover", objectPosition: city.hero.focus }}
-              />
-            )}
-          </div>
-          <figcaption>
-            {city.hero.kind === "photo" ? `${cityPageCopy.photo} · ${city.hero.caption}` : `${city.hero.caption} ${cityPageCopy.illustration}`}
-          </figcaption>
-        </figure>
       </header>
 
       {city.blocks.map(block)}

@@ -14,14 +14,6 @@ export const duzce: CityPage = {
   title: "Fındık bahçesinden OSB hattına: Düzce'nin işi kayıtla büyür.",
   lead:
     "Düzce'de ekonominin iki kolu yan yana çalışır: kıyıya doğru uzanan fındık bahçeleri ve organize sanayi bölgelerindeki fabrikalar. Bu iki dünyada da işin sağlıklı yürümesi, kaydın tutulmasına ve bilginin zamanında doğru kişiye ulaşmasına bağlı.",
-  hero: {
-    src: "/cities/duzce.webp",
-    alt: "Karadeniz'e bakan yamaçlarda sıra sıra fındık bahçeleri",
-    kind: "illustration",
-    caption: "Düzce'nin fındık bahçeleri ve Karadeniz kıyısı.",
-    focus: "55% 60%",
-    source: "Mustafa tarafından eklenecek; fındık bahçeleri ve kıyı temalı üretilmiş görsel",
-  },
   summary: "Fındık, OSB'lerdeki imalat ve tedarik: üretim takibi, alım kaydı ve B2B site.",
   blocks: [
     {

@@ -6,7 +6,7 @@ import { locales, type Locale } from "@/config/i18n";
 import { getContent } from "@/content/site";
 import { getCaseStudy } from "@/content/case-studies";
 import { getSolutionsCopy, solutionBySlug } from "@/content/solutions";
-import { serviceAreasCopy, writtenCityBySlug } from "@/content/cities";
+import { cityBySlug, serviceAreasCopy } from "@/content/cities";
 export const runtime = "nodejs";
 export async function GET(
   _request: Request,
@@ -19,7 +19,7 @@ export async function GET(
   const solutionId = solutionBySlug(page);
   const solution = solutionId ? getSolutionsCopy(locale as Locale).items[solutionId] : undefined;
   // City pages and their index exist in Turkish only.
-  const city = locale === "tr" ? writtenCityBySlug(page) : undefined;
+  const city = locale === "tr" ? cityBySlug(page) : undefined;
   const areas = locale === "tr" && page === "service-areas";
   if (!caseStudy && !solution && !city && !areas && !["home", "work", "solutions", "contact"].includes(page))
     return new Response("Not found", { status: 404 });

@@ -30,27 +30,6 @@ export type CityId = (typeof cityIds)[number];
 export const cityRegions = ["marmara", "karadeniz", "ic-anadolu", "guney"] as const;
 export type CityRegion = (typeof cityRegions)[number];
 
-export type CityHero = {
-  /**
-   * Public path of the hero image, added by Mustafa (e.g. /cities/bolu.webp). A city page
-   * is published only when this file exists: no hero, no page.
-   */
-  src: string;
-  alt: string;
-  /**
-   * "photo": a real Mavi Kadraj archive photograph taken in this city.
-   * "illustration": a generated image; the page always labels it as such and
-   * never presents it as a photograph.
-   */
-  kind: "photo" | "illustration";
-  /** Visible caption under the image. */
-  caption: string;
-  /** CSS object-position that keeps the subject in the desktop and mobile crops. */
-  focus: string;
-  /** Provenance (not rendered): archive file for photos, how an illustration was made. */
-  source: string;
-};
-
 /** Page sections. Each city orders and words them for itself; none is required twice. */
 export type CityBlock =
   | { kind: "story"; heading: string; paragraphs: string[] }
@@ -86,7 +65,6 @@ export type CityPage = {
   /** H1. */
   title: string;
   lead: string;
-  hero: CityHero;
   /** One line for the service-areas index. */
   summary: string;
   blocks: CityBlock[];

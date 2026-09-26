@@ -14,14 +14,6 @@ export const bartin: CityPage = {
   title: "Amasra'ya gelen misafir önce telefonuna bakıyor. Bartın'ın işletmeleri orada karşılamalı.",
   lead:
     "Bartın'ın ekonomisinde turizm, özellikle Amasra'nın tarihi yarımadası ve koyları etrafında dönüyor. Pansiyon, otel ve restoran işletmeleri için misafiri doğrudan size ulaştıran web siteleri ve yoğun günleri düzenleyen sistemler kuruyoruz.",
-  hero: {
-    src: "/cities/bartin.webp",
-    alt: "Akşam mavisinde, üzerinde eski surlar bulunan kayalık yarımada ve sakin deniz",
-    kind: "illustration",
-    caption: "Amasra yarımadası ve surlar, akşam saatleri.",
-    focus: "65% 55%",
-    source: "Mustafa tarafından eklenecek; Amasra yarımadası temalı üretilmiş görsel",
-  },
   summary: "Amasra turizmi, pansiyonlar ve balık restoranları: doğrudan rezervasyon ve düzenli yoğunluk.",
   blocks: [
     {

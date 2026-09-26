@@ -14,14 +14,6 @@ export const edirne: CityPage = {
   title: "Edirne'den her gün binlerce kişi geçiyor; bir kısmı sizi arıyor.",
   lead:
     "Edirne, Kapıkule ile Türkiye'nin Avrupa'ya açılan kapısı; Selimiye ve Kırkpınar ile de dünyanın tanıdığı bir miras şehri. Buradaki otel, restoran, lojistik ve tarım işletmeleri için ziyaretçiyi, yolcuyu ve yükü düzenli karşılayan dijital çözümler geliştiriyoruz.",
-  hero: {
-    src: "/cities/edirne.webp",
-    alt: "Gün doğumunda sakin bir nehir üzerinde uzun, kemerli taş köprü ve ufukta kubbeli bir yapı",
-    kind: "illustration",
-    caption: "Edirne'de nehir, taş köprü ve ufuk çizgisi; gün doğumu.",
-    focus: "50% 55%",
-    source: "Mustafa tarafından eklenecek; taş köprü ve nehir temalı üretilmiş görsel",
-  },
   summary: "Kapıkule, Selimiye ve Kırkpınar; pirinç ve ayçiçeği: konaklama, lojistik ve tarım.",
   blocks: [
     {

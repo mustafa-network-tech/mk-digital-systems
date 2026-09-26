@@ -14,14 +14,6 @@ export const nevsehir: CityPage = {
   title: "Kapadokya'da gün balonla başlıyor; Nevşehir'de rezervasyon ondan çok önce.",
   lead:
     "Nevşehir, Kapadokya'nın peribacaları, yeraltı şehirleri ve balonlarıyla dünyanın dört bir yanından misafir ağırlıyor. Mağara otellerden tur firmalarına, restoranlardan kaya depolara kadar Nevşehir'deki işletmeler için misafiri ve operasyonu yöneten sistemler kuruyoruz.",
-  hero: {
-    src: "/cities/nevsehir.webp",
-    alt: "Gün doğumunda Kapadokya vadisi, peribacaları ve gökyüzünde sıcak hava balonları",
-    kind: "photo",
-    caption: "Nevşehir, Kapadokya",
-    focus: "50% 45%",
-    source: "Mavi Kadraj arşivi: KONULAR/Sıcak Hava Balonları/f59ba3a2-10e4-4a37-8c05-49fb052e1fc4-1_all_5283.jpg (önerilen kare; Mustafa'nın notuyla Kapadokya)",
-  },
   summary: "Kapadokya turizmi, mağara oteller ve balon turları; patates ve kaya depolar.",
   blocks: [
     {

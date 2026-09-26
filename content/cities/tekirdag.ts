@@ -14,14 +14,6 @@ export const tekirdag: CityPage = {
   title: "Ayçiçeği tarlası da tekstil hattı da Tekirdağ'da; ikisi de takip ister.",
   lead:
     "Tekirdağ, Türkiye'nin ayçiçeği üretiminde en önemli illerinden ve Çorlu–Çerkezköy hattıyla büyük bir sanayi merkezi. Buradaki atölyeler, tedarikçiler, bağ işletmeleri ve restoranlar için işin temposuna uyan yönetim sistemleri ve web siteleri geliştiriyoruz.",
-  hero: {
-    src: "/cities/tekirdag.webp",
-    alt: "Yaz öğleden sonrasında denize doğru inen ayçiçeği sıraları ve yanında bağlar",
-    kind: "illustration",
-    caption: "Tekirdağ'da ayçiçeği tarlaları, bağlar ve Marmara.",
-    focus: "45% 60%",
-    source: "Mustafa tarafından eklenecek; ayçiçeği, bağ ve deniz temalı üretilmiş görsel",
-  },
   summary: "Ayçiçeği ve bağcılık, Çorlu–Çerkezköy tekstil ve sanayisi: üretim takibi ve işletme yönetimi.",
   blocks: [
     {

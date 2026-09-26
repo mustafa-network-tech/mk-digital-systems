@@ -1,6 +1,5 @@
-import Image from "next/image";
 import { Link } from "@/config/navigation";
-import { citySlug, heroExists, serviceAreasCopy, type CityPage } from "@/content/cities";
+import { citySlug, serviceAreasCopy, type CityPage } from "@/content/cities";
 import { cityRegions } from "@/content/cities/types";
 import { PageIntro } from "./PageIntro";
 import { Arrow } from "./Arrow";
@@ -24,15 +23,6 @@ export function ServiceAreas({ cities }: { cities: CityPage[] }) {
                 {group.map((city) => (
                   <li key={city.id}>
                     <Link href={{ pathname: "/[area]", params: { area: citySlug(city.id) } }}>
-                      <span className="service-area-thumb">
-                        {heroExists(city) && <Image
-                          src={city.hero.src}
-                          alt=""
-                          fill
-                          sizes="(max-width: 767px) 92vw, 300px"
-                          style={{ objectFit: "cover", objectPosition: city.hero.focus }}
-                        />}
-                      </span>
                       <span className="service-area-name">
                         {city.name}
                         <Arrow />

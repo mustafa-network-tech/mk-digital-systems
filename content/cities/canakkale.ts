@@ -14,14 +14,6 @@ export const canakkale: CityPage = {
   title: "Çanakkale'ye milyonlar tarih için geliyor; işletmenizi o yolculukta buldurun.",
   lead:
     "Gelibolu Yarımadası'ndan Troya'ya, Kilitbahir'den adalara Çanakkale her yıl milyonlarca ziyaretçi ağırlıyor. Tur, konaklama, restoran ve yerel ürün işletmeleri için bu ziyaretçiyi doğrudan size ulaştıran web siteleri ve yoğunluğu düzenleyen sistemler kuruyoruz.",
-  hero: {
-    src: "/cities/canakkale.webp",
-    alt: "Kilitbahir Kalesi'nin taş kulesi ve arkasında Çanakkale Boğazı",
-    kind: "photo",
-    caption: "Çanakkale, Kilitbahir",
-    focus: "35% 55%",
-    source: "Mavi Kadraj arşivi: ŞEHİRLER/Çanakkale/Kilitbahir/1000111439.jpg (önerilen kare)",
-  },
   summary: "Tarih ve kültür turizmi, adalar, zeytin ve köprüyle gelen lojistik: rezervasyon ve tanıtım.",
   blocks: [
     {

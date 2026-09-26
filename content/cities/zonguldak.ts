@@ -14,14 +14,6 @@ export const zonguldak: CityPage = {
   title: "Zonguldak'ta iş vardiyayla döner; kaydı da vardiyayla tutulmalı.",
   lead:
     "Zonguldak'ın ekonomisi 19. yüzyılın ortasından beri taşkömürü, 1965'ten beri de demir-çelik üzerine kurulu. Bu iki ana sektörün ve limanların çevresinde çalışan taşeron, bakım ve tedarik firmaları için ekip, vardiya ve iş takibini tek yerde toplayan yazılımlar geliştiriyoruz.",
-  hero: {
-    src: "/cities/zonguldak.webp",
-    alt: "Serin bir sabahta denize dik inen ormanlık burunlar ve kayalara vuran dalgalar",
-    kind: "illustration",
-    caption: "Zonguldak'ın sarp, yeşil Karadeniz kıyısı.",
-    focus: "35% 55%",
-    source: "Mustafa tarafından eklenecek; sarp kıyı temalı üretilmiş görsel",
-  },
   summary: "Taşkömürü, demir-çelik ve beş uluslararası liman: taşeron ve tedarikçiler için ekip ve vardiya takibi.",
   blocks: [
     {

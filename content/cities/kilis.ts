@@ -14,14 +14,6 @@ export const kilis: CityPage = {
   title: "Kilis zeytininin hikâyesi var; dijitalde de anlatılmayı bekliyor.",
   lead:
     "Kilis'in ekonomisi toprağa, zeytine ve bağa dayanıyor. Zeytinyağından pekmeze, bulgurdan tekstile üreten işletmeler için ürünü doğru anlatan web siteleri ve alımdan satışa kaydı tutan sistemler geliştiriyoruz.",
-  hero: {
-    src: "/cities/kilis.webp",
-    alt: "İkindi ışığında kırmızımsı toprakta sıra sıra zeytin ağaçları ve önde taş duvar",
-    kind: "illustration",
-    caption: "Kilis'in zeytinlikleri, ikindi ışığında.",
-    focus: "60% 55%",
-    source: "Mustafa tarafından eklenecek; zeytinlik temalı üretilmiş görsel",
-  },
   summary: "Zeytin, zeytinyağı, üzüm ve gıda işleme: üretici markası, sipariş ve stok kaydı.",
   blocks: [
     {

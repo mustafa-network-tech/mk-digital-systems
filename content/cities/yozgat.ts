@@ -14,14 +14,6 @@ export const yozgat: CityPage = {
   title: "Yozgat'ta, Bozok Platosu'nda sürü büyüyor; kayıtlar da onunla büyümeli.",
   lead:
     "Yozgat'ın ekonomisi tarım ve hayvancılık üzerine kurulu. Çiftlikler, termal tesisler ve yerel üreticiler için hayvandan misafire kadar kaydı düzenli tutan sistemler ve işletmeyi doğru anlatan web siteleri geliştiriyoruz.",
-  hero: {
-    src: "/cities/yozgat.webp",
-    alt: "Serin bir sabahta çıplak, dalgalı plato tepeleri ve çam ormanıyla kaplı bir tepe",
-    kind: "illustration",
-    caption: "Bozok Platosu ve çamlık tepe, serin bir sabah.",
-    focus: "70% 60%",
-    source: "Mustafa tarafından eklenecek; plato ve çam ormanı temalı üretilmiş görsel",
-  },
   summary: "Hayvancılık ve tarım, Sorgun termal turizmi: çiftlik kaydı, rezervasyon ve tanıtım.",
   blocks: [
     {

@@ -14,14 +14,6 @@ export const yalova: CityPage = {
   title: "Yalova'da sera, tersane ve termal aynı sahilde; hepsinin ritmi farklı.",
   lead:
     "Yalova, Türkiye'nin kesme çiçek üretiminde önemli bir paya, ihracatında tersanelere ve turizminde termal kaynaklara sahip. Bu üç farklı iş koluna, her birinin kendi temposuna uyan yönetim sistemleri, saha yazılımları ve web siteleri geliştiriyoruz.",
-  hero: {
-    src: "/cities/yalova.webp",
-    alt: "Sisli bir sabahta denize bakan yamaçlarda sıra sıra seralar",
-    kind: "illustration",
-    caption: "Yalova kıyısında seralar ve Marmara.",
-    focus: "50% 60%",
-    source: "Mustafa tarafından eklenecek; seralar ve deniz temalı üretilmiş görsel",
-  },
   summary: "Kesme çiçek ve süs bitkileri, tersaneler, termal turizm: sipariş, saha ve rezervasyon.",
   blocks: [
     {

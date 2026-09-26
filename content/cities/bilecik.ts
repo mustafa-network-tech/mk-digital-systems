@@ -14,14 +14,6 @@ export const bilecik: CityPage = {
   title: "Bilecik'te taş bloktan plakaya; her parçanın kaydı olmalı.",
   lead:
     "Osmanlı'nın kuruluş topraklarında bugün mermer, seramik hammaddesi ve sanayi öne çıkıyor. Bilecik'teki ocaklar, fabrikalar ve tedarikçiler için stoğu, üretimi ve siparişi görünür kılan yazılımlar ve ihracata dönük siteler geliştiriyoruz.",
-  hero: {
-    src: "/cities/bilecik.webp",
-    alt: "Dik yamaçlar arasında derin bir vadi, bir yamaçta açık renkli taş ocağı basamakları ve vadinin dibinde nehir",
-    kind: "illustration",
-    caption: "Bilecik vadisi ve mermer ocağı basamakları.",
-    focus: "60% 50%",
-    source: "Mustafa tarafından eklenecek; vadi ve mermer ocağı temalı üretilmiş görsel",
-  },
   summary: "Mermer ve Bilecik taşı, seramik hammaddesi, Bozüyük sanayisi: stok, üretim ve katalog.",
   blocks: [
     {

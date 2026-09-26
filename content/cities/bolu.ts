@@ -14,14 +14,6 @@ export const bolu: CityPage = {
   title: "Bolu'da misafir kararını yolda veriyor; işletmeniz orada görünmeli.",
   lead:
     "İstanbul ile Ankara arasındaki yolun ortasında, ormanın ve göllerin şehrinde işletmelerin çoğu misafirle, mutfakla ya da üretimle yaşıyor. Bolu'daki işletmeler için web siteleri, rezervasyon ve adisyon sistemleri ile üretimi izleyen özel yazılımlar geliştiriyoruz.",
-  hero: {
-    src: "/cities/bolu.webp",
-    alt: "Bolu Gölcük Tabiat Parkı'nda ormanla çevrili göl ve kıyıdaki ahşap köşk",
-    kind: "photo",
-    caption: "Bolu, Gölcük",
-    focus: "50% 55%",
-    source: "Mavi Kadraj arşivi: ŞEHİRLER/Bolu/Gölcük/gölcük (28).JPG (önerilen kare)",
-  },
   summary: "Doğa turizmi, Mengen mutfağı ve gıda üretimi: rezervasyon, adisyon ve üretim kaydı.",
   blocks: [
     {

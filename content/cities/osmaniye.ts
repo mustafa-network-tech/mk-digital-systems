@@ -14,14 +14,6 @@ export const osmaniye: CityPage = {
   title: "Osmaniye'de ürün yoldan geçmez, yola çıkar: parti, sevkiyat ve ihracat için yazılım.",
   lead:
     "Türkiye'de üretilen yer fıstığının büyük kısmı Osmaniye'de işleniyor; ilin ihracatını ise demir-çelik taşıyor. Osmaniye'deki işletmeler için partiyi, sevkiyatı ve müşteriyi tek yerde toplayan sistemler geliştiriyoruz.",
-  hero: {
-    src: "/cities/osmaniye.webp",
-    alt: "Sabah ışığında yüksek, mavi bir dağ silsilesinin önünde uzanan yeşil tarla sıraları",
-    kind: "illustration",
-    caption: "Amanos eteklerinde ova ve tarlalar.",
-    focus: "50% 60%",
-    source: "Mustafa tarafından eklenecek; Amanos ve ova temalı üretilmiş görsel",
-  },
   summary: "Yer fıstığı işleme, demir-çelik ve lojistik: parti takibi, sevkiyat ve ihracat sitesi.",
   blocks: [
     {

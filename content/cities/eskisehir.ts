@@ -14,14 +14,6 @@ export const eskisehir: CityPage = {
   title: "Eskişehir'de fikir bol; onu kullanılan bir ürüne çevirelim.",
   lead:
     "Eskişehir hem genç nüfusuyla bir üniversite şehri hem de uçak motorundan lokomotife uzanan bir sanayi şehri. Buradaki girişimciler, tedarikçiler ve hizmet işletmeleri için fikri sade bir mobil uygulamaya, özel bir yazılıma ya da iyi bir web sitesine dönüştürüyoruz.",
-  hero: {
-    src: "/cities/eskisehir.webp",
-    alt: "Akşam ışığında sakin bir şehir nehri, iki yakada renkli cumbalı evler ve alçak yaya köprüleri",
-    kind: "illustration",
-    caption: "Eskişehir'de nehir kıyısı, akşam.",
-    focus: "50% 55%",
-    source: "Mustafa tarafından eklenecek; nehir kıyısı ve tarihi evler temalı üretilmiş görsel",
-  },
   summary: "Üniversiteler, girişimler, makine, raylı sistem ve havacılık: mobil uygulama ve özel yazılım.",
   blocks: [
     {

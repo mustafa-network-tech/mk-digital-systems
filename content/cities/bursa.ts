@@ -14,14 +14,6 @@ export const bursa: CityPage = {
   title: "Hanlardan fabrikalara: Bursa'nın ticaret aklı yazılımda da işler.",
   lead:
     "Bursa, Türkiye'nin otomotiv ve tekstil üretiminde büyük pay sahibi, yüzyıllardır ticaretin şehri. Otomotiv yan sanayisinden tekstil atölyelerine, gıdadan çarşı esnafına kadar Bursa'daki işletmeler için sipariş, üretim ve müşteri takibini sadeleştiren sistemler geliştiriyoruz.",
-  hero: {
-    src: "/cities/bursa.webp",
-    alt: "Tirilye'de tuğla ve taştan tarihi yapı ile minare, açık mavi gökyüzü",
-    kind: "photo",
-    caption: "Bursa, Mudanya Tirilye",
-    focus: "50% 45%",
-    source: "Mavi Kadraj arşivi: ŞEHİRLER/Bursa/Tirilye/IMG_5874.JPG (önerilen kare)",
-  },
   summary: "Otomotiv ve tekstil, UNESCO mirası hanlar bölgesi: tedarikçi, atölye ve çarşı için yazılım.",
   blocks: [
     {
