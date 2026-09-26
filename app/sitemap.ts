@@ -7,12 +7,16 @@ import {
   languageAlternates,
   pagePaths,
   pageUrl,
+  serviceAreasUrl,
   solutionAlternates,
   solutionUrl,
+  cityUrl,
+  turkishOnlyAlternates,
   type PageKey,
 } from "@/lib/site-config";
 import { caseStudyIds, caseStudyLocales } from "@/content/case-studies";
 import { solutionIds, solutionLocales, solutionRoutes } from "@/content/solutions";
+import { citySlug, hasServiceAreas, readyCities } from "@/content/cities";
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!isIndexable) return [];
   const pages = locales.flatMap((locale) =>
@@ -48,5 +52,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: solutionAlternates(solutionRoutes[id], available) },
     })),
   );
-  return [...pages, ...solutions, ...cases];
+  // Service areas and city pages: Turkish only, ready cities only.
+  const areas = !hasServiceAreas() ? [] : [
+    {
+      url: serviceAreasUrl(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      alternates: { languages: turkishOnlyAlternates(serviceAreasUrl()) },
+    },
+    ...readyCities().map((city) => ({
+      url: cityUrl(citySlug(city.id)),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      alternates: { languages: turkishOnlyAlternates(cityUrl(citySlug(city.id))) },
+    })),
+  ];
+  return [...pages, ...solutions, ...cases, ...areas];
 }

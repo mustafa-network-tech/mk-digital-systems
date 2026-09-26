@@ -9,7 +9,7 @@ export function LocaleLinks({ locale }: { locale: Locale }) {
       {locales.map((l) => (
         <Link
           key={l}
-          href={href}
+          href={href(l)}
           locale={l}
           hrefLang={l}
           aria-current={l === locale ? "true" : undefined}

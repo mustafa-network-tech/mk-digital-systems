@@ -3685,3 +3685,306 @@ img {
     transition: none;
   }
 }
+/* City pages (/tr/{city}-web-tasarim) and their index (/tr/hizmet-bolgeleri). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* Desktop: text left, city image right, both in the first screen. */
+@media (min-width: 1101px) {
+  .city-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: 64px;
+    align-items: start;
+  }
+  .city-hero > * {
+    grid-column: 1;
+  }
+  .city-hero > .breadcrumb {
+    grid-column: 1 / -1;
+  }
+  .city-hero > .city-figure {
+    grid-column: 2;
+    grid-row: 2 / span 4;
+    margin: 0;
+  }
+  .city-hero h1 {
+    font-size: clamp(40px, 4.2vw, 64px);
+  }
+  .city-hero .city-figure-frame {
+    aspect-ratio: 5 / 4;
+  }
+}
+.city-figure {
+  margin: 48px 0 0;
+}
+.city-figure-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 21 / 9;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e4e6de, #d4d8d0);
+}
+.city-figure figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.city-prose p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.city-prose p + p {
+  margin-top: 18px;
+}
+.city-sectors,
+.city-solution-rows,
+.city-work-list,
+.city-faq .faq-list {
+  grid-column: 1 / -1;
+}
+.city-need-list {
+  display: grid;
+  gap: 0;
+  margin: 20px 0 0;
+  border-top: 1px solid var(--line);
+}
+.city-need-list > div {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.city-need-list dt {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+.city-need-list dd {
+  margin: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.city-solution-rows {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 48px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.city-solution-rows li {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 0;
+  border-top: 1px solid var(--ink);
+}
+.city-solution-rows h3 {
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+.city-solution-rows p {
+  flex: 1;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.city-solution-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+.city-solution-meta strong {
+  font-weight: 600;
+}
+.city-work-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 40px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.city-work-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 20px;
+  align-items: start;
+}
+.city-work-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.city-work-media.scene-ink {
+  background: #151917;
+}
+.city-work-media.scene-blue {
+  background: var(--blue);
+}
+.city-work-list .eyebrow {
+  margin: 0 0 6px;
+}
+.city-work-list h3 {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.city-work-list p:not(.eyebrow) {
+  margin: 8px 0 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.city-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 32px 80px;
+  padding-block: 56px 72px;
+}
+.city-footer h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.city-footer p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.city-footer ul {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+.city-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #b8bab2;
+}
+.city-footer a:hover {
+  color: var(--blue);
+}
+.service-areas {
+  padding-top: 0;
+}
+.service-area-group + .service-area-group {
+  margin-top: 56px;
+}
+.service-area-group h3 {
+  margin: 28px 0 20px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  letter-spacing: -0.03em;
+}
+.service-area-group ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.service-area-group a {
+  display: grid;
+  gap: 10px;
+}
+.service-area-thumb {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e4e6de, #d4d8d0);
+}
+.service-area-thumb img {
+  transition: transform 0.5s ease;
+}
+.service-area-group a:hover .service-area-thumb img {
+  transform: scale(1.03);
+}
+.service-area-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.service-area-group a:hover .service-area-name {
+  color: var(--blue);
+}
+.service-area-summary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.service-areas-missing {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 24px 80px;
+  align-items: end;
+  padding-top: 0;
+}
+.service-areas-missing h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+@media (max-width: 1100px) {
+  .city-work-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .service-area-group ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .city-figure {
+    margin-top: 36px;
+  }
+  .city-figure-frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+  .city-prose p {
+    font-size: 16px;
+  }
+  .city-solution-rows,
+  .city-footer,
+  .service-areas-missing,
+  .service-area-group ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .city-work-list li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-area-thumb img {
+    transition: none;
+  }
+}

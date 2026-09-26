@@ -8,6 +8,7 @@ import { SocialIcon } from "./SocialIcon";
 import { socialLinks, siteLinks } from "@/lib/site-links";
 import { getSolutionsCopy, solutionIds, solutionRoutes } from "@/content/solutions";
 import { FooterInvitation } from "./FooterInvitation";
+import { hasServiceAreas, serviceAreasCopy } from "@/content/cities";
 export function SiteFooter({
   locale,
   copy,
@@ -52,6 +53,8 @@ export function SiteFooter({
             <Link href="/solutions">{copy.nav.solutions}</Link>
             <Link href="/work">{copy.nav.work}</Link>
             <Link href="/contact">{copy.nav.contact}</Link>
+            {/* City pages are Turkish only: one link to their index, never a list of cities. */}
+            {locale === "tr" && hasServiceAreas() && <Link href="/service-areas">{serviceAreasCopy.label}</Link>}
           </nav>
           <nav className="footer-solutions" aria-labelledby="footer-solutions-title">
             <p id="footer-solutions-title">{copy.nav.solutions}</p>

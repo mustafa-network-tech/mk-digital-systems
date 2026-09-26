@@ -62,6 +62,16 @@ export function solutionAlternates(route: keyof typeof pathnames, available: rea
     "x-default": solutionUrl(available.includes(defaultLocale) ? defaultLocale : available[0], route),
   };
 }
+/** Turkish-only pages (service areas and cities): tr plus x-default, no other languages. */
+export function serviceAreasUrl() {
+  return `${SITE_URL}/tr${pathnames["/service-areas"].tr}`;
+}
+export function cityUrl(slug: string) {
+  return `${SITE_URL}/tr/${slug}`;
+}
+export function turkishOnlyAlternates(url: string) {
+  return { tr: url, "x-default": url };
+}
 export function languageAlternates(page: PageKey) {
   return {
     ...Object.fromEntries(

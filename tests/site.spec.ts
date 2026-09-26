@@ -6,6 +6,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { localPath, type Route } from "./paths";
 import * as caseStudies from "../content/case-studies";
 import * as solutions from "../content/solutions";
+import * as cities from "../content/cities";
 import { getSolutionsCopy } from "../content/solutions";
 const widths = [360, 375, 390, 430, 768, 1024, 1440];
 const pages: Route[] = ["/", "/solutions", "/work", "/contact"];
@@ -355,19 +356,24 @@ test("configured production sitemap and preview exclusion", () => {
   }
   const env = {SITE_URL: "https://agency.example", VERCEL_ENV: "production"};
   const config = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr", pathnames}}, env);
-  const dependencies = {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config, "@/content/case-studies": caseStudies, "@/content/solutions": solutions};
+  const dependencies = {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config, "@/content/case-studies": caseStudies, "@/content/solutions": solutions, "@/content/cities": cities};
   const sitemap = load("app/sitemap.ts", dependencies, env).default();
   const caseEntries = caseStudies.caseStudyIds.reduce((n, id) => n + caseStudies.caseStudyLocales(id).length, 0);
   // Solution pages exist only in written languages; each lists exactly those plus x-default.
   const written = solutions.solutionLocales();
   const solutionEntries = solutions.solutionIds.length * written.length;
   expect(solutionEntries).toBeGreaterThan(0);
-  expect(sitemap).toHaveLength(24 + caseEntries + solutionEntries);
-  expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24 + caseEntries + solutionEntries);
+  // Turkish-only: the service-areas index plus every published city (hero image in place).
+  const areaEntries = cities.hasServiceAreas() ? 1 + cities.readyCities().length : 0;
+  expect(sitemap).toHaveLength(24 + caseEntries + solutionEntries + areaEntries);
+  expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24 + caseEntries + solutionEntries + areaEntries);
+  const turkishOnly = new Set([config.serviceAreasUrl(), ...cities.readyCities().map((city) => config.cityUrl(cities.citySlug(city.id)))]);
   const solutionUrls = new Set(solutions.solutionIds.flatMap((id) => written.map((l) => config.solutionUrl(l, solutions.solutionRoutes[id]))));
   for (const entry of sitemap) {
     expect(entry.url).toMatch(/^https:\/\/agency\.example\/(tr|en|de|fr)(\/|$)/);
-    expect(Object.keys(entry.alternates.languages)).toHaveLength(solutionUrls.has(entry.url) ? written.length + 1 : 5);
+    expect(Object.keys(entry.alternates.languages)).toHaveLength(
+      turkishOnly.has(entry.url) ? 2 : solutionUrls.has(entry.url) ? written.length + 1 : 5,
+    );
     expect(entry.alternates.languages["x-default"]).toContain("/tr");
   }
   expect(solutionUrls.has("https://agency.example/tr/cozumler/mobil-uygulama")).toBe(true);
@@ -376,7 +382,9 @@ test("configured production sitemap and preview exclusion", () => {
   expect(urls).toContain("https://agency.example/tr/calismalar");
   expect(urls).toContain("https://agency.example/tr/yasal/gizlilik");
   expect(urls).toContain("https://agency.example/de/work");
-  expect(urls.filter((url: string) => /\/tr\/(solutions|work|contact|legal)/.test(url))).toEqual([]);
+  expect(urls.filter((url: string) => /\/tr\/(solutions|work|contact|legal|service-areas)/.test(url))).toEqual([]);
+  if (cities.hasServiceAreas()) expect(urls).toContain("https://agency.example/tr/hizmet-bolgeleri");
+  expect(urls.filter((url: string) => /-web-tasarim$/.test(url) && !url.includes("/tr/"))).toEqual([]);
   const work = sitemap.find((entry: {url:string}) => entry.url.endsWith("/tr/calismalar"));
   expect(work.alternates.languages).toMatchObject({en: "https://agency.example/en/work", "x-default": "https://agency.example/tr/calismalar"});
   const story = sitemap.find((entry: {url:string}) => entry.url.endsWith("/tr/calismalar/saha-santiye"));

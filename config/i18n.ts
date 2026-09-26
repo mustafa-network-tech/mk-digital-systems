@@ -23,6 +23,9 @@ export const pathnames = {
   "/contact": { tr: "/iletisim" },
   "/legal/privacy": { tr: "/yasal/gizlilik" },
   "/legal/terms": { tr: "/yasal/kosullar" },
+  // City pages (content/cities) are Turkish only; other locales 404 on both routes.
+  "/service-areas": { tr: "/hizmet-bolgeleri" },
+  "/[area]": "/[area]",
 } as const;
 
 export const routing = defineRouting({

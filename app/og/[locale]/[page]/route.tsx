@@ -6,6 +6,7 @@ import { locales, type Locale } from "@/config/i18n";
 import { getContent } from "@/content/site";
 import { getCaseStudy } from "@/content/case-studies";
 import { getSolutionsCopy, solutionBySlug } from "@/content/solutions";
+import { serviceAreasCopy, writtenCityBySlug } from "@/content/cities";
 export const runtime = "nodejs";
 export async function GET(
   _request: Request,
@@ -17,11 +18,18 @@ export async function GET(
   const caseStudy = getCaseStudy(locale as Locale, page);
   const solutionId = solutionBySlug(page);
   const solution = solutionId ? getSolutionsCopy(locale as Locale).items[solutionId] : undefined;
-  if (!caseStudy && !solution && !["home", "work", "solutions", "contact"].includes(page))
+  // City pages and their index exist in Turkish only.
+  const city = locale === "tr" ? writtenCityBySlug(page) : undefined;
+  const areas = locale === "tr" && page === "service-areas";
+  if (!caseStudy && !solution && !city && !areas && !["home", "work", "solutions", "contact"].includes(page))
     return new Response("Not found", { status: 404 });
   const c = getContent(locale as Locale);
   const key = (caseStudy ? "work" : solution ? "solutions" : page) as "home" | "work" | "solutions" | "contact";
-  const title = caseStudy
+  const title = city
+    ? city.title
+    : areas
+      ? serviceAreasCopy.title
+      : caseStudy
     ? caseStudy.title
     : solution
       ? solution.title.replace(/­/g, "")
@@ -86,7 +94,13 @@ export async function GET(
           fontSize: 18,
         }}
       >
-        <span>{caseStudy ? c.caseStudy.label : c.nav[key === "home" ? "solutions" : key]}</span>
+        <span>
+          {city || areas
+            ? serviceAreasCopy.label
+            : caseStudy
+              ? c.caseStudy.label
+              : c.nav[key === "home" ? "solutions" : key]}
+        </span>
         <span>MK</span>
       </div>
     </div>,

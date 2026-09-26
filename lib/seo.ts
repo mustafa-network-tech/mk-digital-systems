@@ -6,6 +6,7 @@ import { contactConfig } from "@/lib/contact-config";
 import { getProject, type ProjectId } from "@/content/projects";
 import { getProjectCopy } from "@/content/project-copy";
 import { caseStudyLocales, caseStudyScreens, getCaseStudy } from "@/content/case-studies";
+import { citySlug, serviceAreasCopy, type CityPage } from "@/content/cities";
 import {
   getSolutionsCopy,
   solutionLocales,
@@ -22,6 +23,9 @@ import {
   pageUrl,
   solutionAlternates,
   solutionUrl,
+  cityUrl,
+  serviceAreasUrl,
+  turkishOnlyAlternates,
   type PageKey,
 } from "./site-config";
 export function validLocale(locale: string): Locale {
@@ -203,6 +207,118 @@ export function solutionSchema(locale: Locale, id: SolutionId) {
         url,
       },
       organizationNode(locale),
+      { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "MK Digital Systems", url: SITE_URL, publisher: { "@id": orgId } },
+    ],
+  };
+}
+
+/* ---------- Service areas and city pages (Turkish only) ---------- */
+
+function turkishOnlyMetadata(url: string, title: string, description: string, image: string): Metadata {
+  return {
+    metadataBase: new URL(SITE_URL),
+    title,
+    description,
+    alternates: { canonical: url, languages: turkishOnlyAlternates(url) },
+    robots: { index: isIndexable, follow: isIndexable },
+    openGraph: {
+      title,
+      description,
+      siteName: "MK Digital Systems",
+      url,
+      type: "website",
+      locale: "tr_TR",
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
+    },
+    twitter: { card: "summary_large_image", title, description, images: [image] },
+  };
+}
+
+export function serviceAreasMetadata(): Metadata {
+  const { title, description } = serviceAreasCopy.meta;
+  return turkishOnlyMetadata(serviceAreasUrl(), title, description, `${SITE_URL}/og/tr/service-areas`);
+}
+
+export function serviceAreasSchema(cities: CityPage[]) {
+  const c = getContent("tr");
+  const url = serviceAreasUrl();
+  const orgId = `${SITE_URL}/#organization`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${url}#page`,
+        url,
+        name: serviceAreasCopy.meta.title,
+        description: serviceAreasCopy.meta.description,
+        inLanguage: "tr",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+        hasPart: cities.map((city) => ({ "@id": `${cityUrl(citySlug(city.id))}#page` })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: c.nav.home, item: pageUrl("tr", "home") },
+          { "@type": "ListItem", position: 2, name: serviceAreasCopy.label, item: url },
+        ],
+      },
+      organizationNode("tr"),
+      { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "MK Digital Systems", url: SITE_URL, publisher: { "@id": orgId } },
+    ],
+  };
+}
+
+export function cityMetadata(city: CityPage): Metadata {
+  const slug = citySlug(city.id);
+  return turkishOnlyMetadata(cityUrl(slug), city.meta.title, city.meta.description, `${SITE_URL}/og/tr/${slug}`);
+}
+
+/**
+ * A city page: the page, its breadcrumb and the service with the province as areaServed.
+ * No LocalBusiness, branch, address or map markup: there is no office in the city.
+ */
+export function citySchema(city: CityPage) {
+  const c = getContent("tr");
+  const url = cityUrl(citySlug(city.id));
+  const orgId = `${SITE_URL}/#organization`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#page`,
+        url,
+        name: city.meta.title,
+        description: city.meta.description,
+        inLanguage: "tr",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+        mainEntity: { "@id": `${url}#service` },
+        primaryImageOfPage: `${SITE_URL}${city.hero.src}`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: c.nav.home, item: pageUrl("tr", "home") },
+          { "@type": "ListItem", position: 2, name: serviceAreasCopy.label, item: serviceAreasUrl() },
+          { "@type": "ListItem", position: 3, name: city.name, item: url },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: `${city.name} web tasarım ve yazılım`,
+        serviceType: ["Web tasarım", "Özel yazılım", "İşletme yönetim sistemi", "Mobil uygulama"],
+        description: city.meta.description,
+        provider: { "@id": orgId },
+        areaServed: { "@type": "AdministrativeArea", name: city.name, containedInPlace: { "@type": "Country", name: "Türkiye" } },
+        url,
+      },
+      organizationNode("tr"),
       { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "MK Digital Systems", url: SITE_URL, publisher: { "@id": orgId } },
     ],
   };

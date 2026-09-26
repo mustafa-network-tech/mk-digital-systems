@@ -158,7 +158,7 @@ export function Navigation({
               {locales.map((l) => (
                 <Link
                   key={l}
-                  href={localeHref}
+                  href={localeHref(l)}
                   locale={l}
                   hrefLang={l}
                   lang={l}
@@ -220,7 +220,7 @@ export function Navigation({
             {locales.map((l) => (
               <Link
                 key={l}
-                href={localeHref}
+                href={localeHref(l)}
                 locale={l}
                 hrefLang={l}
                 lang={l}
