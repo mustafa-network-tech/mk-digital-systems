@@ -76,6 +76,7 @@ const tr: SiteContent = {
       "closed-test": "Kapalı test",
       "sample-site": "Örnek site",
       "in-use": "Aktif kullanımda",
+      "coming-soon": "Yakında",
     },
     filter: "Çalışmaları filtrele",
     allLabel: "Tümü",

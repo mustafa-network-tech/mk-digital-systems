@@ -139,6 +139,13 @@ const fr: ProjectCopyBook = {
       "Un portfolio cinématique et bilingue pour un artiste visuel : galerie, vidéo et images.",
     alt: "Écran d’accueil du portfolio Musty",
   },
+  "mk-firsat": {
+    industry: "PLATEFORME DE BONS PLANS & SHOPPING",
+    summary:
+      "Une plateforme numérique moderne qui vise à réunir la découverte de bons plans et les options d’achat dans une seule expérience.",
+    description:
+      "MK Fırsat est une expérience moderne de shopping et de découverte, conçue pour aider chacun à découvrir des bons plans plus facilement, à examiner les options et à accéder rapidement aux offres qui l’intéressent. Pensé dès le départ pour le web et le mobile, le projet sera ensuite lancé comme l’un des produits numériques indépendants de la famille MK Digital Systems.",
+  },
   "mavi-kadraj-otel": {
     industry: "SITE D’HÔTEL",
     summary:

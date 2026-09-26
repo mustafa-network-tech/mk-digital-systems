@@ -156,6 +156,13 @@ const tr: ProjectCopyBook = {
       "Görsel bir sanatçı için sinematik, iki dilli portfolyo deneyimi: galeri, video ve kareler.",
     alt: "Musty portfolyo sitesinin açılış ekranı",
   },
+  "mk-firsat": {
+    industry: "FIRSAT & ALIŞVERİŞ KEŞİF PLATFORMU",
+    summary:
+      "Fırsatları keşfetmeyi ve alışveriş seçeneklerini tek bir deneyimde buluşturmayı hedefleyen modern bir dijital platform.",
+    description:
+      "MK Fırsat; kullanıcıların fırsatları daha kolay keşfedebilmesi, seçenekleri inceleyebilmesi ve ilgisini çeken fırsatlara hızlıca ulaşabilmesi için tasarlanan modern bir alışveriş ve keşif deneyimidir. Web ve mobil deneyimi birlikte düşünülerek geliştirilecek proje, ilerleyen dönemde MK Digital Systems ürün ailesinin bağımsız dijital ürünlerinden biri olarak yayınlanacaktır.",
+  },
   "mavi-kadraj-otel": {
     industry: "OTEL WEB SİTESİ",
     summary:

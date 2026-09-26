@@ -858,6 +858,11 @@ img {
 .status-closed-test:before {
   background: #946c29;
 }
+/* Hollow dot: on the roadmap, nothing to open yet. */
+.status-coming-soon:before {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px currentColor;
+}
 .scene-desktop .interface-image {
   aspect-ratio: 1.6;
 }

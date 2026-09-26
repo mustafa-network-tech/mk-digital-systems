@@ -76,6 +76,7 @@ const en: SiteContent = {
       "closed-test": "Closed testing",
       "sample-site": "Sample site",
       "in-use": "In active use",
+      "coming-soon": "Coming soon",
     },
     filter: "Filter work",
     allLabel: "All",

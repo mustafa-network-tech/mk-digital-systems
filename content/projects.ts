@@ -8,8 +8,11 @@
 
 /** flagship = case-study systems, selected = selected works, sector-demo = sample sector websites */
 export type ProjectLayer = "flagship" | "selected" | "sector-demo";
-/** Only set a status after the public URL is verified; "in-use" only for real, active users. */
-export type ProjectStatus = "live-demo" | "closed-test" | "sample-site" | "in-use";
+/**
+ * Only set a status after the public URL is verified; "in-use" only for real, active users.
+ * "coming-soon" = on the roadmap and shown publicly, but with no demo yet (never implies one).
+ */
+export type ProjectStatus = "live-demo" | "closed-test" | "sample-site" | "in-use" | "coming-soon";
 /** Service families (solution page ids); "mobile" is new, "smart" is the current AI/voice family. */
 export type ServiceId = "web" | "custom" | "business" | "mobile" | "smart";
 export type SectorId =
@@ -52,6 +55,7 @@ export const projectIds = [
   "gunluk-imalat",
   "mavi-sarkilar",
   "musty",
+  "mk-firsat",
   "mavi-kadraj-otel",
   "mavi-kafe",
   "mavi-guzellik",
@@ -293,6 +297,19 @@ export const projects: Project[] = [
     scene: "ink",
     media: { src: "/work/musty.webp", frame: "desktop" },
     links: [{ kind: "site", url: "https://mk-music3.vercel.app" }],
+  },
+  {
+    // No visual until the MK Fırsat identity is designed; no demo link while coming soon.
+    id: "mk-firsat",
+    name: "MK Fırsat",
+    layer: "selected",
+    status: "coming-soon",
+    services: ["web", "mobile"],
+    sectors: ["retail"],
+    needs: ["idea"],
+    cardType: "experience",
+    scene: "blue",
+    links: [],
   },
   /* ---------- Sector website demos ---------- */
   {

@@ -51,7 +51,7 @@ export function WorkCard({
         </div>
         <h3 className="work-card-title">{name}</h3>
         <p className="work-card-summary">{story.summary}</p>
-        {link ? (
+        {project.status === "coming-soon" ? null : link ? (
           <a
             href={link.url}
             target="_blank"

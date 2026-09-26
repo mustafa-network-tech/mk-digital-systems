@@ -139,6 +139,13 @@ const en: ProjectCopyBook = {
       "A cinematic, bilingual portfolio experience for a visual artist: gallery, video and frames.",
     alt: "Opening screen of the Musty portfolio site",
   },
+  "mk-firsat": {
+    industry: "DEALS & SHOPPING DISCOVERY PLATFORM",
+    summary:
+      "A modern digital platform that aims to bring deal discovery and shopping options together in one experience.",
+    description:
+      "MK Fırsat is a modern shopping and discovery experience designed to help people discover deals more easily, compare their options and quickly reach the offers that interest them. Designed with web and mobile in mind from the start, it will later launch as one of the independent digital products in the MK Digital Systems family.",
+  },
   "mavi-kadraj-otel": {
     industry: "HOTEL WEBSITE",
     summary:

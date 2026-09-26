@@ -18,6 +18,8 @@ export type ProjectCopy = {
   industry: string;
   /** One-sentence description used on cards. */
   summary: string;
+  /** Longer, product-focused description for pages that need more than the summary. */
+  description?: string;
   headline?: string;
   problem?: string;
   solution?: string;

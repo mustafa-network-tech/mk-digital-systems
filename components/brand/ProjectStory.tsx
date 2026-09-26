@@ -97,7 +97,7 @@ export function ProjectStory({
           </div>
         )}
         <div className="story-links">
-          {shown.length ? (
+          {project.status === "coming-soon" ? null : shown.length ? (
             shown.map((link) => (
               <a
                 key={link.url}

@@ -139,6 +139,13 @@ const de: ProjectCopyBook = {
       "Ein cineastisches, zweisprachiges Portfolio für einen bildenden Künstler: Galerie, Video und Bilder.",
     alt: "Startansicht der Portfolio-Seite Musty",
   },
+  "mk-firsat": {
+    industry: "PLATTFORM FÜR ANGEBOTE & EINKAUFSENTDECKUNG",
+    summary:
+      "Eine moderne digitale Plattform, die Angebote entdecken und Einkaufsmöglichkeiten in einem Erlebnis zusammenbringen soll.",
+    description:
+      "MK Fırsat ist ein modernes Einkaufs- und Entdeckungserlebnis, mit dem Menschen Angebote leichter entdecken, Optionen vergleichen und interessante Angebote schnell erreichen sollen. Von Anfang an für Web und Mobil gedacht, erscheint das Projekt künftig als eigenständiges digitales Produkt der MK Digital Systems Produktfamilie.",
+  },
   "mavi-kadraj-otel": {
     industry: "HOTEL-WEBSITE",
     summary:

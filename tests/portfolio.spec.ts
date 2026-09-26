@@ -9,6 +9,7 @@ import {
   projects,
   projectsByLayer,
   type Project,
+  type ProjectStatus,
 } from "../content/projects";
 import { getProjectCopy } from "../content/project-copy";
 import { localPath } from "./paths";
@@ -50,15 +51,21 @@ test("every project is described in every locale; flagship copy is complete", ()
     }
 });
 
-test("statuses only appear with a public link; links are HTTPS", () => {
+// What each label promises must be backed by the data.
+const needsPublicLink: ProjectStatus[] = ["live-demo", "sample-site", "in-use"];
+test("status rules: links are HTTPS and every label is backed by the data", () => {
   for (const p of projects) {
-    for (const link of allLinks(p)) expect(link.url, p.id).toMatch(/^https:\/\/[^\s]+$/);
-    // "Closed test" is the only status allowed without a public URL (e.g. a Play Store test).
-    if (p.status && p.status !== "closed-test")
-      expect(allLinks(p).length, `${p.id} has status "${p.status}" but no link`).toBeGreaterThan(0);
-    if (!allLinks(p).length) expect(p.status ?? "closed-test", p.id).toBe("closed-test");
+    const links = allLinks(p);
+    for (const link of links) expect(link.url, p.id).toMatch(/^https:\/\/[^\s]+$/);
+    // Live demo, sample site and in use need something public to open and verify.
+    if (p.status && needsPublicLink.includes(p.status))
+      expect(links.length, `${p.id} is "${p.status}" without a public link`).toBeGreaterThan(0);
+    // Coming soon is roadmap only: it never offers a demo, so it carries no links at all.
+    if (p.status === "coming-soon") expect(links, `${p.id} is coming soon but has links`).toEqual([]);
+    // Without a public link the only possible labels are closed test (e.g. a store test) or coming soon.
+    if (!links.length) expect([undefined, "closed-test", "coming-soon"], p.id).toContain(p.status);
     for (const part of p.parts ?? [])
-      if (part.status && part.status !== "closed-test")
+      if (part.status && needsPublicLink.includes(part.status))
         expect(part.links.length, `${p.id}/${part.id}`).toBeGreaterThan(0);
   }
   // Sector sites are sample sites by definition.
@@ -68,11 +75,13 @@ test("statuses only appear with a public link; links are HTTPS", () => {
 test("card media exists and grid projects have an image", () => {
   for (const p of projects) {
     if (p.media) expect(existsSync(join("public", p.media.src)), p.media.src).toBe(true);
-    if (p.layer !== "flagship") expect(p.media, `${p.id} needs card media`).toBeTruthy();
+    // A coming-soon project waits for its own visual identity instead of a placeholder screen.
+    if (p.layer !== "flagship" && p.status !== "coming-soon")
+      expect(p.media, `${p.id} needs card media`).toBeTruthy();
   }
 });
 
-test("former employer and client names never appear in public content", () => {
+test("former employer, client and unowned brand names never appear in public content", () => {
   const files = ["content", "content/locales", "content/project-copy"].flatMap((dir) =>
     readdirSync(dir)
       .filter((f) => /\.(ts|md)$/.test(f))
@@ -80,6 +89,24 @@ test("former employer and client names never appear in public content", () => {
   );
   for (const file of files)
     expect(readFileSync(file, "utf8"), file).not.toMatch(/\b(AZG|Fibertek|Abidos)\b/i);
+  // MK Fırsat's former working name is not ours to use anywhere public.
+  const source = [...files, ...["app", "components", "lib", "public"].flatMap((dir) =>
+    readdirSync(dir, { recursive: true })
+      .map((f) => join(dir, String(f)))
+      .filter((f) => /\.(tsx?|json|txt|md|webmanifest|svg)$/.test(f)),
+  )];
+  for (const file of source) expect(readFileSync(file, "utf8"), file).not.toMatch(/schn[aä]ppli/i);
+});
+
+test("coming-soon projects show their status and no call to action", async ({ page }) => {
+  for (const locale of locales) {
+    await page.goto(localPath(locale, "/work"));
+    for (const p of projects.filter((p) => p.status === "coming-soon")) {
+      const card = page.locator(`#${p.id}`);
+      await expect(card.locator(".project-status")).toHaveText(getContent(locale).work.statuses["coming-soon"]);
+      await expect(card.locator("a")).toHaveCount(0);
+    }
+  }
 });
 
 test("/work filter shows one layer at a time and keeps every card reachable", async ({ page }) => {
