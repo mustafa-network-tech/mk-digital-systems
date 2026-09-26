@@ -93,7 +93,7 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
       mobile_app: {
         title: "Mobil uygulama",
         description:
-          "İşletmeniz veya fikriniz için Android ve iOS’ta çalışan, kolay kullanılan bir uygulama geliştirin.",
+          "İşletmeniz veya fikriniz için kolay kullanılan bir mobil uygulama geliştirin.",
       },
       wordpress_revision: {
         title: "WordPress site düzenleme / revize",
@@ -179,7 +179,7 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
       mobile_app: {
         title: "Mobile app",
         description:
-          "Build an easy-to-use app for your business or idea, running on Android and iOS.",
+          "Build an easy-to-use mobile app for your business or idea.",
       },
       wordpress_revision: {
         title: "WordPress updates / redesign",
@@ -265,7 +265,7 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
       mobile_app: {
         title: "Mobile App",
         description:
-          "Entwickeln Sie eine benutzerfreundliche App für Ihr Unternehmen oder Ihre Idee – für Android und iOS.",
+          "Entwickeln Sie eine benutzerfreundliche mobile App für Ihr Unternehmen oder Ihre Idee.",
       },
       wordpress_revision: {
         title: "WordPress-Überarbeitung",
@@ -351,7 +351,7 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
       mobile_app: {
         title: "Application mobile",
         description:
-          "Développez une application simple à utiliser pour votre activité ou votre idée, sur Android et iOS.",
+          "Développez une application mobile simple à utiliser pour votre activité ou votre idée.",
       },
       wordpress_revision: {
         title: "Refonte / mise à jour WordPress",

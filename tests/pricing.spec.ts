@@ -28,6 +28,11 @@ test("one TR price book supplies the approved starting budgets in two groups", (
   expect(pricingMarkets.US).toBeUndefined();
   expect(() => getPricing("EU")).toThrow("not configured");
 });
+test("pricing copy claims no unverified app platform", () => {
+  // No iOS release is verified; mobile work is described without naming platforms.
+  for (const locale of locales)
+    expect(JSON.stringify(getContent(locale).pricing), locale).not.toMatch(/\biOS\b|App Store|Android/i);
+});
 for (const locale of locales) {
   test(`${locale}: pricing is localized, readable HTML with contextual contact links`, async ({
     page,
