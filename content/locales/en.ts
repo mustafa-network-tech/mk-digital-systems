@@ -44,12 +44,12 @@ const en: SiteContent = {
       "aria": "Social platform interface",
       "namehub": "Name & digital identity platform",
       "mavi-kadraj-otel": "Hotel website",
-      "gonul-pusulasi": "Brand visual",
+      "gonul-pusulasi": "Creative web & digital content",
+      "mavi-kadraj-arsiv": "Photo archive & web experience",
     },
     tags: {
       "selected": "Selected work",
       "sector-demo": "Sample site",
-      "design": "Visual design",
     },
   },
   needs: {

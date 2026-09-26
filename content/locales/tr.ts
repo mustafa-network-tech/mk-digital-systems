@@ -44,12 +44,12 @@ const tr: SiteContent = {
       "aria": "Sosyal platform arayüzü",
       "namehub": "İsim & dijital kimlik platformu",
       "mavi-kadraj-otel": "Otel web sitesi",
-      "gonul-pusulasi": "Marka görseli",
+      "gonul-pusulasi": "Yaratıcı web & dijital içerik",
+      "mavi-kadraj-arsiv": "Fotoğraf arşivi & web deneyimi",
     },
     tags: {
       "selected": "Seçilmiş çalışma",
       "sector-demo": "Örnek site",
-      "design": "Görsel tasarım",
     },
   },
   needs: {

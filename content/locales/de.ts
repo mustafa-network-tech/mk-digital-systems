@@ -44,12 +44,12 @@ const de: SiteContent = {
       "aria": "Oberfläche einer sozialen Plattform",
       "namehub": "Plattform für Namen & digitale Identität",
       "mavi-kadraj-otel": "Hotel-Website",
-      "gonul-pusulasi": "Markenvisual",
+      "gonul-pusulasi": "Kreatives Web & digitale Inhalte",
+      "mavi-kadraj-arsiv": "Fotoarchiv & Web-Erlebnis",
     },
     tags: {
       "selected": "Ausgewählte Arbeit",
       "sector-demo": "Beispielseite",
-      "design": "Visuelles Design",
     },
   },
   needs: {

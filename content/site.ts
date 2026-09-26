@@ -34,7 +34,7 @@ export type SiteContent = {
     /** Short "what it is" line per hero slide. */
     categories: Record<HeroSlideId, string>;
     /** Third caption item for non-flagship work (flagship shows its status). */
-    tags: Record<"selected" | "sector-demo" | "design", string>;
+    tags: Record<"selected" | "sector-demo", string>;
   };
   needs: {
     label: string;

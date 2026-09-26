@@ -494,27 +494,16 @@ img {
   touch-action: pan-y;
   user-select: none;
 }
-.stage-backdrops,
-.stage-backdrop {
-  position: absolute;
-  inset: 0;
-}
-.stage-backdrop {
-  opacity: 0;
-  transition: opacity 1.4s ease;
-}
-.stage-backdrop.is-active {
-  opacity: 0.16;
-}
-/* Keeps the caption and controls readable over the artwork. */
-.stage-backdrops:after {
+/* Clean atmosphere: light, a faint geometric grid, no artwork or figures. */
+.hero-stage:before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #111514 0%, #111514d9 20%, #11151400 48%);
-}
-.stage-backdrop img {
-  object-fit: cover;
+  background-image:
+    linear-gradient(#ffffff0a 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(80% 70% at 60% 35%, black, transparent);
 }
 .stage-slides {
   position: absolute;
@@ -646,23 +635,69 @@ img {
 .stage-slide:not(.is-active) .phone-back-1 {
   transform: translateX(0) rotate(2deg);
 }
-/* Brand and visual design pieces */
-.compose-artwork {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Web surface + 9:16 content surface + brand visual (idea → web → social) */
+.compose-layered {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1.75;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.compose-layered .desktop-frame {
+  position: absolute;
+  inset: 0 15% 0 7%;
+}
+.story-card,
+.photo-print {
+  position: absolute;
+  overflow: hidden;
+  box-shadow: 0 30px 60px #000a;
+  transition: transform 1.1s 0.12s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.story-card {
+  right: 0;
+  bottom: -4%;
+  height: 84%;
+  border-radius: 18px;
+}
+.story-card img {
+  width: auto;
   height: 100%;
 }
-.compose-artwork img {
-  width: auto;
-  max-width: 100%;
+/* Photography: the archive site with one of its photographs as a print */
+.compose-photo {
+  position: relative;
   height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 34px 80px #0009;
+  aspect-ratio: 1.75;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.compose-photo .desktop-frame {
+  position: absolute;
+  inset: 0 20% 6% 0;
+}
+.photo-print {
+  right: 0;
+  bottom: -5%;
+  width: 42%;
+  padding: 8px 8px 26px;
+  border-radius: 4px;
+  background: #f7f5ef;
+  rotate: 2.5deg;
+}
+.photo-print img {
+  width: 100%;
+  height: auto;
+}
+.stage-slide:not(.is-active) .story-card {
+  transform: translateY(28px);
+}
+.stage-slide:not(.is-active) .photo-print {
+  transform: translateY(24px);
 }
 @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
   .stage-slide.is-active .phone-side,
+  .stage-slide.is-active .story-card,
   .stage-slide.is-active .compose-phone .phone-front {
     animation: stage-float 7s ease-in-out 1.2s infinite;
   }
@@ -861,9 +896,39 @@ img {
     width: 100%;
     aspect-ratio: auto;
   }
-  .compose-artwork img {
+  .compose-layered {
+    aspect-ratio: auto;
+    width: 100%;
+  }
+  .compose-layered .desktop-frame {
+    inset: 0 0 auto 0;
+  }
+  .compose-layered .desktop-frame img {
     height: auto;
-    max-height: 100%;
+    aspect-ratio: 1.6;
+  }
+  .story-card {
+    height: 66%;
+    right: 3%;
+    bottom: 0;
+    border-radius: 14px;
+  }
+  .compose-photo {
+    aspect-ratio: auto;
+    width: 100%;
+  }
+  .compose-photo .desktop-frame {
+    inset: 0 0 auto 0;
+  }
+  .compose-photo .desktop-frame img {
+    height: auto;
+    aspect-ratio: 1.6;
+  }
+  .photo-print {
+    width: 58%;
+    right: 3%;
+    bottom: 0;
+    padding: 5px 5px 16px;
   }
   .phone-back {
     top: 10%;

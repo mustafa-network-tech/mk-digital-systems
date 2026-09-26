@@ -12,6 +12,8 @@ if (process.env.VERCEL_ENV === "production" && !process.env.SITE_URL?.startsWith
 const nextConfig = withNextIntl({
   images: {
     formats: ["image/avif", "image/webp"],
+    // 40 for the faint hero backdrops, 75 (default) everywhere else.
+    qualities: [40, 75],
   },
   async redirects() {
     // Old English-slug /tr URLs → Turkish slugs (config/i18n.ts pathnames): one 301 hop, query kept.

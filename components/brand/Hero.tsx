@@ -4,7 +4,7 @@ import type { Locale } from "@/config/i18n";
 import type { SiteContent } from "@/content/site";
 import { getProject } from "@/content/projects";
 import { getProjectCopy } from "@/content/project-copy";
-import { heroBackdrops, heroNeedSlides, heroRotation, heroSlides } from "@/content/hero";
+import { heroNeedSlides, heroRotation, heroSlides } from "@/content/hero";
 import { Arrow } from "./Arrow";
 import { HeroStage, type StageSlide } from "./HeroStage";
 
@@ -24,7 +24,7 @@ export function Hero({
     const category = copy.categories[slide.id];
     // Flagship systems show their verified status; other work shows what kind of work it is.
     const tag = !project
-      ? copy.tags.design
+      ? copy.tags[slide.kind ?? "selected"]
       : project.layer === "flagship" && project.status
         ? statuses[project.status]
         : copy.tags[project.layer === "sector-demo" ? "sector-demo" : "selected"];
@@ -75,7 +75,6 @@ export function Hero({
         slides={slides}
         rotation={heroRotation}
         needSlides={heroNeedSlides}
-        backdrops={heroBackdrops}
         copy={{
           visual: copy.visual,
           needsLabel: copy.needsLabel,
