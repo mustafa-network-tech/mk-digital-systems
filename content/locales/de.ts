@@ -59,6 +59,7 @@ const de: SiteContent = {
   },
   work: {
     label: "AUSGEWÄHLTE PROJEKTE",
+    pageLabel: "PROJEKTE",
     title: "Verschiedene Aufgaben.\nDieselbe Sorgfalt.",
     description:
       "Digitale Produkte und Demonstrationsprojekte, die konkrete Bedürfnisse in verständliche Erlebnisse übersetzen.",

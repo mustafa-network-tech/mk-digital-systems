@@ -59,6 +59,7 @@ const fr: SiteContent = {
   },
   work: {
     label: "PROJETS CHOISIS",
+    pageLabel: "PROJETS",
     title: "Des métiers différents.\nLa même attention.",
     description:
       "Des produits et démonstrations qui transforment des besoins concrets en expériences numériques claires.",

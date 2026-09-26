@@ -45,6 +45,8 @@ export type SiteContent = {
   };
   work: {
     label: string;
+    /** Intro label on /work; label stays on the home section. */
+    pageLabel: string;
     title: string;
     description: string;
     all: string;

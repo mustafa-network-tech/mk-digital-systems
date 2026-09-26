@@ -59,6 +59,7 @@ const en: SiteContent = {
   },
   work: {
     label: "SELECTED WORK",
+    pageLabel: "WORK",
     title: "Different businesses.\nOne thoughtful approach.",
     description:
       "Working products and demonstration projects that turn real business needs into clear digital experiences.",

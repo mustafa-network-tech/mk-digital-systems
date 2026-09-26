@@ -59,6 +59,7 @@ const tr: SiteContent = {
   },
   work: {
     label: "SEÇİLMİŞ ÇALIŞMALAR",
+    pageLabel: "ÇALIŞMALAR",
     title: "Farklı işler.\nAynı özenli yaklaşım.",
     description:
       "Gerçek iş ihtiyaçlarını anlaşılır dijital deneyimlere dönüştüren ürünler ve örnek uygulamalar.",

@@ -24,7 +24,7 @@ export default async function Work({ params }: Props) {
     <>
       <JsonLd data={pageSchema(locale, "work")} />
       <PageIntro
-        label={c.work.label}
+        label={c.work.pageLabel}
         title={c.work.title}
         description={c.work.description}
       />
