@@ -44,6 +44,15 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
 }
+/* No visible scrollbars (page and mobile menu); scrolling by wheel, touch and keys still works. */
+html,
+.mobile-menu {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+.mobile-menu::-webkit-scrollbar {
+  display: none;
+}
 body {
   margin: 0;
   background: var(--paper);
