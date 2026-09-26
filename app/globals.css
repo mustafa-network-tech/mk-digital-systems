@@ -24,6 +24,15 @@
     U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
     U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+/* Arial sized to Inter's metrics: text keeps its size and line breaks while Inter loads (no layout shift). */
+@font-face {
+  font-family: MK Inter Fallback;
+  src: local("Arial");
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
 :root {
   color-scheme: light;
   --paper: #f5f4ef;
@@ -34,7 +43,7 @@
   --blue: #244de0;
   --blue-dark: #193cc2;
   --pale: #e8edfb;
-  --font-sans: "MK Inter", Arial, sans-serif;
+  --font-sans: "MK Inter", "MK Inter Fallback", Arial, sans-serif;
   --section: clamp(72px, 9vw, 140px);
 }
 * {
