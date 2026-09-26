@@ -77,6 +77,7 @@ export function ProjectStory({
             </div>
           </div>
         )}
+        {project.confidential && <p className="story-confidential">{copy.confidential}</p>}
         {full && project.parts && (
           <ul className="story-parts">
             {project.parts.map((part) => (

@@ -99,6 +99,8 @@ const fr: SiteContent = {
     solution: "Notre approche",
     experience: "Ce qui se rassemble",
     diagram: "VUE D'ENSEMBLE DU PARCOURS",
+    confidential:
+      "Un système en service ; captures et liens ne sont pas partagés par confidentialité.",
     statuses: {
       "live-demo": "Démo en ligne",
       "closed-test": "Test fermé",

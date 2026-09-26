@@ -5,7 +5,7 @@ import type { ProjectId } from "@/content/projects";
  * local run with clearly sample data (codes "DEMO-…", "Örnek Mahallesi").
  * Never production data: no real people, companies, phones, project or work
  * order numbers, locations, financial figures or site photos.
- * part: the ProjectPart the screen belongs to (for projects with two approaches).
+ * part: the ProjectPart the screen belongs to (for projects with several surfaces, e.g. MK Adisyon web and mobile).
  */
 export type CaseScreen = {
   id: string;
@@ -20,12 +20,9 @@ const desktop = (id: string, src: string, part?: string): CaseScreen => ({ id, s
 
 export const caseStudyMedia: Partial<Record<ProjectId, CaseScreen[]>> = {
   "saha-santiye": [
-    desktop("ops-approvals", "/hero/ops-approvals.webp", "mk-ops"),
-    { id: "ops-mobile", src: "/hero/saha-santiye-phone.webp", width: 560, height: 1120, frame: "phone", part: "mk-ops" },
-    desktop("ops-management", "/cases/mkops-management.webp", "mk-ops"),
-    desktop("santiye-projects", "/cases/santiye-projects.webp", "santiye-yonetim"),
-    { id: "santiye-mobile", src: "/cases/santiye-projects-mobile.webp", width: 560, height: 1212, frame: "phone", part: "santiye-yonetim" },
-    desktop("santiye-dashboard", "/cases/santiye-dashboard.webp", "santiye-yonetim"),
+    desktop("ops-approvals", "/hero/ops-approvals.webp"),
+    { id: "ops-mobile", src: "/hero/saha-santiye-phone.webp", width: 560, height: 1120, frame: "phone" },
+    desktop("ops-management", "/cases/mkops-management.webp"),
   ],
   "mk-adisyon": [
     desktop("adisyon-cashier", "/hero/adisyon-kasa.webp", "web"),

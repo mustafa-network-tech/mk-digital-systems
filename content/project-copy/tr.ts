@@ -4,29 +4,38 @@ const tr: ProjectCopyBook = {
   "saha-santiye": {
     industry: "TELEKOM & SAHA OPERASYONLARI",
     summary:
-      "Telekom ve fiber sahasında çalışan firmalar için aynı soruna iki farklı yaklaşımla geliştirilmiş operasyon sistemleri.",
+      "Telekom ve fiber sahasında çalışan firmalar için; her şirketin ekiplerini, saha işlerini ve onaylarını kendi alanında yönettiği çok şirketli operasyon sistemi.",
     headline: "Sahadaki iş, ofiste aynı anda görünsün.",
     problem:
       "Günlük işler, ekipler, malzeme hareketleri, saha kayıtları ve hakedişler mesajlara ve ayrı tablolara dağılır; neyin yapıldığı ve neyin beklediği geç görülür.",
     solution:
-      "Birden fazla şirketin kendi alanında kullanabileceği bir SaaS yaklaşımı (MK OPS) ve tek bir şirketin operasyonuna göre kurulan bir yönetim sistemi (Şantiye Yönetim).",
+      "Her şirketin kendi izole çalışma alanında kullandığı çok kiracılı bir SaaS: günlük iş girişi ve onay akışı, ekip, malzeme ve hakediş takibi aynı sistemde.",
     modules: [
       "Günlük iş girişi ve onay akışı",
-      "Ekip ve proje yönetimi",
-      "Malzeme ve stok takibi",
+      "Ekip, araç ve proje yönetimi",
+      "Malzeme teslim fişi ve stok",
       "Hakediş dönemleri ve raporlar",
     ],
     alt: "MK OPS demosunda örnek verilerle onay bekleyen işler ekranı",
-    parts: {
-      "mk-ops": {
-        name: "MK OPS",
-        description: "Birden fazla şirketin kendi alanında kullandığı, rollere göre ayrılmış SaaS yaklaşımı.",
-      },
-      "santiye-yonetim": {
-        name: "Şantiye Yönetim",
-        description: "Tek bir şirketin operasyonuna göre kurulan, güvenli oturum yönetimli panel.",
-      },
-    },
+  },
+  "santiye-yonetim": {
+    industry: "ŞANTİYE & FİBER PROJELERİ",
+    summary:
+      "Tek bir şirketin şantiye operasyonuna göre kurulan; projeleri, günlük ekip planını, imalatı ve puantajı izleyen yönetim sistemi.",
+    headline: "Şantiyenin günü tek ekranda planlansın.",
+    problem:
+      "Projelerin saha aşamaları, günlük ekip planı, imalat, malzeme ve araç bilgileri ayrı listelerde tutulduğunda bir projenin gerçek durumu ancak elle birleştirilerek görülür.",
+    solution:
+      "Şirketin kendi çalışma biçimine göre kurulan panel: proje aşamaları, günlük iş planı, imalat kayıtları, puantaj, stok, zimmet ve araç takibi tek yerde; onaylı kullanıcı kaydı ve güvenli oturumla.",
+    modules: [
+      "Proje ve aşama takibi",
+      "Günlük iş planı ve ekip şablonları",
+      "İmalat kayıtları ve raporu",
+      "Puantaj ve hakediş özeti",
+      "Malzeme, stok ve zimmet",
+      "Araç ve belge uyarıları",
+    ],
+    alt: "Şantiye Yönetim dashboard ekranı; örnek verilerle proje durumu, kritik stok ve araç uyarıları",
   },
   "mk-adisyon": {
     industry: "RESTORAN & KAFE",
@@ -103,6 +112,40 @@ const tr: ProjectCopyBook = {
     ],
     alt: "MK Kargo örnek web sitesinin açılış ekranı",
   },
+  "proje-asama-takip": {
+    industry: "ALTYAPI & ŞANTİYE PROJELERİ",
+    summary:
+      "Altyapı projelerinin aşamalarını, saha personelini, araçları ve puantajı tek yerde izleyen şantiye takip sistemi.",
+    headline: "Her projenin hangi aşamada olduğu bilinsin.",
+    problem:
+      "Çok sayıda altyapı projesi aynı anda yürürken hangi işin beklediği, hangisinin geciktiği, kimin hangi araçla nerede çalıştığı ve puantajın ne durumda olduğu farklı listelerde kalır.",
+    solution:
+      "Projeleri bekliyor, devam ediyor, izin bekliyor, gecikmiş ve tamamlandı gibi açık durumlarla izleyen; personel, araç ve puantaj kayıtlarını aynı sistemde toplayan, oturum korumalı bir web uygulaması. Tamamlanan projeler kendiliğinden arşive geçer.",
+    modules: [
+      "Proje ve aşama durumu",
+      "Personel takibi",
+      "Araç takibi",
+      "Puantaj",
+      "Arama, filtre ve arşiv",
+    ],
+  },
+  "onayli-proje-takip": {
+    industry: "ALTYAPI PROJE TAKİBİ",
+    summary:
+      "Excel'den gelen proje ve bina listelerini kalıcı kayıtlara dönüştüren; imalat ilerlemesini, notları ve değişiklik geçmişini izleyen operasyon paneli.",
+    headline: "Excel listesi değil, izlenebilir bir proje kaydı.",
+    problem:
+      "Proje ve bina listeleri Excel dosyalarıyla gelir; her yeni dosya bir öncekinin yerine geçer. Hangi binada ne kadar imalat yapıldığı, kimin neyi değiştirdiği ve hangi kaydın güncel olduğu kaybolur.",
+    solution:
+      "Yeni Excel dosyası işlenmeden önce değişiklikler önizlenir ve onaylanınca tek seferde kaydedilir. Aktarım yalnızca dosyadan gelen alanları günceller; sahadaki ilerleme ve notlar korunur. Her ilerleme ve not değişikliği, kullanıcı ve tarih bilgisiyle geçmişe yazılır.",
+    modules: [
+      "Excel aktarımı ve onaylı önizleme",
+      "Proje ve bina kayıtları",
+      "İmalat ilerlemesi",
+      "Notlar",
+      "Değişiklik geçmişi",
+    ],
+  },
   namehub: {
     industry: "DİJİTAL ÜRÜN",
     summary:
@@ -156,6 +199,18 @@ const tr: ProjectCopyBook = {
       "Görsel bir sanatçı için sinematik, iki dilli portfolyo deneyimi: galeri, video ve kareler.",
     alt: "Musty portfolyo sitesinin açılış ekranı",
   },
+  "gonul-pusulasi": {
+    industry: "YARATICI WEB & DİJİTAL İÇERİK",
+    summary:
+      "Mektubu, kısa sözü ve fotoğrafı bir araya getiren; web sayfaları ve 9:16 hikâye formatında yayınlanan yaratıcı içerik sitesi.",
+    alt: "Gönül Pusulası ana sayfası",
+  },
+  "siir-dunyasi": {
+    industry: "ŞİİR & EDEBİ WEB",
+    summary:
+      "Sevda, hasret ve ayrılık temalı şiirleri sakin bir okuma deneyimiyle sunan edebi web sitesi.",
+    alt: "Şiir Dünyası ana sayfası: deniz üzerinde gün batımı ve “Sessizliğin içinde, kelimeler yürür.” başlığı",
+  },
   "mk-firsat": {
     industry: "FIRSAT & ALIŞVERİŞ KEŞİF PLATFORMU",
     summary:
@@ -198,6 +253,18 @@ const tr: ProjectCopyBook = {
     summary:
       "Ürün kataloğu, sepet ve teknik servis talebiyle teknoloji mağazası web sitesi örneği.",
     alt: "Mavi İletişim örnek web sitesinin açılış ekranı",
+  },
+  "mavi-gayrimenkul": {
+    industry: "EMLAK OFİSİ SİTESİ",
+    summary:
+      "Satılık ve kiralık ilan arama, bölge rehberi ve değerleme talebiyle emlak ofisi web sitesi örneği.",
+    alt: "Mavi Gayrimenkul örnek web sitesinin açılış ekranı: ilan arama kutusu",
+  },
+  "adalet-hukuk": {
+    industry: "HUKUK BÜROSU SİTESİ",
+    summary:
+      "Çalışma alanları, avukat tanıtımı ve bilgilendirici makalelerle hukuk bürosu web sitesi örneği.",
+    alt: "Adalet Hukuk örnek web sitesinin açılış ekranı",
   },
 };
 

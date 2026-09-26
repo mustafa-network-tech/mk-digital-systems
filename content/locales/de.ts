@@ -99,6 +99,8 @@ const de: SiteContent = {
     solution: "Unser Ansatz",
     experience: "Was zusammenkommt",
     diagram: "ABLAUF IM ÜBERBLICK",
+    confidential:
+      "Ein aktiv genutztes System; aus Vertraulichkeitsgründen ohne Screenshots und Links.",
     statuses: {
       "live-demo": "Live-Demo",
       "closed-test": "Geschlossener Test",

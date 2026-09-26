@@ -30,7 +30,9 @@ export type SectorId =
   | "photography"
   | "music"
   | "community"
-  | "lifestyle";
+  | "lifestyle"
+  | "real-estate"
+  | "legal";
 /** The three visitor intents used by the hero and the brief. */
 export type NeedId = "operations" | "presence" | "idea";
 /** demo = working demo, product = product website, app = application entry, site = public website */
@@ -41,11 +43,14 @@ export type ProjectPart = { id: string; status?: ProjectStatus; links: ProjectLi
 
 export const projectIds = [
   "saha-santiye",
+  "santiye-yonetim",
   "mk-adisyon",
   "mk-resepsiyon",
   "mk-pati",
   "mk-farm",
   "mk-kargo",
+  "proje-asama-takip",
+  "onayli-proje-takip",
   "namehub",
   "aria",
   "mavi-kadraj-arsiv",
@@ -55,6 +60,8 @@ export const projectIds = [
   "gunluk-imalat",
   "mavi-sarkilar",
   "musty",
+  "gonul-pusulasi",
+  "siir-dunyasi",
   "mk-firsat",
   "mavi-kadraj-otel",
   "mavi-kafe",
@@ -62,6 +69,8 @@ export const projectIds = [
   "mavi-danismanlik",
   "mavi-yapi",
   "mavi-iletisim",
+  "mavi-gayrimenkul",
+  "adalet-hukuk",
 ] as const;
 export type ProjectId = (typeof projectIds)[number];
 
@@ -80,13 +89,19 @@ export type Project = {
   parts?: ProjectPart[];
   /** First case studies (Faz 3). */
   caseStudy?: boolean;
+  /**
+   * A real system told through its problem and modules only: no screens and no links,
+   * because it runs in a workplace whose data and name stay private. Always "in-use".
+   */
+  confidential?: boolean;
 };
 
 export const projects: Project[] = [
   /* ---------- Flagship / case study systems ---------- */
   {
+    // MK OPS. The id stays "saha-santiye" so the published case study URL does not change.
     id: "saha-santiye",
-    name: "Saha ve Şantiye Operasyonları",
+    name: "MK OPS",
     layer: "flagship",
     status: "live-demo",
     services: ["custom", "business"],
@@ -95,25 +110,27 @@ export const projects: Project[] = [
     cardType: "system",
     scene: "ink",
     media: { src: "/work/saha-santiye.webp", frame: "phone" },
-    links: [],
-    parts: [
-      {
-        id: "mk-ops",
-        status: "live-demo",
-        links: [
-          { kind: "product", url: "https://www.mk-ops.tr" },
-          { kind: "demo", url: "https://mkops-demo.vercel.app" },
-        ],
-      },
-      {
-        // A working system in real use (confirmed by Mustafa, 2026-09-26). No public
-        // link: visitors must never be sent to the real system or its data.
-        id: "santiye-yonetim",
-        status: "in-use",
-        links: [],
-      },
+    links: [
+      { kind: "product", url: "https://www.mk-ops.tr" },
+      { kind: "demo", url: "https://mkops-demo.vercel.app" },
     ],
     caseStudy: true,
+  },
+  {
+    // A working system in real use (confirmed by Mustafa, 2026-09-26). No public
+    // link: visitors must never be sent to the real system or its data. Screens come
+    // from a local run with clearly sample records.
+    id: "santiye-yonetim",
+    name: "Şantiye Yönetim",
+    layer: "flagship",
+    status: "in-use",
+    services: ["custom", "business"],
+    sectors: ["field-operations"],
+    needs: ["operations"],
+    cardType: "system",
+    scene: "paper",
+    media: { src: "/cases/santiye-dashboard.webp", frame: "desktop" },
+    links: [],
   },
   {
     id: "mk-adisyon",
@@ -189,6 +206,34 @@ export const projects: Project[] = [
     scene: "ink",
     media: { src: "/work/mk-kargo.webp", frame: "desktop" },
     links: [],
+  },
+  {
+    // Confidential: described by its problem and modules only (Mustafa, 2026-09-26).
+    id: "proje-asama-takip",
+    name: "Proje Aşama Takip",
+    layer: "flagship",
+    status: "in-use",
+    services: ["custom", "business"],
+    sectors: ["field-operations"],
+    needs: ["operations"],
+    cardType: "system",
+    scene: "blue",
+    links: [],
+    confidential: true,
+  },
+  {
+    // Confidential: described by its problem and modules only (Mustafa, 2026-09-26).
+    id: "onayli-proje-takip",
+    name: "Onaylı Proje Takip",
+    layer: "flagship",
+    status: "in-use",
+    services: ["custom", "business"],
+    sectors: ["field-operations"],
+    needs: ["operations"],
+    cardType: "system",
+    scene: "ink",
+    links: [],
+    confidential: true,
   },
   /* ---------- Selected works ---------- */
   {
@@ -309,6 +354,32 @@ export const projects: Project[] = [
     links: [{ kind: "site", url: "https://mk-music3.vercel.app" }],
   },
   {
+    id: "gonul-pusulasi",
+    name: "Gönül Pusulası",
+    layer: "selected",
+    status: "live-demo",
+    services: ["web"],
+    sectors: [],
+    needs: ["presence"],
+    cardType: "experience",
+    scene: "paper",
+    media: { src: "/work/gonul-pusulasi.webp", frame: "desktop" },
+    links: [{ kind: "site", url: "https://gonulpusulasi.oner334480.workers.dev" }],
+  },
+  {
+    id: "siir-dunyasi",
+    name: "Şiir Dünyası",
+    layer: "selected",
+    status: "live-demo",
+    services: ["web"],
+    sectors: [],
+    needs: ["presence"],
+    cardType: "experience",
+    scene: "ink",
+    media: { src: "/work/siir-dunyasi.webp", frame: "desktop" },
+    links: [{ kind: "site", url: "https://siir-dunyasi1.vercel.app" }],
+  },
+  {
     // No visual until the MK Fırsat identity is designed; no demo link while coming soon.
     id: "mk-firsat",
     name: "MK Fırsat",
@@ -399,6 +470,32 @@ export const projects: Project[] = [
     scene: "paper",
     media: { src: "/work/mavi-iletisim.webp", frame: "desktop" },
     links: [{ kind: "site", url: "https://mavi-iletisim-demo.vercel.app" }],
+  },
+  {
+    id: "mavi-gayrimenkul",
+    name: "Mavi Gayrimenkul",
+    layer: "sector-demo",
+    status: "sample-site",
+    services: ["web"],
+    sectors: ["real-estate"],
+    needs: ["presence"],
+    cardType: "experience",
+    scene: "paper",
+    media: { src: "/work/mavi-gayrimenkul.webp", frame: "desktop" },
+    links: [{ kind: "site", url: "https://mk-emlak-swfa.vercel.app" }],
+  },
+  {
+    id: "adalet-hukuk",
+    name: "Adalet Hukuk",
+    layer: "sector-demo",
+    status: "sample-site",
+    services: ["web"],
+    sectors: ["legal"],
+    needs: ["presence"],
+    cardType: "experience",
+    scene: "blue",
+    media: { src: "/work/adalet-hukuk.webp", frame: "desktop" },
+    links: [{ kind: "site", url: "https://hukuk-demo.vercel.app" }],
   },
 ];
 

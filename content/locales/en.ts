@@ -99,6 +99,8 @@ const en: SiteContent = {
     solution: "Our approach",
     experience: "What it brings together",
     diagram: "WORKFLOW OVERVIEW",
+    confidential:
+      "A system in active use; screens and links are not shared for confidentiality.",
     statuses: {
       "live-demo": "Live demo",
       "closed-test": "Closed testing",

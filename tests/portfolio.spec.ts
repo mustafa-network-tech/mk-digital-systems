@@ -12,6 +12,7 @@ import {
   type ProjectStatus,
 } from "../content/projects";
 import { getProjectCopy } from "../content/project-copy";
+import { heroSlideIds } from "../content/hero";
 import { localPath } from "./paths";
 
 const allLinks = (p: Project) => [...p.links, ...(p.parts ?? []).flatMap((part) => part.links)];
@@ -79,8 +80,28 @@ test("status rules: links are HTTPS and every label is backed by the data", () =
 test("every project is shown with a real screen of its own product", () => {
   for (const p of projects) {
     if (p.media) expect(existsSync(join("public", p.media.src)), p.media.src).toBe(true);
-    // A coming-soon project waits for its own visual identity instead of a placeholder screen.
-    if (p.status !== "coming-soon") expect(p.media, `${p.id} needs a real screenshot`).toBeTruthy();
+    // A coming-soon project waits for its own visual identity instead of a placeholder screen;
+    // a confidential system is told through its problem and modules only.
+    if (p.status !== "coming-soon" && !p.confidential)
+      expect(p.media, `${p.id} needs a real screenshot`).toBeTruthy();
+  }
+});
+
+test("confidential systems are described only: no screens, links, case study or hero slide", () => {
+  const confidential = projects.filter((p) => p.confidential);
+  expect(confidential.length).toBeGreaterThan(0);
+  for (const p of confidential) {
+    expect(p.status, p.id).toBe("in-use");
+    expect(p.media, `${p.id} media`).toBeUndefined();
+    expect(allLinks(p), `${p.id} links`).toEqual([]);
+    expect(p.caseStudy, `${p.id} case study`).toBeFalsy();
+    expect(heroSlideIds as readonly string[], `${p.id} hero`).not.toContain(p.id);
+    for (const locale of locales) {
+      const copy = JSON.stringify(getProjectCopy(locale, p.id));
+      // No workplace, client or network-specific codes that would point to where it runs.
+      expect(copy, `${locale}/${p.id}`).not.toMatch(/\b(HP|GF|BF|UAVT|TAFICS|Rekor|CIZIM|OBK)\b/);
+      expect(copy, `${locale}/${p.id}`).not.toMatch(/https?:\/\/|workers\.dev|vercel\.app/);
+    }
   }
 });
 

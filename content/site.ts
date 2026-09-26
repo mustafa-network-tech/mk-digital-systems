@@ -63,6 +63,8 @@ export type SiteContent = {
     solution: string;
     experience: string;
     diagram: string;
+    /** Note on confidential systems: described without screens or links. */
+    confidential: string;
     filter: string;
     allLabel: string;
     layers: Record<ProjectLayer, { label: string; title: string; description: string }>;

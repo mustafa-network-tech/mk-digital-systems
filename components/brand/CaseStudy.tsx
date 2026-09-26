@@ -123,6 +123,13 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
         </div>
         <div className="case-section-body">
           <p className="case-text">{copy.solution.text}</p>
+          {copy.solution.points && (
+            <ul className="case-list">
+              {copy.solution.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          )}
         </div>
         {project.parts && copy.solution.parts && (
           <div className="case-parts">

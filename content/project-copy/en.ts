@@ -2,32 +2,40 @@ import type { ProjectCopyBook } from ".";
 
 const en: ProjectCopyBook = {
   "saha-santiye": {
-    name: "Field & Site Operations",
     industry: "TELECOM & FIELD OPERATIONS",
     summary:
-      "Operations systems for telecom and fibre field companies, built with two different approaches to the same problem.",
+      "A multi-company operations system for telecom and fibre field companies, where each company runs its crews, field jobs and approvals in its own workspace.",
     headline: "Field work, visible in the office as it happens.",
     problem:
       "Daily jobs, crews, material movements, field records and progress payments end up scattered across messages and separate spreadsheets, so what is done and what is waiting shows up late.",
     solution:
-      "A SaaS approach that several companies can use in their own workspace (MK OPS) and a management system set up around one company's operations (Şantiye Yönetim).",
+      "A multi-tenant SaaS used by each company in its own isolated workspace: daily job entry and approvals, crews, materials and payment periods in one system.",
     modules: [
       "Daily job entry and approvals",
-      "Crew and project management",
-      "Material and stock tracking",
+      "Crew, vehicle and project management",
+      "Material delivery notes and stock",
       "Payment periods and reports",
     ],
     alt: "Jobs awaiting approval in the MK OPS demo, with sample data",
-    parts: {
-      "mk-ops": {
-        name: "MK OPS",
-        description: "A SaaS approach where several companies work in their own role-based workspace.",
-      },
-      "santiye-yonetim": {
-        name: "Şantiye Yönetim",
-        description: "A panel set up around one company's operations, with secure session handling.",
-      },
-    },
+  },
+  "santiye-yonetim": {
+    industry: "SITE & FIBRE PROJECTS",
+    summary:
+      "A management system built around one company's site operations, tracking projects, daily crew plans, completed work and timesheets.",
+    headline: "Plan the site's day on one screen.",
+    problem:
+      "When project stages, daily crew plans, completed work, materials and vehicles live in separate lists, a project's real status only appears once someone merges them by hand.",
+    solution:
+      "A panel built around the company's own way of working: project stages, daily work plans, work records, timesheets, stock, assigned equipment and vehicles in one place, with approved sign-up and secure sessions.",
+    modules: [
+      "Project and stage tracking",
+      "Daily work plans and crew templates",
+      "Work records and report",
+      "Timesheets and payment summary",
+      "Materials, stock and assigned equipment",
+      "Vehicle and document reminders",
+    ],
+    alt: "Şantiye Yönetim dashboard with sample data: project status, critical stock and vehicle reminders",
   },
   "mk-adisyon": {
     industry: "RESTAURANTS & CAFÉS",
@@ -89,6 +97,42 @@ const en: ProjectCopyBook = {
     modules: ["Instant price calculation", "Shipment requests", "Order and vehicle management", "PDF and Excel exports"],
     alt: "Opening screen of the MK Kargo sample website",
   },
+  "proje-asama-takip": {
+    name: "Project Stage Tracking",
+    industry: "INFRASTRUCTURE & SITE PROJECTS",
+    summary:
+      "A site tracking system that follows infrastructure project stages, field staff, vehicles and timesheets in one place.",
+    headline: "Know which stage every project is in.",
+    problem:
+      "With many infrastructure projects running at once, what is waiting, what is late, who works where with which vehicle and where the timesheets stand end up in different lists.",
+    solution:
+      "A sign-in protected web application that tracks projects through clear states such as waiting, in progress, awaiting permit, delayed and completed, and keeps staff, vehicle and timesheet records in the same system. Completed projects move to the archive on their own.",
+    modules: [
+      "Project and stage status",
+      "Staff tracking",
+      "Vehicle tracking",
+      "Timesheets",
+      "Search, filters and archive",
+    ],
+  },
+  "onayli-proje-takip": {
+    name: "Approved Project Tracking",
+    industry: "INFRASTRUCTURE PROJECT TRACKING",
+    summary:
+      "An operations panel that turns project and building lists from Excel into lasting records and follows work progress, notes and change history.",
+    headline: "A traceable project record, not an Excel list.",
+    problem:
+      "Project and building lists arrive as Excel files, and each new file replaces the last. How much work is done in which building, who changed what and which record is current gets lost.",
+    solution:
+      "Before a new Excel file is applied, its changes are previewed and, once approved, saved in one step. The import only updates the fields that come from the file; progress and notes from the field are kept. Every progress and note change is written to the history with its user and date.",
+    modules: [
+      "Excel import with approved preview",
+      "Project and building records",
+      "Work progress",
+      "Notes",
+      "Change history",
+    ],
+  },
   namehub: {
     industry: "DIGITAL PRODUCT",
     summary: "A naming platform with suggestions for babies, pets, brands and usernames.",
@@ -139,6 +183,17 @@ const en: ProjectCopyBook = {
       "A cinematic, bilingual portfolio experience for a visual artist: gallery, video and frames.",
     alt: "Opening screen of the Musty portfolio site",
   },
+  "gonul-pusulasi": {
+    industry: "CREATIVE WEB & DIGITAL CONTENT",
+    summary:
+      "A creative content site that brings letters, short lines and photographs together, published as web pages and 9:16 stories.",
+    alt: "Gönül Pusulası home page",
+  },
+  "siir-dunyasi": {
+    industry: "POETRY & LITERARY WEB",
+    summary: "A literary website that presents poems of love, longing and parting as a calm reading experience.",
+    alt: "Şiir Dünyası home page: a sunset over the sea and the line “Words walk within the silence.”",
+  },
   "mk-firsat": {
     industry: "DEALS & SHOPPING DISCOVERY PLATFORM",
     summary:
@@ -178,6 +233,16 @@ const en: ProjectCopyBook = {
     industry: "TECH STORE WEBSITE",
     summary: "A sample technology store website with a product catalogue, cart and repair requests.",
     alt: "Opening screen of the Mavi İletişim sample website",
+  },
+  "mavi-gayrimenkul": {
+    industry: "REAL ESTATE AGENCY WEBSITE",
+    summary: "A sample real estate agency website with sale and rental listing search, a neighbourhood guide and valuation requests.",
+    alt: "Opening screen of the Mavi Gayrimenkul sample website: listing search",
+  },
+  "adalet-hukuk": {
+    industry: "LAW FIRM WEBSITE",
+    summary: "A sample law firm website with practice areas, lawyer profiles and informative articles.",
+    alt: "Opening screen of the Adalet Hukuk sample website",
   },
 };
 

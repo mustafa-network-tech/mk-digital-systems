@@ -99,6 +99,8 @@ const tr: SiteContent = {
     solution: "Yaklaşımımız",
     experience: "Bir araya getirdikleri",
     diagram: "İŞ AKIŞINA GENEL BAKIŞ",
+    confidential:
+      "Aktif kullanımdaki bir sistem; gizlilik nedeniyle ekran görüntüsü ve bağlantı paylaşılmıyor.",
     statuses: {
       "live-demo": "Canlı demo",
       "closed-test": "Kapalı test",

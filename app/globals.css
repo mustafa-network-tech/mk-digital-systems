@@ -1301,6 +1301,16 @@ img {
   margin-bottom: 10px;
   color: var(--muted);
 }
+/* Confidential systems: said plainly, once, under the story. */
+.story-confidential {
+  max-width: 440px;
+  margin-top: 16px;
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
 .story-copy h3 {
   max-width: 440px;
 }

@@ -2,32 +2,40 @@ import type { ProjectCopyBook } from ".";
 
 const fr: ProjectCopyBook = {
   "saha-santiye": {
-    name: "Opérations terrain & chantier",
     industry: "TÉLÉCOMS & OPÉRATIONS TERRAIN",
     summary:
-      "Des systèmes d’exploitation pour les entreprises télécoms et fibre sur le terrain, conçus selon deux approches du même problème.",
+      "Un système d’exploitation multi-entreprises pour les sociétés télécoms et fibre sur le terrain : chaque entreprise gère ses équipes, ses tâches et ses validations dans son propre espace.",
     headline: "Le travail sur le terrain, visible au bureau en temps réel.",
     problem:
       "Tâches du jour, équipes, mouvements de matériel, relevés terrain et situations de travaux se dispersent entre messages et tableurs, et l’on voit trop tard ce qui est fait et ce qui attend.",
     solution:
-      "Une approche SaaS que plusieurs entreprises utilisent chacune dans leur espace (MK OPS) et un système de gestion configuré selon les opérations d’une seule entreprise (Şantiye Yönetim).",
+      "Un SaaS multi-locataire que chaque entreprise utilise dans son espace isolé : saisie quotidienne et validations, équipes, matériel et périodes de facturation dans un seul système.",
     modules: [
       "Saisie quotidienne et validations",
-      "Gestion des équipes et des projets",
-      "Suivi du matériel et des stocks",
+      "Gestion des équipes, véhicules et projets",
+      "Bons de livraison et stock",
       "Périodes de facturation et rapports",
     ],
     alt: "Tâches en attente de validation dans la démo MK OPS, avec des données d’exemple",
-    parts: {
-      "mk-ops": {
-        name: "MK OPS",
-        description: "Approche SaaS où plusieurs entreprises travaillent dans leur propre espace, organisé par rôles.",
-      },
-      "santiye-yonetim": {
-        name: "Şantiye Yönetim",
-        description: "Panneau configuré selon les opérations d’une entreprise, avec gestion sécurisée des sessions.",
-      },
-    },
+  },
+  "santiye-yonetim": {
+    industry: "CHANTIERS & PROJETS FIBRE",
+    summary:
+      "Un système de gestion conçu autour des opérations de chantier d’une entreprise, qui suit les projets, le planning quotidien des équipes, les travaux réalisés et les feuilles de temps.",
+    headline: "Planifier la journée du chantier sur un seul écran.",
+    problem:
+      "Quand les étapes des projets, le planning des équipes, les travaux réalisés, le matériel et les véhicules sont dans des listes séparées, l’état réel d’un projet n’apparaît qu’après un rapprochement manuel.",
+    solution:
+      "Un panneau conçu selon la façon de travailler de l’entreprise : étapes des projets, plannings quotidiens, saisie des travaux, feuilles de temps, stock, matériel confié et véhicules au même endroit, avec inscription validée et sessions sécurisées.",
+    modules: [
+      "Suivi des projets et des étapes",
+      "Plannings quotidiens et modèles d’équipe",
+      "Saisie des travaux et rapport",
+      "Feuilles de temps et récapitulatif",
+      "Matériel, stock et affectations",
+      "Rappels véhicules et documents",
+    ],
+    alt: "Tableau de bord Şantiye Yönetim avec des données d’exemple : état des projets, stock critique et rappels véhicules",
   },
   "mk-adisyon": {
     industry: "RESTAURANTS & CAFÉS",
@@ -89,6 +97,42 @@ const fr: ProjectCopyBook = {
     modules: ["Calcul de prix instantané", "Demandes d’envoi", "Gestion des commandes et véhicules", "Exports PDF et Excel"],
     alt: "Écran d’accueil du site d’exemple MK Kargo",
   },
+  "proje-asama-takip": {
+    name: "Suivi des étapes de projet",
+    industry: "INFRASTRUCTURES & CHANTIERS",
+    summary:
+      "Un système de suivi de chantier qui réunit les étapes des projets d’infrastructure, le personnel terrain, les véhicules et les feuilles de temps.",
+    headline: "Savoir à quelle étape en est chaque projet.",
+    problem:
+      "Quand de nombreux projets d’infrastructure avancent en même temps, ce qui attend, ce qui est en retard, qui travaille où avec quel véhicule et l’état des feuilles de temps se dispersent dans différentes listes.",
+    solution:
+      "Une application web protégée par connexion qui suit les projets avec des états clairs (en attente, en cours, autorisation attendue, en retard, terminé) et réunit personnel, véhicules et feuilles de temps dans le même système. Les projets terminés passent d’eux-mêmes aux archives.",
+    modules: [
+      "État des projets et des étapes",
+      "Suivi du personnel",
+      "Suivi des véhicules",
+      "Feuilles de temps",
+      "Recherche, filtres et archives",
+    ],
+  },
+  "onayli-proje-takip": {
+    name: "Suivi de projet validé",
+    industry: "SUIVI DE PROJETS D’INFRASTRUCTURE",
+    summary:
+      "Un panneau d’exploitation qui transforme les listes de projets et de bâtiments issues d’Excel en enregistrements durables et suit l’avancement, les notes et l’historique.",
+    headline: "Un projet traçable plutôt qu’une liste Excel.",
+    problem:
+      "Les listes de projets et de bâtiments arrivent en fichiers Excel, chacun remplaçant le précédent. On perd ce qui a été réalisé dans quel bâtiment, qui a modifié quoi et quel enregistrement est à jour.",
+    solution:
+      "Avant d’appliquer un nouveau fichier Excel, ses changements sont prévisualisés puis, une fois validés, enregistrés en une seule fois. L’import ne met à jour que les champs issus du fichier ; l’avancement et les notes du terrain sont conservés. Chaque changement d’avancement ou de note est inscrit à l’historique avec l’utilisateur et la date.",
+    modules: [
+      "Import Excel avec aperçu validé",
+      "Projets et bâtiments",
+      "Avancement des travaux",
+      "Notes",
+      "Historique des modifications",
+    ],
+  },
   namehub: {
     industry: "PRODUIT NUMÉRIQUE",
     summary: "Une plateforme de noms avec des suggestions pour bébés, animaux, marques et pseudonymes.",
@@ -139,6 +183,17 @@ const fr: ProjectCopyBook = {
       "Un portfolio cinématique et bilingue pour un artiste visuel : galerie, vidéo et images.",
     alt: "Écran d’accueil du portfolio Musty",
   },
+  "gonul-pusulasi": {
+    industry: "WEB CRÉATIF & CONTENU NUMÉRIQUE",
+    summary:
+      "Un site de contenu créatif qui réunit lettres, phrases courtes et photographies, publié en pages web et en stories 9:16.",
+    alt: "Page d’accueil de Gönül Pusulası",
+  },
+  "siir-dunyasi": {
+    industry: "POÉSIE & WEB LITTÉRAIRE",
+    summary: "Un site littéraire qui présente des poèmes d’amour, de nostalgie et de séparation dans une lecture apaisée.",
+    alt: "Page d’accueil de Şiir Dünyası : coucher de soleil sur la mer et la phrase « Dans le silence, les mots marchent. »",
+  },
   "mk-firsat": {
     industry: "PLATEFORME DE BONS PLANS & SHOPPING",
     summary:
@@ -178,6 +233,16 @@ const fr: ProjectCopyBook = {
     industry: "SITE DE BOUTIQUE HIGH-TECH",
     summary: "Exemple de site de boutique high-tech avec catalogue, panier et demandes de réparation.",
     alt: "Écran d’accueil de l’exemple de site Mavi İletişim",
+  },
+  "mavi-gayrimenkul": {
+    industry: "SITE D’AGENCE IMMOBILIÈRE",
+    summary: "Exemple de site d’agence immobilière avec recherche d’annonces à vendre et à louer, guide des quartiers et demande d’estimation.",
+    alt: "Écran d’accueil de l’exemple de site Mavi Gayrimenkul : recherche d’annonces",
+  },
+  "adalet-hukuk": {
+    industry: "SITE DE CABINET D’AVOCATS",
+    summary: "Exemple de site de cabinet d’avocats avec domaines d’intervention, profils d’avocats et articles d’information.",
+    alt: "Écran d’accueil de l’exemple de site Adalet Hukuk",
   },
 };
 

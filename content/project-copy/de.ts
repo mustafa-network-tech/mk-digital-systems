@@ -2,32 +2,40 @@ import type { ProjectCopyBook } from ".";
 
 const de: ProjectCopyBook = {
   "saha-santiye": {
-    name: "Außendienst- & Baustellenbetrieb",
     industry: "TELEKOMMUNIKATION & AUSSENDIENST",
     summary:
-      "Betriebssysteme für Telekommunikations- und Glasfaserfirmen im Außendienst – zwei unterschiedliche Ansätze für dasselbe Problem.",
+      "Ein Betriebssystem für mehrere Unternehmen im Telekommunikations- und Glasfaser-Außendienst: Jedes Unternehmen verwaltet Teams, Aufträge und Freigaben im eigenen Bereich.",
     headline: "Arbeit im Feld, sofort im Büro sichtbar.",
     problem:
       "Tagesaufträge, Teams, Materialbewegungen, Einsatzprotokolle und Abrechnungen verteilen sich auf Nachrichten und getrennte Tabellen – was erledigt ist und was wartet, wird spät sichtbar.",
     solution:
-      "Ein SaaS-Ansatz, den mehrere Unternehmen jeweils im eigenen Bereich nutzen (MK OPS), und ein Verwaltungssystem, das auf die Abläufe eines einzelnen Unternehmens zugeschnitten wird (Şantiye Yönetim).",
+      "Ein mandantenfähiges SaaS, das jedes Unternehmen in einem eigenen, isolierten Bereich nutzt: tägliche Auftragserfassung und Freigaben, Teams, Material und Abrechnungszeiträume in einem System.",
     modules: [
       "Tägliche Auftragserfassung und Freigaben",
-      "Team- und Projektverwaltung",
-      "Material- und Lagerverfolgung",
+      "Team-, Fahrzeug- und Projektverwaltung",
+      "Materiallieferscheine und Lager",
       "Abrechnungszeiträume und Berichte",
     ],
     alt: "Freigabe ausstehender Aufträge in der MK-OPS-Demo mit Beispieldaten",
-    parts: {
-      "mk-ops": {
-        name: "MK OPS",
-        description: "SaaS-Ansatz, bei dem mehrere Unternehmen in eigenen, rollenbasierten Bereichen arbeiten.",
-      },
-      "santiye-yonetim": {
-        name: "Şantiye Yönetim",
-        description: "Auf die Abläufe eines Unternehmens zugeschnittenes Panel mit sicherer Sitzungsverwaltung.",
-      },
-    },
+  },
+  "santiye-yonetim": {
+    industry: "BAUSTELLEN- & GLASFASERPROJEKTE",
+    summary:
+      "Ein Verwaltungssystem, das auf den Baustellenbetrieb eines Unternehmens zugeschnitten ist und Projekte, tägliche Teamplanung, erbrachte Leistungen und Stundenzettel verfolgt.",
+    headline: "Den Baustellentag auf einem Bildschirm planen.",
+    problem:
+      "Liegen Projektphasen, tägliche Teamplanung, erbrachte Leistungen, Material und Fahrzeuge in getrennten Listen, zeigt sich der echte Stand eines Projekts erst nach mühsamem Zusammenführen.",
+    solution:
+      "Ein Panel nach der Arbeitsweise des Unternehmens: Projektphasen, Tagespläne, Leistungserfassung, Stundenzettel, Lager, Ausgaben an Mitarbeitende und Fahrzeuge an einem Ort, mit freigegebener Registrierung und sicheren Sitzungen.",
+    modules: [
+      "Projekt- und Phasenverfolgung",
+      "Tagespläne und Teamvorlagen",
+      "Leistungserfassung und Bericht",
+      "Stundenzettel und Abrechnungsübersicht",
+      "Material, Lager und Ausgaben",
+      "Fahrzeug- und Dokumentenhinweise",
+    ],
+    alt: "Şantiye-Yönetim-Dashboard mit Beispieldaten: Projektstatus, kritischer Lagerbestand und Fahrzeughinweise",
   },
   "mk-adisyon": {
     industry: "RESTAURANTS & CAFÉS",
@@ -89,6 +97,42 @@ const de: ProjectCopyBook = {
     modules: ["Sofortige Preisberechnung", "Sendungsanfragen", "Auftrags- und Fahrzeugverwaltung", "PDF- und Excel-Exporte"],
     alt: "Startansicht der MK Kargo Beispiel-Website",
   },
+  "proje-asama-takip": {
+    name: "Projektphasen-Tracking",
+    industry: "INFRASTRUKTUR- & BAUSTELLENPROJEKTE",
+    summary:
+      "Ein Baustellen-Tracking-System, das Phasen von Infrastrukturprojekten, Außendienstpersonal, Fahrzeuge und Stundenzettel an einem Ort verfolgt.",
+    headline: "Wissen, in welcher Phase jedes Projekt ist.",
+    problem:
+      "Laufen viele Infrastrukturprojekte gleichzeitig, verteilt sich auf verschiedene Listen, was wartet, was verspätet ist, wer mit welchem Fahrzeug wo arbeitet und wie es um die Stundenzettel steht.",
+    solution:
+      "Eine anmeldegeschützte Webanwendung, die Projekte mit klaren Zuständen wie wartend, in Arbeit, Genehmigung ausstehend, verspätet und abgeschlossen verfolgt und Personal-, Fahrzeug- und Stundenzetteldaten im selben System führt. Abgeschlossene Projekte wandern automatisch ins Archiv.",
+    modules: [
+      "Projekt- und Phasenstatus",
+      "Personalübersicht",
+      "Fahrzeugübersicht",
+      "Stundenzettel",
+      "Suche, Filter und Archiv",
+    ],
+  },
+  "onayli-proje-takip": {
+    name: "Freigegebenes Projekt-Tracking",
+    industry: "INFRASTRUKTUR-PROJEKTVERFOLGUNG",
+    summary:
+      "Ein Betriebspanel, das Projekt- und Gebäudelisten aus Excel in dauerhafte Datensätze überführt und Arbeitsfortschritt, Notizen und Änderungsverlauf verfolgt.",
+    headline: "Ein nachvollziehbarer Projektdatensatz statt einer Excel-Liste.",
+    problem:
+      "Projekt- und Gebäudelisten kommen als Excel-Dateien, und jede neue Datei ersetzt die vorige. Wie viel in welchem Gebäude erledigt ist, wer was geändert hat und welcher Datensatz aktuell ist, geht verloren.",
+    solution:
+      "Bevor eine neue Excel-Datei übernommen wird, werden die Änderungen in einer Vorschau gezeigt und nach Freigabe in einem Schritt gespeichert. Der Import aktualisiert nur die Felder aus der Datei; Fortschritt und Notizen aus dem Feld bleiben erhalten. Jede Änderung an Fortschritt und Notizen wird mit Benutzer und Datum im Verlauf gespeichert.",
+    modules: [
+      "Excel-Import mit freigegebener Vorschau",
+      "Projekt- und Gebäudedatensätze",
+      "Arbeitsfortschritt",
+      "Notizen",
+      "Änderungsverlauf",
+    ],
+  },
   namehub: {
     industry: "DIGITALES PRODUKT",
     summary: "Eine Namensplattform mit Vorschlägen für Babys, Haustiere, Marken und Benutzernamen.",
@@ -139,6 +183,17 @@ const de: ProjectCopyBook = {
       "Ein cineastisches, zweisprachiges Portfolio für einen bildenden Künstler: Galerie, Video und Bilder.",
     alt: "Startansicht der Portfolio-Seite Musty",
   },
+  "gonul-pusulasi": {
+    industry: "KREATIVES WEB & DIGITALE INHALTE",
+    summary:
+      "Eine kreative Content-Website, die Briefe, kurze Sätze und Fotos verbindet und als Webseiten und 9:16-Stories erscheint.",
+    alt: "Startseite von Gönül Pusulası",
+  },
+  "siir-dunyasi": {
+    industry: "LYRIK & LITERARISCHES WEB",
+    summary: "Eine literarische Website, die Gedichte über Liebe, Sehnsucht und Abschied als ruhiges Leseerlebnis zeigt.",
+    alt: "Startseite von Şiir Dünyası: Sonnenuntergang über dem Meer und die Zeile „In der Stille gehen die Worte.“",
+  },
   "mk-firsat": {
     industry: "PLATTFORM FÜR ANGEBOTE & EINKAUFSENTDECKUNG",
     summary:
@@ -178,6 +233,16 @@ const de: ProjectCopyBook = {
     industry: "TECHNIK-SHOP-WEBSITE",
     summary: "Beispiel-Website für einen Technikladen mit Produktkatalog, Warenkorb und Reparaturanfragen.",
     alt: "Startansicht der Beispiel-Website Mavi İletişim",
+  },
+  "mavi-gayrimenkul": {
+    industry: "IMMOBILIENMAKLER-WEBSITE",
+    summary: "Beispiel-Website für ein Immobilienbüro mit Suche nach Kauf- und Mietangeboten, Stadtteilführer und Bewertungsanfrage.",
+    alt: "Startansicht der Beispiel-Website Mavi Gayrimenkul: Angebotssuche",
+  },
+  "adalet-hukuk": {
+    industry: "KANZLEI-WEBSITE",
+    summary: "Beispiel-Website für eine Anwaltskanzlei mit Rechtsgebieten, Anwaltsprofilen und informativen Artikeln.",
+    alt: "Startansicht der Beispiel-Website Adalet Hukuk",
   },
 };
 

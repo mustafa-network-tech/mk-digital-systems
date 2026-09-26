@@ -99,8 +99,7 @@ export const heroSlides: HeroSlide[] = [
   {
     // The web experience, with a 9:16 typewriter story from "kendi hâlinde 1i".
     id: "gonul-pusulasi",
-    name: "Gönül Pusulası",
-    kind: "selected",
+    project: "gonul-pusulasi",
     layout: "layered",
     need: "presence",
     screens: [
