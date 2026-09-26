@@ -130,7 +130,7 @@ const tr: ProjectCopyBook = {
   aura: {
     industry: "MOBİL UYGULAMA",
     summary: "Günlük tutma ve ruh hâli takibi için sade bir uygulama.",
-    alt: "Aura uygulamasının açılış ekranı",
+    alt: "Aura uygulamasında örnek verilerle Bugün, duygu seçimi ve takvim ekranları",
   },
   "is-takip": {
     industry: "İŞ TAKİBİ",

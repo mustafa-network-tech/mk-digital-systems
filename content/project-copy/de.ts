@@ -113,7 +113,7 @@ const de: ProjectCopyBook = {
   aura: {
     industry: "MOBILE APP",
     summary: "Eine schlichte App für Tagebuch und Stimmungsverlauf.",
-    alt: "Startbildschirm der Aura-App",
+    alt: "Aura-App mit Beispieldaten: Heute, Stimmungsauswahl und Kalender",
   },
   "is-takip": {
     name: "Auftragsverfolgung",

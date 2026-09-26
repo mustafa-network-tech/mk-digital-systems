@@ -113,7 +113,7 @@ const en: ProjectCopyBook = {
   aura: {
     industry: "MOBILE APP",
     summary: "A simple app for daily journaling and mood tracking.",
-    alt: "Opening screen of the Aura app",
+    alt: "Aura app with sample data: Today, mood picker and calendar screens",
   },
   "is-takip": {
     name: "Job Tracker",

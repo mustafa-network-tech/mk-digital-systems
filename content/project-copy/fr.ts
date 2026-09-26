@@ -113,7 +113,7 @@ const fr: ProjectCopyBook = {
   aura: {
     industry: "APPLICATION MOBILE",
     summary: "Une application simple pour tenir un journal et suivre son humeur.",
-    alt: "Écran d’accueil de l’application Aura",
+    alt: "Application Aura avec des données d’exemple : Aujourd’hui, choix de l’humeur et calendrier",
   },
   "is-takip": {
     name: "Suivi des tâches",
