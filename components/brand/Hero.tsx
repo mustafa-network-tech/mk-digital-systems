@@ -1,106 +1,88 @@
-import Image from "next/image";
 import { contactConfig } from "@/lib/contact-config";
 import { Link } from "@/config/navigation";
 import type { Locale } from "@/config/i18n";
 import type { SiteContent } from "@/content/site";
 import { getProject } from "@/content/projects";
 import { getProjectCopy } from "@/content/project-copy";
+import { heroBackdrops, heroNeedSlides, heroRotation, heroSlides } from "@/content/hero";
 import { Arrow } from "./Arrow";
+import { HeroStage, type StageSlide } from "./HeroStage";
+
 export function Hero({
   copy,
+  statuses,
   locale,
 }: {
   copy: SiteContent["hero"];
+  statuses: SiteContent["work"]["statuses"];
   locale: Locale;
 }) {
-  const main = getProject("saha-santiye")!;
-  const mainCopy = getProjectCopy(locale, main.id);
-  const secondary = getProject("mk-farm")!;
-  const secondaryCopy = getProjectCopy(locale, secondary.id);
+  const slides: StageSlide[] = heroSlides.map((slide) => {
+    const project = slide.project ? getProject(slide.project) : undefined;
+    const projectCopy = project ? getProjectCopy(locale, project.id) : undefined;
+    const name = projectCopy?.name ?? project?.name ?? slide.name ?? slide.id;
+    const category = copy.categories[slide.id];
+    // Flagship systems show their verified status; other work shows what kind of work it is.
+    const tag = !project
+      ? copy.tags.design
+      : project.layer === "flagship" && project.status
+        ? statuses[project.status]
+        : copy.tags[project.layer === "sector-demo" ? "sector-demo" : "selected"];
+    return {
+      id: slide.id,
+      layout: slide.layout,
+      name,
+      category,
+      tag,
+      screens: slide.screens.map((screen, i) => ({
+        ...screen,
+        alt: i === 0 ? `${name} — ${category}` : "",
+      })),
+      logo: slide.logo,
+    };
+  });
   return (
-    <section className="hero wrap">
-      <p className="eyebrow hero-eyebrow">
-        <span className="live-dot" aria-hidden="true" />
-        {copy.label}
-      </p>
-      <div className="hero-heading">
-        <h1>
-          {copy.title}
-          <span>{copy.accent}</span>
-        </h1>
-        <div className="hero-description">
-          <p>{copy.description}</p>
-          <a
-            className="button"
-            href={contactConfig.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {copy.primary}
-            <Arrow diagonal />
-          </a>
-          <Link href="/work" className="text-link">
-            {copy.secondary}
-            <Arrow />
-          </Link>
+    <section className="hero hero-v2">
+      <div className="wrap">
+        <p className="eyebrow hero-eyebrow">
+          <span className="live-dot" aria-hidden="true" />
+          {copy.label}
+        </p>
+        <div className="hero-heading">
+          <h1>
+            {copy.title}
+            <span>{copy.accent}</span>
+          </h1>
+          <div className="hero-description">
+            <p>{copy.description}</p>
+            <a
+              className="button"
+              href={contactConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {copy.primary}
+              <Arrow diagonal />
+            </a>
+            <Link href="/work" className="text-link">
+              {copy.secondary}
+              <Arrow />
+            </Link>
+          </div>
         </div>
       </div>
-      <div className="hero-composition" role="group" aria-label={copy.visual}>
-        <div className="composition-grid" aria-hidden="true" />
-        <div className="composition-brand" aria-hidden="true">
-          mk<span>↗</span>
-        </div>
-        <div className="hero-screen hero-screen-main">
-          <div className="screen-chrome">
-            <span>
-              <i />
-              <i />
-              <i />
-            </span>
-            <span>{mainCopy.industry}</span>
-            <span aria-hidden="true">↗</span>
-          </div>
-          <div className="hero-screen-image">
-            <Image
-              src={main.media!.src}
-              alt={mainCopy.alt ?? main.name}
-              fill
-              priority
-              sizes="(max-width: 767px) 48vw, 450px"
-              style={{ objectFit: "contain" }}
-            />
-          </div>
-        </div>
-        <div className="hero-screen hero-screen-secondary">
-          <div className="screen-chrome">
-            <span>{(secondaryCopy.name ?? secondary.name).toUpperCase()}</span>
-            <span aria-hidden="true">↗</span>
-          </div>
-          <div className="hero-screen-image">
-            <Image
-              src={secondary.media!.src}
-              alt={secondaryCopy.alt ?? secondary.name}
-              fill
-              sizes="(max-width: 767px) 48vw, 450px"
-              style={{ objectFit: "contain" }}
-            />
-          </div>
-        </div>
-        <div className="composition-tag">
-          <span className="tag-symbol" aria-hidden="true">
-            ✳
-          </span>
-          <span>{copy.caption}</span>
-        </div>
-        <div className="composition-caption">
-          <span>{copy.detail}</span>
-          <span aria-hidden="true">↘</span>
-        </div>
-      </div>
-      <div className="hero-bottom">
-        <span>{copy.note}</span>
-        <span>{copy.secondary} ↓</span>
-      </div>
+      <HeroStage
+        slides={slides}
+        rotation={heroRotation}
+        needSlides={heroNeedSlides}
+        backdrops={heroBackdrops}
+        copy={{
+          visual: copy.visual,
+          needsLabel: copy.needsLabel,
+          needs: copy.needs,
+          stage: copy.stage,
+        }}
+      />
     </section>
   );
 }

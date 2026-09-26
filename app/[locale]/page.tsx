@@ -21,7 +21,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <JsonLd data={pageSchema(locale, "home")} />
-      <Hero copy={c.hero} locale={locale} />
+      <Hero copy={c.hero} statuses={c.work.statuses} locale={locale} />
       <section className="section wrap needs-section">
         <div className="section-head">
           <div>

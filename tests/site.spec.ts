@@ -173,9 +173,10 @@ test("form validation and reduced motion are available", async ({ page }) => {
   );
   await expect(page.locator("#name")).toBeFocused();
   await page.goto("/fr");
+  // The hero's floating phone stays still for reduced motion.
   expect(
     await page
-      .locator(".hero-screen-main")
+      .locator(".stage-slide.is-active .phone-side")
       .evaluate((el) => getComputedStyle(el).animationName),
   ).toBe("none");
   await page.keyboard.press("Tab");

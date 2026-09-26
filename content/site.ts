@@ -4,7 +4,8 @@ import tr from "./locales/tr";
 import de from "./locales/de";
 import fr from "./locales/fr";
 import { pricingCopy, type PricingCopy } from "./pricing-copy";
-import type { ProjectLayer, ProjectLink, ProjectStatus } from "./projects";
+import type { NeedId, ProjectLayer, ProjectLink, ProjectStatus } from "./projects";
+import type { HeroSlideId } from "./hero";
 
 export type SiteContent = {
   nav: {
@@ -25,10 +26,15 @@ export type SiteContent = {
     description: string;
     primary: string;
     secondary: string;
-    note: string;
+    /** Accessible name of the product stage. */
     visual: string;
-    caption: string;
-    detail: string;
+    needsLabel: string;
+    needs: Record<NeedId, string>;
+    stage: { prev: string; next: string; pause: string; play: string; goTo: string };
+    /** Short "what it is" line per hero slide. */
+    categories: Record<HeroSlideId, string>;
+    /** Third caption item for non-flagship work (flagship shows its status). */
+    tags: Record<"selected" | "sector-demo" | "design", string>;
   };
   needs: {
     label: string;
