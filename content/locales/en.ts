@@ -274,14 +274,14 @@ const en: SiteContent = {
     invalid:
       "Please complete the required fields and accept the privacy notice.",
     retry: "Send another brief",
-    types: [
-      "Website",
-      "Custom software",
-      "Business system",
-      "Digital product",
-      "Smart / voice experience",
-      "Not sure yet",
-    ],
+    types: {
+      web: "Website",
+      custom: "Custom software",
+      business: "Business management system",
+      mobile: "Mobile app",
+      support: "Support for my existing site",
+      unsure: "Not sure yet",
+    },
   },
   footer: {
     label: "YOUR NEXT CHAPTER",

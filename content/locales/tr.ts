@@ -275,14 +275,14 @@ const tr: SiteContent = {
       "Talebiniz gönderilemedi. Yazdıklarınız korunuyor. Yeniden deneyebilir veya doğrudan iletişime geçebilirsiniz.",
     invalid: "Zorunlu alanları doldurun ve gizlilik bildirimini onaylayın.",
     retry: "Yeni bir talep gönderin",
-    types: [
-      "Web sitesi",
-      "Özel yazılım",
-      "İşletme sistemi",
-      "Dijital ürün",
-      "Akıllı / sesli deneyim",
-      "Henüz emin değilim",
-    ],
+    types: {
+      web: "Web sitesi",
+      custom: "Özel yazılım",
+      business: "İşletme yönetim sistemi",
+      mobile: "Mobil uygulama",
+      support: "Mevcut siteme destek",
+      unsure: "Henüz emin değilim",
+    },
   },
   footer: {
     label: "SIRADAKİ ADIMINIZ",

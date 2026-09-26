@@ -19,6 +19,7 @@ export const pricingLevels = [
   { id: "seo", group: "support", category: "web", startingPrice: 10000 },
 ] as const;
 export type PricingId = (typeof pricingLevels)[number]["id"];
+export type PricingCategory = (typeof pricingLevels)[number]["category"];
 type PriceBook = {
   currency: PricingCurrency;
   prices: Record<PricingId, number>;

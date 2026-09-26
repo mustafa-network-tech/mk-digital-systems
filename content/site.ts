@@ -6,6 +6,7 @@ import fr from "./locales/fr";
 import { pricingCopy, type PricingCopy } from "./pricing-copy";
 import type { NeedId, ProjectLayer, ProjectLink, ProjectStatus, ServiceId } from "./projects";
 import type { HeroSlideId } from "./hero";
+import type { BriefType } from "./brief";
 
 export type SiteContent = {
   nav: {
@@ -127,7 +128,8 @@ export type SiteContent = {
     error: string;
     invalid: string;
     retry: string;
-    types: string[];
+    /** Project brief type labels, keyed by content/brief.ts ids. */
+    types: Record<BriefType, string>;
   };
   footer: {
     label: string;

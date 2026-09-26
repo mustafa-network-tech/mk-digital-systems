@@ -7,6 +7,7 @@ import { getProjectCopy } from "@/content/project-copy";
 import { caseStudyScreens, getCaseStudy, type CaseStudySection } from "@/content/case-studies";
 import type { CaseScreen } from "@/content/case-studies/media";
 import { whatsappInquiry } from "@/lib/contact-config";
+import { briefTypeForService } from "@/content/brief";
 import { projectLinks } from "./ProjectStory";
 import { WorkCard } from "./WorkCard";
 import { Arrow } from "./Arrow";
@@ -288,7 +289,7 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
               {labels.ctaPrimary}
               <Arrow diagonal />
             </a>
-            <Link className="text-link" href={{ pathname: "/contact", query: { type: project.services[0], project: id } }}>
+            <Link className="text-link" href={{ pathname: "/contact", query: { type: briefTypeForService(project.services[0]), project: id } }}>
               {labels.ctaSecondary}
               <Arrow />
             </Link>

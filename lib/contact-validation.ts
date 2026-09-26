@@ -1,3 +1,4 @@
+import { isKnownBriefType, toBriefType } from "@/content/brief";
 export type ContactBrief = {
   name: string;
   email: string;
@@ -46,11 +47,13 @@ export function validateBrief(
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(result.email) ||
     result.message.length < 20 ||
     source.consent !== true ||
-    !["web", "custom", "business", "product", "smart", "unsure"].includes(
-      result.projectType,
-    ) ||
+    !isKnownBriefType(result.projectType) ||
     !["tr", "en", "de", "fr"].includes(result.lang)
   )
     return { ok: false, error: "INVALID_BRIEF" };
-  return { ok: true, brief: { ...result, consent: true } as ContactBrief };
+  // A retired id (e.g. from a cached form) is delivered as its current type.
+  return {
+    ok: true,
+    brief: { ...result, projectType: toBriefType(result.projectType), consent: true } as ContactBrief,
+  };
 }

@@ -2,6 +2,9 @@
 import nodemailer from "nodemailer";
 import { validateBrief } from "@/lib/contact-validation";
 import { contactConfig } from "@/lib/contact-config";
+import { getContent } from "@/content/site";
+import { toBriefType } from "@/content/brief";
+import type { Locale } from "@/config/i18n";
 const MAIL_TO = process.env.MAIL_TO || contactConfig.email;
 const RATE_LIMIT_MS = 60_000;
 // Per-instance abuse guard. Use a shared rate limiter for multi-instance production traffic.
@@ -69,7 +72,7 @@ export async function POST(req: NextRequest) {
         `Company / İşletme: ${brief.company}`,
         `Phone: ${brief.phone}`,
         `Country: ${brief.country}`,
-        `Project type: ${brief.projectType}`,
+        `Project type: ${brief.projectType} (${getContent(brief.lang as Locale).contact.types[toBriefType(brief.projectType)]})`,
         `Related project: ${brief.project}`,
         "",
         brief.message,

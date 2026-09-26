@@ -275,14 +275,14 @@ const fr: SiteContent = {
     invalid:
       "Complétez les champs obligatoires et acceptez la notice de confidentialité.",
     retry: "Envoyer une autre demande",
-    types: [
-      "Site web",
-      "Logiciel sur mesure",
-      "Système métier",
-      "Produit numérique",
-      "Expérience intelligente / vocale",
-      "Pas encore sûr",
-    ],
+    types: {
+      web: "Site web",
+      custom: "Logiciel sur mesure",
+      business: "Système de gestion d’entreprise",
+      mobile: "Application mobile",
+      support: "Aide pour mon site existant",
+      unsure: "Pas encore sûr",
+    },
   },
   footer: {
     label: "VOTRE PROCHAIN CHAPITRE",

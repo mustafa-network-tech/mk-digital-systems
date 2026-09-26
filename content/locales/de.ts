@@ -275,14 +275,14 @@ const de: SiteContent = {
     invalid:
       "Bitte füllen Sie die Pflichtfelder aus und stimmen Sie dem Datenschutzhinweis zu.",
     retry: "Eine weitere Anfrage senden",
-    types: [
-      "Website",
-      "Individuelle Software",
-      "Betriebliches System",
-      "Digitales Produkt",
-      "Intelligentes / sprachbasiertes Erlebnis",
-      "Noch nicht sicher",
-    ],
+    types: {
+      web: "Website",
+      custom: "Individuelle Software",
+      business: "Betriebliches Managementsystem",
+      mobile: "Mobile App",
+      support: "Unterstützung für meine bestehende Website",
+      unsure: "Noch nicht sicher",
+    },
   },
   footer: {
     label: "IHR NÄCHSTES KAPITEL",

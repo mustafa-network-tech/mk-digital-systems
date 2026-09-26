@@ -4,8 +4,8 @@ import { Link } from "@/config/navigation";
 import type { Locale } from "@/config/i18n";
 import type { SiteContent } from "@/content/site";
 import { FORMSPREE_FORM_ID } from "@/lib/constants";
+import { briefTypes, toBriefType } from "@/content/brief";
 import { Arrow } from "./Arrow";
-const typeIds = ["web", "custom", "business", "product", "smart", "unsure"];
 export function ProjectBrief({
   locale,
   copy,
@@ -64,6 +64,8 @@ export function ProjectBrief({
         data.set("pageUrl", payload.pageUrl);
         data.set("project", project);
         data.set("consent", "true");
+        // The readable label next to the id, so the delivered e-mail needs no lookup.
+        data.set("projectTypeLabel", copy.types[toBriefType(payload.projectType)]);
         data.delete("website");
         // Formspree's supported bot field, separate from the genuine company field.
         data.set("_gotcha", payload.website);
@@ -149,18 +151,15 @@ export function ProjectBrief({
       <fieldset className="project-types" disabled={status === "sending"}>
         <legend className="type-legend">{copy.type}</legend>
         <div className="type-options">
-          {copy.types.map((label, i) => (
-            <label key={typeIds[i]}>
+          {briefTypes.map((id) => (
+            <label key={id}>
               <input
                 type="radio"
                 name="projectType"
-                value={typeIds[i]}
-                defaultChecked={
-                  typeIds[i] ===
-                  (typeIds.includes(initialType) ? initialType : "unsure")
-                }
+                value={id}
+                defaultChecked={id === toBriefType(initialType)}
               />
-              <span>{label}</span>
+              <span>{copy.types[id]}</span>
             </label>
           ))}
         </div>
