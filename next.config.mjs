@@ -25,6 +25,10 @@ const nextConfig = withNextIntl({
       "/tr/contact": "/tr/iletisim",
       "/tr/legal/privacy": "/tr/yasal/gizlilik",
       "/tr/legal/terms": "/tr/yasal/kosullar",
+      "/tr/solutions/web-design": "/tr/cozumler/web-tasarim",
+      "/tr/solutions/custom-software": "/tr/cozumler/ozel-yazilim",
+      "/tr/solutions/business-management-systems": "/tr/cozumler/isletme-yonetim-sistemleri",
+      "/tr/solutions/mobile-app-development": "/tr/cozumler/mobil-uygulama",
     };
     return [
       // The old production alias moves to the real domain, path and query kept.

@@ -49,6 +49,19 @@ export function caseStudyAlternates(slug: string, available: readonly Locale[]) 
     "x-default": caseStudyUrl(available.includes(defaultLocale) ? defaultLocale : available[0], slug),
   };
 }
+/** Solution page URL: the localized path of its static route (content/solutions). */
+export function solutionUrl(locale: Locale, route: keyof typeof pathnames) {
+  const entry: string | Partial<Record<Locale, string>> = pathnames[route];
+  const path = typeof entry === "string" ? entry : (entry[locale] ?? route);
+  return `${SITE_URL}/${locale}${path}`;
+}
+/** hreflang map for a solution page, limited to the locales it is written in. */
+export function solutionAlternates(route: keyof typeof pathnames, available: readonly Locale[]) {
+  return {
+    ...Object.fromEntries(available.map((locale) => [locale, solutionUrl(locale, route)])),
+    "x-default": solutionUrl(available.includes(defaultLocale) ? defaultLocale : available[0], route),
+  };
+}
 export function languageAlternates(page: PageKey) {
   return {
     ...Object.fromEntries(

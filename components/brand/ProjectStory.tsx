@@ -33,6 +33,7 @@ export function ProjectStory({
   full = false,
   index = 0,
   caseLabel,
+  alt,
 }: {
   project: Project;
   copy: SiteContent["work"];
@@ -41,8 +42,11 @@ export function ProjectStory({
   index?: number;
   /** "Read the case study" label; the link appears only when one is written. */
   caseLabel?: string;
+  /** Alt text when the story shows a screen other than the project's card image. */
+  alt?: string;
 }) {
-  const story = getProjectCopy(locale, project.id);
+  const projectCopy = getProjectCopy(locale, project.id);
+  const story = alt ? { ...projectCopy, alt } : projectCopy;
   const name = story.name || project.name;
   const links = projectLinks(project, locale, copy.linkLabels);
   const shown = full ? links : links.slice(0, 1);

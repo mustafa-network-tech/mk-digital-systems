@@ -13,6 +13,11 @@ export const defaultLocale: Locale = "tr";
 export const pathnames = {
   "/": "/",
   "/solutions": { tr: "/cozumler" },
+  // One static entry per solution (content/solutions): the slug differs per language.
+  "/solutions/web-design": { tr: "/cozumler/web-tasarim" },
+  "/solutions/custom-software": { tr: "/cozumler/ozel-yazilim" },
+  "/solutions/business-management-systems": { tr: "/cozumler/isletme-yonetim-sistemleri" },
+  "/solutions/mobile-app-development": { tr: "/cozumler/mobil-uygulama" },
   "/work": { tr: "/calismalar" },
   "/work/[slug]": { tr: "/calismalar/[slug]" },
   "/contact": { tr: "/iletisim" },

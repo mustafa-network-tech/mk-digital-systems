@@ -9,6 +9,7 @@ import {
   marketForLocale,
   pricingMarkets,
 } from "../content/pricing";
+import { solutionIds, solutionPrices, solutionRoutes, solutionStartingPrice } from "../content/solutions";
 
 // Mustafa-approved starting prices (TL); support = work on an existing website.
 const expectedPrices = {
@@ -47,9 +48,17 @@ for (const locale of locales) {
       await page.setViewportSize({width,height:900});
       expect(await page.locator(".pricing-preview").evaluate(section => Array.from(section.querySelectorAll<HTMLElement>("article,h3,p")).every(element => element.scrollWidth <= element.clientWidth + 1)), `Preview text at ${width}px`).toBe(true);
     }
-    await expect(page.locator(".pricing-preview .pricing-entry")).toHaveCount(
-      3,
-    );
+    // One row per solution axis at its lowest starting price in Turkish; one quotation elsewhere.
+    await expect(page.locator(".pricing-preview .pricing-entry")).toHaveCount(priced ? solutionIds.length : 0);
+    if (priced)
+      for (const id of solutionIds) {
+        const level = solutionStartingPrice(id, locale)!;
+        const row = page.locator(`.pricing-preview [data-solution="${id}"]`);
+        await expect(row.locator("strong")).toHaveText(formatStartingPrice(level.startingPrice, level.currency, locale));
+        expect(level.startingPrice).toBe(Math.min(...solutionPrices(id, locale).map((p) => p.startingPrice)));
+        await expect(row.locator("h3 a")).toHaveAttribute("href", localPath(locale, solutionRoutes[id]));
+      }
+    else await expect(page.locator(".pricing-preview .pricing-quote")).toHaveCount(1);
     await expect(page.locator(".pricing-preview")).toContainText(
       copy.disclaimer,
     );

@@ -199,31 +199,30 @@ const tr: SiteContent = {
   },
   process: {
     label: "NASIL ÇALIŞIYORUZ?",
-    title: "Önce sizi dinleriz.\nSonra birlikte kurarız.",
+    title: "Önce dinliyoruz.\nSonra birlikte kuruyoruz.",
     description:
-      "Ortak bir yön, net kararlar ve her aşamada işe yarayan bir sonuç.",
+      "Her projede aynı sıra: önce işi anlamak, sonra kurmak.",
     steps: [
       {
-        title: "Anlarız",
-        description: "İnsanlarınızı, iş akışınızı ve değişmesi gerekenleri.",
-      },
-      {
-        title: "Tasarlarız",
-        description: "Ayrıntıları geliştirmeden önce deneyimi netleştiririz.",
-      },
-      {
-        title: "Geliştiririz",
+        title: "Anlamak",
         description:
-          "Birlikte belirlenen yönü çalışan bir deneyime dönüştürürüz.",
+          "İşin bugün nasıl yürüdüğünü, kimlerin kullanacağını ve neyin değişmesi gerektiğini dinliyoruz.",
       },
       {
-        title: "Yayına alırız",
-        description: "Ayrıntıları kontrol edip sistemi kullanıma açarız.",
+        title: "Tasarlamak",
+        description: "Geliştirmeye başlamadan önce akışı ve ekranları netleştiriyoruz.",
       },
       {
-        title: "İyileştiririz",
-        description:
-          "Günlük kullanımdan öğrenir, sonraki adımı şekillendiririz.",
+        title: "Geliştirmek",
+        description: "Birlikte belirlenen yönü çalışan bir sisteme dönüştürüyoruz.",
+      },
+      {
+        title: "Test etmek",
+        description: "Gerçek kullanım senaryolarıyla deniyor, eksikleri yayından önce kapatıyoruz.",
+      },
+      {
+        title: "Yayına almak ve kullanıma açmak",
+        description: "Sistemi yayına alıyor, ekibinizin ve müşterilerinizin kullanımına açıyoruz.",
       },
     ],
   },
@@ -367,14 +366,14 @@ const tr: SiteContent = {
   },
   meta: {
     home: {
-      title: "MK Digital Systems | Web siteleri & özel işletme yazılımları",
+      title: "MK Digital Systems | Web tasarım, özel yazılım ve mobil uygulama",
       description:
-        "İşinizin çalışma biçimine göre tasarlanan dijital deneyimler ve işletme yazılımları. MK Digital Systems çalışmalarını keşfedin, ihtiyacınız için bize ulaşın.",
+        "Web siteleri, özel yazılımlar, işletme yönetim sistemleri ve mobil uygulamalar. Gerçek çalışmaları inceleyin, ihtiyacınızı MK Digital Systems ile konuşun.",
     },
     solutions: {
-      title: "Çözümler | MK Digital Systems",
+      title: "Web ve yazılım çözümleri: başlangıç fiyatlarıyla | MK Digital Systems",
       description:
-        "Müşterilerinize ve günlük işlerinize göre tasarlanan web siteleri, özel yazılımlar, işletme yönetim sistemleri ve akıllı deneyimler.",
+        "Web tasarım, özel yazılım, işletme yönetim sistemleri ve mobil uygulama: her biri gerçek çalışmalar ve başlangıç fiyatlarıyla. İhtiyacınıza uygun çözümü bulun.",
     },
     work: {
       title: "Seçilmiş çalışmalar | MK Digital Systems",

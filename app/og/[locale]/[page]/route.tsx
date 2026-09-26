@@ -5,6 +5,7 @@ import path from "node:path";
 import { locales, type Locale } from "@/config/i18n";
 import { getContent } from "@/content/site";
 import { getCaseStudy } from "@/content/case-studies";
+import { getSolutionsCopy, solutionBySlug } from "@/content/solutions";
 export const runtime = "nodejs";
 export async function GET(
   _request: Request,
@@ -12,14 +13,18 @@ export async function GET(
 ) {
   const { locale, page } = await params;
   if (!locales.includes(locale as Locale)) return new Response("Not found", { status: 404 });
-  // A case study card uses its own title and sits under "Work".
+  // A case study card uses its own title and sits under "Work"; a solution page under "Solutions".
   const caseStudy = getCaseStudy(locale as Locale, page);
-  if (!caseStudy && !["home", "work", "solutions", "contact"].includes(page))
+  const solutionId = solutionBySlug(page);
+  const solution = solutionId ? getSolutionsCopy(locale as Locale)?.items[solutionId] : undefined;
+  if (!caseStudy && !solution && !["home", "work", "solutions", "contact"].includes(page))
     return new Response("Not found", { status: 404 });
   const c = getContent(locale as Locale);
-  const key = (caseStudy ? "work" : page) as "home" | "work" | "solutions" | "contact";
+  const key = (caseStudy ? "work" : solution ? "solutions" : page) as "home" | "work" | "solutions" | "contact";
   const title = caseStudy
     ? caseStudy.title
+    : solution
+      ? solution.title
     : key === "home"
       ? `${c.hero.title} ${c.hero.accent}`
       : key === "work"

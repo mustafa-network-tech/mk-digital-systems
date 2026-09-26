@@ -3578,3 +3578,507 @@ img {
     margin-bottom: 22px;
   }
 }
+
+/* ---------- Solution pages (Faz 4) ---------- */
+.solution-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 28px;
+  margin-top: 32px;
+}
+.solution-page .work-grid,
+.solution-stories,
+.solution-prices,
+.solution-support-title,
+.solution-price-note {
+  grid-column: 1 / -1;
+}
+.solution-page .work-grid {
+  margin-top: 8px;
+}
+.solution-stories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.solution-prices {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 32px;
+}
+.solution-prices .pricing-entry {
+  display: block;
+  padding: 26px 0;
+}
+.solution-prices .pricing-copy h3 {
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+.solution-prices .pricing-amount {
+  margin: 20px 0 0;
+}
+.solution-prices .pricing-amount strong {
+  display: block;
+}
+.solution-support-title {
+  margin: 24px 0 0;
+}
+/* Native disclosure: works without JavaScript and with the keyboard. */
+.faq-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 22px 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  list-style: none;
+  cursor: pointer;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--blue);
+}
+.faq-item[open] summary::after {
+  content: "−";
+}
+.faq-item summary:hover {
+  color: var(--blue);
+}
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+.faq-item p {
+  max-width: 62ch;
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.solution-others ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.solution-others a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.solution-others a span {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.solution-others a small {
+  grid-row: 2;
+  font-size: 14px;
+  color: var(--muted);
+}
+.solution-others a svg {
+  grid-row: 1 / 3;
+  grid-column: 2;
+}
+.solution-others a:hover span {
+  color: var(--blue);
+}
+@media (max-width: 1100px) {
+  .solution-prices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .solution-prices {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .faq-item summary {
+    font-size: 16px;
+  }
+  .solution-others a span {
+    font-size: 19px;
+  }
+}
+/* Footer: the four solution pages as one quiet column. */
+.footer-mid nav.footer-solutions {
+  flex-direction: column;
+  gap: 0;
+  margin-left: 0;
+}
+.footer-solutions > p {
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer-mid nav.footer-solutions > a {
+  min-height: 32px;
+}
+
+/* ---------- Home sections after the hero (Faz 4) ---------- */
+/* Solutions: four editorial rows, need → approach → real work. Also on the hub. */
+.solution-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.solution-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 24px 56px;
+  align-items: start;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 110px;
+}
+.solution-row-intro {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+.solution-row-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.solution-row-head h3 a:hover {
+  color: var(--blue);
+}
+.solution-row-copy {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+}
+.solution-row-copy dt {
+  margin-bottom: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.solution-row-copy dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.solution-row-copy .solution-row-need {
+  font-size: clamp(19px, 1.6vw, 22px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.solution-row-work {
+  display: grid;
+  gap: 12px;
+}
+.solution-row-shot {
+  position: relative;
+  display: block;
+  aspect-ratio: 1.6;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--pale);
+}
+.solution-row-shot img {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.solution-row-work:hover .solution-row-shot img {
+  transform: scale(1.02);
+}
+.solution-row-work-copy {
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+}
+.solution-row-work-copy small {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.solution-row-work-copy strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.solution-row-work-copy span {
+  color: var(--muted);
+}
+/* Selected Works: the thin line of other live systems under the stories. */
+.other-systems {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.other-systems ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 48px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.other-systems li {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 8px 20px;
+  align-items: start;
+}
+.other-system-shot {
+  position: relative;
+  grid-row: span 2;
+  aspect-ratio: 1.6;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--pale);
+}
+.other-system-shot img {
+  object-fit: cover;
+}
+.other-system-copy {
+  display: grid;
+  gap: 4px;
+}
+.other-system-copy strong {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.other-system-copy > span:last-child {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.other-system-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 20px;
+}
+.other-system-links .text-link {
+  min-height: 44px;
+  font-size: 13px;
+}
+/* Founder: text first, room for a real portrait later. */
+.founder-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px 80px;
+  border-top: 1px solid var(--line);
+}
+.founder-head h2 {
+  margin-top: 24px;
+}
+.founder-body.has-portrait {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 40px;
+}
+.founder-portrait img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.founder-copy {
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+}
+.founder-copy > p:not(.founder-sign) {
+  max-width: 60ch;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.65;
+}
+.founder-copy > p + p:not(.founder-sign) {
+  color: var(--muted);
+}
+.founder-sign {
+  display: grid;
+  gap: 2px;
+  padding-left: 14px;
+  border-left: 2px solid var(--blue);
+  font-size: 13px;
+}
+.founder-sign strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.founder-sign span {
+  color: var(--muted);
+}
+/* Starting prices on home: one row per solution axis; other markets get one quotation. */
+.pricing-preview .pricing-catalog {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.pricing-preview .pricing-copy h3 a:hover {
+  color: var(--blue);
+}
+.pricing-quote-block {
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+/* FAQ on home: the questions beside their heading. */
+.home-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px 80px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+}
+.home-faq .section-head {
+  display: block;
+  margin: 0;
+}
+/* Final CTA: the need first, then the ways to start. */
+.final-cta {
+  padding-block: var(--section);
+  background: var(--ink);
+  color: var(--paper);
+}
+.final-cta h2 {
+  margin-top: 24px;
+}
+.final-cta-text {
+  max-width: 620px;
+  margin-top: 24px;
+  font-size: 18px;
+  color: #c9ccc4;
+}
+.final-cta-types-label {
+  margin-top: 40px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  color: #c9ccc4;
+}
+.final-cta-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.final-cta-types a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(245, 244, 239, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.final-cta-types a:hover {
+  border-color: var(--paper);
+  background: rgba(245, 244, 239, 0.08);
+}
+.final-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 28px;
+  margin-top: 40px;
+}
+.final-cta .button {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+.final-cta .text-link {
+  color: var(--paper);
+}
+/* Solutions hub: support services under the four axes. */
+.solutions-hub {
+  padding-top: 0;
+}
+.solutions-hub > .story-label {
+  margin-bottom: 18px;
+}
+.solutions-support {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 32px 80px;
+  align-items: end;
+  padding-top: 0;
+}
+.solutions-support h2 {
+  margin-top: 24px;
+  font-size: clamp(28px, 3vw, 42px);
+}
+@media (max-width: 1100px) {
+  .solution-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .solution-row-intro {
+    grid-column: 1 / -1;
+  }
+  .pricing-preview .pricing-catalog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .founder-section,
+  .home-faq,
+  .solutions-support {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .other-systems ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .solution-row {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 32px 0;
+  }
+  .other-systems li {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+  .other-system-shot {
+    grid-row: auto;
+  }
+  .other-system-links {
+    grid-column: 1 / -1;
+  }
+  .founder-body.has-portrait,
+  .pricing-preview .pricing-catalog {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .final-cta-text {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .solution-row-shot img {
+    transition: none;
+  }
+}

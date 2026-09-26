@@ -5,6 +5,7 @@ import { validateBrief } from "../lib/contact-validation";
 import AxeBuilder from "@axe-core/playwright";
 import { localPath, type Route } from "./paths";
 import * as caseStudies from "../content/case-studies";
+import * as solutions from "../content/solutions";
 const widths = [360, 375, 390, 430, 768, 1024, 1440];
 const pages: Route[] = ["/", "/solutions", "/work", "/contact"];
 for (const locale of locales) {
@@ -356,15 +357,23 @@ test("configured production sitemap and preview exclusion", () => {
   }
   const env = {SITE_URL: "https://agency.example", VERCEL_ENV: "production"};
   const config = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr", pathnames}}, env);
-  const sitemap = load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config, "@/content/case-studies": caseStudies}, env).default();
+  const dependencies = {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": config, "@/content/case-studies": caseStudies, "@/content/solutions": solutions};
+  const sitemap = load("app/sitemap.ts", dependencies, env).default();
   const caseEntries = caseStudies.caseStudyIds.reduce((n, id) => n + caseStudies.caseStudyLocales(id).length, 0);
-  expect(sitemap).toHaveLength(24 + caseEntries);
-  expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24 + caseEntries);
+  // Solution pages exist only in written languages; each lists exactly those plus x-default.
+  const written = solutions.solutionLocales();
+  const solutionEntries = solutions.solutionIds.length * written.length;
+  expect(solutionEntries).toBeGreaterThan(0);
+  expect(sitemap).toHaveLength(24 + caseEntries + solutionEntries);
+  expect(new Set(sitemap.map((entry: {url:string}) => entry.url)).size).toBe(24 + caseEntries + solutionEntries);
+  const solutionUrls = new Set(solutions.solutionIds.flatMap((id) => written.map((l) => config.solutionUrl(l, solutions.solutionRoutes[id]))));
   for (const entry of sitemap) {
     expect(entry.url).toMatch(/^https:\/\/agency\.example\/(tr|en|de|fr)(\/|$)/);
-    expect(Object.keys(entry.alternates.languages)).toHaveLength(5);
+    expect(Object.keys(entry.alternates.languages)).toHaveLength(solutionUrls.has(entry.url) ? written.length + 1 : 5);
     expect(entry.alternates.languages["x-default"]).toContain("/tr");
   }
+  expect(solutionUrls.has("https://agency.example/tr/cozumler/mobil-uygulama")).toBe(true);
+  for (const url of solutionUrls) expect(sitemap.map((entry: {url:string}) => entry.url)).toContain(url);
   const urls = sitemap.map((entry: {url:string}) => entry.url);
   expect(urls).toContain("https://agency.example/tr/calismalar");
   expect(urls).toContain("https://agency.example/tr/yasal/gizlilik");
@@ -379,5 +388,5 @@ test("configured production sitemap and preview exclusion", () => {
   const previewEnv = {...env, VERCEL_ENV: "preview"};
   const preview = load("lib/site-config.ts", {"@/config/i18n": {locales, defaultLocale: "tr", pathnames}}, previewEnv);
   expect(preview.isIndexable).toBe(false);
-  expect(load("app/sitemap.ts", {"@/config/i18n": {locales, defaultLocale: "tr"}, "@/lib/site-config": preview, "@/content/case-studies": caseStudies}, previewEnv).default()).toEqual([]);
+  expect(load("app/sitemap.ts", {...dependencies, "@/lib/site-config": preview}, previewEnv).default()).toEqual([]);
 });

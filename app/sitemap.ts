@@ -7,9 +7,12 @@ import {
   languageAlternates,
   pagePaths,
   pageUrl,
+  solutionAlternates,
+  solutionUrl,
   type PageKey,
 } from "@/lib/site-config";
 import { caseStudyIds, caseStudyLocales } from "@/content/case-studies";
+import { solutionIds, solutionLocales, solutionRoutes } from "@/content/solutions";
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!isIndexable) return [];
   const pages = locales.flatMap((locale) =>
@@ -35,5 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: caseStudyAlternates(id, available) },
     }));
   });
-  return [...pages, ...cases];
+  // Solution pages: one entry per written locale, linked to each other.
+  const available = solutionLocales();
+  const solutions = solutionIds.flatMap((id) =>
+    available.map((locale) => ({
+      url: solutionUrl(locale, solutionRoutes[id]),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      alternates: { languages: solutionAlternates(solutionRoutes[id], available) },
+    })),
+  );
+  return [...pages, ...solutions, ...cases];
 }

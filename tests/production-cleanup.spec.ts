@@ -6,6 +6,7 @@ import { contactConfig, normalizePhone } from "../lib/contact-config";
 import { localPath, type Route } from "./paths";
 import { projectsByLayer } from "../content/projects";
 import { getProjectCopy } from "../content/project-copy";
+import { getHomeCopy } from "../content/home";
 
 test("contact defaults and domestic numbers share valid international URLs", () => {
   expect(normalizePhone("0545 659 75 51")).toBe("905456597551");
@@ -34,17 +35,25 @@ for (const locale of locales) {
       "/legal/terms",
     ] as Route[]) {
       await page.goto(localPath(locale, path));
-      const actions = page.locator(".footer-contact-actions");
-      await expect(actions.locator("a")).toHaveCount(3);
-      await expect(actions.locator('a[href="tel:+905456597551"]')).toHaveText(
-        copy.contact.call,
-      );
-      await expect(
-        actions.locator('a[href="https://wa.me/905456597551"]'),
-      ).toHaveText(copy.contact.whatsapp);
-      await expect(
-        actions.locator(`a[href="${contactConfig.emailHref}"]`),
-      ).toHaveText(copy.contact.emailUs);
+      // The home page closes with its own Final CTA instead of repeating the footer invitation.
+      const homeCta = path === "/" && !!getHomeCopy(locale);
+      const actions = page.locator(homeCta ? ".final-cta-actions" : ".footer-contact-actions");
+      if (homeCta) {
+        await expect(page.locator(".footer-contact-actions")).toHaveCount(0);
+        await expect(actions.locator('a[href="https://wa.me/905456597551"]')).toHaveText(copy.contact.whatsapp);
+        await expect(actions.locator(`a[href="${contactConfig.emailHref}"]`)).toHaveText(contactConfig.email);
+      } else {
+        await expect(actions.locator("a")).toHaveCount(3);
+        await expect(actions.locator('a[href="tel:+905456597551"]')).toHaveText(
+          copy.contact.call,
+        );
+        await expect(
+          actions.locator('a[href="https://wa.me/905456597551"]'),
+        ).toHaveText(copy.contact.whatsapp);
+        await expect(
+          actions.locator(`a[href="${contactConfig.emailHref}"]`),
+        ).toHaveText(copy.contact.emailUs);
+      }
       expect(await page.locator("body").innerText()).not.toMatch(
         /hotmail\.com|Projenizi konuşalım|Benzer bir projeyi konuşalım|Discuss a similar project|Parlons d'un projet similaire|Ein ähnliches Projekt besprechen/,
       );

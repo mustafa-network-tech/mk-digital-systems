@@ -6,8 +6,8 @@ import {
   getPricing,
   marketForLocale,
   pricingGroups,
-  type PricingId,
 } from "@/content/pricing";
+import { getSolutionsCopy, solutionIds, solutionRoutes, solutionStartingPrice } from "@/content/solutions";
 import { contactConfig, whatsappInquiry } from "@/lib/contact-config";
 import { Arrow } from "./Arrow";
 
@@ -37,33 +37,32 @@ export function Pricing({
     const item = copy.items[level.id];
     return (
       <article key={level.id} className="pricing-entry" data-pricing-id={level.id}>
-        {!preview && (
-          <span className="pricing-index" aria-hidden="true">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-        )}
+        <span className="pricing-index" aria-hidden="true">
+          {String(index + 1).padStart(2, "0")}
+        </span>
         <div className="pricing-copy">
-          <Title>{preview ? copy.groups[index] : item.title}</Title>
-          {!preview && <p>{item.description}</p>}
+          <Title>{item.title}</Title>
+          <p>{item.description}</p>
         </div>
         {amount(level)}
-        {!preview && (
-          <a
-            className="text-link pricing-inquiry"
-            href={whatsappInquiry(copy.inquiry.replace("{service}", item.title))}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${copy.cta} — ${item.title}`}
-          >
-            {copy.cta}
-            <Arrow diagonal />
-          </a>
-        )}
+        <a
+          className="text-link pricing-inquiry"
+          href={whatsappInquiry(copy.inquiry.replace("{service}", item.title))}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${copy.cta} — ${item.title}`}
+        >
+          {copy.cta}
+          <Arrow diagonal />
+        </a>
       </article>
     );
   };
-  // Home preview: one entry point per family; Faz 2 revisits which three rows to show.
-  const previewIds: PricingId[] = ["landing_page", "custom_software", "operations_system"];
+  // Home preview: one row per solution axis at its lowest starting price (derived, never typed in).
+  const solutions = getSolutionsCopy(locale);
+  const previewRows = market && solutions
+    ? solutionIds.map((id) => ({ id, name: solutions.items[id].name, level: solutionStartingPrice(id, locale)! }))
+    : [];
   return (
     <section
       id={preview ? "starting-prices" : "pricing"}
@@ -82,9 +81,25 @@ export function Pricing({
         </p>
       </div>
       {preview ? (
-        <div className="pricing-catalog">
-          {previewIds.map((id, i) => entry(prices.find((p) => p.id === id)!, i, "h3"))}
-        </div>
+        previewRows.length ? (
+          <div className="pricing-catalog">
+            {previewRows.map(({ id, name, level }) => (
+              <article key={id} className="pricing-entry" data-solution={id} data-pricing-id={level.id}>
+                <div className="pricing-copy">
+                  <h3>
+                    <Link href={solutionRoutes[id]}>{name}</Link>
+                  </h3>
+                </div>
+                {amount(level)}
+              </article>
+            ))}
+          </div>
+        ) : (
+          // Other markets: one project-based quotation, not four identical rows.
+          <div className="pricing-quote-block">
+            <p className="pricing-amount pricing-quote">{copy.quote}</p>
+          </div>
+        )
       ) : (
         pricingGroups.map((group) => (
           <div key={group} className="pricing-group" data-pricing-group={group}>

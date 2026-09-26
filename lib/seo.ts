@@ -7,12 +7,21 @@ import { getProject, type ProjectId } from "@/content/projects";
 import { getProjectCopy } from "@/content/project-copy";
 import { caseStudyLocales, caseStudyScreens, getCaseStudy } from "@/content/case-studies";
 import {
+  getSolutionsCopy,
+  solutionLocales,
+  solutionRoutes,
+  solutionSlug,
+  type SolutionId,
+} from "@/content/solutions";
+import {
   SITE_URL,
   caseStudyAlternates,
   caseStudyUrl,
   isIndexable,
   languageAlternates,
   pageUrl,
+  solutionAlternates,
+  solutionUrl,
   type PageKey,
 } from "./site-config";
 export function validLocale(locale: string): Locale {
@@ -120,7 +129,8 @@ export function pageSchema(locale: Locale, page: PageKey) {
         },
       ],
     });
-  if (page === "solutions")
+  // Written solution pages carry their own Service node; the hub only lists them.
+  if (page === "solutions" && !getSolutionsCopy(locale))
     c.solutions.items.forEach((item) =>
       graph.push({
         "@type": "Service",
@@ -133,6 +143,81 @@ export function pageSchema(locale: Locale, page: PageKey) {
       }),
     );
   return { "@context": "https://schema.org", "@graph": graph };
+}
+
+/* ---------- Solutions (/solutions/[service]) ---------- */
+
+export function solutionMetadata(locale: Locale, id: SolutionId): Metadata {
+  const copy = getSolutionsCopy(locale)!.items[id];
+  const route = solutionRoutes[id];
+  const available = solutionLocales();
+  const url = solutionUrl(locale, route);
+  const image = `${SITE_URL}/og/${locale}/${solutionSlug(id)}`;
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: copy.meta.title,
+    description: copy.meta.description,
+    alternates: { canonical: url, languages: solutionAlternates(route, available) },
+    robots: { index: isIndexable, follow: isIndexable },
+    openGraph: {
+      title: copy.meta.title,
+      description: copy.meta.description,
+      siteName: "MK Digital Systems",
+      url,
+      type: "website",
+      locale: ogLocale[locale],
+      alternateLocale: available.filter((l) => l !== locale).map((l) => ogLocale[l]),
+      images: [{ url: image, width: 1200, height: 630, alt: copy.title }],
+    },
+    twitter: { card: "summary_large_image", title: copy.meta.title, description: copy.meta.description, images: [image] },
+  };
+}
+
+/**
+ * A solution page: the page, its breadcrumb and the service MK Digital Systems provides.
+ * No Offer, Product, rating or FAQPage markup: prices are starting points, not offers.
+ */
+export function solutionSchema(locale: Locale, id: SolutionId) {
+  const c = getContent(locale);
+  const copy = getSolutionsCopy(locale)!.items[id];
+  const url = solutionUrl(locale, solutionRoutes[id]);
+  const orgId = `${SITE_URL}/#organization`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#page`,
+        url,
+        name: copy.meta.title,
+        description: copy.meta.description,
+        inLanguage: locale,
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+        mainEntity: { "@id": `${url}#service` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: c.nav.home, item: pageUrl(locale, "home") },
+          { "@type": "ListItem", position: 2, name: c.nav.solutions, item: pageUrl(locale, "solutions") },
+          { "@type": "ListItem", position: 3, name: copy.name, item: url },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: copy.name,
+        serviceType: copy.name,
+        description: copy.meta.description,
+        provider: { "@id": orgId },
+        url,
+      },
+      organizationNode(locale),
+      { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "MK Digital Systems", url: SITE_URL, publisher: { "@id": orgId } },
+    ],
+  };
 }
 
 /* ---------- Case studies (/work/[slug]) ---------- */

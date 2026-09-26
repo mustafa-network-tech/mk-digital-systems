@@ -8,6 +8,7 @@ import { caseStudyScreens, getCaseStudy, type CaseStudySection } from "@/content
 import type { CaseScreen } from "@/content/case-studies/media";
 import { whatsappInquiry } from "@/lib/contact-config";
 import { briefTypeForService } from "@/content/brief";
+import { getSolutionsCopy, isSolutionId, solutionRoutes } from "@/content/solutions";
 import { projectLinks } from "./ProjectStory";
 import { WorkCard } from "./WorkCard";
 import { Arrow } from "./Arrow";
@@ -28,8 +29,21 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
   const screens = caseStudyScreens(id);
   const heroDesktop = screens.find((s) => s.frame === "desktop");
   const heroPhone = screens.find((s) => s.frame === "phone" && s.part === heroDesktop?.part);
-  const solutionIds = new Set(c.solutions.items.map((item) => item.id));
-  const solutions = project.services.filter((s) => solutionIds.has(s));
+  // Related solutions: written solution pages where they exist, else the hub's sections.
+  const solutionPages = getSolutionsCopy(locale);
+  const solutions = solutionPages
+    ? project.services.filter(isSolutionId).map((s) => ({
+        id: s,
+        title: solutionPages.items[s].name,
+        href: solutionRoutes[s],
+      }))
+    : project.services
+        .filter((s) => c.solutions.items.some((item) => item.id === s))
+        .map((s) => ({
+          id: s,
+          title: c.solutions.items.find((item) => item.id === s)!.title,
+          href: { pathname: "/solutions" as const, hash: s },
+        }));
   const related = relatedProjects(id);
   const links = projectLinks(project, locale, c.work.linkLabels);
   const alt = (screen: CaseScreen) => copy.screens[screen.id]?.alt ?? name;
@@ -262,9 +276,9 @@ export function CaseStudy({ id, locale, c }: { id: ProjectId; locale: Locale; c:
               <p className="story-label">{labels.relatedSolutions}</p>
               <ul>
                 {solutions.map((s) => (
-                  <li key={s}>
-                    <Link className="text-link" href={{ pathname: "/solutions", hash: s }}>
-                      {c.solutions.items.find((item) => item.id === s)?.title}
+                  <li key={s.id}>
+                    <Link className="text-link" href={s.href}>
+                      {s.title}
                       <Arrow />
                     </Link>
                   </li>

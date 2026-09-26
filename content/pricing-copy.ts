@@ -18,7 +18,6 @@ export type PricingCopy = {
   email: string;
   inquiry: string;
   contactTitle: string;
-  groups: [string, string, string];
   /** Shown instead of an amount where no price book exists (en/de/fr). */
   quote: string;
   groupTitles: Record<PricingGroup, string>;
@@ -46,7 +45,6 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
     inquiry:
       "Merhaba, {service} için başlangıç kapsamı ve fiyatı hakkında bilgi almak istiyorum.",
     contactTitle: "Size uygun kapsamı\nbirlikte netleştirelim.",
-    groups: ["Web & dijital deneyimler", "Özel yazılım", "İşletme sistemleri"],
     quote: "Proje bazlı teklif",
     groupTitles: { new: "Yeni proje", support: "Mevcut sitenize destek" },
     items: {
@@ -128,11 +126,6 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
     inquiry:
       "Hello, I would like a project-based quotation for {service}.",
     contactTitle: "Let’s find the scope\nthat fits your business.",
-    groups: [
-      "Web & digital experiences",
-      "Custom software",
-      "Business systems",
-    ],
     quote: "Project-based quotation",
     groupTitles: { new: "New projects", support: "Support for your existing website" },
     items: {
@@ -214,11 +207,6 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
     inquiry:
       "Guten Tag, ich möchte ein projektbezogenes Angebot für {service} anfragen.",
     contactTitle: "Finden wir den Umfang,\nder zu Ihnen passt.",
-    groups: [
-      "Web & digitale Erlebnisse",
-      "Individuelle Software",
-      "Unternehmenssysteme",
-    ],
     quote: "Projektbezogenes Angebot",
     groupTitles: { new: "Neue Projekte", support: "Unterstützung für Ihre bestehende Website" },
     items: {
@@ -300,11 +288,6 @@ export const pricingCopy: Record<Locale, PricingCopy> = {
     inquiry:
       "Bonjour, je souhaite recevoir un devis pour {service}.",
     contactTitle: "Définissons le périmètre\nadapté à votre activité.",
-    groups: [
-      "Web & expériences numériques",
-      "Logiciel sur mesure",
-      "Systèmes de gestion",
-    ],
     quote: "Sur devis",
     groupTitles: { new: "Nouveaux projets", support: "Accompagnement de votre site existant" },
     items: {
